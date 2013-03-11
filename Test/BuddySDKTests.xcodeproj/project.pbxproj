@@ -26,7 +26,6 @@
 		D40CE89216C1165C00C29FA1 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D40CE89116C1165C00C29FA1 /* Icon.png */; };
 		D40CE89416C1167C00C29FA1 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D40CE89316C1167C00C29FA1 /* Icon@2x.png */; };
 		D423D18F167DDB2C00E1D249 /* TestVirtualAlbums.m in Sources */ = {isa = PBXBuildFile; fileRef = D423D18E167DDB2C00E1D249 /* TestVirtualAlbums.m */; };
-		D431029C1683A25D000BA54C /* TestUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D431029B1683A25D000BA54C /* TestUser.m */; };
 		D45A7B90165D72FD000E5257 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D45A7B8F165D72FD000E5257 /* MediaPlayer.framework */; };
 		D45A7B92165D732D000E5257 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D45A7B8F165D72FD000E5257 /* MediaPlayer.framework */; };
 		D474B2A8169AEA550020204D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D474B2A7169AEA550020204D /* SystemConfiguration.framework */; };
@@ -35,12 +34,9 @@
 		D474B2AF169AED6D0020204D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D474B2AD169AED5B0020204D /* MobileCoreServices.framework */; };
 		D4826C9716B0108400373847 /* libBuddySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4826C9616B0108400373847 /* libBuddySDK.a */; };
 		D490008516766F1E004F37C9 /* TestFriendRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D490008416766F1E004F37C9 /* TestFriendRequest.m */; };
-		D49B17D3166E3C9700FE3806 /* TestNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = D49B17D2166E3C9700FE3806 /* TestNotifications.m */; };
-		D49B17D7166E3E9E00FE3806 /* TestBuddyClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D49B17D6166E3E9E00FE3806 /* TestBuddyClient.m */; };
 		D49B17DA166E43BC00FE3806 /* TestPicturesAndAlbums.m in Sources */ = {isa = PBXBuildFile; fileRef = D49B17D9166E43BC00FE3806 /* TestPicturesAndAlbums.m */; };
 		D49B17DD166E482F00FE3806 /* TestGames.m in Sources */ = {isa = PBXBuildFile; fileRef = D49B17DC166E482F00FE3806 /* TestGames.m */; };
 		D49B17E0166E4CC400FE3806 /* TestLocationsAndPlaces.m in Sources */ = {isa = PBXBuildFile; fileRef = D49B17DF166E4CC400FE3806 /* TestLocationsAndPlaces.m */; };
-		D49B17E3166E501600FE3806 /* TestAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = D49B17E2166E501600FE3806 /* TestAnalytics.m */; };
 		D49B17EC166E768100FE3806 /* TestIdentity.m in Sources */ = {isa = PBXBuildFile; fileRef = D49B17EB166E768100FE3806 /* TestIdentity.m */; };
 		D49CC0DA16C920A900935A75 /* Test_PlayerDataGood.txt in Resources */ = {isa = PBXBuildFile; fileRef = D49CC0B316C920A900935A75 /* Test_PlayerDataGood.txt */; };
 		D49CC0DB16C920A900935A75 /* Test_PicturesPhotoAlbumGetAllPictures.txt in Resources */ = {isa = PBXBuildFile; fileRef = D49CC0B416C920A900935A75 /* Test_PicturesPhotoAlbumGetAllPictures.txt */; };
@@ -125,26 +121,18 @@
 		D40CE89316C1167C00C29FA1 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../../Test/BuddyUnitTestHarness/Icon@2x.png"; sourceTree = "<group>"; };
 		D423D18D167DDB2C00E1D249 /* TestVirtualAlbums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestVirtualAlbums.h; sourceTree = "<group>"; };
 		D423D18E167DDB2C00E1D249 /* TestVirtualAlbums.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestVirtualAlbums.m; sourceTree = "<group>"; };
-		D431029A1683A25D000BA54C /* TestUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestUser.h; sourceTree = "<group>"; };
-		D431029B1683A25D000BA54C /* TestUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestUser.m; sourceTree = "<group>"; };
 		D45A7B8F165D72FD000E5257 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		D474B2A7169AEA550020204D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D474B2AD169AED5B0020204D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D4826C9616B0108400373847 /* libBuddySDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBuddySDK.a; path = "../../SDK/BuddySDK/BuddySDK/Release-Lib/libBuddySDK.a"; sourceTree = "<group>"; };
 		D490008316766F1E004F37C9 /* TestFriendRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFriendRequest.h; sourceTree = "<group>"; };
 		D490008416766F1E004F37C9 /* TestFriendRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TestFriendRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		D49B17D1166E3C9700FE3806 /* TestNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestNotifications.h; sourceTree = "<group>"; };
-		D49B17D2166E3C9700FE3806 /* TestNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestNotifications.m; sourceTree = "<group>"; };
-		D49B17D5166E3E9D00FE3806 /* TestBuddyClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestBuddyClient.h; sourceTree = "<group>"; };
-		D49B17D6166E3E9E00FE3806 /* TestBuddyClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TestBuddyClient.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		D49B17D8166E43BC00FE3806 /* TestPicturesAndAlbums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPicturesAndAlbums.h; sourceTree = "<group>"; };
 		D49B17D9166E43BC00FE3806 /* TestPicturesAndAlbums.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPicturesAndAlbums.m; sourceTree = "<group>"; };
 		D49B17DB166E482F00FE3806 /* TestGames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestGames.h; sourceTree = "<group>"; };
 		D49B17DC166E482F00FE3806 /* TestGames.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TestGames.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		D49B17DE166E4CC400FE3806 /* TestLocationsAndPlaces.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestLocationsAndPlaces.h; sourceTree = "<group>"; };
 		D49B17DF166E4CC400FE3806 /* TestLocationsAndPlaces.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestLocationsAndPlaces.m; sourceTree = "<group>"; };
-		D49B17E1166E501600FE3806 /* TestAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAnalytics.h; sourceTree = "<group>"; };
-		D49B17E2166E501600FE3806 /* TestAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TestAnalytics.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		D49B17EA166E768100FE3806 /* TestIdentity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestIdentity.h; sourceTree = "<group>"; };
 		D49B17EB166E768100FE3806 /* TestIdentity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TestIdentity.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		D49CC0B316C920A900935A75 /* Test_PlayerDataGood.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Test_PlayerDataGood.txt; sourceTree = "<group>"; };
@@ -332,12 +320,8 @@
 			isa = PBXGroup;
 			children = (
 				A6291F61165C01640051F83C /* Supporting Files */,
-				D49B17E1166E501600FE3806 /* TestAnalytics.h */,
-				D49B17E2166E501600FE3806 /* TestAnalytics.m */,
 				D4EC66ED1670D33F0092D1B4 /* TestAppUserMetaData.h */,
 				D4EC66EE1670D33F0092D1B4 /* TestAppUserMetaData.m */,
-				D49B17D5166E3E9D00FE3806 /* TestBuddyClient.h */,
-				D49B17D6166E3E9E00FE3806 /* TestBuddyClient.m */,
 				A6291F66165C01640051F83C /* TestBuddySDK.h */,
 				A6291F67165C01640051F83C /* TestBuddySDK.m */,
 				D490008316766F1E004F37C9 /* TestFriendRequest.h */,
@@ -350,12 +334,8 @@
 				D49B17DF166E4CC400FE3806 /* TestLocationsAndPlaces.m */,
 				D4EC671D167413AB0092D1B4 /* TestMessageAndMessageGroups.h */,
 				D4EC671E167413AC0092D1B4 /* TestMessageAndMessageGroups.m */,
-				D49B17D1166E3C9700FE3806 /* TestNotifications.h */,
-				D49B17D2166E3C9700FE3806 /* TestNotifications.m */,
 				D49B17D8166E43BC00FE3806 /* TestPicturesAndAlbums.h */,
 				D49B17D9166E43BC00FE3806 /* TestPicturesAndAlbums.m */,
-				D431029A1683A25D000BA54C /* TestUser.h */,
-				D431029B1683A25D000BA54C /* TestUser.m */,
 				D423D18D167DDB2C00E1D249 /* TestVirtualAlbums.h */,
 				D423D18E167DDB2C00E1D249 /* TestVirtualAlbums.m */,
 			);
@@ -534,18 +514,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6291F68165C01640051F83C /* TestBuddySDK.m in Sources */,
-				D49B17D3166E3C9700FE3806 /* TestNotifications.m in Sources */,
-				D49B17D7166E3E9E00FE3806 /* TestBuddyClient.m in Sources */,
 				D49B17DA166E43BC00FE3806 /* TestPicturesAndAlbums.m in Sources */,
 				D49B17DD166E482F00FE3806 /* TestGames.m in Sources */,
 				D49B17E0166E4CC400FE3806 /* TestLocationsAndPlaces.m in Sources */,
-				D49B17E3166E501600FE3806 /* TestAnalytics.m in Sources */,
 				D49B17EC166E768100FE3806 /* TestIdentity.m in Sources */,
 				D4EC66EF1670D33F0092D1B4 /* TestAppUserMetaData.m in Sources */,
 				D4EC671F167413AC0092D1B4 /* TestMessageAndMessageGroups.m in Sources */,
 				D490008516766F1E004F37C9 /* TestFriendRequest.m in Sources */,
 				D423D18F167DDB2C00E1D249 /* TestVirtualAlbums.m in Sources */,
-				D431029C1683A25D000BA54C /* TestUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
