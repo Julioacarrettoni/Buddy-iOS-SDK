@@ -26,7 +26,6 @@
 
 @implementation TestAppUserMetadata
 
-static int totalItems;
 static NSString *AppName = @"Buddy iOS SDK test app";
 static NSString *AppPassword = @"8C9E044D-7DB7-42DE-A376-16460B58008E";
 static bool bwaiting = false;

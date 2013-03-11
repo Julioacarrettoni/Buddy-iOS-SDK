@@ -66,8 +66,6 @@
 	{
 		[self setBuddyBaseURL:[NSURL URLWithString:kBuddyAPIBaseURL]];
 	}
-    
-    [self setBuddyBaseURL:[NSURL URLWithString:kBuddyAPIBaseURL]];
 }
 
 - (void)enableNetworkActivityDisplay
