@@ -1,0 +1,12 @@
+{
+   "data": [
+      {
+         "totalValue": "1286",
+         "keyCount": "2"
+      },
+       {
+         "totalValue": "16286",
+         "keyCount": "25"
+      }  
+      ]
+}

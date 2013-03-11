@@ -1,0 +1,37 @@
+{
+   "data": [
+      {
+         "metaKey": "",
+         "metaValue": "1235",
+         "lastUpdateDate": "2012-04-10T15:57:17.0000000-07:00",
+         "metaLatitude": "47.360000",
+         "metaLongitude": "127.190000",
+         "distanceInMiles": "0",
+         "distanceInKilometers": "0",
+         "distanceInMeters": "0",
+         "distanceInYards": "0"
+      },
+{
+         "metaKey": "MyValue1",
+         "metaValue": "1235",
+         "lastUpdateDate": "2012-04-10T15:57:17.0000000-07:00",
+         "metaLatitude": "47.360000",
+         "metaLongitude": "127.190000",
+         "distanceInMiles": "0",
+         "distanceInKilometers": "0",
+         "distanceInMeters": "0",
+         "distanceInYards": "0"
+      },
+{
+         "metaKey": "MyValue1",
+         "metaValue": "1235",
+         "lastUpdateDate": "2012-04-10T15:57:17.0000000-07:00",
+         "metaLatitude": "47.360000",
+         "metaLongitude": "127.190000",
+         "distanceInMiles": "0",
+         "distanceInKilometers": "0",
+         "distanceInMeters": "0",
+         "distanceInYards": "0"
+      }
+  ]
+}

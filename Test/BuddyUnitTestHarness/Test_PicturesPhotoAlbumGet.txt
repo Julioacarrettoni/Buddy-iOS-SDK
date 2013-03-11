@@ -1,0 +1,37 @@
+{
+   "data": [
+      {
+         "photoID": "94991",
+         "albumID": "43233",
+         "photoComment": "comment2",
+         "fullPhotoURL": "https://buddyplatform.s3.amazonaws.com/1016115_2_buddy_full.jpg",
+         "thumbnailPhotoURL": "https://buddyplatform.s3.amazonaws.com/1016115_2_buddy_thumb.jpg",
+         "addedDateTime": "2012-03-26T06:32:32.0000000-07:00",
+         "latitude": "38.316083",
+         "longitude": "-77.470971",
+         "applicationTag": "app tag 2"
+      },
+      {
+         "photoID": "94990",
+         "albumID": "43233",
+         "photoComment": "comment1",
+         "fullPhotoURL": "https://buddyplatform.s3.amazonaws.com/1016115_1_buddy_full.jpg",
+         "thumbnailPhotoURL": "https://buddyplatform.s3.amazonaws.com/1016115_1_buddy_thumb.jpg",
+         "addedDateTime": "2012-03-26T06:32:17.0000000-07:00",
+         "latitude": "30.874785",
+         "longitude": "-93.284797",
+         "applicationTag": "app tag 1"
+      },
+ {
+         "photoID": "924990",
+         "albumID": "43233",
+         "photoComment": "comment1",
+         "fullPhotoURL": "https://buddyplatform.s3.amazonaws.com/1016115_1_buddy_full.jpg",
+         "thumbnailPhotoURL": "https://buddyplatform.s3.amazonaws.com/1016115_1_buddy_thumb.jpg",
+         "addedDateTime": "2012-03-26T06:32:17.0000000-07:00",
+         "latitude": "30.874785",
+         "longitude": "-93.284797",
+         "applicationTag": "app tag 2"
+      }
+  ]
+}

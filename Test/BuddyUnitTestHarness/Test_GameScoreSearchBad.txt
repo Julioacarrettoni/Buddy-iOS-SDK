@@ -1,0 +1,40 @@
+{
+   "data": [
+      {
+         "scoreID": "Text",
+         "userID": "51046030",
+         "userName": "BuddyTester",
+         "scoreValue": "5.000000",
+         "scoreLatitude": "47.360000",
+         "scoreLongitude": "122.190000",
+         "scoreBoardName": "Default",
+         "scoreDate": "5/13/2012 1:48:06 PM",
+         "scoreRank": "Excellent",
+         "applicationTag": ""
+      },
+{
+         "scoreID": "13777",
+         "userID": "FBuddyTester51046030",
+         "userName": "FBuddyTester",
+         "scoreValue": "FBuddyTester5.000000",
+         "scoreLatitude": "FBuddyTester47.360000",
+         "scoreLongitude": "FBuddyTester122.190000",
+         "scoreBoardName": "Default",
+         "scoreDate": "Excellen5/13/2012 1:48:06 PM",
+         "scoreRank": "Excellent",
+         "applicationTag": ""
+      },
+     {
+         "scoreID": "23777",
+         "userID": "41046030",
+         "userName": "hBuddyTester",
+         "scoreValue": "5.000000",
+         "scoreLatitude": "47.360000",
+         "scoreLongitude": "122.190000",
+         "scoreBoardName": "Default",
+         "scoreDate": "5/13/2012 1:48:06 PM",
+         "scoreRank": "Excellent",
+         "applicationTag": ""
+      }
+  ]
+}

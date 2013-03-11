@@ -1,0 +1,34 @@
+{
+   "data": [
+      {
+         "userID": "1046030",
+         "userName": "BuddyTester",
+         "userGender": "male",
+         "age": "55",
+         "statusID": "2",
+         "profilePictureUrl": "http://www.allaboutbirds.org/guide/PHOTO/LARGE/northern_flicker_5.jpg",
+         "userLatitude": "47.36",
+         "userLongitude": "122.19",
+         "distanceInMiles": "0",
+         "distanceInKilometers": "0",
+         "distanceInMeters": "0",
+         "distanceInYards": "0",
+         "userApplicationTag": ""
+      },
+ {
+         "userID": "1046030",
+         "userName": "BuddyTester",
+         "userGender": "male",
+         "age": "55",
+         "statusID": "2",
+         "profilePictureUrl": "http://www.allaboutbirds.org/guide/PHOTO/LARGE/northern_flicker_5.jpg",
+         "userLatitude": "47.36",
+         "userLongitude": "122.19",
+         "distanceInMiles": "0",
+         "distanceInKilometers": "0",
+         "distanceInMeters": "0",
+         "distanceInYards": "0",
+         "userApplicationTag": ""
+      }
+  ]
+}

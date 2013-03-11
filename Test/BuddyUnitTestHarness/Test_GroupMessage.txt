@@ -1,0 +1,24 @@
+{
+   "data": [
+      {
+         "appTag": "",
+         "chatGroupID": "1337",
+         "fromUserID": "1046030",
+         "longitude": "122.19",
+         "latitude": "47.36",
+         "messageID": "4395",
+         "messageText": "Hello",
+         "sentDateTime": "5/1/2012 3:38:27 PM"
+      },
+ {
+         "appTag": "",
+         "chatGroupID": "1338",
+         "fromUserID": "1046030",
+         "longitude": "122.19",
+         "latitude": "47.36",
+         "messageID": "4395",
+         "messageText": "Hello Again",
+         "sentDateTime": "5/1/2012 3:38:27 PM"
+      }
+  ]
+}

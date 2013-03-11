@@ -1,0 +1,139 @@
+{
+   "data": [
+      {
+         "filterName": "Old News",
+         "filterID": "25",
+         "parameterList": "Gamma Correction / min = 0.6 / max = 1.6 / type = Single;Raster Angle / min = -3.14159 / max = 3.14159 / type = Single;"
+      },
+      {
+         "filterName": "Basic Operations",
+         "filterID": "29",
+         "parameterList": "Scale Factor / min = 0 / max = 5 / type = Single;Rotation in Degrees / min = -360 / max = 360 / type = Single;Crop Left / min = -4000 / max = 4000 / type = Int32;Crop Right / min = -4000 / max = 4000 / type = Int32;Crop Top / min = -4000 / max = 4000 / type = Int32;Crop Bottom / min = -4000 / max = 4000 / type = Int32;Background Color / min =  / max =  / type = String;Flip Horizontal / min =  / max =  / type = Boolean;Flip Vertical / min =  / max =  / type = Boolean;Use Proportional Cropping / min =  / max =  / type = Boolean;Cropping Proportions / min = 0 / max = 10000 / type = Single;Preserve Original Orientation / min =  / max =  / type = Boolean;"
+      },
+      {
+         "filterName": "Auto Enhance",
+         "filterID": "34",
+         "parameterList": ""
+      },
+      {
+         "filterName": "Daydream",
+         "filterID": "35",
+         "parameterList": ""
+      },
+      {
+         "filterName": "Indiglow",
+         "filterID": "36",
+         "parameterList": ""
+      },
+      {
+         "filterName": "Heatwave",
+         "filterID": "37",
+         "parameterList": ""
+      },
+      {
+         "filterName": "Cinematic",
+         "filterID": "38",
+         "parameterList": ""
+      },
+      {
+         "filterName": "Always Sunny",
+         "filterID": "39",
+         "parameterList": ""
+      },
+      {
+         "filterName": "Code Red",
+         "filterID": "40",
+         "parameterList": ""
+      },
+      {
+         "filterName": "Color Operations",
+         "filterID": "41",
+         "parameterList": "Hue Shift / min = -180 / max = 180 / type = Single;Saturation / min = 0 / max = 5 / type = Single;Gamma / min = 0 / max = 10 / type = Single;Contrast / min = 0 / max = 4 / type = Single;Brightness / min = 0 / max = 4 / type = Single;"
+      },
+      {
+         "filterName": "Negative",
+         "filterID": "42",
+         "parameterList": ""
+      },
+      {
+         "filterName": "Meme Generator",
+         "filterID": "43",
+         "parameterList": "Text Top / min =  / max =  / type = String;Text Bottom / min =  / max =  / type = String;"
+      },
+      {
+         "filterName": "Outline",
+         "filterID": "44",
+         "parameterList": "Background Color / min =  / max =  / type = String;Main Outline Color / min =  / max =  / type = String;Solid Outline Color / min =  / max =  / type = Boolean;"
+      },
+      {
+         "filterName": "Rosebud",
+         "filterID": "45",
+         "parameterList": ""
+      },
+      {
+         "filterName": "First Photo",
+         "filterID": "71",
+         "parameterList": ""
+      },
+      {
+         "filterName": "Malibu",
+         "filterID": "72",
+         "parameterList": ""
+      },
+      {
+         "filterName": "San Carmen",
+         "filterID": "75",
+         "parameterList": ""
+      },
+      {
+         "filterName": "Sin City",
+         "filterID": "76",
+         "parameterList": ""
+      },
+      {
+         "filterName": "Maya",
+         "filterID": "77",
+         "parameterList": ""
+      },
+      {
+         "filterName": "Concorde",
+         "filterID": "78",
+         "parameterList": ""
+      },
+      {
+         "filterName": "Vivid",
+         "filterID": "79",
+         "parameterList": ""
+      },
+      {
+         "filterName": "Singe",
+         "filterID": "80",
+         "parameterList": ""
+      },
+      {
+         "filterName": "Aqua",
+         "filterID": "81",
+         "parameterList": ""
+      },
+      {
+         "filterName": "Strato",
+         "filterID": "82",
+         "parameterList": ""
+      },
+      {
+         "filterName": "Laguana",
+         "filterID": "83",
+         "parameterList": ""
+      },
+      {
+         "filterName": "Ventura",
+         "filterID": "84",
+         "parameterList": ""
+      },
+      {
+         "filterName": "Soft Focus",
+         "filterID": "85",
+         "parameterList": ""
+      }
+  ]
+}

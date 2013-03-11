@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'BuddySDK' target in the 'BuddySDK' project
+//
+
+#ifdef __OBJC__
+   #import <Foundation/Foundation.h>
+#endif

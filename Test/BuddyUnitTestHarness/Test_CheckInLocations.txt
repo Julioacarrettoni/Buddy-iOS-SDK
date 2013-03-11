@@ -1,0 +1,17 @@
+{
+   "data": [
+      {
+         "latitude": "47.36",
+         "longitude": "122.19",
+         "createdDate": "2012-03-24T13:53:01.0000000-07:00",
+         "placeName": "updatinglocation"
+      },
+
+      {
+         "latitude": "47.36",
+         "longitude": "122.19",
+         "createdDate": "2012-03-24T14:20:27.0000000-07:00",
+         "placeName": "updatinglocation"
+      }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+   "data": [
+    {
+         "friendID": "1092969",
+         "userName": "Buddytest2",
+         "userID": "1092969",
+         "userGender": "male",
+         "age": "13",
+         "createdDate": "2012-04-26T13:19:25.0000000-07:00",
+         "lastLoginDate": "2012-04-26T14:06:29.0000000-07:00",
+         "statusID": "1",
+         "profilePictureUrl": "http://buddy.com/defaultprofilepic/buddymale.png",
+         "userLatitude": "47.36",
+         "userLongitude": "122.19",
+         "userEmail": "Buddytest2@test.com"
+      },
+      {
+         "friendID": "sfsdfsdf9",
+         "userName": "Budsdsfsdfsytest2",
+         "userID": "10929dfsdfsdfsdfsdf69",
+         "userGender": "msfsdfsdfale",
+         "age": "fffff13sdfsdfsdfsdfsdf",
+         "createdDate": "201sdfsdfsdfsd2-04-26T13:19:25.0000000-07:00",
+         "lastLoginDate": "201fSFASDFGASDFSDFSDFS2-04-26T14:06:29.0000000-07:00",
+         "statusID": "1",
+         "profilePictureUrl": "fffffffffffffhttp://buddy.com/defaultprofilepic/buddymale.png",
+         "userLatitude": "4ffff7.DFSDFSDFS36",
+         "userLongitude": "1fdsfsdfsdfsdf22.19",
+         "userEmail": "Buddytest2@tesdfsdfsdfdfssdfst.com"
+      }
+ 
+  ]
+}

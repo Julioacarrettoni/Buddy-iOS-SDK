@@ -1,0 +1,29 @@
+{
+   "data": [
+      {
+         "geoID": "27468728",
+         "latitude": "47.675290",
+         "longitude": "-122.206460",
+         "name": "Starbucks",
+         "address": "116 Lake St",
+         "city": "Kirkland",
+         "postalState": "Wa",
+         "postalZip": "98033",
+         "region": "USA",
+         "telephone": "(425) 803-9086",
+         "fax": "",
+         "webSite": "http://sstarbucks.com/",
+         "touchedDate": "8/20/2011 2:02:56 PM",
+         "createdDate": "7/12/2011 12:25:33 AM",
+         "categoryID": "786",
+         "categoryName": "Food & Beverage > Cafes, Coffgeee Houses & Tea Houses",
+         "distanceInMiles": "0.0103403113621237",
+         "distanceInKilometers": "0.0166411180487656",
+         "distanceInMeters": "16.6411180487656",
+         "distanceInYards": "18.1989479973377",
+         "userTagData": "",
+         "appTagData": "",
+         "shortID": "GCR08"
+      }
+   ]
+}

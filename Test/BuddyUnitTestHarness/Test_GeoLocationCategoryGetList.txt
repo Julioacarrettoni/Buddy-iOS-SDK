@@ -1,0 +1,24 @@
+{
+   "data": [
+     {
+         "categoryID": "659",
+         "categoryName": "Travel & Tourism > Wineries & Vineyards"
+      },
+      {
+         "categoryID": "522",
+         "categoryName": "Travel & Tourism > Travel Agents & Tour Operators"
+      },
+      {
+         "categoryID": "583",
+         "categoryName": "Travel & Tourism > Tourist Information & Services"
+      },
+      {
+         "categoryID": "597",
+         "categoryName": "Travel & Tourism > Tourist Attractions"
+      },
+      {
+         "categoryID": "605",
+         "categoryName": "Travel & Tourism > Tour Operators & Cruises"
+      }
+   ]
+}

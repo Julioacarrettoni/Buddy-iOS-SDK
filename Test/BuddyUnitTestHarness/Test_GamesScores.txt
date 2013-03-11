@@ -1,0 +1,28 @@
+{
+   "data": [
+      {
+         "scoreID": "3777",
+         "userID": "1046030",
+         "userName": "BuddyTester",
+         "scoreValue": "5.000000",
+         "scoreLatitude": "47.360000",
+         "scoreLongitude": "122.190000",
+         "scoreBoardName": "Default",
+         "scoreDate": "5/13/2012 1:48:06 PM",
+         "scoreRank": "Excellent",
+         "applicationTag": ""
+      }
+ {
+         "scoreID": "1113777",
+         "userID": "1046030",
+         "userName": "ggggBuddyTester",
+         "scoreValue": "5.000000",
+         "scoreLatitude": "47.360000",
+         "scoreLongitude": "122.190000",
+         "scoreBoardName": "Default",
+         "scoreDate": "5/13/2012 1:48:06 PM",
+         "scoreRank": "tttExcellent",
+         "applicationTag": ""
+      }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+   "data": [
+      {
+         "chatGroupID": "1411",
+         "chatGroupName": "SecondGroup",
+         "ownerUserID": "1046030",
+         "membershipCounter": "4",
+         "applicationTag": "",
+         "createdDateTime": "3/30/2012 11:37:44 AM",
+         "lastMessageDateTime": "",
+         "lastMessageApplicationTag": "",
+         "lastMessageLatitude": "",
+         "lastMessageLongitude": "",
+         "lastMessageText": "",
+         "lastMessagePhotoURL": "",
+         "memberUserIDList": "0;1046030;1050886;1051179"
+      },
+      {
+         "chatGroupID": "1337",
+         "chatGroupName": "BestGroup",
+         "ownerUserID": "1046030",
+         "membershipCounter": "1",
+         "applicationTag": "",
+         "createdDateTime": "3/29/2012 2:24:03 PM",
+         "lastMessageDateTime": "",
+         "lastMessageApplicationTag": "",
+         "lastMessageLatitude": "",
+         "lastMessageLongitude": "",
+         "lastMessageText": "",
+         "lastMessagePhotoURL": "",
+         "memberUserIDList": "1046030"
+      },
+
+      {
+         "chatGroupID": "1338",
+         "chatGroupName": "NewGroup",
+         "ownerUserID": "1046030",
+         "membershipCounter": "2",
+         "applicationTag": "",
+         "createdDateTime": "3/29/2012 2:36:26 PM",
+         "lastMessageDateTime": "",
+         "lastMessageApplicationTag": "",
+         "lastMessageLatitude": "",
+         "lastMessageLongitude": "",
+         "lastMessageText": "",
+         "lastMessagePhotoURL": "",
+         "memberUserIDList": "1050886;1051179"
+      }
+  ]
+}

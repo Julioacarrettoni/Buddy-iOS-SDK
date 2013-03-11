@@ -1,0 +1,24 @@
+{
+   "data": [
+      {
+         "photoID": "82641",
+         "photoComment": "",
+         "fullPhotoURL": "https://buddyplatform.s3.amazonaws.com/1016115_4595_buddy_full.jpg",
+         "thumbnailPhotoURL": "https://buddyplatform.s3.amazonaws.com/1016115_4595_buddy_thumb.jpg",
+         "addedDateTime": "2012-04-09T13:23:55.0000000-07:00",
+         "latitude": "",
+         "longitude": "",
+         "userProfileID": "1016115"
+      },
+      {
+         "photoID": "82642",
+         "photoComment": "",
+         "fullPhotoURL": "https://buddyplatform.s3.amazonaws.com/1016115_4596_buddy_full.jpg",
+         "thumbnailPhotoURL": "https://buddyplatform.s3.amazonaws.com/1016115_4596_buddy_thumb.jpg",
+         "addedDateTime": "2012-04-09T13:30:18.0000000-07:00",
+         "latitude": "",
+         "longitude": "",
+         "userProfileID": "1016115"
+      }
+  ]
+}

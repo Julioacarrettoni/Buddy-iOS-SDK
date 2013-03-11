@@ -1,0 +1,14 @@
+{
+   "data": [
+      {
+         "messageString": "",
+         "toUserID": "Test1234",
+         "dateSent": "test2012-04-01T13:57:30.0000000-07:00"
+      },
+      {
+         "messageString": "Hello",
+         "toUserID": "test1046030",
+         "dateSent": "hjgjhgjhg2012-04-01T14:22:13.0000000-07:00"
+      }
+  ]
+}

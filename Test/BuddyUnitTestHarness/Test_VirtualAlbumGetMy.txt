@@ -1,0 +1,35 @@
+{
+   "data": [
+      {
+         "virtualAlbumID": "345",
+         "photoAlbumName": "Nature",
+         "userID": "1046030   ",
+         "photoCount": "0",
+         "photoAlbumThumbnail": "https://buddy.com/defaultprofilepic/cat.jpg",
+         "createdDateTime": "3/31/2012 12:12:32 PM",
+         "lastUpdatedDateTime": "3/31/2012 12:12:32 PM",
+         "applicationTag": ""
+      },
+       {
+         "virtualAlbumID": "1345",
+         "photoAlbumName": "Nature",
+         "userID": "104463030   ",
+         "photoCount": "0",
+         "photoAlbumThumbnail": "https://buddy.com/defaultprofilepic/cat.jpg",
+         "createdDateTime": "3/31/2012 12:12:32 PM",
+         "lastUpdatedDateTime": "3/31/2012 12:12:32 PM",
+         "applicationTag": ""
+      },
+       {
+         "virtualAlbumID": "2345",
+         "photoAlbumName": "Nature",
+         "userID": "13046030   ",
+         "photoCount": "0",
+         "photoAlbumThumbnail": "https://buddy.com/defaultprofilepic/cat.jpg",
+         "createdDateTime": "3/31/2012 12:12:32 PM",
+         "lastUpdatedDateTime": "3/31/2012 12:12:32 PM",
+         "applicationTag": ""
+      }
+      
+  ]
+}

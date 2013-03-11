@@ -1,0 +1,34 @@
+{
+   "data": [
+      {
+         "friendID": "1046030",
+         "userName": "BuddyTester",
+         "status": "True",
+         "userID": "1046030",
+         "userGender": "male",
+         "age": "55",
+         "createdDate": "2012-03-24T12:01:03.0000000-07:00",
+         "lastLoginDate": "2012-04-24T16:14:18.0000000-07:00",
+         "statusID": "2",
+         "profilePictureUrl": "http://www.allaboutbirds.org/guide/PHOTO/LARGE/northern_flicker_5.jpg",
+         "userLatitude": "47.36",
+         "userLongitude": "122.19",
+         "userEmail": ""
+      },
+      {
+         "friendID": "1046030",
+         "userName": "BuddyTesterFriend",
+         "status": "True",
+         "userID": "1079666",
+         "userGender": "male",
+         "age": "12",
+         "createdDate": "2012-04-19T12:06:06.0000000-07:00",
+         "lastLoginDate": "2012-04-19T12:21:29.0000000-07:00",
+         "statusID": "1",
+         "profilePictureUrl": "https://buddy.com/defaultprofilepic/buddymale.png",
+         "userLatitude": "",
+         "userLongitude": "",
+         "userEmail": "testt2@test.com"
+      }
+  ]
+}
