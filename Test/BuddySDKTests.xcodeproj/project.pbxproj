@@ -53,7 +53,7 @@
 		D49CC0E616C920A900935A75 /* Test_IdentityBad.txt in Resources */ = {isa = PBXBuildFile; fileRef = D49CC0BF16C920A900935A75 /* Test_IdentityBad.txt */; };
 		D49CC0E716C920A900935A75 /* Test_MessageListGetBad.txt in Resources */ = {isa = PBXBuildFile; fileRef = D49CC0C016C920A900935A75 /* Test_MessageListGetBad.txt */; };
 		D49CC0E816C920A900935A75 /* Test_GameScoreSearch.txt in Resources */ = {isa = PBXBuildFile; fileRef = D49CC0C116C920A900935A75 /* Test_GameScoreSearch.txt */; };
-		D49CC0E916C920A900935A75 /* Test_PicturesPhotoAlbumGetAllPicturesBAD.txt in Resources */ = {isa = PBXBuildFile; fileRef = D49CC0C216C920A900935A75 /* Test_PicturesPhotoAlbumGetAllPicturesBAD.txt */; };
+		D49CC0E916C920A900935A75 /* Test_PicturesPhotoAlbumGetAllPicturesBad.txt in Resources */ = {isa = PBXBuildFile; fileRef = D49CC0C216C920A900935A75 /* Test_PicturesPhotoAlbumGetAllPicturesBad.txt */; };
 		D49CC0EA16C920A900935A75 /* Test_FriendRequest.txt in Resources */ = {isa = PBXBuildFile; fileRef = D49CC0C316C920A900935A75 /* Test_FriendRequest.txt */; };
 		D49CC0EB16C920A900935A75 /* Test_GeoLocationCategoryGetList.txt in Resources */ = {isa = PBXBuildFile; fileRef = D49CC0C416C920A900935A75 /* Test_GeoLocationCategoryGetList.txt */; };
 		D49CC0EC16C920A900935A75 /* Test_GeoLocationCategoryList.txt in Resources */ = {isa = PBXBuildFile; fileRef = D49CC0C516C920A900935A75 /* Test_GeoLocationCategoryList.txt */; };
@@ -76,7 +76,7 @@
 		D49CC0FD16C920A900935A75 /* Test_PlayerDataBad.txt in Resources */ = {isa = PBXBuildFile; fileRef = D49CC0D616C920A900935A75 /* Test_PlayerDataBad.txt */; };
 		D49CC0FE16C920A900935A75 /* Test_FilterList.txt in Resources */ = {isa = PBXBuildFile; fileRef = D49CC0D716C920A900935A75 /* Test_FilterList.txt */; };
 		D49CC0FF16C920A900935A75 /* Test_FriendsGetList.txt in Resources */ = {isa = PBXBuildFile; fileRef = D49CC0D816C920A900935A75 /* Test_FriendsGetList.txt */; };
-		D49CC10016C920A900935A75 /* Test_MetaDataSum.txt in Resources */ = {isa = PBXBuildFile; fileRef = D49CC0D916C920A900935A75 /* Test_MetaDataSum.txt */; };
+		D49CC10016C920A900935A75 /* Test_MetadataSum.txt in Resources */ = {isa = PBXBuildFile; fileRef = D49CC0D916C920A900935A75 /* Test_MetadataSum.txt */; };
 		D4CE7A211677F87500F76AA1 /* SpaceNeedle.png in Resources */ = {isa = PBXBuildFile; fileRef = D4CE7A201677F87500F76AA1 /* SpaceNeedle.png */; };
 		D4EC66EF1670D33F0092D1B4 /* TestAppUserMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EC66EE1670D33F0092D1B4 /* TestAppUserMetaData.m */; };
 		D4EC671F167413AC0092D1B4 /* TestMessageAndMessageGroups.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EC671E167413AC0092D1B4 /* TestMessageAndMessageGroups.m */; };
@@ -150,7 +150,7 @@
 		D49CC0BF16C920A900935A75 /* Test_IdentityBad.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Test_IdentityBad.txt; sourceTree = "<group>"; };
 		D49CC0C016C920A900935A75 /* Test_MessageListGetBad.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Test_MessageListGetBad.txt; sourceTree = "<group>"; };
 		D49CC0C116C920A900935A75 /* Test_GameScoreSearch.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Test_GameScoreSearch.txt; sourceTree = "<group>"; };
-		D49CC0C216C920A900935A75 /* Test_PicturesPhotoAlbumGetAllPicturesBAD.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Test_PicturesPhotoAlbumGetAllPicturesBAD.txt; sourceTree = "<group>"; };
+		D49CC0C216C920A900935A75 /* Test_PicturesPhotoAlbumGetAllPicturesBad.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Test_PicturesPhotoAlbumGetAllPicturesBad.txt; path = ../../Test/BuddyUnitTestHarness/Test_PicturesPhotoAlbumGetAllPicturesBad.txt; sourceTree = "<group>"; };
 		D49CC0C316C920A900935A75 /* Test_FriendRequest.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Test_FriendRequest.txt; sourceTree = "<group>"; };
 		D49CC0C416C920A900935A75 /* Test_GeoLocationCategoryGetList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Test_GeoLocationCategoryGetList.txt; sourceTree = "<group>"; };
 		D49CC0C516C920A900935A75 /* Test_GeoLocationCategoryList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Test_GeoLocationCategoryList.txt; sourceTree = "<group>"; };
@@ -173,7 +173,7 @@
 		D49CC0D616C920A900935A75 /* Test_PlayerDataBad.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Test_PlayerDataBad.txt; sourceTree = "<group>"; };
 		D49CC0D716C920A900935A75 /* Test_FilterList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Test_FilterList.txt; sourceTree = "<group>"; };
 		D49CC0D816C920A900935A75 /* Test_FriendsGetList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Test_FriendsGetList.txt; sourceTree = "<group>"; };
-		D49CC0D916C920A900935A75 /* Test_MetaDataSum.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Test_MetaDataSum.txt; sourceTree = "<group>"; };
+		D49CC0D916C920A900935A75 /* Test_MetadataSum.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Test_MetadataSum.txt; path = ../../Test/BuddyUnitTestHarness/Test_MetadataSum.txt; sourceTree = "<group>"; };
 		D4CE7A201677F87500F76AA1 /* SpaceNeedle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpaceNeedle.png; sourceTree = "<group>"; };
 		D4EC66ED1670D33F0092D1B4 /* TestAppUserMetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAppUserMetaData.h; sourceTree = "<group>"; };
 		D4EC66EE1670D33F0092D1B4 /* TestAppUserMetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TestAppUserMetaData.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -301,11 +301,11 @@
 				D49CC0D416C920A900935A75 /* Test_LocationSearch.txt */,
 				D49CC0BC16C920A900935A75 /* Test_MessageListGet.txt */,
 				D49CC0C016C920A900935A75 /* Test_MessageListGetBad.txt */,
-				D49CC0D916C920A900935A75 /* Test_MetaDataSum.txt */,
+				D49CC0D916C920A900935A75 /* Test_MetadataSum.txt */,
 				D49CC0D316C920A900935A75 /* Test_NoData.txt */,
 				D49CC0C616C920A900935A75 /* Test_PicturesPhotoAlbumGet.txt */,
 				D49CC0B416C920A900935A75 /* Test_PicturesPhotoAlbumGetAllPictures.txt */,
-				D49CC0C216C920A900935A75 /* Test_PicturesPhotoAlbumGetAllPicturesBAD.txt */,
+				D49CC0C216C920A900935A75 /* Test_PicturesPhotoAlbumGetAllPicturesBad.txt */,
 				D49CC0D216C920A900935A75 /* Test_PicturesSearchPhotosNearby.txt */,
 				D49CC0D616C920A900935A75 /* Test_PlayerDataBad.txt */,
 				D49CC0B316C920A900935A75 /* Test_PlayerDataGood.txt */,
@@ -443,7 +443,7 @@
 				D49CC0E616C920A900935A75 /* Test_IdentityBad.txt in Resources */,
 				D49CC0E716C920A900935A75 /* Test_MessageListGetBad.txt in Resources */,
 				D49CC0E816C920A900935A75 /* Test_GameScoreSearch.txt in Resources */,
-				D49CC0E916C920A900935A75 /* Test_PicturesPhotoAlbumGetAllPicturesBAD.txt in Resources */,
+				D49CC0E916C920A900935A75 /* Test_PicturesPhotoAlbumGetAllPicturesBad.txt in Resources */,
 				D49CC0EA16C920A900935A75 /* Test_FriendRequest.txt in Resources */,
 				D49CC0EB16C920A900935A75 /* Test_GeoLocationCategoryGetList.txt in Resources */,
 				D49CC0EC16C920A900935A75 /* Test_GeoLocationCategoryList.txt in Resources */,
@@ -466,7 +466,7 @@
 				D49CC0FD16C920A900935A75 /* Test_PlayerDataBad.txt in Resources */,
 				D49CC0FE16C920A900935A75 /* Test_FilterList.txt in Resources */,
 				D49CC0FF16C920A900935A75 /* Test_FriendsGetList.txt in Resources */,
-				D49CC10016C920A900935A75 /* Test_MetaDataSum.txt in Resources */,
+				D49CC10016C920A900935A75 /* Test_MetadataSum.txt in Resources */,
 				A291F26816CEEFBF0094FF57 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
