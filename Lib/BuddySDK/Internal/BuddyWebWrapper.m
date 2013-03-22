@@ -25,7 +25,7 @@
 #define kHttpGetTimeout  60
 #define kHttpPostTimeout 60
 
-static NSString * const BuddySDKHeaderValue = @"Platform=iOS;Version=0.1.0";
+static NSString * const BuddySDKHeaderValue = @"Platform=iOS;Version=0.1.1";
 
 @implementation BuddyWebWrapper
 
@@ -90,7 +90,7 @@ static NSString * const BuddySDKHeaderValue = @"Platform=iOS;Version=0.1.0";
 
 - (void)setBuddySDKHeader
 {
-    [[ClientServicePlainText sharedClient] setDefaultHeader:@"BuddySDK" value:BuddySDKHeaderValue];
+    [[ClientServicePlainText sharedClient] setDefaultHeader:@"BuddyPlatformSDK" value:BuddySDKHeaderValue];
 }
 
 - (void)setSSLType:(BOOL)ssl
@@ -645,7 +645,7 @@ static NSString * const BuddySDKHeaderValue = @"Platform=iOS;Version=0.1.0";
 {
 	NSMutableString *params = [BuddyUtility setParams:@"Pictures_VirtualAlbum_Update" appName:client.appName appPassword:client.appPassword userToken:(NSString *)UserToken];
 
-	[params appendFormat:@"&VirtualPhotoAlbumID=%@", [BuddyUtility encodeValue:[VirtualPhotoAlbumID stringValue]]];
+	[params appendFormat:@"&VirtualAlbumID=%@", [BuddyUtility encodeValue:[VirtualPhotoAlbumID stringValue]]];
 	[params appendFormat:@"&NewAlbumName=%@", [BuddyUtility encodeValue:NewAlbumName]];
 	[params appendFormat:@"&NewAppTag=%@", [BuddyUtility encodeValue:NewAppTag]];
 	[params appendString:@"&RESERVED="];

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A291F26816CEEFBF0094FF57 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A291F26716CEEFBF0094FF57 /* Default-568h@2x.png */; };
+		A2CFC5E516FCDDD9007FBCD8 /* libBuddySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2CFC5E416FCDDD9007FBCD8 /* libBuddySDK.a */; };
 		A6291F37165C01640051F83C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6291F36165C01640051F83C /* UIKit.framework */; };
 		A6291F39165C01640051F83C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6291F38165C01640051F83C /* Foundation.framework */; };
 		A6291F3B165C01640051F83C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6291F3A165C01640051F83C /* CoreGraphics.framework */; };
@@ -32,7 +33,6 @@
 		D474B2AA169AEB200020204D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D474B2A7169AEA550020204D /* SystemConfiguration.framework */; };
 		D474B2AE169AED5B0020204D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D474B2AD169AED5B0020204D /* MobileCoreServices.framework */; };
 		D474B2AF169AED6D0020204D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D474B2AD169AED5B0020204D /* MobileCoreServices.framework */; };
-		D4826C9716B0108400373847 /* libBuddySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4826C9616B0108400373847 /* libBuddySDK.a */; };
 		D490008516766F1E004F37C9 /* TestFriendRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D490008416766F1E004F37C9 /* TestFriendRequest.m */; };
 		D49B17DA166E43BC00FE3806 /* TestPicturesAndAlbums.m in Sources */ = {isa = PBXBuildFile; fileRef = D49B17D9166E43BC00FE3806 /* TestPicturesAndAlbums.m */; };
 		D49B17DD166E482F00FE3806 /* TestGames.m in Sources */ = {isa = PBXBuildFile; fileRef = D49B17DC166E482F00FE3806 /* TestGames.m */; };
@@ -95,6 +95,7 @@
 /* Begin PBXFileReference section */
 		A2342FA016EE5E2E00B13A12 /* BuddySDKTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BuddySDKTests-Prefix.pch"; sourceTree = "<group>"; };
 		A291F26716CEEFBF0094FF57 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../../Test/BuddyUnitTestHarness/Default-568h@2x.png"; sourceTree = "<group>"; };
+		A2CFC5E416FCDDD9007FBCD8 /* libBuddySDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBuddySDK.a; path = "../Lib/BuddySDK/Release-Lib/libBuddySDK.a"; sourceTree = "<group>"; };
 		A6291F32165C01640051F83C /* BuddyUnitTestHarness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuddyUnitTestHarness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6291F36165C01640051F83C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A6291F38165C01640051F83C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -124,7 +125,6 @@
 		D45A7B8F165D72FD000E5257 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		D474B2A7169AEA550020204D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D474B2AD169AED5B0020204D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		D4826C9616B0108400373847 /* libBuddySDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBuddySDK.a; path = "../../SDK/BuddySDK/BuddySDK/Release-Lib/libBuddySDK.a"; sourceTree = "<group>"; };
 		D490008316766F1E004F37C9 /* TestFriendRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFriendRequest.h; sourceTree = "<group>"; };
 		D490008416766F1E004F37C9 /* TestFriendRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TestFriendRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		D49B17D8166E43BC00FE3806 /* TestPicturesAndAlbums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPicturesAndAlbums.h; sourceTree = "<group>"; };
@@ -186,7 +186,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4826C9716B0108400373847 /* libBuddySDK.a in Frameworks */,
+				A2CFC5E516FCDDD9007FBCD8 /* libBuddySDK.a in Frameworks */,
 				D474B2AE169AED5B0020204D /* MobileCoreServices.framework in Frameworks */,
 				D474B2AA169AEB200020204D /* SystemConfiguration.framework in Frameworks */,
 				D45A7B92165D732D000E5257 /* MediaPlayer.framework in Frameworks */,
@@ -215,7 +215,7 @@
 		A6291F27165C01640051F83C = {
 			isa = PBXGroup;
 			children = (
-				D4826C9616B0108400373847 /* libBuddySDK.a */,
+				A2CFC5E416FCDDD9007FBCD8 /* libBuddySDK.a */,
 				A6291F3C165C01640051F83C /* BuddyUnitTestHarness */,
 				A6291F60165C01640051F83C /* BuddySDKTests */,
 				A6291F35165C01640051F83C /* Frameworks */,
@@ -584,7 +584,7 @@
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 0.1.0;
+				CURRENT_PROJECT_VERSION = 0.1.1;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
@@ -621,7 +621,7 @@
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 0.1.0;
+				CURRENT_PROJECT_VERSION = 0.1.1;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = NO;
@@ -645,18 +645,23 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				"ARCHS[sdk=*]" = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Brad Serbus (RYD38R339Q)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Brad Serbus (RYD38R339Q)";
 				COMPRESS_PNG_FILES = NO;
-				CURRENT_PROJECT_VERSION = 0.1.0;
+				CURRENT_PROJECT_VERSION = 0.1.1;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BuddySDKTests/BuddySDKTests-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(PROJECT_TEMP_DIR)/../UninstalledProducts/include/**";
 				INFOPLIST_FILE = "BuddyUnitTestHarness/BuddyUnitTestHarness-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Library/Developer/Xcode/DerivedData/BuddySDK-hfomgfqebmjnhschjkylyrfpzzub/Build/Products/Release-iphoneos\"",
+				);
 				"OTHER_LDFLAGS[arch=*]" = "";
 				PRODUCT_NAME = BuddyUnitTestHarness;
+				PROVISIONING_PROFILE = "C8E42EC2-C063-449D-9A3C-EDE17AB2CEA7";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C8E42EC2-C063-449D-9A3C-EDE17AB2CEA7";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
 				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(BUILT_PRODUCTS_DIR)";
@@ -668,16 +673,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Brad Serbus (RYD38R339Q)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Brad Serbus (RYD38R339Q)";
 				COMPRESS_PNG_FILES = NO;
-				CURRENT_PROJECT_VERSION = 0.1.0;
+				CURRENT_PROJECT_VERSION = 0.1.1;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BuddySDKTests/BuddySDKTests-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(PROJECT_TEMP_DIR)/../UninstalledProducts/include/**";
 				INFOPLIST_FILE = "BuddyUnitTestHarness/BuddyUnitTestHarness-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Library/Developer/Xcode/DerivedData/BuddySDK-hfomgfqebmjnhschjkylyrfpzzub/Build/Products/Release-iphoneos\"",
+				);
 				PRODUCT_NAME = BuddyUnitTestHarness;
+				PROVISIONING_PROFILE = "C8E42EC2-C063-449D-9A3C-EDE17AB2CEA7";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C8E42EC2-C063-449D-9A3C-EDE17AB2CEA7";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
 				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(BUILT_PRODUCTS_DIR)";
@@ -691,7 +702,7 @@
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BuddyUnitTestHarness.app/BuddyUnitTestHarness";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				CURRENT_PROJECT_VERSION = 0.1.0;
+				CURRENT_PROJECT_VERSION = 0.1.1;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
@@ -716,7 +727,7 @@
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BuddyUnitTestHarness.app/BuddyUnitTestHarness";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				CURRENT_PROJECT_VERSION = 0.1.0;
+				CURRENT_PROJECT_VERSION = 0.1.1;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",

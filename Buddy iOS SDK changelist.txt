@@ -7,3 +7,7 @@
 	Added a fix so that automatic device information recording is done when first user logs ing.  Also, that information will be associated with that user.  Previously, the automatic device information recording happened upon BuddyClient instantiation, and was not associated with any user.
 
 	Changed the public API to be camel-cased.
+
+0.1.1
+
+	Small fix to BuddyVirtualAlbum.update method.  Updated version header.
