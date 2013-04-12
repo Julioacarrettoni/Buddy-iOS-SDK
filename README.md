@@ -34,25 +34,25 @@ Below is some code showing the creation of a user, then uploading a profile phot
 ### Code Sample
 
 
-// visit dev.buddy.com to get an app name and password
-BuddyClient *buddyClient = [[BuddyClient alloc] initClient:kBuddyApplicationName
-                                               appPassword:kBuddyApplicationPassword];
+    // visit dev.buddy.com to get an app name and password
+    BuddyClient *buddyClient = [[BuddyClient alloc] initClient:kBuddyApplicationName
+                                                   appPassword:kBuddyApplicationPassword];
 
-[buddyClient login:@"a username"
-          password:@"the password"
-             state:nil
-          callback:^(BuddyAuthenticatedUserResponse *response) {
-                 BuddyAuthenticatedUser *buddyUser = response.result;
-                 if (buddyUser)
-                 {
-                     NSLog(@"User Login successfull with Token: %@", buddyUser.token);
-                 }
-                 else
-                 {
-                     NSLog(@"User Login failed");
-                 }
-            }
-];
+    [buddyClient login:@"a username"
+              password:@"the password"
+                 state:nil
+              callback:^(BuddyAuthenticatedUserResponse *response) {
+                     BuddyAuthenticatedUser *buddyUser = response.result;
+                     if (buddyUser)
+                     {
+                         NSLog(@"User Login successfull with Token: %@", buddyUser.token);
+                     }
+                     else
+                     {
+                         NSLog(@"User Login failed");
+                     }
+                }
+    ];
     
 
 
