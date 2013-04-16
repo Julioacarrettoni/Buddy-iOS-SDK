@@ -78,4 +78,9 @@
 /// </summary>
 @property (readonly, nonatomic, assign) double distanceInYards;
 
+/// <summary>
+/// Gets the rank of the player.
+/// </summary>
+@property (readonly, nonatomic, strong) NSString *rank;
+
 @end

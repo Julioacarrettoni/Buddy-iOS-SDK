@@ -295,12 +295,11 @@
 	NSString *updateTime = [NSString stringWithFormat:@"%d", [updatedMinutesAgo intValue]];
 	NSNumber *searchAsFloatInt = [NSNumber numberWithInt:(searchAsFloat == TRUE) ? 1:0];
 	NSNumber *sortAscendingInt = [NSNumber numberWithInt:(sortAscending == TRUE) ? 1:0];
-
-	NSString *disableCacheInt = [NSString stringWithString:(disableCache == TRUE) ? @"1":@"0"];
+	NSString *disableCacheString = [NSString stringWithString:(disableCache == TRUE) ? @"true":@""];
 
 	__block BuddyUserMetadata *_self = self;
 
-	[[client webService] MetaData_UserMetaDataValue_Search:self.token SearchDistance:searchDistanceMeters Latitude:latitude Longitude:longitude RecordLimit:numberOfResults MetaKeySearch:withKey MetaValueSearch:withValue TimeFilter:updateTime SortValueAsFloat:searchAsFloatInt SortDirection:sortAscendingInt DisableCache:disableCacheInt state:state
+	[[client webService] MetaData_UserMetaDataValue_Search:self.token SearchDistance:searchDistanceMeters Latitude:latitude Longitude:longitude RecordLimit:numberOfResults MetaKeySearch:withKey MetaValueSearch:withValue TimeFilter:updateTime SortValueAsFloat:searchAsFloatInt SortDirection:sortAscendingInt DisableCache:disableCacheString state:state
 												  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 															{
 																if (callback)
@@ -383,9 +382,9 @@
 																	 {
 																		 if ([jsonArray isKindOfClass:[NSArray class]] && [jsonArray count] > 0)
 																		 {
-																			 NSString *sforKeys = [[NSString alloc] initWithString:_forKeys];
+																			 NSString *keysString = [[NSString alloc] initWithString:_forKeys];
 																			 metaSum = [[BuddyMetadataSum alloc]
-											  initMetadataSum:[jsonArray objectAtIndex:0] keyName:sforKeys];
+												  initMetadataSum:[jsonArray objectAtIndex:0] keyName:keysString];
 																		 }
 																	 }
 																 }
@@ -520,6 +519,41 @@
 																	  }
 																  }
 																  _self = nil;
+															  } copy]];
+}
+
+- (void)batchSet:(NSString *)keys
+		  values:(NSString *)values
+		callback:(BuddyUserMetadataBatchSetCallback)callback
+{
+	[self batchSet:keys values:values latitude:0.0 longitude:0.0 appTag:nil state:nil callback:callback];
+}
+
+- (void)batchSet:(NSString *)keys
+		  values:(NSString *)values
+		latitude:(double)latitude
+	   longitude:(double)longitude
+		  appTag:(NSString *)appTag
+		   state:(NSObject *)state
+		callback:(BuddyUserMetadataBatchSetCallback)callback
+{
+	if ([BuddyUtility isNilOrEmpty:keys])
+	{
+		[BuddyUtility throwNilArgException:@"BuddyUserMetadata" reason:@"keys"];
+	}
+
+	if ([BuddyUtility isNilOrEmpty:values])
+	{
+		[BuddyUtility throwNilArgException:@"BuddyUserMetadata" reason:@"values"];
+	}
+
+	[[client webService] MetaData_UserMetaDataValue_BatchSet:self.token UserMetaKeyCollection:keys UserMetaValueCollection:values MetaLatitude:latitude MetaLongitude:longitude ApplicationTag:appTag RESERVED:@"" state:state
+													callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+															  {
+																  if (callback)
+																  {
+																	  callback([[BuddyBoolResponse alloc] initWithResponse:callbackParams]);
+																  }
 															  } copy]];
 }
 

@@ -20,7 +20,6 @@
 #import "BuddyDataResponses.h"
 #import "BuddyClient.h"
 
-
 @interface MasterViewController ()
 {
 	NSMutableArray *_objects;
@@ -29,8 +28,9 @@
 
 @implementation MasterViewController
 
-static NSString *AppName = @"Buddy iOS SDK test app";
-static NSString *AppPassword = @"8C9E044D-7DB7-42DE-A376-16460B58008E";
+static NSString *appName = @"Buddy iOS SDK test app";
+static NSString *appPassword = @"8C9E044D-7DB7-42DE-A376-16460B58008E";
+static NSString *testUserToken = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 
 @synthesize detailViewController = _detailViewController;
 @synthesize tbx;
@@ -84,7 +84,7 @@ static NSString *AppPassword = @"8C9E044D-7DB7-42DE-A376-16460B58008E";
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-	if ([string isEqualToString:@"\n"])
+	if ([string isEqualToString:@"\r\n"])
 	{
 		[textField resignFirstResponder];
 	}
@@ -149,45 +149,89 @@ static NSString *AppPassword = @"8C9E044D-7DB7-42DE-A376-16460B58008E";
 	tbx.text = text;
 }
 
+- (IBAction)verifyConnection:(id)sender
+{
+	[self initialize];
+
+	__block BuddyAuthenticatedUser *_user;
+
+	[buddyClient login:testUserToken
+				 state:nil
+			  callback:[^(BuddyAuthenticatedUserResponse *response)
+						{
+							if (response.isCompleted)
+							{
+								_user = response.result;
+								dispatch_async(dispatch_get_main_queue(), ^
+											   {
+												   [self saveUser:_user];
+											   });
+							}
+							else
+							{
+								[self setText:@"Login failed."];
+								NSLog(@"login failed");
+							}
+						} copy]];
+}
+
 - (IBAction)login:(id)sender
 {
-	if (buddyClient == nil)
-	{
-		buddyClient = [[BuddyClient alloc] initClient:AppName
-										  appPassword:AppPassword];
-	}
-
-	self.user = nil;
+	[self initialize];
 
 	__block BuddyAuthenticatedUser *_user;
 
 	NSString *userName = [userNameField text];
 	NSString *password = [userPasswordField text];
 
+	if (userName.length == 0)
+	{
+		[self setText:@"User name is empty."];
+		return;
+	}
+
+	if (password.length == 0)
+	{
+		[self setText:@"Password is empty."];
+		return;
+	}
+
 	[buddyClient login:userName
 			  password:password
-				 state:nil callback:[^(BuddyAuthenticatedUserResponse *response)
-									 {
-										 if (response.isCompleted)
-										 {
-											 _user = response.result;
-											 dispatch_async(dispatch_get_main_queue(), ^
-															{
-																[self saveUser:_user];
-															});
-										 }
-										 else
-										 {
-											 [self setText:@"Login failed."];
-											 NSLog(@"login failed");
-										 }
-									 } copy]];
+				 state:nil
+			  callback:[^(BuddyAuthenticatedUserResponse *response)
+						{
+							if (response.isCompleted)
+							{
+								_user = response.result;
+								dispatch_async(dispatch_get_main_queue(), ^
+											   {
+												   [self saveUser:_user];
+											   });
+							}
+							else
+							{
+								[self setText:@"Login failed."];
+								NSLog(@"login failed");
+							}
+						} copy]];
 }
 
-- (void)saveUser:(BuddyAuthenticatedUser *)buser
+- (void)initialize
+{
+	if (buddyClient == nil)
+	{
+		buddyClient = [[BuddyClient alloc] initClient:appName
+										  appPassword:appPassword];
+	}
+
+	self.user = nil;
+}
+
+- (void)saveUser:(BuddyAuthenticatedUser *)authUser
 {
 	[self setText:@"Login ok."];
-	self.user = buser;
+	self.user = authUser;
 }
 
 @end

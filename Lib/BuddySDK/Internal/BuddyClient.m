@@ -634,7 +634,8 @@
 	__block BuddyClient *_self = self;
 
 	[self InternalCreateUser:userName password:password gender:gender age:age email:email status:status fuzzLocation:fuzzLocation celebrityMode:celebrityMode appTag:appTag state:state
-					callback:[^(BuddyStringResponse *response) {
+                    callback:[^(BuddyStringResponse *response)
+							  {
 								  if (response.isCompleted && response.result != nil)
 								  {
 									  NSString *token = (NSString *)response.result;
@@ -651,7 +652,7 @@
 								  }
 								  else
 								  {
-	                                  // failed to get UserToken...
+// failed to get UserToken...
 									  if (callback)
 									  {
 										  callback([[BuddyAuthenticatedUserResponse alloc] initWithError:response.apiCall reason:response.exception.reason state:response.state]);
@@ -719,7 +720,7 @@
 																  {
 																	  userNameExists = TRUE;
 																  }
-																  else if (![dataResult isEqualToString:@"UserNameAvailble"])                                                                 // misspelling is on purpose                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              // intentional misspelling due to backward compatibility
+																  else if (![dataResult isEqualToString:@"UserNameAvailble"])                                                                                                                                                                                                 // intentional misspelling due to backward compatibility
 																  {
 																	  exception = [BuddyUtility buildBuddyUnknownErrorException:dataResult];
 																  }

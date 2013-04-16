@@ -40,6 +40,8 @@
 @synthesize friends;
 @synthesize messages;
 @synthesize gamePlayers;
+@synthesize startups;
+@synthesize commerce;
 
 - (NSString *)toString
 {
@@ -88,6 +90,10 @@
 
 	gamePlayers = [[BuddyGamePlayers alloc] initWithAuthUser:localClient authUser:self];
 
+    startups  = [[BuddyStartups alloc] initWithAuthUser:localClient authUser:self];
+    
+    commerce = [[BuddyCommerce alloc] initWithAuthUser:localClient authUser:self];
+    
 	[self updateFromProfile:profile];
 
 	return self;

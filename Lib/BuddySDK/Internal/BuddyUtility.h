@@ -26,6 +26,9 @@
 #define kPictures_Photo_Add @"Pictures_Photo_Add"
 #define kPictures_Photo_AddWithWatermark @"Pictures_Photo_AddWithWatermark"
 
+#define kCommerce_Receipt_VerifyiOSReceipt @"Commerce_Receipt_VerifyiOSReceipt"
+#define kCommerce_Receipt_VerifyAndSaveiOSReceipt @"Commerce_Receipt_VerifyAndSaveiOSReceipt"
+
 @interface BuddyUtility : NSObject
 
 + (NSException *)makeInvalidArgException:(NSString *)reason;
@@ -75,6 +78,10 @@
 + (BOOL)boolFromString:(NSString *)string;
 
 + (NSNumber *)NSNumberFromStringInt:(NSString *)stringInt;
+
++ (NSNumber *)NSNumberFromStringLong:(NSString *)stringLong;
+
++ (long long)longFromString:(NSString *)string;
 
 + (BuddyCallbackParams *)buildBuddyFailure:(NSString *)name reason:(NSString *)reason state:(NSObject*)state;
 

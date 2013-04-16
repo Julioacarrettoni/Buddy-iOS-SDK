@@ -25,7 +25,8 @@
 #import "BuddyUserMetadata.h"
 #import "BuddyMessages.h"
 #import "BuddyGamePlayers.h"
-
+#import "BuddyStartups.h"
+#import "BuddyCommerce.h"
 
 @class BuddyClient;
 @class BuddyNotificationsApple;
@@ -178,6 +179,17 @@ typedef void (^BuddyAuthenticatedUserSetProfilePhotoCallback)(BuddyBoolResponse 
 /// Add and remove and manipulate BuddyGamePlayers for this user.
 /// </summary>
 @property (readonly, nonatomic, strong) BuddyGamePlayers *gamePlayers;
+
+/// <summary>
+/// Gets and object that can be used for commerce for the user.
+/// </summary>
+@property (readonly, nonatomic, strong) BuddyCommerce *commerce;
+
+/// <summary>
+/// Gets and object that can be used to search for startups around the user.
+/// </summary>
+@property (readonly, nonatomic, strong) BuddyStartups *startups;
+
 
 /// <summary>
 /// Add a profile photo for this user.

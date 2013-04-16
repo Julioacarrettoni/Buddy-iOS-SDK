@@ -24,7 +24,7 @@
 
 // BuddyFriends callback definitions
 
-/** Callback signature for the BuddyFriendsGet function. The  .result field of the BuddyArrayResponse object will be set to a NSArray of BuddyUser items if successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) otherwise it will be nil. If there was an exception or error (e.g. unknown server response or invalid data) the response.exception field will be set to an exception instance and the raw response from the server, if any, will be held in the response.dataResult field.
+/** Callback signature for the BuddyFriendsGet function. The .result field of the BuddyArrayResponse object will be set to a NSArray of BuddyUser items if successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) otherwise it will be nil. If there was an exception or error (e.g. unknown server response or invalid data) the response.exception field will be set to an exception instance and the raw response from the server, if any, will be held in the response.dataResult field.
  */
 typedef void (^BuddyFriendsGetCallback)(BuddyArrayResponse *response);
 
@@ -32,7 +32,7 @@ typedef void (^BuddyFriendsGetCallback)(BuddyArrayResponse *response);
  */
 typedef void (^BuddyFriendsRemoveCallback)(BuddyBoolResponse *response);
 
-/** Callback signature for the BuddyFriendsFind function.The  .result field of the BuddyArrayResponse will be a NSArray of BuddyUser items if successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) otherwise it will be nil.  If there was an exception or error (e.g. unknown server response or invalid data) the response.exception field will be set to an exception instance and the raw response from the server, if any, will be held in the response.dataResult field.
+/** Callback signature for the BuddyFriendsFind function.The .result field of the BuddyArrayResponse will be a NSArray of BuddyUser items if successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) otherwise it will be nil.  If there was an exception or error (e.g. unknown server response or invalid data) the response.exception field will be set to an exception instance and the raw response from the server, if any, will be held in the response.dataResult field.
  */
 typedef void (^BuddyFriendsFindCallback)(BuddyArrayResponse *response);
 

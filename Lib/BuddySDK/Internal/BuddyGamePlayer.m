@@ -35,6 +35,7 @@
 @synthesize distanceInMeters;
 @synthesize distanceInMiles;
 @synthesize distanceInYards;
+@synthesize rank;
 
 - (id)initWithUser:(BuddyAuthenticatedUser *)authUser
 	gamePlayerInfo:(NSDictionary *)data
@@ -58,6 +59,7 @@
 		latitude = [BuddyUtility doubleFromString:[data objectForKey:@"playerLatitude"]];
 		longitude = [BuddyUtility doubleFromString:[data objectForKey:@"playerLongitude"]];
 		applicationTag = [BuddyUtility stringFromString:[data objectForKey:@"applicationTag"]];
+		rank = [BuddyUtility stringFromString:[data objectForKey:@"playerRank"]];
 	}
 
 	return self;
@@ -87,6 +89,7 @@
 		distanceInMeters = [BuddyUtility doubleFromString:[data objectForKey:@"distanceInMeters"]];
 		distanceInMiles = [BuddyUtility doubleFromString:[data objectForKey:@"distanceInMiles"]];
 		distanceInYards = [BuddyUtility doubleFromString:[data objectForKey:@"distanceInYards"]];
+		rank = [BuddyUtility stringFromString:[data objectForKey:@"playerRank"]];
 	}
 
 	return self;

@@ -25,7 +25,7 @@
 #define kHttpGetTimeout  60
 #define kHttpPostTimeout 60
 
-static NSString * const BuddySDKHeaderValue = @"Platform=iOS;Version=0.1.0";
+static NSString *const BuddySDKHeaderValue = @"iOS,v0.1.2";
 
 @implementation BuddyWebWrapper
 
@@ -47,8 +47,8 @@ static NSString * const BuddySDKHeaderValue = @"Platform=iOS;Version=0.1.0";
 	http_getTimeout = getTimeout;
 	http_postTimeout = postTimeout;
 
-    [self setBuddySDKHeader];
-    
+	[self setBuddySDKHeader];
+
 	return self;
 }
 
@@ -64,8 +64,8 @@ static NSString * const BuddySDKHeaderValue = @"Platform=iOS;Version=0.1.0";
 	http_getTimeout = kHttpGetTimeout;
 	http_postTimeout = kHttpPostTimeout;
 
-    [self setBuddySDKHeader];
-    
+	[self setBuddySDKHeader];
+
 	return self;
 }
 
@@ -84,13 +84,13 @@ static NSString * const BuddySDKHeaderValue = @"Platform=iOS;Version=0.1.0";
 	client = localClient;
 	http_getTimeout = kHttpGetTimeout;
 	http_postTimeout = kHttpPostTimeout;
-    
-    [self setBuddySDKHeader];
+
+	[self setBuddySDKHeader];
 }
 
 - (void)setBuddySDKHeader
 {
-    [[ClientServicePlainText sharedClient] setDefaultHeader:@"BuddySDK" value:BuddySDKHeaderValue];
+	[[ClientServicePlainText sharedClient] setDefaultHeader:@"x-buddy-sdk" value:BuddySDKHeaderValue];
 }
 
 - (void)setSSLType:(BOOL)ssl
@@ -645,7 +645,7 @@ static NSString * const BuddySDKHeaderValue = @"Platform=iOS;Version=0.1.0";
 {
 	NSMutableString *params = [BuddyUtility setParams:@"Pictures_VirtualAlbum_Update" appName:client.appName appPassword:client.appPassword userToken:(NSString *)UserToken];
 
-	[params appendFormat:@"&VirtualPhotoAlbumID=%@", [BuddyUtility encodeValue:[VirtualPhotoAlbumID stringValue]]];
+	[params appendFormat:@"&VirtualAlbumID=%@", [BuddyUtility encodeValue:[VirtualPhotoAlbumID stringValue]]];
 	[params appendFormat:@"&NewAlbumName=%@", [BuddyUtility encodeValue:NewAlbumName]];
 	[params appendFormat:@"&NewAppTag=%@", [BuddyUtility encodeValue:NewAppTag]];
 	[params appendString:@"&RESERVED="];
@@ -1071,6 +1071,16 @@ static NSString * const BuddySDKHeaderValue = @"Platform=iOS;Version=0.1.0";
 	[self makeRequest:@"Game_Score_GetBoardHighScores" params:params state:state callback:callback];
 }
 
+- (void)Game_Score_GetBoardLowScores:(NSString *)ScoreBoardName RecordLimit:(NSNumber *)RecordLimit RESERVED:(NSString *)RESERVED state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonString))callback
+{
+	NSMutableString *params = [BuddyUtility setParams:@"Game_Score_GetBoardLowScores" appName:client.appName appPassword:client.appPassword];
+
+	[params appendFormat:@"&ScoreBoardName=%@", [BuddyUtility encodeValue:ScoreBoardName]];
+	[params appendFormat:@"&RecordLimit=%@", [BuddyUtility encodeValue:[RecordLimit stringValue]]];
+	[params appendString:@"&RESERVED="];
+	[self makeRequest:@"Game_Score_GetBoardLowScores" params:params state:state callback:callback];
+}
+
 - (void)Game_Score_GetScoresForUser:(NSString *)UserTokenOrID RecordLimit:(NSNumber *)RecordLimit RESERVED:(NSString *)RESERVED state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonString))callback
 {
 	NSMutableString *params = [BuddyUtility setParams:@"Game_Score_GetScoresForUser" appName:client.appName appPassword:client.appPassword];
@@ -1361,6 +1371,19 @@ static NSString * const BuddySDKHeaderValue = @"Platform=iOS;Version=0.1.0";
 	[self makeRequest:@"MetaData_UserMetaDataValue_Sum" params:params state:state callback:callback];
 }
 
+- (void)MetaData_UserMetaDataValue_BatchSet:(NSString *)UserToken UserMetaKeyCollection:(NSString *)MetaKeys UserMetaValueCollection:(NSString *)MetaValues MetaLatitude:(double)MetaLatitude MetaLongitude:(double)MetaLongitude ApplicationTag:(NSString *)ApplicationTag RESERVED:(NSString *)RESERVED state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
+{
+	NSMutableString *params = [BuddyUtility setParams:@"MetaData_UserMetaDataValue_BatchSet" appName:client.appName appPassword:client.appPassword userToken:(NSString *)UserToken];
+
+	[params appendFormat:@"&UserMetaKeyCollection=%@", [BuddyUtility encodeValue:MetaKeys]];
+	[params appendFormat:@"&UserMetaValueCollection=%@", [BuddyUtility encodeValue:MetaValues]];
+	[params appendFormat:@"&MetaLatitude=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%f", MetaLatitude]]];
+	[params appendFormat:@"&MetaLongitude=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%f", MetaLongitude]]];
+	[params appendFormat:@"&ApplicationTag=%@", [BuddyUtility encodeValue:ApplicationTag]];
+	[params appendString:@"&RESERVED="];
+	[self makeRequest:@"MetaData_UserMetaDataValue_BatchSet" params:params state:state callback:callback];
+}
+
 - (void)MetaData_ApplicationMetaDataCounter_Decrement:(NSString *)SocketMetaKey DecrementValueAmount:(NSString *)DecrementValueAmount MetaLatitude:(double)MetaLatitude MetaLongitude:(double)MetaLongitude ApplicationTag:(NSString *)ApplicationTag RESERVED:(NSString *)RESERVED state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonString))callback
 {
 	NSMutableString *params = [BuddyUtility setParams:@"MetaData_ApplicationMetaDataCounter_Decrement" appName:client.appName appPassword:client.appPassword];
@@ -1550,6 +1573,101 @@ static NSString * const BuddySDKHeaderValue = @"Platform=iOS;Version=0.1.0";
 
 	[params appendString:@"&RESERVED="];
 	[self makeRequest:@"Application_Metrics_GetStats" params:params state:state callback:callback];
+}
+
+// Startups
+- (void)StartupData_Location_GetMetroList:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback
+{
+	NSMutableString *params = [BuddyUtility setParams:@"StartupData_Location_GetMetroList" appName:client.appName appPassword:client.appPassword];
+
+	[self makeRequest:@"StartupData_Location_GetMetroList" params:params state:state callback:callback];
+}
+
+- (void)StartupData_Location_Search:(NSString *)UserToken SearchDistance:(NSString *)SearchDistance Latitude:(double)Latitude Longitude:(double)Longitude RecordLimit:(NSNumber *)RecordLimit SearchName:(NSString *)SearchName state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback
+{
+	NSMutableString *params = [BuddyUtility setParams:@"StartupData_Location_Search" appName:client.appName appPassword:client.appPassword userToken:(NSString *)UserToken];
+
+	[params appendFormat:@"&SearchDistance=%@", [BuddyUtility encodeValue:SearchDistance]];
+	[params appendFormat:@"&Latitude=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%f", Latitude]]];
+	[params appendFormat:@"&Longitude=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%f", Longitude]]];
+	[params appendFormat:@"&RecordLimit=%@", [BuddyUtility encodeValue:[RecordLimit stringValue]]];
+	[params appendFormat:@"&SearchName=%@", [BuddyUtility encodeValue:SearchName]];
+
+	[self makeRequest:@"StartupData_Location_Search" params:params state:state callback:callback];
+}
+
+- (void)StartupData_Location_GetFromMetroArea:(NSString *)UserToken MetroName:(NSString *)MetroName RecordLimit:(int)RecordLimit state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback
+{
+	NSMutableString *params = [BuddyUtility setParams:@"StartupData_Location_GetFromMetroArea" appName:client.appName appPassword:client.appPassword userToken:(NSString *)UserToken];
+
+	[params appendFormat:@"&MetroName=%@", [BuddyUtility encodeValue:MetroName]];
+	[params appendFormat:@"&RecordLimit=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%d", RecordLimit]]];
+
+	[self makeRequest:@"StartupData_Location_GetFromMetroArea" params:params state:state callback:callback];
+}
+
+// Commerce
+- (void)Commerce_Store_GetAllItems:(NSString *)UserToken state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback
+{
+	NSMutableString *params = [BuddyUtility setParams:@"Commerce_Store_GetAllItems" appName:client.appName appPassword:client.appPassword userToken:(NSString *)UserToken];
+
+	[params appendString:@"&RESERVED="];
+
+	[self makeRequest:@"Commerce_Store_GetAllItems" params:params state:state callback:callback];
+}
+
+- (void)Commerce_Store_GetActiveItems:(NSString *)UserToken state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
+{
+	NSMutableString *params = [BuddyUtility setParams:@"Commerce_Store_GetActiveItems" appName:client.appName appPassword:client.appPassword userToken:(NSString *)UserToken];
+
+	[params appendString:@"&RESERVED="];
+
+	[self makeRequest:@"Commerce_Store_GetActiveItems" params:params state:state callback:callback];
+}
+
+- (void)Commerce_Store_GetFreeItems:(NSString *)UserToken state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback
+{
+	NSMutableString *params = [BuddyUtility setParams:@"Commerce_Store_GetFreeItems" appName:client.appName appPassword:client.appPassword userToken:(NSString *)UserToken];
+
+	[params appendString:@"&RESERVED="];
+
+	[self makeRequest:@"Commerce_Store_GetFreeItems" params:params state:state callback:callback];
+}
+
+- (void)Commerce_Receipt_Save:(NSString *)UserToken ReceiptData:(NSString *)ReceiptData CustomTransactionID:(NSString *)CustomTransactionID AppData:(NSString *)AppData TotalCost:(NSString *)TotalCost TotalQuantity:(int)TotalQuantity StoreItemID:(NSString *)StoreItemID StoreName:(NSString *)StoreName state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback
+{
+	NSMutableString *params = [BuddyUtility setParams:@"Commerce_Receipt_Save" appName:client.appName appPassword:client.appPassword userToken:(NSString *)UserToken];
+
+	[params appendFormat:@"&ReceiptData=%@", [BuddyUtility encodeValue:ReceiptData]];
+	[params appendFormat:@"&CustomTransactionID=%@", [BuddyUtility encodeValue:CustomTransactionID]];
+	[params appendFormat:@"&AppData=%@", [BuddyUtility encodeValue:AppData]];
+	[params appendFormat:@"&TotalCost=%@", [BuddyUtility encodeValue:TotalCost]];
+	[params appendFormat:@"&TotalQuantity=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%d", TotalQuantity]]];
+	[params appendFormat:@"&StoreItemID=%@", [BuddyUtility encodeValue:StoreItemID]];
+	[params appendFormat:@"&StoreName=%@", [BuddyUtility encodeValue:StoreName]];
+	[params appendString:@"&RESERVED="];
+
+	[self makeRequest:@"Commerce_Receipt_Save" params:params state:state callback:callback];
+}
+
+- (void)Commerce_Receipt_GetForUserAndTransactionID:(NSString *)UserToken CustomTransactionID:(NSString *)CustomTransactionID state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback
+{
+	NSMutableString *params = [BuddyUtility setParams:@"Commerce_Receipt_GetForUserAndTransactionID" appName:client.appName appPassword:client.appPassword userToken:(NSString *)UserToken];
+
+	[params appendFormat:@"&CustomTransactionID=%@", [BuddyUtility encodeValue:CustomTransactionID]];
+	[params appendString:@"&RESERVED="];
+
+	[self makeRequest:@"Commerce_Receipt_GetForUserAndTransactionID" params:params state:state callback:callback];
+}
+
+- (void)Commerce_Receipt_GetForUser:(NSString *)UserToken FromDateTime:(NSString *)FromDateTime state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback
+{
+	NSMutableString *params = [BuddyUtility setParams:@"Commerce_Receipt_GetForUser" appName:client.appName appPassword:client.appPassword userToken:(NSString *)UserToken];
+
+	[params appendFormat:@"&FromDateTime=%@", [BuddyUtility encodeValue:FromDateTime]];
+	[params appendString:@"&RESERVED="];
+
+	[self makeRequest:@"Commerce_Receipt_GetForUser" params:params state:state callback:callback];
 }
 
 @end

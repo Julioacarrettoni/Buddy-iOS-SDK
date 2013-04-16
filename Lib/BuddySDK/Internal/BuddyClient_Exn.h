@@ -183,6 +183,88 @@
 
 @end
 
+#import "BuddyMetroArea.h"
+
+@interface BuddyMetroArea()
+
+@property (readonly, nonatomic, assign) BuddyClient *client;
+@property (readonly, nonatomic, assign) BuddyAuthenticatedUser *authUser;
+
+- (id)initMetroArea:(BuddyClient *)client 
+               user:(BuddyAuthenticatedUser *)authUser
+   metroAreaDetails:(NSDictionary*)data;
+@end
+
+
+#import "BuddyStartup.h"
+
+@interface BuddyStartup()
+
+@property (readonly, nonatomic, assign) BuddyClient *client;
+@property (readonly, nonatomic, assign) BuddyAuthenticatedUser *authUser;
+
+- (id)initStartup:(BuddyClient *)client 
+        authUser:(BuddyAuthenticatedUser *)authUser
+   startupDetails:(NSDictionary*)data;
+@end
+
+
+#import "BuddyStartups.h"
+
+@interface BuddyStartups ()
+
+@property (readonly, nonatomic, assign) BuddyClient *client;
+@property (readonly, nonatomic, assign) BuddyAuthenticatedUser *authUser;
+
+- (id)initWithAuthUser:(BuddyClient *)client
+			  authUser:(BuddyAuthenticatedUser *)authUser;
+
+- (NSArray *)makeBuddyStartupList:(NSArray *)data;
+
+- (NSArray *)makeBuddyMetroAreaList:(NSArray *)data;
+
+@end
+
+
+#import "BuddyStoreItem.h"
+
+@interface BuddyStoreItem ()
+
+@property (readonly, nonatomic, assign) BuddyClient *client;
+@property (readonly, nonatomic, assign) BuddyAuthenticatedUser *authUser;
+
+- (id)initWithAuthUser:(BuddyClient *)client
+              authUser:(BuddyAuthenticatedUser *)authUser
+      storeItemDetails:(NSDictionary*)data;
+
+@end
+
+#import "BuddyReceipt.h"
+
+@interface BuddyReceipt ()
+
+@property (readonly, nonatomic, assign) BuddyClient *client;
+@property (readonly, nonatomic, assign) BuddyAuthenticatedUser *authUser;
+
+- (id)initWithAuthUser:(BuddyClient *)client
+              authUser:(BuddyAuthenticatedUser *)authUser
+        receiptDetails:(NSDictionary*)data;
+
+@end
+
+#import "BuddyCommerce.h"
+
+@interface BuddyCommerce ()
+
+@property (readonly, nonatomic, assign) BuddyClient *client;
+@property (readonly, nonatomic, assign) BuddyAuthenticatedUser *authUser;
+
+- (id)initWithAuthUser:(BuddyClient *)client
+              authUser:(BuddyAuthenticatedUser *)authUser;
+
+- (NSArray *)makeStoreItemList:(NSArray *)data;
+
+@end
 
 #import "BuddyPlaces.h"
 

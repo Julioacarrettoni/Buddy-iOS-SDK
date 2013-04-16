@@ -54,7 +54,7 @@ typedef void (^BuddyAppMetadataFindCallback)(BuddyDictionaryResponse *response);
  */
 typedef void (^BuddyAppMetadataBatchSumCallback)(BuddyArrayResponse *response);
 
-/** Callback signature for the BuddyAppMetadataSum function. The  .result field of the BuddyMetadataSumResponse will be set to a BuddyMetadataSum instance (containing the sum of all the found metadata item values requested) if the request was successful (BuddyMetadataSumResponse.isCompleted == TRUE and data was found on the server) otherwise it will be nil. If there was an exception or error (e.g. unknown server response or invalid data) the response.exception field will be set to an exception instance and the raw response from the server, if any, will be held in the response.dataResult field.
+/** Callback signature for the BuddyAppMetadataSum function. The .result field of the BuddyMetadataSumResponse will be set to a BuddyMetadataSum instance (containing the sum of all the found metadata item values requested) if the request was successful (BuddyMetadataSumResponse.isCompleted == TRUE and data was found on the server) otherwise it will be nil. If there was an exception or error (e.g. unknown server response or invalid data) the response.exception field will be set to an exception instance and the raw response from the server, if any, will be held in the response.dataResult field.
  */
 typedef void (^BuddyAppMetadataSumCallback)(BuddyMetadataSumResponse *response);
 
@@ -107,7 +107,7 @@ typedef void (^BuddyAppMetadataSumCallback)(BuddyMetadataSumResponse *response);
 /// </summary>
 /// <param name="key">The key to use to reference the metadata item.</param>
 /// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
-/// <param name="callback">The callback to call on success or error. The  .result field of the BuddyMetadataItemResponse will be set to a BuddyMetadataItem instance for the requested key if successful (BuddyMetadataItemResponse.isCompleted == TRUE and data was found on the server) otherwise it will be nil.</param>
+/// <param name="callback">The callback to call on success or error. The .result field of the BuddyMetadataItemResponse will be set to a BuddyMetadataItem instance for the requested key if successful (BuddyMetadataItemResponse.isCompleted == TRUE and data was found on the server) otherwise it will be nil.</param>
 
 - (void)get:(NSString *)key
       state:(NSObject *)state
@@ -224,7 +224,7 @@ updatedMinutesAgo:(NSNumber *)updatedMinutesAgo
 /// <param name="updatedMinutesAgo">Optionally sum only on items that have been updated a number of minutes ago, can be nil.</param>
 /// <param name="withAppTag">Optionally sum only items that have a certain application tag, can be nil.</param>
 /// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
-/// <param name="callback">The callback to call on success or error. The  .result field of the BuddyMetadataSumResponse will be a BuddyMetadataSum instance (containing the sum of all the found metadata item values requested) if the request was successful (BuddyMetadataSumResponse.isCompleted == TRUE and data was found on the server) otherwise it will be nil.</param>
+/// <param name="callback">The callback to call on success or error. The .result field of the BuddyMetadataSumResponse will be a BuddyMetadataSum instance (containing the sum of all the found metadata item values requested) if the request was successful (BuddyMetadataSumResponse.isCompleted == TRUE and data was found on the server) otherwise it will be nil.</param>
 
 - (void)   sum:(NSString *)forKeys
 withinDistance:(NSNumber *)withinDistance
@@ -240,7 +240,7 @@ updatedMinutesAgo:(NSNumber *)updatedMinutesAgo
 /// need to be numbers or floats, otherwise this method will fail.
 /// </summary>
 /// <param name="forKeys">The key to use to filter the items that need to be summed. Is always treated as a wildcard.</param>
-/// <param name="callback">The callback to call on success or error. The  .result field of the BuddyMetadataSumResponse will be a BuddyMetadataSum instance (containing the sum of all the found metadata item values requested) if the request was successful (BuddyMetadataSumResponse.isCompleted == TRUE and data was found on the server) otherwise it will be nil.</param>
+/// <param name="callback">The callback to call on success or error. The .result field of the BuddyMetadataSumResponse will be a BuddyMetadataSum instance (containing the sum of all the found metadata item values requested) if the request was successful (BuddyMetadataSumResponse.isCompleted == TRUE and data was found on the server) otherwise it will be nil.</param>
 
 - (void)sum:(NSString *)forKeys
    callback:(BuddyAppMetadataSumCallback)callback;

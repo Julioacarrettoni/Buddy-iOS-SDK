@@ -5,7 +5,7 @@
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0 
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
@@ -14,24 +14,21 @@
  * the License.
  */
 
-//  ClientServicePlainText.h
-
-
 #import <Foundation/Foundation.h>
 #import "AFHTTPClient.h"
-//#define _AFNETWORKING_ALLOW_INVALID_SSL_CERTIFICATES_
+// #define _AFNETWORKING_ALLOW_INVALID_SSL_CERTIFICATES_
 
 
-static NSString * const kBuddyAPIBaseURLSSL = @"https://webservice.buddyplatform.com/Service/v1/BuddyService.ashx" ;
-static NSString * const kBuddyAPIBaseURL = @"http://webservice.buddyplatform.com/Service/v1/BuddyService.ashx" ;
+static NSString *const kBuddyAPIBaseURLSSL = @"https://webservice.buddyplatform.com/Service/v1/BuddyService.ashx";
+static NSString *const kBuddyAPIBaseURL = @"http://webservice.buddyplatform.com/Service/v1/BuddyService.ashx";
 
 @interface ClientServicePlainText : AFHTTPClient
 
 + (ClientServicePlainText *)sharedClient;
 
 
--(void) enableNetworkActivityDisplay;
--(void) disableNetworkActivityDisplay;
--(void) setSSLType: (BOOL) ssl;
+- (void)enableNetworkActivityDisplay;
+- (void)disableNetworkActivityDisplay;
+- (void)setSSLType:(BOOL)ssl;
 
 @end

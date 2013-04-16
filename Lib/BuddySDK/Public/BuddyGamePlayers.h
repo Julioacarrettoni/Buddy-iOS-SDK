@@ -63,14 +63,14 @@ typedef void (^BuddyPlayersFindCallback)(BuddyArrayResponse *response);
 /// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
-- (void)add:(NSString *)name
-      board:(NSString *)board
-       rank:(NSString *)rank
-   latitude:(double)latitude
-  longitude:(double)longitude
-     appTag:(NSString *)appTag
-      state:(NSObject *)state
-   callback:(BuddyPlayersAddCallback)callback;
+- (void)  add:(NSString *)name
+		board:(NSString *)board
+		 rank:(NSString *)rank
+	 latitude:(double)latitude
+	longitude:(double)longitude
+	   appTag:(NSString *)appTag
+		state:(NSObject *)state
+	 callback:(BuddyPlayersAddCallback)callback;
 
 /// <summary>
 /// Creates a new game Player object for an existing user in Buddy.
@@ -78,8 +78,8 @@ typedef void (^BuddyPlayersFindCallback)(BuddyArrayResponse *response);
 /// <param name="name">The name of the new player.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
-- (void)add:(NSString *)name
-   callback:(BuddyPlayersAddCallback)callback;
+- (void) add:(NSString *)name
+	callback:(BuddyPlayersAddCallback)callback;
 
 /// <summary>
 /// Updates one or more fields of an existing Player object which was previously created.
@@ -94,13 +94,13 @@ typedef void (^BuddyPlayersFindCallback)(BuddyArrayResponse *response);
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)update:(NSString *)name
-         board:(NSString *)board
-          rank:(NSString *)rank
-      latitude:(double)latitude
-     longitude:(double)longitude
-        appTag:(NSString *)appTag
-         state:(NSObject *)state
-      callback:(BuddyPlayersUpdateCallback)callback;
+		 board:(NSString *)board
+		  rank:(NSString *)rank
+	  latitude:(double)latitude
+	 longitude:(double)longitude
+		appTag:(NSString *)appTag
+		 state:(NSObject *)state
+	  callback:(BuddyPlayersUpdateCallback)callback;
 
 /// <summary>
 /// Updates one or more fields of an existing Player object which was previously created.
@@ -108,7 +108,7 @@ typedef void (^BuddyPlayersFindCallback)(BuddyArrayResponse *response);
 /// <param name="name">The name of the new player.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 - (void)update:(NSString *)name
-      callback:(BuddyPlayersUpdateCallback)block;
+	  callback:(BuddyPlayersUpdateCallback)block;
 
 /// <summary>
 /// Delete the player object for this user.
@@ -117,7 +117,7 @@ typedef void (^BuddyPlayersFindCallback)(BuddyArrayResponse *response);
 /// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 - (void)delete:(NSObject *)state
-      callback:(BuddyPlayersDeleteCallback)callback;
+	  callback:(BuddyPlayersDeleteCallback)callback;
 
 /// <summary>
 /// Get all the player info for this user.
@@ -126,7 +126,7 @@ typedef void (^BuddyPlayersFindCallback)(BuddyArrayResponse *response);
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyGamePlayerResponse will be a BuddyGamePlayer instance containing player info for this user if the request was successful (BuddyGamePlayerResponse.isCompleted == TRUE and data was found on the server) or otherwise nil.</param>
 
 - (void)getInfo:(NSObject *)state
-       callback:(BuddyPlayersGetInfoCallback)callback;
+	   callback:(BuddyPlayersGetInfoCallback)callback;
 
 /// <summary>
 /// Searches for Player objects stored in the Buddy system. Searches can optionally be performed based on location.
@@ -141,14 +141,14 @@ typedef void (^BuddyPlayersFindCallback)(BuddyArrayResponse *response);
 /// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will contain an NSArray of BuddyGamePlayer items if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
-- (void)find:(NSNumber *)searchDistanceInMeters
-    latitude:(double)latitude
-   longitude:(double)longitude
- recordLimit:(NSNumber *)recordLimit
-              boardName:(NSString *)boardName
-onlyForLastNumberOfDays:(NSNumber *)onlyForLastNumberOfDays
-                 appTag:(NSString *)appTag
-                  state:(NSObject *)state
-               callback:(BuddyPlayersFindCallback)callback;
+- (void)               find:(NSNumber *)searchDistanceInMeters
+				   latitude:(double)latitude
+				  longitude:(double)longitude
+				recordLimit:(NSNumber *)recordLimit
+				  boardName:(NSString *)boardName
+	onlyForLastNumberOfDays:(NSNumber *)onlyForLastNumberOfDays
+					 appTag:(NSString *)appTag
+					  state:(NSObject *)state
+				   callback:(BuddyPlayersFindCallback)callback;
 
 @end
