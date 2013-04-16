@@ -12,3 +12,7 @@ WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 License for the specific language governing permissions and limitations under
 the License.
 
+Asynchronous networking support is provided by AFNetworking, a networking library for 
+iOS and Mac OS X.  It is open source software, written by\copyright by Mattt Thompson 
+and Scott Raymond (the extra 't' is intentional), and created in the development
+of Gowalla for iPhone.  It is available at https://github.com/AFNetworking/AFNetworking.
