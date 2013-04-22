@@ -32,7 +32,7 @@
 /// <summary>
 /// Gets the ID by which external sources identify the item by.
 /// </summary>
-@property (readonly, nonatomic, strong) NSString *customItemID;
+@property (readonly, nonatomic, strong) NSString *customItemId;
 
 /// <summary>
 /// Gets the flag indicating if the item is currently available for sale.
@@ -82,6 +82,9 @@
 /// <summary>
 /// Gets the ID of the store item.
 /// </summary>
-@property (readonly, nonatomic, strong) NSNumber *storeItemID;
+@property (readonly, nonatomic, strong) NSNumber *storeItemId;
+
+@property (readonly, nonatomic, strong) NSString *customItemID DEPRECATED_ATTRIBUTE;
+@property (readonly, nonatomic, strong) NSNumber *storeItemID DEPRECATED_ATTRIBUTE;
 
 @end

@@ -26,7 +26,7 @@
 /// <summary>
 /// Gets the ID of the retrieved receipt history item.
 /// </summary>
-@property (readonly, nonatomic, strong) NSNumber *receiptHistoryID;
+@property (readonly, nonatomic, strong) NSNumber *receiptHistoryId;
 
 /// <summary>
 /// Gets the name of the store in which this receipt was saved.
@@ -36,7 +36,7 @@
 /// <summary>
 /// Gets the ID of the user this receipt was saved for.
 /// </summary>
-@property (readonly, nonatomic, strong) NSNumber *userID;
+@property (readonly, nonatomic, strong) NSNumber *userId;
 
 /// <summary>
 /// Gets the DateTime this receipt was saved or modified.
@@ -66,7 +66,7 @@
 /// <summary>
 /// Gets the customTransactionID that was saved for this receipt.
 /// </summary>
-@property (readonly, nonatomic, strong) NSString *historyCustomTransactionID;
+@property (readonly, nonatomic, strong) NSString *historyCustomTransactionId;
 
 /// <summary>
 /// Gets the raw verification data associated with the receipt as returned from the underlying Facebook or Apple servers.
@@ -76,6 +76,12 @@
 /// <summary>
 /// Gets the Buddy StoreItemID of the item purchased in this transaction.
 /// </summary>
-@property (readonly, nonatomic, strong) NSNumber *storeItemID;
+@property (readonly, nonatomic, strong) NSNumber *storeItemId;
+
+
+@property (readonly, nonatomic, strong) NSNumber *receiptHistoryID DEPRECATED_ATTRIBUTE;
+@property (readonly, nonatomic, strong) NSNumber *storeItemID DEPRECATED_ATTRIBUTE;
+@property (readonly, nonatomic, strong) NSString *historyCustomTransactionID DEPRECATED_ATTRIBUTE;
+@property (readonly, nonatomic, strong) NSNumber *userID DEPRECATED_ATTRIBUTE;
 
 @end

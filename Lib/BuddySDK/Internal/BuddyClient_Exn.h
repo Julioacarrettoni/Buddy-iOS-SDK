@@ -88,7 +88,7 @@
 				comment:(NSString *)comment
 				 appTag:(NSString *)appTag
 				addedOn:(NSDate *)addedOn
-				photoID:(NSNumber *)photoId
+				photoId:(NSNumber *)photoId
 				   user:(BuddyUser *)user;
 
 - (id)initPicturePublic:(BuddyClient *)client
@@ -191,7 +191,7 @@
 @property (readonly, nonatomic, assign) BuddyAuthenticatedUser *authUser;
 
 - (id)initMetroArea:(BuddyClient *)client 
-               user:(BuddyAuthenticatedUser *)authUser
+           authUser:(BuddyAuthenticatedUser *)authUser
    metroAreaDetails:(NSDictionary*)data;
 @end
 

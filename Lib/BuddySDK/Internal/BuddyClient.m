@@ -702,7 +702,7 @@
 														   } copy]];
 }
 
-- (void)CheckIfUsernameExists:(NSString *)userName
+- (void)checkIfUsernameExists:(NSString *)userName
 						state:(NSObject *)state
 					 callback:(void (^)(BuddyBoolResponse *response))block
 {
@@ -737,20 +737,20 @@
 														  } copy]];
 }
 
-- (void)StartSession:(BuddyAuthenticatedUser *)user
+- (void)startSession:(BuddyAuthenticatedUser *)user
 		 sessionName:(NSString *)sessionName
 			callback:(void (^)(BuddyStringResponse *response))block
 {
-	[self StartSession:user sessionName:sessionName appTag:nil state:nil callback:block];
+	[self startSession:user sessionName:sessionName appTag:nil state:nil callback:block];
 }
 
-- (void)StartSession:(BuddyAuthenticatedUser *)user
+- (void)startSession:(BuddyAuthenticatedUser *)user
 		 sessionName:(NSString *)sessionName
 			  appTag:(NSString *)appTag
 			   state:(NSObject *)state
 			callback:(void (^)(BuddyStringResponse *response))block
 {
-	[self checkUser:user name:@"StartSession"];
+    [self checkUser:user name:@"StartSession"];
 
 	if ([BuddyUtility isNilOrEmpty:sessionName])
 	{
@@ -775,14 +775,14 @@
 												} copy]];
 }
 
-- (void)EndSession:(BuddyAuthenticatedUser *)user
+- (void)endSession:(BuddyAuthenticatedUser *)user
 		 sessionId:(NSString *)sessionId
 		  callback:(void (^)(BuddyBoolResponse *response))block
 {
-	[self EndSession:user sessionId:sessionId appTag:nil state:nil callback:block];
+	[self endSession:user sessionId:sessionId appTag:nil state:nil callback:block];
 }
 
-- (void)EndSession:(BuddyAuthenticatedUser *)user
+- (void)endSession:(BuddyAuthenticatedUser *)user
 		 sessionId:(NSString *)sessionId
 			appTag:(NSString *)appTag
 			 state:(NSObject *)state
@@ -821,16 +821,16 @@
 	}
 }
 
-- (void)RecordSessionMetric:(BuddyAuthenticatedUser *)user
+- (void)recordSessionMetric:(BuddyAuthenticatedUser *)user
 				  sessionId:(NSString *)sessionId
 				  metricKey:(NSString *)metricKey
 				metricValue:(NSString *)metricValue
 				   callback:(void (^)(BuddyBoolResponse *response))block
 {
-	[self RecordSessionMetric:user sessionId:sessionId metricKey:metricKey metricValue:metricValue appTag:nil state:nil callback:block];
+	[self recordSessionMetric:user sessionId:sessionId metricKey:metricKey metricValue:metricValue appTag:nil state:nil callback:block];
 }
 
-- (void)RecordSessionMetric:(BuddyAuthenticatedUser *)user
+- (void)recordSessionMetric:(BuddyAuthenticatedUser *)user
 				  sessionId:(NSString *)sessionId
 				  metricKey:(NSString *)metricKey
 				metricValue:(NSString *)metricValue
@@ -838,7 +838,7 @@
 					  state:(NSObject *)state
 				   callback:(void (^)(BuddyBoolResponse *response))block
 {
-	[self checkUser:user name:@"RecordSessionMetric"];
+    [self checkUser:user name:@"RecordSessionMetric"];
 
 	if ([BuddyUtility isNilOrEmpty:metricKey])
 	{
@@ -860,4 +860,62 @@
 													   } copy]];
 }
 
+- (void)CheckIfUsernameExists:(NSString *)userName
+						state:(NSObject *)state
+					 callback:(void (^)(BuddyBoolResponse *response))block
+{
+    [self checkIfUsernameExists:userName state:state callback:block];
+}
+
+- (void)StartSession:(BuddyAuthenticatedUser *)user
+		 sessionName:(NSString *)sessionName
+			callback:(void (^)(BuddyStringResponse *response))block
+{
+	[self startSession:user sessionName:sessionName appTag:nil state:nil callback:block];
+}
+
+- (void)StartSession:(BuddyAuthenticatedUser *)user
+		 sessionName:(NSString *)sessionName
+			  appTag:(NSString *)appTag
+			   state:(NSObject *)state
+			callback:(void (^)(BuddyStringResponse *response))block
+{
+	[self startSession:user sessionName:sessionName appTag:appTag state:state callback:block];
+}
+
+- (void)EndSession:(BuddyAuthenticatedUser *)user
+		 sessionId:(NSString *)sessionId
+		  callback:(void (^)(BuddyBoolResponse *response))block
+{
+	[self endSession:user sessionId:sessionId appTag:nil state:nil callback:block];
+}
+
+- (void)EndSession:(BuddyAuthenticatedUser *)user
+		 sessionId:(NSString *)sessionId
+			appTag:(NSString *)appTag
+			 state:(NSObject *)state
+		  callback:(void (^)(BuddyBoolResponse *response))block
+{
+	[self endSession:user sessionId:sessionId appTag:appTag state:state callback:block];
+}
+
+- (void)RecordSessionMetric:(BuddyAuthenticatedUser *)user
+				  sessionId:(NSString *)sessionId
+				  metricKey:(NSString *)metricKey
+				metricValue:(NSString *)metricValue
+				   callback:(void (^)(BuddyBoolResponse *response))block
+{
+	[self recordSessionMetric:user sessionId:sessionId metricKey:metricKey metricValue:metricValue appTag:nil state:nil callback:block];
+}
+
+- (void)RecordSessionMetric:(BuddyAuthenticatedUser *)user
+				  sessionId:(NSString *)sessionId
+				  metricKey:(NSString *)metricKey
+				metricValue:(NSString *)metricValue
+					 appTag:(NSString *)appTag
+					  state:(NSObject *)state
+				   callback:(void (^)(BuddyBoolResponse *response))block
+{
+	[self recordSessionMetric:user sessionId:sessionId metricKey:metricKey metricValue:metricValue appTag:appTag state:state callback:block];
+}
 @end

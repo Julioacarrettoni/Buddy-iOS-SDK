@@ -25,7 +25,7 @@
 #define kHttpGetTimeout  60
 #define kHttpPostTimeout 60
 
-static NSString *const BuddySDKHeaderValue = @"iOS,v0.1.2";
+static NSString *const BuddySDKHeaderValue = @"iOS,v0.1.3";
 
 @implementation BuddyWebWrapper
 

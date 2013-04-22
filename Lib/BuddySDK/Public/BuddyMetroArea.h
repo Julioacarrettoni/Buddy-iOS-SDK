@@ -26,12 +26,12 @@
 /// <summary>
 /// Gets the icon URL an icon for the area.
 /// </summary>
-@property (readonly, nonatomic, strong) NSString *iconURL;
+@property (readonly, nonatomic, strong) NSString *iconUrl;
 
 /// <summary>
 /// Gets the image URL an image for the area.
 /// </summary>
-@property (readonly, nonatomic, strong) NSString *imageURL;
+@property (readonly, nonatomic, strong) NSString *imageUrl;
 
 /// <summary>
 /// Gets the name of the supported metro area.
@@ -43,4 +43,6 @@
 /// </summary>
 @property (readonly, nonatomic, strong) NSNumber *startupCount;
 
+@property (readonly, nonatomic, strong) NSString *iconURL DEPRECATED_ATTRIBUTE;
+@property (readonly, nonatomic, strong) NSString *imageURL DEPRECATED_ATTRIBUTE;
 @end

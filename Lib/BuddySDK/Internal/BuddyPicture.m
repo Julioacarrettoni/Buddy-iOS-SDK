@@ -54,7 +54,7 @@
 							comment:[BuddyUtility stringFromString:[data objectForKey:@"photoComment"]]
 							 appTag:[BuddyUtility stringFromString:[data objectForKey:@"applicationTag"]]
 							addedOn:[BuddyUtility dateFromString:[data objectForKey:@"photoAdded"]]
-							photoID:[BuddyUtility NSNumberFromStringInt:[data objectForKey:@"photoID"]]
+							photoId:[BuddyUtility NSNumberFromStringInt:[data objectForKey:@"photoID"]]
 							   user:(BuddyUser *)localAuthUser];
 	if (!self)
 	{
@@ -174,8 +174,8 @@
 																	NSString *dataResult = callbackParams.dataResult;
 																	if (dataResult != nil && [BuddyUtility isAStandardError:dataResult] == FALSE)
 																	{
-																		NSNumber *picID = [NSNumber numberWithInt:[dataResult intValue]];
-																		[_self.authUser getPicture:picID state:state callback:callback];
+																		NSNumber *pictId = [NSNumber numberWithInt:[dataResult intValue]];
+																		[_self.authUser getPicture:pictId state:state callback:callback];
 																	}
 																	else
 																	{

@@ -74,7 +74,7 @@
 				comment:(NSString *)comment
 				 appTag:(NSString *)appTag
 				addedOn:(NSDate *)addedOn
-				photoID:(NSNumber *)photoID
+				photoId:(NSNumber *)photoId
 				   user:(BuddyUser *)user
 {
 	[BuddyUtility checkForNilClientAndUser:client user:user name:@"BuddyPicturePublic"];
@@ -93,7 +93,7 @@
 	_appTag = (appTag == nil) ? @"" : appTag;
 	_latitude = latitude;
 	_longitude = longitude;
-	_photoId = photoID;
+	_photoId = photoId;
 	_addedOn = (addedOn == nil) ? [[NSDate alloc] init] : addedOn;
 
 	return self;

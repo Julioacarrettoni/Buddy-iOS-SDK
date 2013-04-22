@@ -22,17 +22,17 @@
 
 @synthesize client;
 @synthesize authUser;
-@synthesize receiptHistoryID;
+@synthesize receiptHistoryId;
 @synthesize storeName;
-@synthesize userID;
+@synthesize userId;
 @synthesize historyDateTime;
 @synthesize receiptData;
 @synthesize totalCost;
 @synthesize itemQuantity;
 @synthesize appData;
-@synthesize historyCustomTransactionID;
+@synthesize historyCustomTransactionId;
 @synthesize verificationResultData;
-@synthesize storeItemID;
+@synthesize storeItemId;
 
 
 - (id)initWithAuthUser:(BuddyClient *)localClient
@@ -50,17 +50,17 @@
 	client = localClient;
 	authUser = localAuthUser;
 
-	receiptHistoryID = [BuddyUtility NSNumberFromStringLong:[data objectForKey:@"receiptHistoryID"]];
+	receiptHistoryId = [BuddyUtility NSNumberFromStringLong:[data objectForKey:@"receiptHistoryID"]];
 	storeName = [BuddyUtility stringFromString:[data objectForKey:@"receiptEntityName"]];
-	userID = [BuddyUtility NSNumberFromStringInt:[data objectForKey:@"userID"]];
+	userId = [BuddyUtility NSNumberFromStringInt:[data objectForKey:@"userID"]];
 	historyDateTime = [BuddyUtility dateFromString:[data objectForKey:@"historyDateTime"]];
 	receiptData = [BuddyUtility stringFromString:[data objectForKey:@"receiptData"]];
 	totalCost = [BuddyUtility stringFromString:[data objectForKey:@"totalCost"]];
 	itemQuantity = [BuddyUtility intFromString:[data objectForKey:@"itemQuantity"]];
 	appData = [BuddyUtility stringFromString:[data objectForKey:@"appData"]];
-	historyCustomTransactionID = [BuddyUtility stringFromString:[data objectForKey:@"historyCustomTransactionID"]];
+	historyCustomTransactionId = [BuddyUtility stringFromString:[data objectForKey:@"historyCustomTransactionID"]];
 
-	storeItemID = [BuddyUtility NSNumberFromStringLong:[data objectForKey:@"storeItemID"]];
+	storeItemId = [BuddyUtility NSNumberFromStringLong:[data objectForKey:@"storeItemID"]];
 
 	verificationResultData = @"";
 
@@ -80,6 +80,26 @@
 {
 	client = nil;
 	authUser = nil;
+}
+
+-(NSNumber *)receiptHistoryID
+{
+    return self->receiptHistoryId;
+}
+
+-(NSNumber *)storeItemID
+{
+    return self->storeItemId;
+}
+
+-(NSString *)historyCustomTransactionID
+{
+    return self->historyCustomTransactionId;
+}
+
+-(NSNumber *)userID
+{
+    return self->userId;
 }
 
 @end

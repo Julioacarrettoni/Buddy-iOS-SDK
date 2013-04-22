@@ -22,13 +22,13 @@
 
 @synthesize client;
 @synthesize authUser;
-@synthesize iconURL;
-@synthesize imageURL;
+@synthesize iconUrl;
+@synthesize imageUrl;
 @synthesize metroName;
 @synthesize startupCount;
 
 - (id) initMetroArea:(BuddyClient *)localClient
-				user:(BuddyAuthenticatedUser *)localAuthUser
+            authUser:(BuddyAuthenticatedUser *)localAuthUser
 	metroAreaDetails:(NSDictionary *)data
 {
 	[BuddyUtility checkForNilClientAndUser:localClient user:localAuthUser name:@"BuddyMetroArea"];
@@ -48,8 +48,8 @@
 		return self;
 	}
 
-	iconURL  = [BuddyUtility stringFromString:[data objectForKey:@"iconURL"]];
-	imageURL  = [BuddyUtility stringFromString:[data objectForKey:@"imageURL"]];
+	iconUrl  = [BuddyUtility stringFromString:[data objectForKey:@"iconURL"]];
+	imageUrl  = [BuddyUtility stringFromString:[data objectForKey:@"imageURL"]];
 	metroName = [BuddyUtility stringFromString:[data objectForKey:@"metroName"]];
 	startupCount = [BuddyUtility NSNumberFromStringInt:[data objectForKey:@"startupCount"]];
 
@@ -60,6 +60,16 @@
 {
 	client = nil;
 	authUser = nil;
+}
+
+-(NSString *)imageURL
+{
+    return self->imageUrl;
+}
+
+-(NSString *)iconURL
+{
+    return self->iconUrl;
 }
 
 @end

@@ -82,7 +82,7 @@
 			NSDictionary *dict = (NSDictionary *)[data objectAtIndex:(unsigned int)j];
 			if (dict != nil && [dict count] > 0)
 			{
-				BuddyMetroArea *metroArea = [[BuddyMetroArea alloc] initMetroArea:client user:authUser metroAreaDetails:dict];
+				BuddyMetroArea *metroArea = [[BuddyMetroArea alloc] initMetroArea:client authUser:authUser metroAreaDetails:dict];
 				if (metroArea)
 				{
 					[metroAreaArray addObject:metroArea];

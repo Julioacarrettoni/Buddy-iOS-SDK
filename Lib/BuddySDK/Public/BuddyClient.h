@@ -359,9 +359,9 @@ typedef void (^BuddyRecordSessionMetricCallback)(BuddyBoolResponse *response);
 /// <param name="userName">The name to check for, can't be null or empty.</param>
 /// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE if the user name exists, FALSE otherwise.</param>
-- (void)CheckIfUsernameExists:(NSString *)userName
-						state:(NSObject *)state
-					 callback:(BuddyClientCheckIfUsernameExistsCallback)callback;
+- (void)checkIfUsernameExists:(NSString *)userName
+                        state:(NSObject *)state
+                     callback:(BuddyClientCheckIfUsernameExistsCallback)callback;
 
 /// <summary>
 /// Starts an analytics session
@@ -371,11 +371,11 @@ typedef void (^BuddyRecordSessionMetricCallback)(BuddyBoolResponse *response);
 /// <param name="appTag">An optional custom tag to include with the session.</param>
 /// <param name="state">A  user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call upon success or error.  The .result field of BuddyStringResponse will be set to the session identifier if the request was successful otherwise nil.</param>
-- (void)StartSession:(BuddyAuthenticatedUser *)user
-		 sessionName:(NSString *)sessionName
-			  appTag:(NSString *)appTag
-			   state:(NSObject *)state
-			callback:(BuddyStartSessionCallback)callback;
+- (void)startSession:(BuddyAuthenticatedUser *)user
+         sessionName:(NSString *)sessionName
+              appTag:(NSString *)appTag
+               state:(NSObject *)state
+            callback:(BuddyStartSessionCallback)callback;
 
 /// <summary>
 /// Starts an analytics session
@@ -383,9 +383,9 @@ typedef void (^BuddyRecordSessionMetricCallback)(BuddyBoolResponse *response);
 /// <param name="user">The user that is starting this session.</param>
 /// <param name="sessionName">The name of the session.</param>
 /// <param name="callback">The callback to call upon success or error.  The .result field of BuddyStringResponse will be set to the session identifier if the request was successful otherwise nil.</param>
-- (void)StartSession:(BuddyAuthenticatedUser *)user
-		 sessionName:(NSString *)sessionName
-			callback:(BuddyStartSessionCallback)callback;
+- (void)startSession:(BuddyAuthenticatedUser *)user
+         sessionName:(NSString *)sessionName
+            callback:(BuddyStartSessionCallback)callback;
 
 /// <summary>
 /// Ends an analytics session
@@ -396,11 +396,11 @@ typedef void (^BuddyRecordSessionMetricCallback)(BuddyBoolResponse *response);
 /// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
-- (void)EndSession:(BuddyAuthenticatedUser *)user
-		 sessionId:(NSString *)sessionId
-			appTag:(NSString *)appTag
-			 state:(NSObject *)state
-		  callback:(BuddyEndSessionCallback)callback;
+- (void)endSession:(BuddyAuthenticatedUser *)user
+         sessionId:(NSString *)sessionId
+            appTag:(NSString *)appTag
+             state:(NSObject *)state
+          callback:(BuddyEndSessionCallback)callback;
 
 /// <summary>
 /// Ends an analytics session
@@ -409,9 +409,9 @@ typedef void (^BuddyRecordSessionMetricCallback)(BuddyBoolResponse *response);
 /// <param name="sessionId">The id of the session, returned from StartSessionAsync.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
-- (void)EndSession:(BuddyAuthenticatedUser *)user
-		 sessionId:(NSString *)sessionId
-		  callback:(BuddyEndSessionCallback)callback;
+- (void)endSession:(BuddyAuthenticatedUser *)user
+         sessionId:(NSString *)sessionId
+          callback:(BuddyEndSessionCallback)callback;
 
 
 /// <summary>
@@ -425,13 +425,13 @@ typedef void (^BuddyRecordSessionMetricCallback)(BuddyBoolResponse *response);
 /// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
-- (void)RecordSessionMetric:(BuddyAuthenticatedUser *)user
-				  sessionId:(NSString *)sessionId
-				  metricKey:(NSString *)metricKey
-				metricValue:(NSString *)metricValue
-					 appTag:(NSString *)appTag
-					  state:(NSObject *)state
-				   callback:(BuddyRecordSessionMetricCallback)callback;
+- (void)recordSessionMetric:(BuddyAuthenticatedUser *)user
+                  sessionId:(NSString *)sessionId
+                  metricKey:(NSString *)metricKey
+                metricValue:(NSString *)metricValue
+                     appTag:(NSString *)appTag
+                      state:(NSObject *)state
+                   callback:(BuddyRecordSessionMetricCallback)callback;
 
 /// <summary>
 /// Records a session metric value
@@ -442,17 +442,56 @@ typedef void (^BuddyRecordSessionMetricCallback)(BuddyBoolResponse *response);
 /// <param name="metricValue">The value to set.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
-- (void)RecordSessionMetric:(BuddyAuthenticatedUser *)user
-				  sessionId:(NSString *)sessionId
-				  metricKey:(NSString *)metricKey
-				metricValue:(NSString *)metricValue
-				   callback:(BuddyRecordSessionMetricCallback)callback;
+- (void)recordSessionMetric:(BuddyAuthenticatedUser *)user
+                  sessionId:(NSString *)sessionId
+                  metricKey:(NSString *)metricKey
+                metricValue:(NSString *)metricValue
+                   callback:(BuddyRecordSessionMetricCallback)callback;
 
 /// <summary>
 /// Provides access to BuddyWebService interface to enable the setting of the connection type (https/http) connection timeouts and other properties. (see BuddyWebWrapper).
 /// </summary>
 
 - (BuddyWebWrapper *)webService;
+
+
+- (void)CheckIfUsernameExists:(NSString *)userName
+                        state:(NSObject *)state
+                     callback:(BuddyClientCheckIfUsernameExistsCallback)callback DEPRECATED_ATTRIBUTE;
+
+- (void)StartSession:(BuddyAuthenticatedUser *)user
+         sessionName:(NSString *)sessionName
+              appTag:(NSString *)appTag
+               state:(NSObject *)state
+            callback:(BuddyStartSessionCallback)callback DEPRECATED_ATTRIBUTE;
+
+- (void)StartSession:(BuddyAuthenticatedUser *)user
+         sessionName:(NSString *)sessionName
+            callback:(BuddyStartSessionCallback)callback DEPRECATED_ATTRIBUTE;
+
+- (void)EndSession:(BuddyAuthenticatedUser *)user
+         sessionId:(NSString *)sessionId
+            appTag:(NSString *)appTag
+             state:(NSObject *)state
+          callback:(BuddyEndSessionCallback)callback DEPRECATED_ATTRIBUTE;
+
+- (void)EndSession:(BuddyAuthenticatedUser *)user
+         sessionId:(NSString *)sessionId
+          callback:(BuddyEndSessionCallback)callback DEPRECATED_ATTRIBUTE;
+
+- (void)RecordSessionMetric:(BuddyAuthenticatedUser *)user
+                  sessionId:(NSString *)sessionId
+                  metricKey:(NSString *)metricKey
+                metricValue:(NSString *)metricValue
+                     appTag:(NSString *)appTag
+                      state:(NSObject *)state
+                   callback:(BuddyRecordSessionMetricCallback)callback DEPRECATED_ATTRIBUTE;
+
+- (void)RecordSessionMetric:(BuddyAuthenticatedUser *)user
+                  sessionId:(NSString *)sessionId
+                  metricKey:(NSString *)metricKey
+                metricValue:(NSString *)metricValue
+                   callback:(BuddyRecordSessionMetricCallback)callback DEPRECATED_ATTRIBUTE;
 
 @end
 

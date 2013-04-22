@@ -27,7 +27,7 @@
 @synthesize client;
 @synthesize authUser;
 @synthesize appData;
-@synthesize customItemID;
+@synthesize customItemId;
 @synthesize itemAvailableFlag;
 @synthesize itemCost;
 @synthesize itemDateTime;
@@ -37,7 +37,7 @@
 @synthesize itemIconUri;
 @synthesize itemName;
 @synthesize itemPreviewUri;
-@synthesize storeItemID;
+@synthesize storeItemId;
 
 - (id)initWithAuthUser:(BuddyClient *)localClient
 			  authUser:(BuddyAuthenticatedUser *)localAuthUser
@@ -60,7 +60,7 @@
 	}
 
 	appData = [BuddyUtility stringFromString:[data objectForKey:@"appData"]];
-	customItemID = [BuddyUtility stringFromString:[data objectForKey:@"customItemID"]];
+	customItemId = [BuddyUtility stringFromString:[data objectForKey:@"customItemID"]];
 	itemAvailableFlag = [BuddyUtility boolFromString:[data objectForKey:@"itemAvailableFlag"]];
 	itemCost = [BuddyUtility stringFromString:[data objectForKey:@"itemCost"]];
 	itemDateTime = [BuddyUtility dateFromString:[data objectForKey:@"itemDateTime"]];
@@ -70,7 +70,7 @@
 	itemIconUri = [BuddyUtility stringFromString:[data objectForKey:@"itemIconUri"]];
 	itemName = [BuddyUtility stringFromString:[data objectForKey:@"itemName"]];
 	itemPreviewUri = [BuddyUtility stringFromString:[data objectForKey:@"itemPreviewUri"]];
-	storeItemID = [BuddyUtility NSNumberFromStringLong:[data objectForKey:@"storeItemID"]];
+	storeItemId = [BuddyUtility NSNumberFromStringLong:[data objectForKey:@"storeItemID"]];
 
 	return self;
 }
@@ -79,6 +79,16 @@
 {
 	client = nil;
 	authUser = nil;
+}
+
+-(NSString *)customItemID
+{
+    return self->customItemId;
+}
+
+-(NSNumber *)storeItemID
+{
+    return self->storeItemId;
 }
 
 @end
