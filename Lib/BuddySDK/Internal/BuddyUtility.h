@@ -44,6 +44,8 @@
 
 + (NSMutableString*)setParams:(NSString *)api appName:(NSString *)appName appPassword:(NSString *)appPassword userToken:(NSString *)userToken;
 
++ (NSMutableDictionary*)buildCallParams:(NSString *)appName appPassword:(NSString *)appPassword callParams:(NSDictionary*)callParams;
+
 + (NSString *)encodeValue:(NSString *)rawValue;
 
 + (NSData *)encodeToBase64:(NSData *)blob;

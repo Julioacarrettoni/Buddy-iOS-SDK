@@ -19,9 +19,10 @@
 #import "BuddyWebWrapper.h"
 #import "ClientServicePlainText.h"
 #import "AFHTTPRequestOperation.h"
+#import <UIKit/UIImage.h>
 
 #import "BuddyUtility.h"
-
+#import "BuddyFile.h"
 #define kHttpGetTimeout  60
 #define kHttpPostTimeout 60
 
@@ -128,7 +129,12 @@ static NSString * const BuddySDKHeaderValue = @"Platform=iOS;Version=0.1.1";
 	if (operation)
 	{
 		id jsonData = nil;
-		NSString *responseString = [[NSString alloc] initWithString:operation.responseString];
+                
+        NSString *responseString = @"";
+        
+        if (operation.responseString){
+            responseString = [[NSString alloc] initWithString:operation.responseString];
+        }
 
 		if ([responseString length] > 8 && [responseString hasPrefix:@"{"])
 		{
@@ -190,14 +196,19 @@ static NSString * const BuddySDKHeaderValue = @"Platform=iOS;Version=0.1.1";
 }
 
 - (void)makePostRequest:(NSString *)apiCall
-				   path:(NSString *)path
 				 params:(NSDictionary *)params
 				  state:(NSObject *)state
 			   callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonData))callback
 {
+    NSMutableDictionary* requestParams = [BuddyUtility buildCallParams:client.appName appPassword:client.appPassword callParams:params];
+    
+    // build the post path.
+    //
+    NSString* path = [NSString stringWithFormat:@"?%@", apiCall];
+    
 	[[ClientServicePlainText sharedClient] postPath:path
 											timeout:http_postTimeout
-										 parameters:params
+										 parameters:requestParams
 											success:[^(AFHTTPRequestOperation *operation, id JSON)
 													 {
 														 [self processResponse:operation apiCall:apiCall state:state callback:callback];
@@ -211,9 +222,11 @@ static NSString * const BuddySDKHeaderValue = @"Platform=iOS;Version=0.1.1";
 													 } copy]];
 }
 
+
+
 - (void)directPost:(NSString *)api path:(NSString *)path params:(NSDictionary *)params state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonString))callback
 {
-	[self makePostRequest:api path:path params:params state:state callback:callback];
+	[self makePostRequest:api params:params state:state callback:callback];
 }
 
 - (void)UserAccount_Defines_GetStatusValues:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonString))callback

@@ -380,6 +380,23 @@ char *_NewBase64Encode(
 	return params;
 }
 
++ (NSMutableDictionary*)buildCallParams:(NSString *)appName appPassword:(NSString *)appPassword callParams:(NSDictionary*)callParams {
+    
+    NSMutableDictionary* params = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                    appName, @"BuddyApplicationName",
+                    appPassword, @"BuddyApplicationPassword",
+                    nil];
+    
+    // merge in other params
+    if (callParams != nil) {
+        [params addEntriesFromDictionary:callParams];
+    }
+    return params;
+}
+
+
+
+
 + ( NSMutableString *)setParams:(NSString *)apiName appName:(NSString *)appName appPassword:(NSString *)appPassword userToken:(NSString *)userToken
 {
 	NSMutableString *params = [[NSMutableString alloc] init];

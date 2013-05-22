@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2946DE05174D696A005BE2F4 /* BuddyFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 2946DE03174D696A005BE2F4 /* BuddyFile.h */; };
+		2946DE06174D696A005BE2F4 /* BuddyFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2946DE04174D696A005BE2F4 /* BuddyFile.m */; };
 		A6291F80165C01800051F83C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6291F7F165C01800051F83C /* Foundation.framework */; };
 		D40FDA9F1695F5060028C609 /* AFHTTPClient.h in Headers */ = {isa = PBXBuildFile; fileRef = D40FDA861695F5060028C609 /* AFHTTPClient.h */; };
 		D40FDAA01695F5060028C609 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D40FDA871695F5060028C609 /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -220,6 +222,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2946DE03174D696A005BE2F4 /* BuddyFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddyFile.h; path = Internal/BuddyFile.h; sourceTree = "<group>"; };
+		2946DE04174D696A005BE2F4 /* BuddyFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyFile.m; path = Internal/BuddyFile.m; sourceTree = "<group>"; };
 		A6291F7C165C01800051F83C /* libBuddySDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBuddySDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6291F7F165C01800051F83C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A6291F83165C01800051F83C /* BuddySDK-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BuddySDK-Prefix.pch"; sourceTree = "<group>"; };
@@ -529,6 +533,8 @@
 				D40FDAB81695FC7F0028C609 /* BuddyWebWrapper.h */,
 				D40FDAB91695FC7F0028C609 /* BuddyWebWrapper.m */,
 				D40FDA851695E3830028C609 /* Networking */,
+				2946DE03174D696A005BE2F4 /* BuddyFile.h */,
+				2946DE04174D696A005BE2F4 /* BuddyFile.m */,
 			);
 			name = Internal;
 			sourceTree = "<group>";
@@ -598,6 +604,7 @@
 				D40FDABE1695FCE00028C609 /* BuddyUtility.h in Headers */,
 				D474B3AE169B7AA70020204D /* AFJSONUtilities.h in Headers */,
 				D4E4E80E169F8B4200C735B3 /* BuddyAll.h in Headers */,
+				2946DE05174D696A005BE2F4 /* BuddyFile.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -725,6 +732,7 @@
 				D4A9F29116965926001C54B7 /* BuddyGamePlayers.m in Sources */,
 				D4A9F29516965C1B001C54B7 /* BuddyMessage.m in Sources */,
 				D474B3AF169B7AA70020204D /* AFJSONUtilities.m in Sources */,
+				2946DE06174D696A005BE2F4 /* BuddyFile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -858,7 +866,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = "armv7 armv7s i386";
 				WRAPPER_EXTENSION = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -896,7 +904,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = "armv7 armv7s i386";
 				WRAPPER_EXTENSION = "$(TARGET_NAME)";
 			};
 			name = Release;

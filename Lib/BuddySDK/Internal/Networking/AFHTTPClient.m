@@ -41,6 +41,9 @@
 #import <netdb.h>
 #endif
 
+
+#import <BuddyFile.h>
+
 @interface AFMultipartFormData : NSObject <AFMultipartFormData>
 
 - (id)initWithURLRequest:(NSMutableURLRequest *)request
@@ -491,15 +494,25 @@ static void AFNetworkReachabilityReleaseCallback(const void *info) {
     if (parameters) {
         for (AFQueryStringPair *pair in AFQueryStringPairsFromDictionary(parameters)) {
             NSData *data = nil;
-            if ([pair.value isKindOfClass:[NSData class]]) {
+            if ([pair.value isKindOfClass:[BuddyFile class]]) {
+                BuddyFile* buddyFile = (BuddyFile*)pair.value;
+                if (buddyFile) {
+                    [formData appendPartWithFileData:buddyFile.data name:pair.field fileName:buddyFile.fileName mimeType:buddyFile.contentType];
+                }
+                continue;
+            }
+            else if ([pair.value isKindOfClass:[NSData class]]) {
                 data = pair.value;
+                                
             } else {
                 data = [[pair.value description] dataUsingEncoding:self.stringEncoding];
+                
+               
             }
-            
             if (data) {
                 [formData appendPartWithFormData:data name:[pair.field description]];
             }
+           
         }
     }
     
@@ -626,13 +639,36 @@ static void AFNetworkReachabilityReleaseCallback(const void *info) {
 }
 
 //added by Buddy
+
+
+
 -(void) postPath:(NSString *)path
          timeout:(int) timeout
       parameters:(NSDictionary *)parameters
          success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
          failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
 {
-	NSMutableURLRequest *request = [self requestWithMethod:@"POST" path:path parameters:parameters];
+    
+    // look for any NSData parameters.
+    //
+    BOOL multipart = false;
+    for (NSString* key in parameters) {
+        NSObject* value = [parameters objectForKey:key];
+        
+        if ([value isKindOfClass:[BuddyFile class]]){
+            multipart = true;
+            break;
+        }
+    }
+    
+	NSMutableURLRequest *request = nil;
+    
+    if (!multipart){
+        request = [self requestWithMethod:@"POST" path:path parameters:parameters];
+    }
+    else {
+        request = [self multipartFormRequestWithMethod:@"POST" path:path parameters:parameters constructingBodyWithBlock:nil];
+    }
     [request  setTimeoutInterval: timeout];
     AFHTTPRequestOperation *operation = [self HTTPRequestOperationWithRequest:request success:success failure:failure];
     [self enqueueHTTPRequestOperation:operation];
@@ -735,7 +771,7 @@ static void AFNetworkReachabilityReleaseCallback(const void *info) {
 
 #pragma mark -
 
-static NSString * const kAFMultipartTemporaryFileDirectoryName = @"com.alamofire.uploads";
+static NSString * const kAFMultipartTemporaryFileDirectoryName = @"com.buddysdk.uploads";
 
 static NSString * AFMultipartTemporaryFileDirectoryPath() {
     static NSString *multipartTemporaryFilePath = nil;
