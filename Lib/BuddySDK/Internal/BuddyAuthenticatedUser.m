@@ -40,6 +40,8 @@
 @synthesize friends;
 @synthesize messages;
 @synthesize gamePlayers;
+@synthesize blobs;
+@synthesize videos;
 
 - (NSString *)toString
 {
@@ -87,6 +89,10 @@
 	messages = [[BuddyMessages alloc] initWithAuthUser:localClient authUser:self];
 
 	gamePlayers = [[BuddyGamePlayers alloc] initWithAuthUser:localClient authUser:self];
+    
+    blobs = [[BuddyBlobs alloc] initBlobs:localClient authUser:self];
+    
+    videos = [[BuddyVideos alloc] initVideos:localClient authUser:self];
 
 	[self updateFromProfile:profile];
 

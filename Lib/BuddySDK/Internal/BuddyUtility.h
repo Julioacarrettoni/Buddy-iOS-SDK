@@ -80,6 +80,8 @@
 
 + (BuddyCallbackParams *)buildBuddyFailure:(NSString *)name reason:(NSString *)reason ;
 
++ (NSNumber *)NSNumberFromStringLong:(NSString *)stringLong;
+
 + (BuddyCallbackParams *)buildBuddyError:(NSString *)name reason:(NSString *)reason ;
 
 + (BuddyCallbackParams *)buildBuddyServiceError:(NSString *)name reason:(NSString *)reason ;

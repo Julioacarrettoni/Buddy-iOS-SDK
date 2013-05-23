@@ -25,6 +25,8 @@
 #import "BuddyUserMetadata.h"
 #import "BuddyMessages.h"
 #import "BuddyGamePlayers.h"
+#import "BuddyBlobs.h"
+#import "BuddyVideos.h"
 
 
 @class BuddyClient;
@@ -178,6 +180,10 @@ typedef void (^BuddyAuthenticatedUserSetProfilePhotoCallback)(BuddyBoolResponse 
 /// Add and remove and manipulate BuddyGamePlayers for this user.
 /// </summary>
 @property (readonly, nonatomic, strong) BuddyGamePlayers *gamePlayers;
+
+@property (readonly, nonatomic, strong) BuddyBlobs *blobs;
+
+@property (readonly, nonatomic, strong) BuddyVideos *videos;
 
 /// <summary>
 /// Add a profile photo for this user.

@@ -294,6 +294,60 @@
 
 @end
 
+#import "BuddyBlob.h"
+@interface BuddyBlob ()
+
+@property (readonly, nonatomic, assign) BuddyClient *client;
+@property (readonly, nonatomic, assign) BuddyAuthenticatedUser *authUser;
+@property (readonly, nonatomic, assign) BuddyUser *user;
+
+- (id)initBlob:(BuddyClient *)client
+			authUser:(BuddyAuthenticatedUser *)authUser
+            blobList:(NSDictionary *)blobList;
+
+@end
+
+#import "BuddyBlobs.h"
+@interface BuddyBlobs ()
+
+@property (readonly, nonatomic, assign) BuddyClient *client;
+@property (readonly, nonatomic, assign) BuddyAuthenticatedUser *authUser;
+@property (readonly, nonatomic, assign) BuddyUser *user;
+
+- (id)initBlobs:(BuddyClient *)client
+			authUser:(BuddyAuthenticatedUser *)authUser;
+
+- (NSArray *)makeBlobsList:(NSArray *)data;
+
+@end
+
+#import "BuddyVideo.h"
+
+@interface BuddyVideo ()
+
+@property (readonly, nonatomic, assign) BuddyClient *client;
+@property (readonly, nonatomic, assign) BuddyAuthenticatedUser *authUser;
+@property (readonly, nonatomic, assign) BuddyUser *user;
+
+- (id)initVideo:(BuddyClient *)client
+			authUser:(BuddyAuthenticatedUser *)authUser;
+
+@end
+
+#import "BuddyVideos.h"
+
+@interface BuddyVideos ()
+
+@property (readonly, nonatomic, assign) BuddyClient *client;
+@property (readonly, nonatomic, assign) BuddyAuthenticatedUser *authUser;
+@property (readonly, nonatomic, assign) BuddyUser *user;
+
+- (id)initVideos:(BuddyClient *)client
+			authUser:(BuddyAuthenticatedUser *)authUser;
+
+- (NSArray *)makeVideosList:(NSArray *)data;
+
+@end
 
 #import "BuddyDevice.h"
 

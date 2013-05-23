@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B4FA4D0174DAD530066F951 /* BuddyBlobs.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B4FA4CE174DAD530066F951 /* BuddyBlobs.h */; };
+		1B4FA4D1174DAD530066F951 /* BuddyBlobs.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4FA4CF174DAD530066F951 /* BuddyBlobs.m */; };
+		1B4FA4D4174DAD630066F951 /* BuddyBlob.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B4FA4D2174DAD630066F951 /* BuddyBlob.h */; };
+		1B4FA4D5174DAD630066F951 /* BuddyBlob.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4FA4D3174DAD630066F951 /* BuddyBlob.m */; };
+		1B4FA4D8174DAD760066F951 /* BuddyVideos.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B4FA4D6174DAD760066F951 /* BuddyVideos.h */; };
+		1B4FA4D9174DAD760066F951 /* BuddyVideos.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4FA4D7174DAD760066F951 /* BuddyVideos.m */; };
+		1B4FA4DC174DAD880066F951 /* BuddyVideo.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B4FA4DA174DAD880066F951 /* BuddyVideo.h */; };
+		1B4FA4DD174DAD880066F951 /* BuddyVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4FA4DB174DAD880066F951 /* BuddyVideo.m */; };
 		2946DE05174D696A005BE2F4 /* BuddyFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 2946DE03174D696A005BE2F4 /* BuddyFile.h */; };
 		2946DE06174D696A005BE2F4 /* BuddyFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2946DE04174D696A005BE2F4 /* BuddyFile.m */; };
 		A6291F80165C01800051F83C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6291F7F165C01800051F83C /* Foundation.framework */; };
@@ -222,6 +230,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1B4FA4CE174DAD530066F951 /* BuddyBlobs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddyBlobs.h; path = ../BuddyBlobs.h; sourceTree = "<group>"; };
+		1B4FA4CF174DAD530066F951 /* BuddyBlobs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuddyBlobs.m; sourceTree = "<group>"; };
+		1B4FA4D2174DAD630066F951 /* BuddyBlob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddyBlob.h; path = ../BuddyBlob.h; sourceTree = "<group>"; };
+		1B4FA4D3174DAD630066F951 /* BuddyBlob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuddyBlob.m; sourceTree = "<group>"; };
+		1B4FA4D6174DAD760066F951 /* BuddyVideos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddyVideos.h; path = ../BuddyVideos.h; sourceTree = "<group>"; };
+		1B4FA4D7174DAD760066F951 /* BuddyVideos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuddyVideos.m; sourceTree = "<group>"; };
+		1B4FA4DA174DAD880066F951 /* BuddyVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddyVideo.h; path = ../BuddyVideo.h; sourceTree = "<group>"; };
+		1B4FA4DB174DAD880066F951 /* BuddyVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuddyVideo.m; sourceTree = "<group>"; };
 		2946DE03174D696A005BE2F4 /* BuddyFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddyFile.h; path = Internal/BuddyFile.h; sourceTree = "<group>"; };
 		2946DE04174D696A005BE2F4 /* BuddyFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyFile.m; path = Internal/BuddyFile.m; sourceTree = "<group>"; };
 		A6291F7C165C01800051F83C /* libBuddySDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBuddySDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -469,6 +485,10 @@
 				D4F4197B169627E600C38DD3 /* BuddyPhotoAlbum.h */,
 				D4F4197D1696280100C38DD3 /* BuddyPhotoAlbumPublic.h */,
 				D4F41983169628AC00C38DD3 /* BuddyPhotoAlbums.h */,
+				1B4FA4CE174DAD530066F951 /* BuddyBlobs.h */,
+				1B4FA4D2174DAD630066F951 /* BuddyBlob.h */,
+				1B4FA4D6174DAD760066F951 /* BuddyVideos.h */,
+				1B4FA4DA174DAD880066F951 /* BuddyVideo.h */,
 				D4F4197F1696285400C38DD3 /* BuddyPicture.h */,
 				D4F419811696286B00C38DD3 /* BuddyPicturePublic.h */,
 				D4F4198516962C6200C38DD3 /* BuddyPlace.h */,
@@ -528,7 +548,11 @@
 				D4A9F288169658C0001C54B7 /* BuddyUserMetadata.m */,
 				D40FDABC1695FCE00028C609 /* BuddyUtility.h */,
 				D40FDABD1695FCE00028C609 /* BuddyUtility.m */,
+				1B4FA4CF174DAD530066F951 /* BuddyBlobs.m */,
+				1B4FA4D3174DAD630066F951 /* BuddyBlob.m */,
 				D4A9F2721696570A001C54B7 /* BuddyVirtualAlbum.m */,
+				1B4FA4D7174DAD760066F951 /* BuddyVideos.m */,
+				1B4FA4DB174DAD880066F951 /* BuddyVideo.m */,
 				D4A9F27416965748001C54B7 /* BuddyVirtualAlbums.m */,
 				D40FDAB81695FC7F0028C609 /* BuddyWebWrapper.h */,
 				D40FDAB91695FC7F0028C609 /* BuddyWebWrapper.m */,
@@ -605,6 +629,10 @@
 				D474B3AE169B7AA70020204D /* AFJSONUtilities.h in Headers */,
 				D4E4E80E169F8B4200C735B3 /* BuddyAll.h in Headers */,
 				2946DE05174D696A005BE2F4 /* BuddyFile.h in Headers */,
+				1B4FA4D0174DAD530066F951 /* BuddyBlobs.h in Headers */,
+				1B4FA4D4174DAD630066F951 /* BuddyBlob.h in Headers */,
+				1B4FA4D8174DAD760066F951 /* BuddyVideos.h in Headers */,
+				1B4FA4DC174DAD880066F951 /* BuddyVideo.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -733,6 +761,10 @@
 				D4A9F29516965C1B001C54B7 /* BuddyMessage.m in Sources */,
 				D474B3AF169B7AA70020204D /* AFJSONUtilities.m in Sources */,
 				2946DE06174D696A005BE2F4 /* BuddyFile.m in Sources */,
+				1B4FA4D1174DAD530066F951 /* BuddyBlobs.m in Sources */,
+				1B4FA4D5174DAD630066F951 /* BuddyBlob.m in Sources */,
+				1B4FA4D9174DAD760066F951 /* BuddyVideos.m in Sources */,
+				1B4FA4DD174DAD880066F951 /* BuddyVideo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

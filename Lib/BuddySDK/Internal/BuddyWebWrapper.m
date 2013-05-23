@@ -1625,4 +1625,98 @@ static NSString * const BuddySDKHeaderValue = @"Platform=iOS;Version=0.1.1";
 	[self makeRequest:@"Application_Metrics_GetStats" params:params  callback:callback];
 }
 
+-(void)Blobs_Blob_GetBlobInfo:(NSString *)UserToken BlobID:(NSNumber *)BlobID state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonString))callback
+{
+        NSMutableString *params = [BuddyUtility setParams:@"Blobs_Blob_GetBlobInfo" appName:client.appName appPassword:client.appPassword userToken:(NSString *)UserToken];
+        [params appendFormat:@"&BlobID=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%@", BlobID]]];
+    
+        [self makeRequest:@"Blobs_Blob_GetBlobInfo" params:params state:state callback:callback];
+}
+
+-(void)Blobs_Blob_EditInfo:(NSString *)UserToken BlobID:(NSNumber *)BlobID FriendlyName:(NSString *)FriendlyName AppTag:(NSString *)AppTag state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback
+{
+        NSMutableString *params = [BuddyUtility setParams:@"Blobs_Blob_EditInfo" appName:client.appName appPassword:client.appPassword userToken:(NSString *) UserToken];
+        [params appendFormat:@"&BlobID=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%@", BlobID]]];
+        [params appendFormat:@"&FriendlyName=%@", [BuddyUtility encodeValue:FriendlyName]];
+        [params appendFormat:@"&AppTag=%@", [BuddyUtility encodeValue:AppTag]];
+    
+        [self makeRequest:@"Blobs_Blob_EditInfo" params:params state:state callback:callback];
+}
+//TODO
+-(void)Blobs_Blob_GetBlob:(NSString *)UserToken BlobID:(NSNumber *)BlobID state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback
+{
+        NSMutableString *params = [BuddyUtility setParams:@"Blobs_Blob_GetBlob" appName:client.appName appPassword:client.appPassword userToken:UserToken];
+        [params appendFormat:@"&BlobID=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%@", BlobID]]];
+    
+        [self makeRequest:@"Blobs_Blob_GetBlob" params:params state:state callback:callback];
+}
+
+//TODO
+-(void)Blobs_Blob_AddBlob:(NSString *)UserToken FriendlyName:(NSString *)FriendlyName AppTag:(NSString *)AppTag Latitude:(double)Latitude Longitude:(double)Longitude BlobData:(NSData *)BlobData state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback
+{
+    BuddyFile *file = [[BuddyFile alloc]ContentType, @"BlobData", BlobData];
+        NSDictionary* params = [[NSDictionary alloc]intiWithOjectsAndKeys:
+                                    UserToken, @"UserToken",
+                                    FriendlyName, @"FriendlyName",
+                                    AppTag, @"AppTag",
+                                    Latitude, @"Latitude",
+                                    Longitude, @"Longitude",
+                                [BuddyFile alloc]]
+}
+
+-(void)Blobs_Blob_DeleteBlob:(NSString *)UserToken BlobID:(NSNumber *)BlobID state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback
+{
+        NSMutableString *params = [BuddyUtility setParams:@"Blobs_Blob_DeleteBlob" appName:client.appName appPassword:client.appPassword userToken:(NSString *)UserToken];
+        [params appendFormat:@"&BlobID=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%@", BlobID]]];
+    
+        [self makeRequest:@"Blobs_Blob_DeleteBlob" params:params state:state callback:callback];
+}
+
+-(void)Blobs_Blob_SearchMyBlobs:(NSString *)UserToken FriendlyName:(NSString *)FriendlyName MimeType:(NSString *)MimeType AppTag:(NSString *)AppTag SearchDistance:(int)SearchDistance SearchLatitude:(double)SearchLatitude SearchLongitude:(double)SearchLongitude TimeFilter:(int)TimeFilter RecordLimit:(int)RecordLimit state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback
+{
+        NSMutableString *params = [BuddyUtility setParams:@"Blobs_Blob_SearchMyBlobs" appName:client.appName appPassword:client.appPassword userToken:(NSString *)UserToken];
+        [params appendFormat:@"&FriendlyName=%@", [BuddyUtility encodeValue:FriendlyName]];
+        [params appendFormat:@"&MimeType=%@", [BuddyUtility encodeValue:MimeType]];
+        [params appendFormat:@"&AppTag=%@", [BuddyUtility encodeValue:AppTag]];
+        [params appendFormat:@"&SearchDistance=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%d", SearchDistance]]];
+        [params appendFormat:@"&SearchLatitude=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%f", SearchLatitude]]];
+        [params appendFormat:@"&SearchLongitude=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%f", SearchLongitude]]];
+        [params appendFormat:@"&TimeFilter=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%d", TimeFilter]]];
+        [params appendFormat:@"&RecordLimit=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%d", RecordLimit]]];
+    
+        [self makeRequest:@"Blobs_Blob_SearchMyBlobs" params:params state:state callback:callback];
+}
+
+-(void)Blobs_Blob_SearchBlobs:(NSString *)UserToken FriendlyName:(NSString *)FriendlyName MimeType:(NSString *)MimeType AppTag:(NSString *)AppTag SearchDistance:(int)SearchDistance SearchLatitude:(double)SearchLatitude SearchLongitude:(double)SearchLongitude TimeFilter:(int)TimeFilter RecordLimit:(int)RecordLimit state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback
+{
+        NSMutableString *params = [BuddyUtility setParams:@"Blobs_Blob_SearchBlobs" appName:client.appName appPassword:client.appPassword userToken:(NSString *)UserToken];
+        [params appendFormat:@"&FriendlyName=%@", [BuddyUtility encodeValue:FriendlyName]];
+        [params appendFormat:@"&MimeType=%@", [BuddyUtility encodeValue:MimeType]];
+        [params appendFormat:@"&AppTag=%@", [BuddyUtility encodeValue:AppTag]];
+        [params appendFormat:@"&SearchDistance=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%d", SearchDistance]]];
+        [params appendFormat:@"&SearchLatitude=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%f", SearchLatitude]]];
+        [params appendFormat:@"&SearchLongitude=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%f", SearchLongitude]]];
+        [params appendFormat:@"&TimeFilter=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%d", TimeFilter]]];
+        [params appendFormat:@"&RecordLimit=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%d", RecordLimit]]];
+    
+        [self makeRequest:@"Blobs_Blob_SearchBlobs" params:params state:state callback:callback];
+}
+
+-(void)Blobs_Blob_GetBlobList:(NSString *)UserToken UserID:(NSNumber *)UserID RecordLimit:(int)RecordLimit state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback
+{
+        NSMutableString *params = [BuddyUtility setParams:@"Blobs_Blob_GetBlobList" appName:client.appName appPassword:client.appPassword userToken:(NSString *)UserToken];
+        [params appendFormat:@"&UserID=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%@", UserID]]];
+        [params appendFormat:@"&RecordLimit=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%d", RecordLimit]]];
+    
+        [self makeRequest:@"Blobs_Blob_GetBlobList" params:params state:state callback:callback];
+}
+
+-(void)Blobs_Blob_GetMyBlobList:(NSString *)UserToken RecordLimit:(int)RecordLimit state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback
+{
+        NSMutableString *params = [BuddyUtility setParams:@"Blobs_Blob_GetMyBlobList" appName:client.appName appPassword:client.appPassword userToken:(NSString *)UserToken];
+        [params appendFormat:@"&RecordLimit=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%d", RecordLimit]]];
+    
+        [self makeRequest:@"Blobs_Blob_GetMyBlobList" params:params state:state callback:callback];
+}
+
 @end

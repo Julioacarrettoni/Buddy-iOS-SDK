@@ -674,6 +674,11 @@ static NSDateFormatter *dateFormatter;
 	return [NSNumber numberWithInt:[stringInt intValue]];
 }
 
++ (NSNumber *)NSNumberFromStringLong:(NSString *)stringLong
+{
+	return [NSNumber numberWithLongLong:[stringLong longLongValue]];
+}
+
 + (int)intFromString:(NSString *)string
 {
 	return [string intValue];
