@@ -55,7 +55,7 @@ typedef void (^BuddyGameStatesGetAllCallback)(BuddyDictionaryResponse *response)
  *  BuddyClient *bc = [[BuddyClient alloc] initClient:appName
  *                                        appPassword:appPassword];
  *
- *  [bc Login:@"username" password:@"password" state:nil callback:^(BuddyAuthenticatedUserResponse *response)
+ *  [bc Login:@"username" password:@"password"  callback:^(BuddyAuthenticatedUserResponse *response)
  *  {
  *      if (response.isCompleted)
  *      {   // get the user
@@ -66,7 +66,7 @@ typedef void (^BuddyGameStatesGetAllCallback)(BuddyDictionaryResponse *response)
  *              if (response.isCompleted && response.result == TRUE)
  *              { // game state added OK now go get the game state value
  *
- *                  [user.gameStates get:@"MyGameState" state:nil callback:^(BuddyGameStateResponse *response)
+ *                  [user.gameStates get:@"MyGameState"  callback:^(BuddyGameStateResponse *response)
  *                  {
  *                      if (response.isCompleted && response.result)
  *                      {
@@ -95,7 +95,7 @@ typedef void (^BuddyGameStatesGetAllCallback)(BuddyDictionaryResponse *response)
 - (void)   add:(NSString *)gameStateKey
 gameStateValue:(NSString *)gameStateValue
         appTag:(NSString *)appTag
-         state:(NSObject *)state
+         
       callback:(BuddyGameStatesAddCallback)callback;
 
 /// <summary
@@ -117,7 +117,7 @@ gameStateValue:(NSString *)gameStateValue
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyGameStateResponse will contain a BuddyGameState instance it the request was successful otherwise it will be nil if it doesn't exist.</param>
 
 - (void)get:(NSString *)gameStateKey
-      state:(NSObject *)state
+      
    callback:(BuddyGameStatesGetCallback)callback;
 
 /// <summary>
@@ -132,7 +132,7 @@ gameStateValue:(NSString *)gameStateValue
 - (void)update:(NSString *)gameStateKey
 gameStateValue:(NSString *)gameStateValue
      newAppTag:(NSString *)newAppTag
-         state:(NSObject *)state
+         
       callback:(BuddyGameStatesUpdateCallback)callback;
 
 /// <summary>
@@ -154,7 +154,7 @@ gameStateValue:(NSString *)gameStateValue
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)remove:(NSString *)gameStateKey
-         state:(NSObject *)state
+         
       callback:(BuddyGameStatesRemoveCallback)callback;
 
 /// <summary>
@@ -163,7 +163,6 @@ gameStateValue:(NSString *)gameStateValue
 /// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyDictionaryResponse will be a NSDictionary of name/value pairs for this user's GameState if the request was successful (BuddyDictionaryResponse.isCompleted == TRUE and data was found on the server) otherwise nil if the request failed.</param>
 
-- (void)getAll:(NSObject *)state
-      callback:(BuddyGameStatesGetAllCallback)callback;
+- (void)getAll:(BuddyGameStatesGetAllCallback)callback;
 
 @end

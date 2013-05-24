@@ -100,8 +100,7 @@ typedef void (^BuddyVirtualAlbumUpdatePictureCallback)(BuddyBoolResponse *respon
 /// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
-- (void)delete:(NSObject *)state
-      callback:(BuddyVirtualAlbumDeleteCallback)callback;
+- (void)delete:(BuddyVirtualAlbumDeleteCallback)callback;
 
 /// <summary>
 /// Add an existing (uploaded) photo to a virtual album. This photo can be either private or public (either PicturePublic and Picture will work).
@@ -111,7 +110,7 @@ typedef void (^BuddyVirtualAlbumUpdatePictureCallback)(BuddyBoolResponse *respon
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)addPicture:(BuddyPicturePublic *)picture
-             state:(NSObject *)state
+             
           callback:(BuddyVirtualAlbumAddPictureCallback)callback;
 
 /// <summary>
@@ -122,7 +121,7 @@ typedef void (^BuddyVirtualAlbumUpdatePictureCallback)(BuddyBoolResponse *respon
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)addPictureBatch:(NSArray *)pictureBatch
-                  state:(NSObject *)state
+                  
                callback:(BuddyVirtualAlbumAddPictureBatchCallback)callback;
 
 /// <summary>
@@ -133,7 +132,7 @@ typedef void (^BuddyVirtualAlbumUpdatePictureCallback)(BuddyBoolResponse *respon
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)removePicture:(BuddyPicturePublic *)picture
-                state:(NSObject *)state
+                
              callback:(BuddyVirtualAlbumRemovePictureCallback)callback;
 
 /// <summary>
@@ -146,7 +145,7 @@ typedef void (^BuddyVirtualAlbumUpdatePictureCallback)(BuddyBoolResponse *respon
 
 - (void)update:(NSString *)newName
      newAppTag:(NSString *)newAppTag
-         state:(NSObject *)state
+         
       callback:(BuddyVirtualAlbumUpdateCallback)callback;
 
 /// <summary>
@@ -170,7 +169,7 @@ typedef void (^BuddyVirtualAlbumUpdatePictureCallback)(BuddyBoolResponse *respon
 - (void)updatePicture:(BuddyPicturePublic *)picture
            newComment:(NSString *)newComment
             newAppTag:(NSString *)newAppTag
-                state:(NSObject *)state
+                
              callback:(BuddyVirtualAlbumUpdatePictureCallback)callback;
 
 /// <summary>

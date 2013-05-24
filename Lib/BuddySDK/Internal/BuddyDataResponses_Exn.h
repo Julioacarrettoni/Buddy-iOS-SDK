@@ -24,16 +24,16 @@
 - (id)initWithParam:(BOOL)succeeded
 			apiCall:(NSString *)apiCall
 		  exception:(NSException *)localException
-			  state:(NSObject *)state
+			  
 		 dataResult:(NSData *)localDataResult
             stringResult:(NSString*)localStringResult;
 
 - (id)initWithParam:(BOOL)succeeded
 		  exception:(NSException *)localException
-			  state:(NSObject *)state;
+			  ;
 
 - (id)initWithError:(NSException *)localException
-			  state:(NSObject *)state
+			  
 			apiCall:(NSString *)apiCall;
 
 - (id)initWithError:(BuddyCallbackParams *)callback;
@@ -51,9 +51,7 @@
 - (id)initWithError:(BuddyCallbackParams *)callbackParams
 			 reason:(NSString *)errorString;
 
-- (id)initWithError:(NSString *)apiCall
-			 reason:(NSString *)errorString
-			  state:(NSObject *)state;
+
 @end
 
 
@@ -77,9 +75,7 @@
 - (id)initWithError:(BuddyCallbackParams *)callbackParams
 			 reason:(NSString *)errorString;
 
-- (id)initWithError:(NSString *)apiCall
-			 reason:(NSString *)errorString
-			  state:(NSObject *)state;
+
 @end
 
 
@@ -91,9 +87,7 @@
 - (id)initWithError:(BuddyCallbackParams *)callbackParams
 			 reason:(NSString *)errorString;
 
-- (id)initWithError:(NSString *)apiCall
-			 reason:(NSString *)errorString
-			  state:(NSObject *)state;
+
 @end
 
 
@@ -105,9 +99,7 @@
 - (id)initWithError:(BuddyCallbackParams *)callbackParams
 			 reason:(NSString *)errorString;
 
-- (id)initWithError:(NSString *)apiCall
-			 reason:(NSString *)errorString
-			  state:(NSObject *)state;
+
 @end
 
 
@@ -121,9 +113,7 @@
 - (id)initWithError:(BuddyCallbackParams *)callbackParams
 			 reason:(NSString *)errorString;
 
-- (id)initWithError:(NSString *)apiCall
-			 reason:(NSString *)errorString
-			  state:(NSObject *)state;
+
 @end
 
 
@@ -137,9 +127,7 @@
 - (id)initWithError:(BuddyCallbackParams *)callbackParams
 			 reason:(NSString *)errorString;
 
-- (id)initWithError:(NSString *)apiCall
-			 reason:(NSString *)errorString
-			  state:(NSObject *)state;
+
 @end
 
 
@@ -153,9 +141,7 @@
 - (id)initWithError:(BuddyCallbackParams *)callbackParams
 			 reason:(NSString *)errorString;
 
-- (id)initWithError:(NSString *)apiCall
-			 reason:(NSString *)errorString
-			  state:(NSObject *)state;
+
 @end
 
 
@@ -169,9 +155,6 @@
 - (id)initWithError:(BuddyCallbackParams *)callbackParams
 			 reason:(NSString *)errorString;
 
-- (id)initWithError:(NSString *)apiCall
-			 reason:(NSString *)errorString
-			  state:(NSObject *)state;
 @end
 
 
@@ -188,9 +171,7 @@
 - (id)initWithError:(BuddyCallbackParams *)callbackParams
 			 reason:(NSString *)errorString;
 
-- (id)initWithError:(NSString *)apiCall
-			 reason:(NSString *)errorString
-			  state:(NSObject *)state;
+
 @end
 
 
@@ -204,9 +185,7 @@
 - (id)initWithError:(BuddyCallbackParams *)callbackParams
 			 reason:(NSString *)errorString;
 
-- (id)initWithError:(NSString *)apiCall
-			 reason:(NSString *)errorString
-			  state:(NSObject *)state;
+
 @end
 
 
@@ -220,9 +199,7 @@
 - (id)initWithError:(BuddyCallbackParams *)callbackParams
 			 reason:(NSString *)errorString;
 
-- (id)initWithError:(NSString *)apiCall
-			 reason:(NSString *)errorString
-			  state:(NSObject *)state;
+
 @end
 
 
@@ -239,9 +216,7 @@
 - (id)initWithError:(BuddyCallbackParams *)callbackParams
 			 reason:(NSString *)errorString;
 
-- (id)initWithError:(NSString *)apiCall
-			 reason:(NSString *)errorString
-			  state:(NSObject *)state;
+
 @end
 
 
@@ -253,9 +228,7 @@
 - (id)initWithError:(BuddyCallbackParams *)callbackParams
 			 reason:(NSString *)errorString;
 
-- (id)initWithError:(NSString *)apiCall
-			 reason:(NSString *)errorString
-			  state:(NSObject *)state;
+
 @end
 
 
@@ -267,9 +240,6 @@
 - (id)initWithError:(BuddyCallbackParams *)callbackParams
 			 reason:(NSString *)errorString;
 
-- (id)initWithError:(NSString *)apiCall
-			 reason:(NSString *)errorString
-			  state:(NSObject *)state;
 @end
 
 
@@ -281,9 +251,6 @@
 - (id)initWithError:(BuddyCallbackParams *)callbackParams
 			 reason:(NSString *)errorString;
 
-- (id)initWithError:(NSString *)apiCall
-			 reason:(NSString *)errorString
-			  state:(NSObject *)state;
 @end
 
 
@@ -295,9 +262,7 @@
 - (id)initWithError:(BuddyCallbackParams *)callbackParams
 			 reason:(NSString *)errorString;
 
-- (id)initWithError:(NSString *)apiCall
-			 reason:(NSString *)errorString
-			  state:(NSObject *)state;
+
 @end
 
 
@@ -309,7 +274,5 @@
 - (id)initWithError:(BuddyCallbackParams *)callbackParams
 			 reason:(NSString *)errorString;
 
-- (id)initWithError:(NSString *)apiCall
-			 reason:(NSString *)errorString
-			  state:(NSObject *)state;
+
 @end

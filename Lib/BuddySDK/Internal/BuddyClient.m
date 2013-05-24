@@ -79,7 +79,7 @@
 						  latitude:0.0
 						 longitude:0.0
 						  metadata:bundleIdentifier
-							 state:nil
+							 
 						  callback:[^(BuddyBoolResponse *response)
 									{
 										if (response.isCompleted && response.result == FALSE)
@@ -162,11 +162,9 @@
 	_appPassword = nil;
 }
 
-- (void)ping:(NSObject *)state
-	callback:(BuddyClientPingCallback)callback
+- (void)ping:(BuddyClientPingCallback)callback
 {
-	[[self webService] Service_Ping_Get:state
-							   callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+	[[self webService] Service_Ping_Get:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 										 {
 											 if (callback)
 											 {
@@ -175,11 +173,9 @@
 										 } copy]];
 }
 
-- (void)getServiceTime:(NSObject *)state
-			  callback:(BuddyClientGetServiceTimeCallback)callback
+- (void)getServiceTime:(BuddyClientGetServiceTimeCallback)callback
 {
-	[[self webService] Service_DateTime_Get:state
-								   callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+	[[self webService] Service_DateTime_Get:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 											 {
 												 if (callback)
 												 {
@@ -196,17 +192,15 @@
 													 else
 													 {
 														 NSException *exception = [BuddyUtility buildBuddyServiceException:@"Invalid date." ];
-														 callback([[BuddyDateResponse alloc] initWithParam:FALSE exception:exception state:state]);
+														 callback([[BuddyDateResponse alloc] initWithParam:FALSE exception:exception ]);
 													 }
 												 }
 											 } copy]];
 }
 
-- (void)getServiceVersion:(NSObject *)state
-				 callback:(BuddyClientGetServiceVersionCallback)callback
+- (void)getServiceVersion:(BuddyClientGetServiceVersionCallback)callback
 {
-	[[self webService] Service_Version_Get:state
-								  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+	[[self webService] Service_Version_Get:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 											{
 												if (callback)
 												{
@@ -245,12 +239,12 @@
 - (void)getUserEmails:(NSNumber *)fromRow
 			 callback:(BuddyClientGetUserEmailsCallback)callback
 {
-	[self getUserEmails:fromRow pageSize:nil state:nil callback:callback];
+	[self getUserEmails:fromRow pageSize:nil  callback:callback];
 }
 
 - (void)getUserEmails:(NSNumber *)fromRow
 			 pageSize:(NSNumber *)pageSize
-				state:(NSObject *)state
+				
 			 callback:(BuddyClientGetUserEmailsCallback)callback
 {
 	if (fromRow == nil)
@@ -267,7 +261,7 @@
 
 	__block BuddyClient *_self = self;
 
-	[[self webService] Application_Users_GetEmailList:fromRow LastRow:lastRow RESERVED:@"" state:state
+	[[self webService] Application_Users_GetEmailList:fromRow LastRow:lastRow RESERVED:@"" 
 											 callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 													   {
 														   if (callback)
@@ -288,7 +282,7 @@
 															   if (exception)
 															   {
 																   callback([[BuddyArrayResponse alloc] initWithError:exception
-																												state:callbackParams.state
+																												
 																											  apiCall:callbackParams.apiCall]);
 															   }
 															   else
@@ -304,12 +298,12 @@
 - (void)getUserProfiles:(NSNumber *)fromRow
 			   callback:(BuddyClientGetUserProfilesCallback)callback
 {
-	[self getUserProfiles:fromRow pageSize:nil state:nil callback:callback];
+	[self getUserProfiles:fromRow pageSize:nil  callback:callback];
 }
 
 - (void)getUserProfiles:(NSNumber *)fromRow
 			   pageSize:(NSNumber *)pageSize
-				  state:(NSObject *)state
+				  
 			   callback:(BuddyClientGetUserProfilesCallback)callback
 {
 	if (fromRow == nil)
@@ -326,7 +320,7 @@
 
 	__block BuddyClient *_self = self;
 
-	[[self webService] Application_Users_GetProfileList:fromRow LastRow:lastRow RESERVED:@"" state:state
+	[[self webService] Application_Users_GetProfileList:fromRow LastRow:lastRow RESERVED:@"" 
 											   callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 														 {
 															 if (callback)
@@ -348,7 +342,7 @@
 																 if (exception)
 																 {
 																	 callback([[BuddyArrayResponse alloc] initWithError:exception
-																												  state:callbackParams.state
+																												  
 																												apiCall:callbackParams.apiCall]);
 																 }
 																 else
@@ -410,13 +404,12 @@
 	return applicationStatistics;
 }
 
-- (void)getApplicationStatistics:(NSObject *)state
-						callback:(BuddyClientGetApplicationStatisticsCallback)callback
+- (void)getApplicationStatistics:(BuddyClientGetApplicationStatisticsCallback)callback
 
 {
 	__block BuddyClient *_self = self;
 
-	[[self webService] Application_Metrics_GetStats:@"" state:state
+	[[self webService] Application_Metrics_GetStats:@"" 
 										   callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 													 {
 														 if (callback)
@@ -438,7 +431,7 @@
 															 if (exception)
 															 {
 																 callback([[BuddyArrayResponse alloc] initWithError:exception
-																											  state:callbackParams.state
+																											  
 																											apiCall:callbackParams.apiCall]);
 															 }
 															 else
@@ -453,7 +446,7 @@
 
 - (void)login:(NSString *)userName
 	 password:(NSString *)password
-		state:(NSObject *)state
+		
 	 callback:(BuddyClientLoginCallback)callback
 {
 	[self checkUserName:userName functionName:@"Login"];
@@ -465,7 +458,7 @@
 
 	__block BuddyClient *_self = self;
 
-	[[self webService] UserAccount_Profile_Recover:userName UserSuppliedPassword:password state:state
+	[[self webService] UserAccount_Profile_Recover:userName UserSuppliedPassword:password 
 										  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 													{
 														if (callback)
@@ -475,7 +468,7 @@
 																NSString *dataResult = (NSString *)callbackParams.stringResult;
 																if ([dataResult hasPrefix:@"UT-"])
 																{
-																	[_self login:dataResult state:state callback:^(BuddyAuthenticatedUserResponse *result) {
+																	[_self login:dataResult  callback:^(BuddyAuthenticatedUserResponse *result) {
 										callback(result);
 									}];
 																}
@@ -496,7 +489,7 @@
 }
 
 - (void)login:(NSString *)token
-		state:(NSObject *)state
+		
 	 callback:(BuddyClientLoginCallback)callback
 {
 	[BuddyUtility checkForToken:token functionName:@"Login"];
@@ -504,7 +497,7 @@
 	__block BuddyClient *_self = self;
 	__block NSString *_token = token;
 
-	[[self webService] UserAccount_Profile_GetFromUserToken:token state:state
+	[[self webService] UserAccount_Profile_GetFromUserToken:token 
 												   callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 															 {
 																 if (callback)
@@ -537,7 +530,7 @@
 																	 if (exception)
 																	 {
 																		 callback([[BuddyAuthenticatedUserResponse alloc] initWithError:exception
-																																  state:callbackParams.state
+																																  
 																																apiCall:callbackParams.apiCall]);
 																	 }
 																	 else
@@ -560,8 +553,8 @@
 			  fuzzLocation:(BOOL)fuzzLocation
 			 celebrityMode:(BOOL)celebMode
 					appTag:(NSString *)appTag
-					 state:(NSObject *)state
-				  callback:(void (^)(BuddyStringResponse *response))block
+					 
+				  callback:(void (^)(BuddyCallbackParams* params, BuddyStringResponse *response))block
 {
 	[[self webService] UserAccount_Profile_Create:userName
 							 UserSuppliedPassword:password
@@ -573,7 +566,7 @@
 								 CelebModeEnabled:[NSNumber numberWithBool:celebMode]
 								   ApplicationTag:appTag
 										 RESERVED:@""
-											state:state
+											
 										 callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 												   {
 													   if (callbackParams.isCompleted && block)
@@ -581,18 +574,18 @@
 														   NSString *dataResult = (NSString *)callbackParams.stringResult;
 														   if ([dataResult hasPrefix:@"UT-"])
 														   {
-															   block([[BuddyStringResponse alloc] initWithResponse:callbackParams result:dataResult]);
+															   block(callbackParams, [[BuddyStringResponse alloc] initWithResponse:callbackParams result:dataResult]);
 														   }
 														   else
 														   {
-															   block([[BuddyStringResponse alloc] initWithError:callbackParams reason:dataResult]);
+															   block(callbackParams, [[BuddyStringResponse alloc] initWithError:callbackParams reason:dataResult]);
 														   }
 													   }
 													   else
 													   {
 														   if (block)
 														   {
-															   block([[BuddyStringResponse alloc] initWithError:callbackParams reason:(NSString *)callbackParams.exception.reason]);
+															   block(callbackParams, [[BuddyStringResponse alloc] initWithError:callbackParams reason:(NSString *)callbackParams.exception.reason]);
 														   }
 													   }
 												   } copy]];
@@ -604,7 +597,7 @@
 {
 	NSNumber *age = [NSNumber numberWithInt:0];
 
-	[self createUser:userName password:password gender:UserGender_Any age:age email:nil status:UserStatus_AnyUserStatus fuzzLocation:FALSE celebrityMode:FALSE appTag:nil state:nil callback:callback];
+	[self createUser:userName password:password gender:UserGender_Any age:age email:nil status:UserStatus_AnyUserStatus fuzzLocation:FALSE celebrityMode:FALSE appTag:nil  callback:callback];
 }
 
 - (void)createUser:(NSString *)userName
@@ -616,7 +609,7 @@
 	  fuzzLocation:(BOOL)fuzzLocation
 	 celebrityMode:(BOOL)celebrityMode
 			appTag:(NSString *)appTag
-			 state:(NSObject *)state
+			 
 		  callback:(BuddyClientCreateUserCallback)callback
 {
 	[self checkUserName:userName functionName:@"CreateUser"];
@@ -633,12 +626,12 @@
 
 	__block BuddyClient *_self = self;
 
-	[self InternalCreateUser:userName password:password gender:gender age:age email:email status:status fuzzLocation:fuzzLocation celebrityMode:celebrityMode appTag:appTag state:state
-					callback:[^(BuddyStringResponse *response) {
+	[self InternalCreateUser:userName password:password gender:gender age:age email:email status:status fuzzLocation:fuzzLocation celebrityMode:celebrityMode appTag:appTag 
+					callback:[^(BuddyCallbackParams* params, BuddyStringResponse *response) {
 								  if (response.isCompleted && response.result != nil)
 								  {
 									  NSString *token = (NSString *)response.result;
-									  [_self login:token state:state callback:^(BuddyAuthenticatedUserResponse *authResponse)
+									  [_self login:token  callback:^(BuddyAuthenticatedUserResponse *authResponse)
 							{
 								if (authResponse != nil && authResponse.isCompleted)
 								{
@@ -654,7 +647,7 @@
 	                                  // failed to get UserToken...
 									  if (callback)
 									  {
-										  callback([[BuddyAuthenticatedUserResponse alloc] initWithError:response.apiCall reason:response.exception.reason state:response.state]);
+										  callback([[BuddyAuthenticatedUserResponse alloc] initWithError:params reason:response.exception.reason ]);
 									  }
 								  }
 								  _self = nil;
@@ -662,7 +655,7 @@
 }
 
 - (void)checkIfEmailExists:(NSString *)email
-					 state:(NSObject *)state
+					 
 				  callback:(BuddyClientCheckIfEmailExistsCallback)callback
 {
 	if ([BuddyUtility isNilOrEmpty:email])
@@ -670,7 +663,7 @@
 		[BuddyUtility throwNilArgException:@"BuddyClient" reason:@"CheckIfEmailExists email"];
 	}
 
-	[[self webService] UserAccount_Profile_CheckUserEmail:email RESERVED:@"" state:state
+	[[self webService] UserAccount_Profile_CheckUserEmail:email RESERVED:@"" 
 												 callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 														   {
 															   if (callback)
@@ -702,12 +695,12 @@
 }
 
 - (void)CheckIfUsernameExists:(NSString *)userName
-						state:(NSObject *)state
+						
 					 callback:(void (^)(BuddyBoolResponse *response))block
 {
 	[self checkUserName:userName functionName:@"CheckIfUsernameExists"];
 
-	[[self webService] UserAccount_Profile_CheckUserName:userName RESERVED:@"" state:state
+	[[self webService] UserAccount_Profile_CheckUserName:userName RESERVED:@"" 
 												callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 														  {
 															  if (block)
@@ -740,13 +733,13 @@
 		 sessionName:(NSString *)sessionName
 			callback:(void (^)(BuddyStringResponse *response))block
 {
-	[self StartSession:user sessionName:sessionName appTag:nil state:nil callback:block];
+	[self StartSession:user sessionName:sessionName appTag:nil  callback:block];
 }
 
 - (void)StartSession:(BuddyAuthenticatedUser *)user
 		 sessionName:(NSString *)sessionName
 			  appTag:(NSString *)appTag
-			   state:(NSObject *)state
+			   
 			callback:(void (^)(BuddyStringResponse *response))block
 {
 	[self checkUser:user name:@"StartSession"];
@@ -756,7 +749,7 @@
 		[BuddyUtility throwNilArgException:@"BuddyClient" reason:@"StartSession sessionName"];
 	}
 
-	[[self webService] Analytics_Session_Start:user.token SessionName:sessionName StartAppTag:appTag state:state
+	[[self webService] Analytics_Session_Start:user.token SessionName:sessionName StartAppTag:appTag 
 									  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 												{
 													if (block)
@@ -778,13 +771,13 @@
 		 sessionId:(NSString *)sessionId
 		  callback:(void (^)(BuddyBoolResponse *response))block
 {
-	[self EndSession:user sessionId:sessionId appTag:nil state:nil callback:block];
+	[self EndSession:user sessionId:sessionId appTag:nil  callback:block];
 }
 
 - (void)EndSession:(BuddyAuthenticatedUser *)user
 		 sessionId:(NSString *)sessionId
 			appTag:(NSString *)appTag
-			 state:(NSObject *)state
+			 
 		  callback:(void (^)(BuddyBoolResponse *response))block
 {
 	[self checkUser:user name:@"EndSession"];
@@ -794,7 +787,7 @@
 		[BuddyUtility throwNilArgException:@"BuddyClient" reason:@"EndSession sessionId"];
 	}
 
-	[[self webService] Analytics_Session_End:user.token SessionID:sessionId EndAppTag:appTag state:state
+	[[self webService] Analytics_Session_End:user.token SessionID:sessionId EndAppTag:appTag 
 									callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 											  {
 												  if (block)
@@ -826,7 +819,7 @@
 				metricValue:(NSString *)metricValue
 				   callback:(void (^)(BuddyBoolResponse *response))block
 {
-	[self RecordSessionMetric:user sessionId:sessionId metricKey:metricKey metricValue:metricValue appTag:nil state:nil callback:block];
+	[self RecordSessionMetric:user sessionId:sessionId metricKey:metricKey metricValue:metricValue appTag:nil  callback:block];
 }
 
 - (void)RecordSessionMetric:(BuddyAuthenticatedUser *)user
@@ -834,7 +827,7 @@
 				  metricKey:(NSString *)metricKey
 				metricValue:(NSString *)metricValue
 					 appTag:(NSString *)appTag
-					  state:(NSObject *)state
+					  
 				   callback:(void (^)(BuddyBoolResponse *response))block
 {
 	[self checkUser:user name:@"RecordSessionMetric"];
@@ -849,7 +842,7 @@
 		[BuddyUtility throwNilArgException:@"BuddyClient" reason:@"RecordSessionMetric metricValue"];
 	}
 
-	[[self webService] Analytics_Session_RecordMetric:user.token SessionID:sessionId MetricKey:metricKey MetricValue:metricValue AppTag:appTag state:state
+	[[self webService] Analytics_Session_RecordMetric:user.token SessionID:sessionId MetricKey:metricKey MetricValue:metricValue AppTag:appTag 
 											 callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 													   {
 														   if (block)

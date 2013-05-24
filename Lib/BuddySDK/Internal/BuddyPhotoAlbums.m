@@ -56,13 +56,13 @@
 - (void)create:(NSString *)name
 	  callback:(BuddyPhotoAlbumsCreateCallback)callback
 {
-	[self create:name isPublic:FALSE appTag:nil state:nil callback:callback];
+	[self create:name isPublic:FALSE appTag:nil  callback:callback];
 }
 
 - (void)create:(NSString *)name
 	  isPublic:(BOOL)isPublic
 		appTag:(NSString *)appTag
-		 state:(NSObject *)state
+		 
 	  callback:(BuddyPhotoAlbumsCreateCallback)callback
 {
 	[BuddyUtility checkNameParam:name functionName:@"BuddyPhotoAlbums"];
@@ -71,7 +71,7 @@
 
 	__block BuddyPhotoAlbums *_self = self;
 
-	[[client webService] Pictures_PhotoAlbum_Create:authUser.token AlbumName:name PublicAlbumBit:publicInt ApplicationTag:appTag RESERVED:@"" state:state
+	[[client webService] Pictures_PhotoAlbum_Create:authUser.token AlbumName:name PublicAlbumBit:publicInt ApplicationTag:appTag RESERVED:@"" 
 										   callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 													 {
 														 if (callbackParams.isCompleted && callback)
@@ -80,7 +80,7 @@
 															 if (result != nil && [BuddyUtility isAStandardError:result] == FALSE)
 															 {
 																 NSNumber *albumId = [NSNumber numberWithInt:[result intValue]];
-																 [_self get:albumId state:state callback:[^(BuddyPhotoAlbumResponse *result2)
+																 [_self get:albumId  callback:[^(BuddyPhotoAlbumResponse *result2)
 																										  {
 																											  callback(result2);
 																											  _self = nil;
@@ -192,7 +192,7 @@
 }
 
 - (void) get:(NSNumber *)albumId
-	   state:(NSObject *)state
+	   
 	callback:(BuddyPhotoAlbumsGetCallback)callback
 {
 	if (albumId == nil)
@@ -203,7 +203,7 @@
 	__block BuddyPhotoAlbums *_self = self;
 	__block NSNumber *_albumId = albumId;
 
-	[[client webService] Pictures_PhotoAlbum_Get:authUser.token UserProfileID:authUser.userId PhotoAlbumID:albumId state:state
+	[[client webService] Pictures_PhotoAlbum_Get:authUser.token UserProfileID:authUser.userId PhotoAlbumID:albumId 
 										callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 												  {
 													  if (callback)
@@ -225,7 +225,7 @@
 														  if (exception)
 														  {
 															  callback([[BuddyPhotoAlbumResponse alloc] initWithError:exception
-																												state:callbackParams.state
+																												
 																											  apiCall:callbackParams.apiCall]);
 														  }
 														  else
@@ -238,7 +238,7 @@
 }
 
 - (void)getWithName:(NSString *)albumName
-			  state:(NSObject *)state
+			  
 		   callback:(BuddyPhotoAlbumsGetCallback)callback
 {
 	if (albumName == nil)
@@ -248,7 +248,7 @@
 
 	__block BuddyPhotoAlbums *_self = self;
 
-	[[client webService] Pictures_PhotoAlbum_GetFromAlbumName:authUser.token UserProfileID:authUser.userId PhotoAlbumName:albumName state:state
+	[[client webService] Pictures_PhotoAlbum_GetFromAlbumName:authUser.token UserProfileID:authUser.userId PhotoAlbumName:albumName 
 													 callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 															   {
 																   if (callbackParams.isCompleted && callback)
@@ -258,7 +258,7 @@
 																		   NSDictionary *dict = (NSDictionary *)[jsonArray objectAtIndex:0];
 																		   NSNumber *albumId = [BuddyUtility NSNumberFromStringInt:[dict objectForKey:@"albumID"]];
 
-																		   [_self get:albumId state:state callback:[^(BuddyPhotoAlbumResponse *result2)
+																		   [_self get:albumId  callback:[^(BuddyPhotoAlbumResponse *result2)
 																													{
 																														callback(result2);
 																														_self = nil;
@@ -284,11 +284,11 @@
 
 - (void)getAll:(BuddyPhotoAlbumsGetAllCallback)callback
 {
-	[self getAll:nil state:nil callback:callback];
+	[self getAll:nil  callback:callback];
 }
 
 - (void)getAll:(NSDate *)afterDate
-		 state:(NSObject *)state
+		 
 	  callback:(BuddyPhotoAlbumsGetAllCallback)callback
 {
 	if (afterDate == nil)
@@ -300,7 +300,7 @@
 
 	__block BuddyPhotoAlbums *_self = self;
 
-	[[client webService] Pictures_PhotoAlbum_GetAllPictures:authUser.token UserProfileID:authUser.userId SearchFromDateTime:afterDateString state:state
+	[[client webService] Pictures_PhotoAlbum_GetAllPictures:authUser.token UserProfileID:authUser.userId SearchFromDateTime:afterDateString 
 												   callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 															 {
 																 if (callback)
@@ -322,7 +322,7 @@
 																	 if (exception)
 																	 {
 																		 callback([[BuddyDictionaryResponse alloc] initWithError:exception
-																														   state:callbackParams.state
+																														   
 																														 apiCall:callbackParams.apiCall]);
 																	 }
 																	 else

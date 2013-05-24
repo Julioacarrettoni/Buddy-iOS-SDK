@@ -34,7 +34,7 @@
     [bc.metadata set: @"Test count3" value: @"30" callback:nil];
   
     // now get the sum of metadata keys named "Test count"
-    [bc.metadata sum: @"Test count" state:nil callback:^(BuddyMetadataSumResponse *response)
+    [bc.metadata sum: @"Test count"  callback:^(BuddyMetadataSumResponse *response)
     {
         if (response.isCompleted && response.result)
         {

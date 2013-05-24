@@ -67,7 +67,7 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 
 - (void)alogin
 {
-    [self.buddyClient login:Token state:nil callback:[^(BuddyAuthenticatedUserResponse *response)
+    [self.buddyClient login:Token  callback:[^(BuddyAuthenticatedUserResponse *response)
     {
         if (response.isCompleted)
         {
@@ -169,7 +169,7 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
     NSNumber *recordLimit = [NSNumber numberWithInt:-1];
     NSNumber *numberofDays = [NSNumber numberWithInt:-1];
 
-    [self.user.gamePlayers find:find latitude:0.0 longitude:0.0 recordLimit:recordLimit boardName:nil onlyForLastNumberOfDays:numberofDays appTag:nil state:nil callback:[^(BuddyArrayResponse *response)
+    [self.user.gamePlayers find:find latitude:0.0 longitude:0.0 recordLimit:recordLimit boardName:nil onlyForLastNumberOfDays:numberofDays appTag:nil  callback:[^(BuddyArrayResponse *response)
     {
         if (response.isCompleted && response.result)
         {
@@ -241,7 +241,7 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 
 - (void)updateGamePlayers:(NSString *)name
 {
-    [self.user.gamePlayers update:name board:@"" rank:@"Master" latitude:0 longitude:0 appTag:nil state:nil callback:[^(BuddyBoolResponse *response)
+    [self.user.gamePlayers update:name board:@"" rank:@"Master" latitude:0 longitude:0 appTag:nil  callback:[^(BuddyBoolResponse *response)
     {
         if (response.isCompleted)
         {

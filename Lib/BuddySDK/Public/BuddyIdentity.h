@@ -52,7 +52,7 @@ typedef void (^BuddyIdentityCheckForValuesCallback)(BuddyArrayResponse *response
  *                                         appPassword:appPassword];
  *
  *  __block NSArray *_identitySearchItems;
- *  [bc login:@"username" password:@"password" state:nil callback:[^(BuddyAuthenticatedUserResponse *response)
+ *  [bc login:@"username" password:@"password"  callback:[^(BuddyAuthenticatedUserResponse *response)
  *  {
  *      if (response.isCompleted)
  *      {   // get the user
@@ -80,8 +80,7 @@ typedef void (^BuddyIdentityCheckForValuesCallback)(BuddyArrayResponse *response
 /// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponses will contain an NSArray of BuddyIdentityItem items if the request was successful (BuddyArrayResponses.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
-- (void)getAll:(NSObject *)state
-      callback:(BuddyIdentityGetAllCallback)callback;
+- (void)getAll:(BuddyIdentityGetAllCallback)callback;
 
 /// <summary>
 /// Add an identity value for this user.
@@ -91,7 +90,7 @@ typedef void (^BuddyIdentityCheckForValuesCallback)(BuddyArrayResponse *response
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)add:(NSString *)value
-      state:(NSObject *)state
+      
    callback:(BuddyIdentityAddCallback)callback;
 
 /// <summary>
@@ -102,7 +101,7 @@ typedef void (^BuddyIdentityCheckForValuesCallback)(BuddyArrayResponse *response
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)remove:(NSString *)value
-         state:(NSObject *)state
+         
       callback:(BuddyIdentityRemoveCallback)callback;
 
 /// <summary>
@@ -113,7 +112,7 @@ typedef void (^BuddyIdentityCheckForValuesCallback)(BuddyArrayResponse *response
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponses will contain an NSArray of BDYIdentityItemSearchResult items if the request was successful (BuddyArrayResponses.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
 - (void)checkForValues:(NSString *)values
-                 state:(NSObject *)state
+                 
               callback:(BuddyIdentityCheckForValuesCallback)callback;
 
 @end

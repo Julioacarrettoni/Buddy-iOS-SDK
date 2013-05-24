@@ -33,10 +33,7 @@
 /// </summary>
 @property (readonly, nonatomic, assign) BOOL isCompleted;
 
-/// <summary>
-/// Gets the user defined state object passed to the call.
-/// </summary>
-@property (readonly, nonatomic, assign) NSObject *state;
+
 
 /// <summary>
 /// Gets the raw http response as a string.

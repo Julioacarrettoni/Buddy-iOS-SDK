@@ -58,7 +58,7 @@ typedef void (^BuddyNotificationsAppleGetGroupsCallback)(BuddyDictionaryResponse
  *                                        appPassword:appPassword];
  *
  *  __block  BuddyAuthenticatedUser *_user;
- *  [bc login:@"username" password:@"password" state:nil callback:[^(BuddyAuthenticatedUserResponse *response)
+ *  [bc login:@"username" password:@"password"  callback:[^(BuddyAuthenticatedUserResponse *response)
  *  {
  *      if (response.isCompleted)
  *      {   // get the user
@@ -69,7 +69,7 @@ typedef void (^BuddyNotificationsAppleGetGroupsCallback)(BuddyDictionaryResponse
  *          NSNumber *page = [NSNumber numberWithInt:1];
  *
  *          // request up to 100 registered users
- *          [_user.pushNotifications getRegisteredDevices:nil pageSize:size currentPage:page state:nil callback:[^(BuddyArrayResponse *response)
+ *          [_user.pushNotifications getRegisteredDevices:nil pageSize:size currentPage:page  callback:[^(BuddyArrayResponse *response)
  *          {
  *              if (response.isCompleted && response.result != nil)
  *              {
@@ -91,7 +91,7 @@ typedef void (^BuddyNotificationsAppleGetGroupsCallback)(BuddyDictionaryResponse
  *                                                  customItems:nil
  *                                                 deliverAfter:deliveryDate
  *                                                    groupName:nil
- *                                                        state:nil
+ *                                                        
  *                                                     callback:nil];
  *                   }
  *              }
@@ -113,7 +113,7 @@ typedef void (^BuddyNotificationsAppleGetGroupsCallback)(BuddyDictionaryResponse
 
 - (void)registerDevice:(NSData *)appleDeviceToken
              groupName:(NSString *)groupName
-                 state:(NSObject *)state
+                 
               callback:(BuddyNotificationsAppleRegisterDeviceCallback)callback;
 
 /// <summary>
@@ -131,8 +131,7 @@ typedef void (^BuddyNotificationsAppleGetGroupsCallback)(BuddyDictionaryResponse
 /// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
-- (void)unregisterDevice:(NSObject *)state
-                callback:(BuddyNotificationsAppleUnregisterDeviceCallback)callback;
+- (void)unregisterDevice:(BuddyNotificationsAppleUnregisterDeviceCallback)callback;
 
 /// <summary>
 /// Get a paged list of registered Apple devices for this Application. This list can then be used to iterate over the devices and send each user a push notification.
@@ -146,7 +145,7 @@ typedef void (^BuddyNotificationsAppleGetGroupsCallback)(BuddyDictionaryResponse
 - (void)getRegisteredDevices:(NSString *)group
                     pageSize:(NSNumber *)pageSize
                  currentPage:(NSNumber *)currentPage
-                       state:(NSObject *)state
+                       
                     callback:(BuddyNotificationsAppleGetRegisteredDevicesCallback)callback;
 
 /// <summary>
@@ -163,8 +162,7 @@ typedef void (^BuddyNotificationsAppleGetGroupsCallback)(BuddyDictionaryResponse
 /// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. If successful the BuddyDictionaryResponse.result field is a NSDictionary of group names with counts per group.</param>
 
-- (void)getGroups:(NSObject *)state
-         callback:(BuddyNotificationsAppleGetGroupsCallback)callback;
+- (void)getGroups:(BuddyNotificationsAppleGetGroupsCallback)callback;
 
 /// <summary>
 /// Send a raw message to a Apple device. Note that this call does not directly send the message but rather, adds the raw message to the queue of messages to be sent.
@@ -186,7 +184,7 @@ typedef void (^BuddyNotificationsAppleGetGroupsCallback)(BuddyDictionaryResponse
            customItems:(NSString *)customItems
           deliverAfter:(NSDate *)deliverAfter
              groupName:(NSString *)groupName
-                 state:(NSObject *)state
+                 
               callback:(BuddyNotificationsAppleSendRawMessageCallback)callback;
 
 /// <summary>

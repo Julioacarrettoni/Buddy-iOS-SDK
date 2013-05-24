@@ -27,7 +27,7 @@
  *  BuddyClient *bc = [[BuddyClient alloc] initWithApp:appName
                                               password:appPassword];
  *
- *  [bc Login:@"username" password:@"password" state:nil callback:^(BuddyAuthenticatedUserResponse *response)
+ *  [bc Login:@"username" password:@"password"  callback:^(BuddyAuthenticatedUserResponse *response)
  *  {
  *      if (response.isCompleted && response.result)
  *      {   // get the user
@@ -37,7 +37,7 @@
  *          [user checkIn:0.0 longitude:0.0 callback:nil];
  *
  *          // now get all checkins for this app
- *          [user getCheckins:nil state:nil  callback:^(BuddyArrayResponse *response)
+ *          [user getCheckins:nil   callback:^(BuddyArrayResponse *response)
  *          {
  *              if (response.isCompleted && response.result)
  *              { // process the array of BuddyCheckInLocations

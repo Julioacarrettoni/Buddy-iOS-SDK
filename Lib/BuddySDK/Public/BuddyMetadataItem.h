@@ -41,7 +41,7 @@ typedef void (^BuddyMetadataItemDeleteCallback)(BuddyBoolResponse *response);
  *  BuddyClient *bc = [[BuddyClient alloc] initClient:appName
  *                                           password:appPassword];
  *
- *  [bc login:@"username" password:@"password" state:nil callback:[^(BuddyAuthenticatedUserResponse *response)
+ *  [bc login:@"username" password:@"password"  callback:[^(BuddyAuthenticatedUserResponse *response)
  *  {
  *      if (response.isCompleted)
  *      {   // get the user
@@ -49,7 +49,7 @@ typedef void (^BuddyMetadataItemDeleteCallback)(BuddyBoolResponse *response);
  *       BuddyAuthenticatedUser *user = response.result;
  *
  *       // get a user metadata item called "some key"
- *       [user.metadata Get: @"some key" state:nil callback: [^(BuddyMetadataItemResponse *response)
+ *       [user.metadata Get: @"some key"  callback: [^(BuddyMetadataItemResponse *response)
  *       {
  *          if (response.isCompleted && response.result != nil)
  *          { // set the key to some value
@@ -141,7 +141,7 @@ typedef void (^BuddyMetadataItemDeleteCallback)(BuddyBoolResponse *response);
    latitude:(double)latitude
   longitude:(double)longitude
      appTag:(NSString *)appTag
-      state:(NSObject *)state
+      
    callback:(BuddyMetadataItemSetCallback)callback;
 
 /// <summary>
@@ -159,7 +159,6 @@ typedef void (^BuddyMetadataItemDeleteCallback)(BuddyBoolResponse *response);
 /// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
-- (void)delete:(NSObject *)state
-      callback:(BuddyMetadataItemDeleteCallback)callback;
+- (void)delete:(BuddyMetadataItemDeleteCallback)callback;
 
 @end

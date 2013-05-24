@@ -96,10 +96,9 @@
 	return self;
 }
 
-- (void)join:(NSObject *)state
-	callback:(BuddyMessageGroupJoinCallback)callback
+- (void)join:(BuddyMessageGroupJoinCallback)callback
 {
-	[[client webService] GroupMessages_Membership_JoinGroup:authUser.token GroupChatID:self.groupId RESERVED:@"" state:state
+	[[client webService] GroupMessages_Membership_JoinGroup:authUser.token GroupChatID:self.groupId RESERVED:@"" 
 												   callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 															 {
 																 if (callback)
@@ -109,10 +108,9 @@
 															 } copy]];
 }
 
-- (void)leave:(NSObject *)state
-	 callback:(BuddyMessageGroupLeaveCallback)callback
+- (void)leave:(BuddyMessageGroupLeaveCallback)callback
 {
-	[[client webService] GroupMessages_Membership_DepartGroup:authUser.token GroupChatID:self.groupId RESERVED:@"" state:state
+	[[client webService] GroupMessages_Membership_DepartGroup:authUser.token GroupChatID:self.groupId RESERVED:@"" 
 													 callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 															   {
 																   if (callback)
@@ -123,10 +121,10 @@
 }
 
 - (void)addUser:(BuddyUser *)userToAdd
-		  state:(NSObject *)state
+		  
 	   callback:(BuddyMessageGroupAddUserCallback)callback
 {
-	[[client webService] GroupMessages_Membership_AddNewMember:authUser.token GroupChatID:self.groupId UserProfileIDToAdd:userToAdd.userId RESERVED:@"" state:state
+	[[client webService] GroupMessages_Membership_AddNewMember:authUser.token GroupChatID:self.groupId UserProfileIDToAdd:userToAdd.userId RESERVED:@"" 
 													  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 																{
 																	if (callback)
@@ -137,10 +135,10 @@
 }
 
 - (void)removeUser:(BuddyUser *)userToRemove
-			 state:(NSObject *)state
+			 
 		  callback:(BuddyMessageGroupRemoveUserCallback)callback
 {
-	[[client webService] GroupMessages_Membership_RemoveUser:authUser.token UserProfileIDToRemove:userToRemove.userId GroupChatID:self.groupId RESERVED:@"" state:state
+	[[client webService] GroupMessages_Membership_RemoveUser:authUser.token UserProfileIDToRemove:userToRemove.userId GroupChatID:self.groupId RESERVED:@"" 
 													callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 															  {
 																  if (callback)
@@ -186,14 +184,14 @@
 - (void)sendMessage:(NSString *)message
 		   callback:(BuddyMessageGroupSendMessageCallback)callback
 {
-	[self sendMessage:message latitude:0.0 longitude:0.0 appTag:nil state:nil callback:callback];
+	[self sendMessage:message latitude:0.0 longitude:0.0 appTag:nil  callback:callback];
 }
 
 - (void)sendMessage:(NSString *)message
 		   latitude:(double)latitude
 		  longitude:(double)longitude
 			 appTag:(NSString *)localAppTag
-			  state:(NSObject *)state
+			  
 		   callback:(BuddyMessageGroupSendMessageCallback)callback
 {
 	if ([BuddyUtility isNilOrEmpty:message] || [message length] > 1000)
@@ -205,7 +203,7 @@
 
 	__block BuddyMessageGroup *_self = self;
 
-	[[client webService] GroupMessages_Message_Send:authUser.token GroupChatID:self.groupId MessageContent:message Latitude:latitude Longitude:longitude ApplicationTag:localAppTag RESERVED:@"" state:state
+	[[client webService] GroupMessages_Message_Send:authUser.token GroupChatID:self.groupId MessageContent:message Latitude:latitude Longitude:longitude ApplicationTag:localAppTag RESERVED:@"" 
 										   callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 													 {
 														 if (callback)
@@ -227,7 +225,7 @@
 															 if (exception)
 															 {
 																 callback([[BuddyDictionaryResponse alloc] initWithError:exception
-																												   state:callbackParams.state
+																												   
 																												 apiCall:callbackParams.apiCall]);
 															 }
 															 else
@@ -267,11 +265,11 @@
 
 - (void)getReceived:(BuddyMessageGroupGetReceivedCallback)callback
 {
-	[self getReceived:nil state:nil callback:callback];
+	[self getReceived:nil  callback:callback];
 }
 
 - (void)getReceived:(NSDate *)afterDate
-			  state:(NSObject *)state
+			  
 		   callback:(BuddyMessageGroupGetReceivedCallback)callback
 {
 	if (afterDate == nil)
@@ -283,7 +281,7 @@
 	__block BuddyMessageGroup *_self = self;
 
 	[[client webService] GroupMessages_Message_Get:authUser.token GroupChatID:self.groupId
-									  FromDateTime:afterDateString RESERVED:@"" state:state
+									  FromDateTime:afterDateString RESERVED:@"" 
 										  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 													{
 														if (callback)
@@ -305,7 +303,7 @@
 															if (exception)
 															{
 																callback([[BuddyArrayResponse alloc] initWithError:exception
-																											 state:callbackParams.state
+																											 
 																										   apiCall:callbackParams.apiCall]);
 															}
 															else
@@ -318,10 +316,9 @@
 													} copy]];
 }
 
-- (void)delete:(NSObject *)state
-	  callback:(BuddyMessageGroupDeleteCallback)callback
+- (void)delete:(BuddyMessageGroupDeleteCallback)callback
 {
-	[[client webService] GroupMessages_Manage_DeleteGroup:authUser.token GroupChatID:self.groupId RESERVED:@"" state:state
+	[[client webService] GroupMessages_Manage_DeleteGroup:authUser.token GroupChatID:self.groupId RESERVED:@"" 
 												 callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 														   {
 															   if (callback)

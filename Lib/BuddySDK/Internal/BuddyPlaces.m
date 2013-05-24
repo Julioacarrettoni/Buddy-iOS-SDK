@@ -60,7 +60,7 @@
 	NSNumber *numberOfResults = [NSNumber numberWithInt:100];
 	NSNumber *searchCategoryId = [NSNumber numberWithInt:-1];
 
-	[self find:searchDistanceInMeters latitude:latitude longitude:longitude numberOfResults:numberOfResults searchForName:@"" searchCategoryId:searchCategoryId state:nil callback:callback];
+	[self find:searchDistanceInMeters latitude:latitude longitude:longitude numberOfResults:numberOfResults searchForName:@"" searchCategoryId:searchCategoryId  callback:callback];
 }
 
 - (void)        find:(NSNumber *)searchDistanceInMeters
@@ -69,7 +69,7 @@
 	 numberOfResults:(NSNumber *)numberOfResults
 	   searchForName:(NSString *)searchForName
 	searchCategoryId:(NSNumber *)searchCategoryId
-			   state:(NSObject *)state
+			   
 			callback:(BuddyPlacesFindCallback)callback
 {
 	[self checkNSNumber:searchDistanceInMeters reason:@"searchDistanceInMeters can't be smaller or equal to zero."];
@@ -89,7 +89,7 @@
 
 	__block BuddyPlaces *_self = self;
 
-	[[client webService] GeoLocation_Location_Search:authUser.token SearchDistance:searchDistanceInMeters Latitude:latitude Longitude:longitude RecordLimit:numberOfResults SearchName:searchForName SearchCategoryID:categoryId state:state
+	[[client webService] GeoLocation_Location_Search:authUser.token SearchDistance:searchDistanceInMeters Latitude:latitude Longitude:longitude RecordLimit:numberOfResults SearchName:searchForName SearchCategoryID:categoryId 
 											callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 													  {
 														  if (callback)
@@ -111,7 +111,7 @@
 															  if (exception)
 															  {
 																  callback([[BuddyArrayResponse alloc] initWithError:exception
-																											   state:callbackParams.state
+																											   
 																											 apiCall:callbackParams.apiCall]);
 															  }
 															  else
@@ -187,12 +187,11 @@
 	return dictCategory;
 }
 
-- (void)getCategories:(NSObject *)state
-			 callback:(BuddyPlacesGetCategoriesCallback)block
+- (void)getCategories:(BuddyPlacesGetCategoriesCallback)block
 {
 	__block BuddyPlaces *_self = self;
 
-	[[client webService] GeoLocation_Category_GetList:authUser.token state:state
+	[[client webService] GeoLocation_Category_GetList:authUser.token 
 											 callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 													   {
 														   if (block)
@@ -214,7 +213,7 @@
 															   if (exception)
 															   {
 																   block([[BuddyDictionaryResponse alloc] initWithError:exception
-																												  state:callbackParams.state
+																												  
 																												apiCall:callbackParams.apiCall]);
 															   }
 															   else
@@ -230,20 +229,20 @@
 - (void) get:(NSNumber *)placeId
 	callback:(BuddyPlacesGetCallback)callback
 {
-	[self get:placeId latitude:0.0 longitude:0.0 state:nil callback:callback];
+	[self get:placeId latitude:0.0 longitude:0.0  callback:callback];
 }
 
 - (void)  get:(NSNumber *)placeId
 	 latitude:(double)latitude
 	longitude:(double)longitude
-		state:(NSObject *)state
+		
 	 callback:(BuddyPlacesGetCallback)callback
 {
 	[BuddyUtility latLongCheck:latitude longitude:longitude className:@"BuddyPlaces"];
 
 	__block BuddyPlaces *_self = self;
 
-	[[client webService] GeoLocation_Location_GetFromID:authUser.token ExistingGeoID:placeId Latitude:latitude Longitude:longitude RESERVED:@"" state:state
+	[[client webService] GeoLocation_Location_GetFromID:authUser.token ExistingGeoID:placeId Latitude:latitude Longitude:longitude RESERVED:@"" 
 											   callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 														 {
 															 if (callback)
@@ -264,7 +263,7 @@
 
 																 if (exception)
 																 {
-																	 callback([[BuddyPlaceResponse alloc] initWithError:exception state:callbackParams.state apiCall:callbackParams.apiCall]);
+																	 callback([[BuddyPlaceResponse alloc] initWithError:exception  apiCall:callbackParams.apiCall]);
 																 }
 																 else
 																 {

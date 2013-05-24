@@ -40,7 +40,6 @@ Below is some code showing the creation of a user, then uploading a profile phot
 
     [buddyClient login:@"a username"
               password:@"the password"
-                 state:nil
               callback:^(BuddyAuthenticatedUserResponse *response) {
                      BuddyAuthenticatedUser *buddyUser = response.result;
                      if (buddyUser)

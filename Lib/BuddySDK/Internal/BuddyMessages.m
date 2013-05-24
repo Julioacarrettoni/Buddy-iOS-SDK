@@ -59,13 +59,13 @@
 	 message:(NSString *)message
 	callback:(BuddyMessagesSendCallback)callback
 {
-	[self send:toUser message:message appTag:nil state:nil callback:callback];
+	[self send:toUser message:message appTag:nil  callback:callback];
 }
 
 - (void)send:(BuddyUser *)toUser
 	 message:(NSString *)message
 	  appTag:(NSString *)appTag
-	   state:(NSObject *)state
+	   
 	callback:(BuddyMessagesSendCallback)callback
 {
 	[BuddyUtility checkForNilUser:toUser name:@"BuddyMessages"];
@@ -75,7 +75,7 @@
 		[BuddyUtility throwInvalidArgException:@"BuddyMessages" reason:@"message can't be nil or large than 200 characters"];
 	}
 
-	[[client webService] Messages_Message_Send:authUser.token MessageString:message ToUserID:toUser.userId ApplicationTag:appTag RESERVED:@"" state:state
+	[[client webService] Messages_Message_Send:authUser.token MessageString:message ToUserID:toUser.userId ApplicationTag:appTag RESERVED:@"" 
 									  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 												{
 													if (callback)
@@ -111,11 +111,11 @@
 
 - (void)getReceived:(BuddyMessagesGetReceivedCallback)callback
 {
-	[self getReceived:nil state:nil callback:callback];
+	[self getReceived:nil  callback:callback];
 }
 
 - (void)getReceived:(NSDate *)afterDate
-			  state:(NSObject *)state
+			  
 		   callback:(BuddyMessagesGetReceivedCallback)callback
 {
 	if (afterDate == nil)
@@ -127,7 +127,7 @@
 
 	__block BuddyMessages *_self = self;
 
-	[[client webService] Messages_Messages_Get:authUser.token FromDateTime:afterDateString state:state
+	[[client webService] Messages_Messages_Get:authUser.token FromDateTime:afterDateString 
 									  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 												{
 													if (callback)
@@ -149,7 +149,7 @@
 														if (exception)
 														{
 															callback([[BuddyArrayResponse alloc] initWithError:exception
-																										 state:callbackParams.state
+																										 
 																									   apiCall:callbackParams.apiCall]);
 														}
 														else
@@ -164,11 +164,11 @@
 
 - (void)getSent:(BuddyMessagesGetSentCallback)callback
 {
-	[self getSent:nil state:nil callback:callback];
+	[self getSent:nil  callback:callback];
 }
 
 - (void)getSent:(NSDate *)afterDate
-		  state:(NSObject *)state
+		  
 	   callback:(BuddyMessagesGetSentCallback)callback
 {
 	if (afterDate == nil)
@@ -180,7 +180,7 @@
 
 	__block BuddyMessages *_self = self;
 
-	[[client webService] Messages_SentMessages_Get:authUser.token FromDateTime:afterDateString state:state
+	[[client webService] Messages_SentMessages_Get:authUser.token FromDateTime:afterDateString 
 										  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 													{
 														if (callback)
@@ -202,7 +202,7 @@
 															if (exception)
 															{
 																callback([[BuddyArrayResponse alloc] initWithError:exception
-																											 state:callbackParams.state
+																											 
 																										   apiCall:callbackParams.apiCall]);
 															}
 															else

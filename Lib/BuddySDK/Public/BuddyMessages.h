@@ -51,14 +51,14 @@ typedef void (^BuddyMessagesGetSentCallback)(BuddyArrayResponse *response);
  *                                           password:appPassword];
  *
  *
- *  [bc login:@"username" password:@"password" state:nil callback:^(BuddyAuthenticatedUserResponse *response)
+ *  [bc login:@"username" password:@"password"  callback:^(BuddyAuthenticatedUserResponse *response)
  *  {
  *      if (response.isCompleted)
  *      {   // get the user
  *          BuddyAuthenticatedUser *user = response.result;
  *
  *          // send a message to user some user
- *          [user.messages send:someOtherUser message:@"Some Message" appTag:nil state:nil callback:^(BuddyBoolResponse *response)
+ *          [user.messages send:someOtherUser message:@"Some Message" appTag:nil  callback:^(BuddyBoolResponse *response)
  *          {
  *              if (response.isCompleted && response.result == TRUE)
  *                  NSLog(@"Message sent Ok");
@@ -84,7 +84,7 @@ typedef void (^BuddyMessagesGetSentCallback)(BuddyArrayResponse *response);
 - (void)send:(BuddyUser *)toUser
      message:(NSString *)message
       appTag:(NSString *)appTag
-       state:(NSObject *)state
+       
     callback:(BuddyMessagesSendCallback)callback;
 
 /// <summary>
@@ -106,7 +106,7 @@ typedef void (^BuddyMessagesGetSentCallback)(BuddyArrayResponse *response);
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will contain an NSArray of BuddyMessage items sent to the user if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
 - (void)getReceived:(NSDate *)afterDate
-              state:(NSObject *)state
+              
            callback:(BuddyMessagesGetReceivedCallback)callback;
 
 /// <summary>
@@ -124,7 +124,7 @@ typedef void (^BuddyMessagesGetSentCallback)(BuddyArrayResponse *response);
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will contain an NSArray of BuddyMessage items sent by the user if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
 - (void)getSent:(NSDate *)afterDate
-          state:(NSObject *)state
+          
        callback:(BuddyMessagesGetSentCallback)callback;
 
 /// <summary>

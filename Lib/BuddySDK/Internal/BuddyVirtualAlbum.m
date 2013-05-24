@@ -104,10 +104,9 @@
 	}
 }
 
-- (void)delete:(NSObject *)state
-	  callback:(BuddyVirtualAlbumDeleteCallback)callback
+- (void)delete:(BuddyVirtualAlbumDeleteCallback)callback
 {
-	[[client webService] Pictures_VirtualAlbum_DeleteAlbum:authUser.token VirtualAlbumID:self.virtualAlbumId RESERVED:@"" state:state
+	[[client webService] Pictures_VirtualAlbum_DeleteAlbum:authUser.token VirtualAlbumID:self.virtualAlbumId RESERVED:@"" 
 												  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 															{
 																if (callback)
@@ -118,12 +117,12 @@
 }
 
 - (void)addPicture:(BuddyPicturePublic *)picture
-			 state:(NSObject *)state
+			 
 		  callback:(BuddyVirtualAlbumAddPictureCallback)callback
 {
 	[self checkPicture:picture];
 
-	[[client webService] Pictures_VirtualAlbum_AddPhoto:authUser.token VirtualAlbumID:self.virtualAlbumId ExistingPhotoID:picture.photoId RESERVED:@"" state:state
+	[[client webService] Pictures_VirtualAlbum_AddPhoto:authUser.token VirtualAlbumID:self.virtualAlbumId ExistingPhotoID:picture.photoId RESERVED:@"" 
 											   callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 														 {
 															 if (callback)
@@ -141,7 +140,7 @@
 }
 
 - (void)addPictureBatch:(NSArray *)pictureBatch
-				  state:(NSObject *)state
+				  
 			   callback:(BuddyVirtualAlbumAddPictureBatchCallback)callback
 {
 	if (pictureBatch == nil || [pictureBatch count] == 0)
@@ -162,7 +161,7 @@
 	NSRange rangeOfLastChar = [batch rangeOfComposedCharacterSequenceAtIndex:lastChar];
 	NSString *batched = [batch substringToIndex:rangeOfLastChar.location];
 
-	[[client webService] Pictures_VirtualAlbum_AddPhotoBatch:authUser.token VirtualAlbumID:self.virtualAlbumId ExistingPhotoIDBatchString:batched RESERVED:@"" state:state
+	[[client webService] Pictures_VirtualAlbum_AddPhotoBatch:authUser.token VirtualAlbumID:self.virtualAlbumId ExistingPhotoIDBatchString:batched RESERVED:@"" 
 													callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 															  {
 																  if (callback)
@@ -179,12 +178,12 @@
 }
 
 - (void)removePicture:(BuddyPicturePublic *)picture
-				state:(NSObject *)state
+				
 			 callback:(BuddyVirtualAlbumRemovePictureCallback)callback
 {
 	[self checkPicture:picture];
 
-	[[client webService] Pictures_VirtualAlbum_RemovePhoto:authUser.token VirtualAlbumID:self.virtualAlbumId ExistingPhotoID:picture.photoId RESERVED:@"" state:state
+	[[client webService] Pictures_VirtualAlbum_RemovePhoto:authUser.token VirtualAlbumID:self.virtualAlbumId ExistingPhotoID:picture.photoId RESERVED:@"" 
 												  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 															{
 																if (callback)
@@ -197,17 +196,17 @@
 - (void)update:(NSString *)newName
 	  callback:(BuddyVirtualAlbumUpdateCallback)callback
 {
-	[self update:newName newAppTag:nil state:nil callback:callback];
+	[self update:newName newAppTag:nil  callback:callback];
 }
 
 - (void)update:(NSString *)newName
 	 newAppTag:(NSString *)newAppTag
-		 state:(NSObject *)state
+		 
 	  callback:(BuddyVirtualAlbumUpdateCallback)callback
 {
 	[BuddyUtility checkNameParam:newName functionName:@"BuddyVirtualAlbum"];
 
-	[[client webService] Pictures_VirtualAlbum_Update:authUser.token VirtualPhotoAlbumID:self.virtualAlbumId NewAlbumName:newName NewAppTag:newAppTag RESERVED:@"" state:state
+	[[client webService] Pictures_VirtualAlbum_Update:authUser.token VirtualPhotoAlbumID:self.virtualAlbumId NewAlbumName:newName NewAppTag:newAppTag RESERVED:@"" 
 											 callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 													   {
 														   if (callback)
@@ -221,18 +220,18 @@
 		   newComment:(NSString *)newComment
 			 callback:(BuddyVirtualAlbumUpdatePictureCallback)callback;
 {
-	[self updatePicture:picture newComment:newComment newAppTag:nil state:nil callback:callback];
+	[self updatePicture:picture newComment:newComment newAppTag:nil  callback:callback];
 }
 
 - (void)updatePicture:(BuddyPicturePublic *)picture
 		   newComment:(NSString *)newComment
 			newAppTag:(NSString *)newAppTag
-				state:(NSObject *)state
+				
 			 callback:(BuddyVirtualAlbumUpdatePictureCallback)callback
 {
 	[self checkPicture:picture];
 
-	[[client webService] Pictures_VirtualAlbum_UpdatePhoto:authUser.token ExistingPhotoID:picture.photoId NewPhotoComment:newComment NewAppTag:newAppTag RESERVED:@"" state:state
+	[[client webService] Pictures_VirtualAlbum_UpdatePhoto:authUser.token ExistingPhotoID:picture.photoId NewPhotoComment:newComment NewAppTag:newAppTag RESERVED:@"" 
 												  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 															{
 																if (callback)

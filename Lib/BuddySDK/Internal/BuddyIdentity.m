@@ -100,12 +100,11 @@
 	return identityList;
 }
 
-- (void)getAll:(NSObject *)state
-	  callback:(BuddyIdentityGetAllCallback)callback
+- (void)getAll:(BuddyIdentityGetAllCallback)callback
 {
 	__block BuddyIdentity *_self = self;
 
-	[[client webService] UserAccount_Identity_GetMyList:token RESERVED:@"" state:state
+	[[client webService] UserAccount_Identity_GetMyList:token RESERVED:@"" 
 											   callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 														 {
 															 if (callback)
@@ -127,7 +126,7 @@
 																 if (exception)
 																 {
 																	 callback([[BuddyArrayResponse alloc] initWithError:exception
-																												  state:callbackParams.state
+																												  
 																												apiCall:callbackParams.apiCall]);
 																 }
 																 else
@@ -149,12 +148,12 @@
 }
 
 - (void) add:(NSString *)value
-	   state:(NSObject *)state
+	   
 	callback:(BuddyIdentityAddCallback)callback
 {
 	[self checkForNilValue:value];
 
-	[[client webService] UserAccount_Identity_AddNewValue:token IdentityValue:value RESERVED:@"" state:state
+	[[client webService] UserAccount_Identity_AddNewValue:token IdentityValue:value RESERVED:@"" 
 												 callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 														   {
 															   if (callback)
@@ -165,12 +164,12 @@
 }
 
 - (void)remove:(NSString *)value
-		 state:(NSObject *)state
+		 
 	  callback:(BuddyIdentityRemoveCallback)callback
 {
 	[self checkForNilValue:value];
 
-	[[client webService] UserAccount_Identity_RemoveValue:token IdentityValue:value RESERVED:@"" state:state
+	[[client webService] UserAccount_Identity_RemoveValue:token IdentityValue:value RESERVED:@"" 
 												 callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 														   {
 															   if (callback)
@@ -181,14 +180,14 @@
 }
 
 - (void)checkForValues:(NSString *)values
-				 state:(NSObject *)state
+				 
 			  callback:(BuddyIdentityCheckForValuesCallback)callback
 {
 	[self checkForNilValue:values];
 
 	__block BuddyIdentity *_self = self;
 
-	[[client webService] UserAccount_Identity_CheckForValues:token IdentityValue:values RESERVED:@"" state:state
+	[[client webService] UserAccount_Identity_CheckForValues:token IdentityValue:values RESERVED:@"" 
 													callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 															  {
 																  if (callback)
@@ -210,7 +209,7 @@
 																	  if (exception)
 																	  {
 																		  callback([[BuddyArrayResponse alloc] initWithError:exception
-																													   state:callbackParams.state
+																													   
 																													 apiCall:callbackParams.apiCall]);
 																	  }
 																	  else

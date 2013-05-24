@@ -56,17 +56,17 @@
 - (void)create:(NSString *)name
 	  callback:(BuddyVirtualAlbumsCreateCallback)callback
 {
-	[self create:name appTag:nil state:nil callback:callback];
+	[self create:name appTag:nil  callback:callback];
 }
 
 - (void)create:(NSString *)name
 		appTag:(NSString *)appTag
-		 state:(NSObject *)state
+		 
 	  callback:(BuddyVirtualAlbumsCreateCallback)callback
 {
 	__block BuddyVirtualAlbums *_self = self;
 
-	[[client webService] Pictures_VirtualAlbum_Create:authUser.token AlbumName:name ApplicationTag:appTag RESERVED:@"" state:state
+	[[client webService] Pictures_VirtualAlbum_Create:authUser.token AlbumName:name ApplicationTag:appTag RESERVED:@"" 
 											 callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 													   {
 														   if (callbackParams.isCompleted && callback)
@@ -75,7 +75,7 @@
 															   {
 																   NSNumber *albumId = [NSNumber numberWithInt:[callbackParams.stringResult intValue]];
 
-																   [_self get:albumId state:state callback:[^(BuddyVirtualAlbumResponse *result2)
+																   [_self get:albumId  callback:[^(BuddyVirtualAlbumResponse *result2)
 																											{
 																												callback(result2);
 																												_self = nil;
@@ -99,7 +99,7 @@
 }
 
 - (void) get:(NSNumber *)albumId
-	   state:(NSObject *)state
+	   
 	callback:(BuddyVirtualAlbumsGetCallback)callback
 {
 	if (albumId == nil)
@@ -110,12 +110,12 @@
 	__block BuddyVirtualAlbums *_self = self;
 	__block NSNumber *_albumId = albumId;
 
-	[[client webService] Pictures_VirtualAlbum_GetAlbumInformation:authUser.token VirtualAlbumID:albumId RESERVED:@"" state:state
+	[[client webService] Pictures_VirtualAlbum_GetAlbumInformation:authUser.token VirtualAlbumID:albumId RESERVED:@"" 
 														  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 																	{
 																		if (callbackParams.isCompleted && callback && jsonArray != nil && [jsonArray count] > 0)
 																		{
-																			[_self getInternal:_albumId virtualAlbumInfo:[jsonArray objectAtIndex:0] state:state
+																			[_self getInternal:_albumId virtualAlbumInfo:[jsonArray objectAtIndex:0] 
                                                                                  callback:[^(BuddyVirtualAlbumResponse *result2)
                                                                                            {
                                                                                                callback(result2);
@@ -142,7 +142,7 @@
 
 - (void) getInternal:(NSNumber *)albumId
 	virtualAlbumInfo:(NSDictionary *)virtualAlbumInfo
-			   state:(NSObject *)state
+			   
 			callback:(void (^)(BuddyVirtualAlbumResponse *response))block
 {
 	if (albumId == nil)
@@ -152,7 +152,7 @@
 
 	__block BuddyVirtualAlbums *_self = self;
 
-	[[client webService] Pictures_VirtualAlbum_Get:authUser.token VirtualPhotoAlbumID:albumId state:state
+	[[client webService] Pictures_VirtualAlbum_Get:authUser.token VirtualPhotoAlbumID:albumId 
 										  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 													{
 														if (block)
@@ -173,7 +173,7 @@
 
 															if (exception)
 															{
-																block([[BuddyVirtualAlbumResponse alloc] initWithError:exception state:callbackParams.state apiCall:callbackParams.apiCall]);
+																block([[BuddyVirtualAlbumResponse alloc] initWithError:exception  apiCall:callbackParams.apiCall]);
 															}
 															else
 															{
@@ -217,14 +217,13 @@
 	return virtualAlbumIds;
 }
 
-- (void)getMy:(NSObject *)state
-	 callback:(BuddyVirtualAlbumsGetMyCallback)callback
+- (void)getMy:(BuddyVirtualAlbumsGetMyCallback)callback
 {
 	__block BuddyVirtualAlbums *_self = self;
 
 	[[client webService] Pictures_VirtualAlbum_GetMyAlbums:authUser.token
 												  RESERVED:@""
-													 state:state
+													 
 												  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 															{
 																if (callback)
@@ -245,7 +244,7 @@
 																	if (exception)
 																	{
 																		callback([[BuddyArrayResponse alloc] initWithError:exception
-																													 state:callbackParams.state
+																													 
 																												   apiCall:callbackParams.apiCall]);
 																	}
 																	else

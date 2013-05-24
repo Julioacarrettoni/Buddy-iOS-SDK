@@ -141,36 +141,35 @@
 - (void) set:(NSString *)localValue
 	callback:(BuddyMetadataItemSetCallback)callback
 {
-	[self set:localValue latitude:0.0 longitude:0.0 appTag:nil state:nil callback:callback];
+	[self set:localValue latitude:0.0 longitude:0.0 appTag:nil  callback:callback];
 }
 
 - (void)  set:(NSString *)localValue
 	 latitude:(double)localLatitude
 	longitude:(double)localLongitude
 	   appTag:(NSString *)appTag
-		state:(NSObject *)state
+		
 	 callback:(BuddyMetadataItemSetCallback)callback
 {
 	if (owner)
 	{
-		[self.owner set:self.key value:localValue latitude:localLatitude longitude:localLongitude appTag:appTag state:state callback:callback];
+		[self.owner set:self.key value:localValue latitude:localLatitude longitude:localLongitude appTag:appTag  callback:callback];
 	}
 	else
 	{
-		[self.ownerApp set:self.key value:localValue latitude:localLatitude longitude:localLongitude appTag:appTag state:state callback:callback];
+		[self.ownerApp set:self.key value:localValue latitude:localLatitude longitude:localLongitude appTag:appTag  callback:callback];
 	}
 }
 
-- (void)delete:(NSObject *)state
-	  callback:(BuddyMetadataItemDeleteCallback)callback
+- (void)delete:(BuddyMetadataItemDeleteCallback)callback
 {
 	if (owner)
 	{
-		[self.owner delete:self.key state:state callback:callback];
+		[self.owner delete:self.key  callback:callback];
 	}
 	else
 	{
-		[self.ownerApp delete:self.key state:state callback:callback];
+		[self.ownerApp delete:self.key  callback:callback];
 	}
 }
 

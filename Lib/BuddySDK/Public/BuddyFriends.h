@@ -59,25 +59,25 @@ typedef void (^BuddyFriendsGetBlockedCallback)(BuddyArrayResponse *response);
  *   BuddyClient *bc = [[BuddyClient alloc] initClient:appName
  *                                         appPassword:appPassword];
  *  // create a user
- *  [bc createUser:@"Username1" password:@"Password1" state:nil callback:^(BuddyAuthenticatedUserResponse *response)
+ *  [bc createUser:@"Username1" password:@"Password1"  callback:^(BuddyAuthenticatedUserResponse *response)
  *  {
  *      if (response.isCompleted && response.result)
  *      {
  *          BuddyAuthenticatedUser *user1 = response.result;
  *
  *          // create a second user
- *          [bc createUser:@"Username2" password:@"Password2" state:nil callback:[^(BuddyAuthenticatedUserResponse *response)
+ *          [bc createUser:@"Username2" password:@"Password2"  callback:[^(BuddyAuthenticatedUserResponse *response)
  *          {
  *              if (response.isCompleted && response.result)
  *              {
  *                  BuddyAuthenticatedUser *user2 = response.result;
  *
  *                  // user1 sends a friend request ... to user2
- *                  [user1.friends.requests add:user2 appTag:nil state:nil callback:^(BuddyBoolResponse *response)
+ *                  [user1.friends.requests add:user2 appTag:nil  callback:^(BuddyBoolResponse *response)
  *                  {
  *                      if (response.isCompleted && response.result)
  *                      { // request was send .... user2 accepts friend request from user1
- *                        [user2.friends.requests accept:user1 appTag:nil state:nil callback:nil];
+ *                        [user2.friends.requests accept:user1 appTag:nil  callback:nil];
  *                      }
  *                  }]
  *              }
@@ -102,7 +102,7 @@ typedef void (^BuddyFriendsGetBlockedCallback)(BuddyArrayResponse *response);
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will contain an NSArray of BuddyUser items if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
 - (void)getAll:(NSDate *)afterDate
-         state:(NSObject *)state
+         
       callback:(BuddyFriendsGetCallback)callback;
 
 /// <summary>
@@ -120,7 +120,7 @@ typedef void (^BuddyFriendsGetBlockedCallback)(BuddyArrayResponse *response);
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)remove:(BuddyUser *)user
-         state:(NSObject *)state
+         
       callback:(BuddyFriendsRemoveCallback)callback;
 
 @end

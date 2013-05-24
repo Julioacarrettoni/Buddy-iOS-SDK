@@ -51,14 +51,14 @@ typedef void (^BuddyMessageGroupsGetMyCallback)(BuddyArrayResponse *response);
  *  BuddyClient *bc = [[BuddyClient alloc] initClient:appName
  *                                           password:appPassword];
  *
- *  [bc login:@"username" password:@"password" state:nil callback:^(BuddyAuthenticatedUserResponse *response)
+ *  [bc login:@"username" password:@"password"  callback:^(BuddyAuthenticatedUserResponse *response)
  *  {
  *      if (response.isCompleted && response.result)
  *      {   // get the user
  *          BuddyAuthenticatedUser *user = response.result;
  *
  *          // create a message group called "My group", make it open (Public)
- *          [user.messages create: @"My group" openGroup:TRUE appTag:nil state:nil callback:^(BuddyBoolResponse *response)
+ *          [user.messages create: @"My group" openGroup:TRUE appTag:nil  callback:^(BuddyBoolResponse *response)
  *          {
  *              if (response.isCompleted && response.result == TRUE)
  *                  NSLog(@"group created Ok");
@@ -83,7 +83,7 @@ typedef void (^BuddyMessageGroupsGetMyCallback)(BuddyArrayResponse *response);
 - (void)create:(NSString *)name
      openGroup:(BOOL)openGroup
         appTag:(NSString *)appTag
-         state:(NSObject *)state
+         
       callback:(BuddyMessageGroupsCreateCallback)callback;
 
 /// <summary>
@@ -105,7 +105,7 @@ typedef void (^BuddyMessageGroupsGetMyCallback)(BuddyArrayResponse *response);
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)checkIfExists:(NSString *)name
-                state:(NSObject *)state
+                
              callback:(BuddyMessageGroupsCheckIfExistsCallback)callback;
 
 /// <summary>
@@ -114,8 +114,7 @@ typedef void (^BuddyMessageGroupsGetMyCallback)(BuddyArrayResponse *response);
 /// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will contain an NSArray of BuddyMessageGroup items if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
-- (void)getAll:(NSObject *)state
-      callback:(BuddyMessageGroupsGetAllCallback)callback;
+- (void)getAll:(BuddyMessageGroupsGetAllCallback)callback;
 
 /// <summary>
 /// Get all message groups that this user is part of.
@@ -123,7 +122,6 @@ typedef void (^BuddyMessageGroupsGetMyCallback)(BuddyArrayResponse *response);
 /// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will contain an NSArray of BuddyMessageGroup items if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
-- (void)getMy:(NSObject *)state
-     callback:(BuddyMessageGroupsGetMyCallback)callback;
+- (void)getMy:(BuddyMessageGroupsGetMyCallback)callback;
 
 @end

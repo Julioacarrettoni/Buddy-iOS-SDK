@@ -55,7 +55,7 @@ typedef void (^BuddyPhotoAlbumsGetAllCallback)(BuddyDictionaryResponse *response
  *
  *  __block NSDictionary *_dictOfAlbums;
  *
- *  [bc login:@"username" password:@"password" state:nil callback:[^(BuddyAuthenticatedUserResponse *response)
+ *  [bc login:@"username" password:@"password"  callback:[^(BuddyAuthenticatedUserResponse *response)
  *  {
  *      if (response.isCompleted)
  *      {   // get the user
@@ -92,7 +92,7 @@ typedef void (^BuddyPhotoAlbumsGetAllCallback)(BuddyDictionaryResponse *response
 - (void)create:(NSString *)name
       isPublic:(BOOL)isPublic
         appTag:(NSString *)appTag
-         state:(NSObject *)state
+         
       callback:(BuddyPhotoAlbumsCreateCallback)callback;
 
 /// <summary>
@@ -112,7 +112,7 @@ typedef void (^BuddyPhotoAlbumsGetAllCallback)(BuddyDictionaryResponse *response
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyPhotoAlbumResponse will contain the BuddyPhotoAlbum if the request was successful or nil if an error occurred.</param>
 
 - (void)get:(NSNumber *)albumId
-      state:(NSObject *)state
+      
    callback:(BuddyPhotoAlbumsGetCallback)callback;
 
 /// <summary>
@@ -124,7 +124,7 @@ typedef void (^BuddyPhotoAlbumsGetAllCallback)(BuddyDictionaryResponse *response
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyPhotoAlbumResponse will contain the BuddyPhotoAlbum if the request was successful or nil if an error occurred.</param>
 
 - (void)getWithName:(NSString *)albumName
-              state:(NSObject *)state
+              
            callback:(BuddyPhotoAlbumsGetCallback)callback;
 
 /// <summary>
@@ -135,7 +135,7 @@ typedef void (^BuddyPhotoAlbumsGetAllCallback)(BuddyDictionaryResponse *response
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyDictionaryResponse object will be set to an NSDictionary of PhotoAlbumIds (key) and BuddyPhotoAlbums (value) pairs if the request was successful otherwise nil if the request failed.</param>
 
 - (void)getAll:(NSDate *)afterDate
-         state:(NSObject *)state
+         
       callback:(BuddyPhotoAlbumsGetAllCallback)callback;
 
 /// <summary>

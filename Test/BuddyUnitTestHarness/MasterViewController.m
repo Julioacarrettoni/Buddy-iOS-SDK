@@ -166,7 +166,7 @@ static NSString *AppPassword = @"8C9E044D-7DB7-42DE-A376-16460B58008E";
 
 	[buddyClient login:userName
 			  password:password
-				 state:nil callback:[^(BuddyAuthenticatedUserResponse *response)
+				  callback:[^(BuddyAuthenticatedUserResponse *response)
 									 {
 										 if (response.isCompleted)
 										 {

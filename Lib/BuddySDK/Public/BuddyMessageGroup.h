@@ -63,7 +63,7 @@ typedef void (^BuddyMessageGroupGetReceivedCallback)(BuddyArrayResponse *respons
  *  BuddyClient *bc = [[BuddyClient alloc] initClient:appName
  *                                        appPassword:appPassword];
  *
- *  [bc login:@"username" password:@"password" state:nil callback:^(BuddyAuthenticatedUserResponse *response)
+ *  [bc login:@"username" password:@"password"  callback:^(BuddyAuthenticatedUserResponse *response)
  *  {
  *      if (response.isCompleted && response.result)
  *      {   // get the user
@@ -117,16 +117,14 @@ typedef void (^BuddyMessageGroupGetReceivedCallback)(BuddyArrayResponse *respons
 /// </summary>
 /// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
-- (void)join:(NSObject *)state
-    callback:(BuddyMessageGroupJoinCallback)callback;
+- (void)join:(BuddyMessageGroupJoinCallback)callback;
 
 /// <summary>
 /// This method has the current user leave this message group.
 /// </summary>
 /// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
-- (void)leave:(NSObject *)state
-     callback:(BuddyMessageGroupLeaveCallback)callback;
+- (void)leave:(BuddyMessageGroupLeaveCallback)callback;
 
 /// <summary>
 /// Add a user to this message group.
@@ -136,7 +134,7 @@ typedef void (^BuddyMessageGroupGetReceivedCallback)(BuddyArrayResponse *respons
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)addUser:(BuddyUser *)userToAdd
-          state:(NSObject *)state
+          
        callback:(BuddyMessageGroupAddUserCallback)callback;
 
 /// <summary>
@@ -147,7 +145,7 @@ typedef void (^BuddyMessageGroupGetReceivedCallback)(BuddyArrayResponse *respons
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)removeUser:(BuddyUser *)userToRemove
-             state:(NSObject *)state
+             
           callback:(BuddyMessageGroupRemoveUserCallback)callback;
 
 /// <summary>
@@ -164,7 +162,7 @@ typedef void (^BuddyMessageGroupGetReceivedCallback)(BuddyArrayResponse *respons
            latitude:(double)latitude
           longitude:(double)longitude
              appTag:(NSString *)appTag
-              state:(NSObject *)state
+              
            callback:(BuddyMessageGroupSendMessageCallback)callback;
 
 /// <summary>
@@ -184,7 +182,7 @@ typedef void (^BuddyMessageGroupGetReceivedCallback)(BuddyArrayResponse *respons
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will contain an NSArray of BuddyGroupMessage items if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
 - (void)getReceived:(NSDate *)afterDate
-              state:(NSObject *)state
+              
            callback:(BuddyMessageGroupGetReceivedCallback)callback;
 
 /// <summary>
@@ -200,7 +198,6 @@ typedef void (^BuddyMessageGroupGetReceivedCallback)(BuddyArrayResponse *respons
 /// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
-- (void)delete:(NSObject *)state
-      callback:(BuddyMessageGroupDeleteCallback)callback;
+- (void)delete:(BuddyMessageGroupDeleteCallback)callback;
 
 @end

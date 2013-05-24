@@ -51,7 +51,7 @@ typedef void (^BuddyPhotoAlbumSetAppTagCallback)(BuddyBoolResponse *response);
  *  BuddyClient *bc = [[BuddyClient alloc] initClient:appName
  *                                           password:appPassword];
  *
- *  [bc login:@"username" password:@"password" state:nil callback:[^(BuddyAuthenticatedUserResponse *response)
+ *  [bc login:@"username" password:@"password"  callback:[^(BuddyAuthenticatedUserResponse *response)
  *  {
  *      if (response.isCompleted)
  *      {   // get the user
@@ -59,7 +59,7 @@ typedef void (^BuddyPhotoAlbumSetAppTagCallback)(BuddyBoolResponse *response);
  *
  *          __block BuddyPhotoAlbum * _album;
  *          // get a named photo album belonging to the user
- *          [user.photoAlbums getWithName:@"MyAlbum" state:nil callback:[^(BuddyPhotoAlbumResponse *response)
+ *          [user.photoAlbums getWithName:@"MyAlbum"  callback:[^(BuddyPhotoAlbumResponse *response)
  *          {
  *              if (response.isCompleted && response.result)
  *              {
@@ -108,8 +108,7 @@ typedef void (^BuddyPhotoAlbumSetAppTagCallback)(BuddyBoolResponse *response);
 /// <param name="state">A user defined object that will be passed to the callback can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
-- (void)delete:(NSObject *)state
-      callback:(BuddyPhotoAlbumDeleteCallback)callback;
+- (void)delete:(BuddyPhotoAlbumDeleteCallback)callback;
 
 /// <summary>
 /// Add a new picture to this album.
@@ -127,7 +126,7 @@ typedef void (^BuddyPhotoAlbumSetAppTagCallback)(BuddyBoolResponse *response);
           latitude:(double)latitude
          longitude:(double)longitude
             appTag:(NSString *)appTag
-             state:(NSObject *)state
+             
           callback:(BuddyPhotoAlbumAddPictureCallback)callback;
 
 /// <summary>
@@ -157,7 +156,7 @@ typedef void (^BuddyPhotoAlbumSetAppTagCallback)(BuddyBoolResponse *response);
                       longitude:(double)longitude
                          appTag:(NSString *)appTag
                watermarkMessage:(NSString *)watermarkMessage
-                          state:(NSObject *)state
+                          
                        callback:(BuddyPhotoAlbumAddPictureWithWatermarkCallback)callback;
 
 /// <summary>

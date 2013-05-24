@@ -49,14 +49,14 @@ typedef void (^BuddyGameScoresAddCallback)(BuddyBoolResponse *response);
  *
  *  __block BuddyAuthenticatedUser *_user;
  *
- * [bc Login:@"username" password:@"password" state:nil callback: [^(BuddyAuthenticatedUserResponse *response)
+ * [bc Login:@"username" password:@"password"  callback: [^(BuddyAuthenticatedUserResponse *response)
  *  {
  *      if (response.isCompleted)
  *      {   // get the user
  *          _user = response.result;
  *
  *          // add a new score for this user to the MyGame board
- *          [_user.gameScores add:100 board:@"MyGame" rank:@"Master" latitude:0 longitude:0 oneScorePerPlayer:FALSE appTag:@"MyTag" state:nil callback:[^(BuddyBoolResponse *response)
+ *          [_user.gameScores add:100 board:@"MyGame" rank:@"Master" latitude:0 longitude:0 oneScorePerPlayer:FALSE appTag:@"MyTag"  callback:[^(BuddyBoolResponse *response)
  *          {
  *              if (response.isCompleted && response.result)
  *              {
@@ -64,7 +64,7 @@ typedef void (^BuddyGameScoresAddCallback)(BuddyBoolResponse *response);
  *                  NSNumber *recordLimit = (NSNumber numberWithInt:100];
  *
  *                  __block  NSArray *_gameScores;
- *                  [_user.gameScores getAll:ns state:nil callback:[^(BuddyArrayResponse *response)
+ *                  [_user.gameScores getAll:ns  callback:[^(BuddyArrayResponse *response)
  *                  {
  *                      if (response.isCompleted && response.result)
  *                      { // get the array of game scores and, for example, send them to some UI display function
@@ -90,7 +90,7 @@ typedef void (^BuddyGameScoresAddCallback)(BuddyBoolResponse *response);
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will be an NSArray of BuddyGameScore items if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
 - (void)getAll:(NSNumber *)recordLimit
-         state:(NSObject *)state
+         
       callback:(BuddyGameScoresGetAllCallback)callback;
 
 /// <summary>
@@ -106,8 +106,7 @@ typedef void (^BuddyGameScoresAddCallback)(BuddyBoolResponse *response);
 /// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
-- (void)deleteAll:(NSObject *)state
-         callback:(BuddyGameScoresDeleteAllCallback)callback;
+- (void)deleteAll:(BuddyGameScoresDeleteAllCallback)callback;
 
 /// <summary>
 /// Add a new score for this user.
@@ -129,7 +128,7 @@ typedef void (^BuddyGameScoresAddCallback)(BuddyBoolResponse *response);
         longitude:(double)longitude
 oneScorePerPlayer:(BOOL)oneScorePerPlayer
            appTag:(NSString *)appTag
-            state:(NSObject *)state
+            
          callback:(BuddyGameScoresAddCallback)callback;
 
 /// <summary>

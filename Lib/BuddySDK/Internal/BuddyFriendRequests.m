@@ -55,17 +55,17 @@
 - (void) add:(BuddyUser *)user
 	callback:(BuddyFriendRequestsAddCallback)callback
 {
-	[self add:user appTag:nil state:nil callback:callback];
+	[self add:user appTag:nil  callback:callback];
 }
 
 - (void) add:(BuddyUser *)user
 	  appTag:(NSString *)appTag
-	   state:(NSObject *)state
+	   
 	callback:(BuddyFriendRequestsAddCallback)callback
 {
 	[BuddyUtility checkForNilUser:user name:@"BuddyFriendRequests"];
 
-	[[client webService] Friends_FriendRequest_Add:authUser.token FriendProfileID:user.userId ApplicationTag:appTag RESERVED:@"" state:state
+	[[client webService] Friends_FriendRequest_Add:authUser.token FriendProfileID:user.userId ApplicationTag:appTag RESERVED:@"" 
 										  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 													{
 														if (callback)
@@ -101,11 +101,11 @@
 
 - (void)getAll:(BuddyFriendRequestsGetAllCallback)callback
 {
-	[self getAll:nil state:nil callback:callback];
+	[self getAll:nil  callback:callback];
 }
 
 - (void)getAll:(NSDate *)afterDate
-		 state:(NSObject *)state
+		 
 	  callback:(BuddyFriendRequestsGetAllCallback)callback
 {
 	if (afterDate == nil)
@@ -117,7 +117,7 @@
 
 	__block BuddyFriendRequests *_self = self;
 
-	[[client webService] Friends_FriendRequest_Get:authUser.token FromDateTime:afterDateString state:state
+	[[client webService] Friends_FriendRequest_Get:authUser.token FromDateTime:afterDateString 
 										  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 													{
 														if (callback)
@@ -139,7 +139,7 @@
 															if (exception)
 															{
 																callback([[BuddyArrayResponse alloc] initWithError:exception
-																											 state:callbackParams.state
+																											 
 																										   apiCall:callbackParams.apiCall]);
 															}
 															else
@@ -155,17 +155,17 @@
 - (void)accept:(BuddyUser *)user
 	  callback:(BuddyFriendRequestsAcceptCallback)callback
 {
-	[self add:user appTag:nil state:nil callback:callback];
+	[self add:user appTag:nil  callback:callback];
 }
 
 - (void)accept:(BuddyUser *)user
 		appTag:(NSString *)appTag
-		 state:(NSObject *)state
+		 
 	  callback:(BuddyFriendRequestsAcceptCallback)callback
 {
 	[BuddyUtility checkForNilUser:user name:@"BuddyFriendRequests"];
 
-	[[client webService] Friends_FriendRequest_Accept:authUser.token FriendProfileID:user.userId ApplicationTag:appTag RESERVED:@"" state:state
+	[[client webService] Friends_FriendRequest_Accept:authUser.token FriendProfileID:user.userId ApplicationTag:appTag RESERVED:@"" 
 											 callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 													   {
 														   if (callback)
@@ -176,12 +176,12 @@
 }
 
 - (void)deny:(BuddyUser *)user
-	   state:(NSObject *)state
+	   
 	callback:(BuddyFriendRequestsDenyCallback)callback
 {
 	[BuddyUtility checkForNilUser:user name:@"BuddyFriendRequests"];
 
-	[[client webService] Friends_FriendRequest_Deny:authUser.token FriendProfileID:user.userId state:state
+	[[client webService] Friends_FriendRequest_Deny:authUser.token FriendProfileID:user.userId 
 										   callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 													 {
 														 if (callback)

@@ -53,12 +53,12 @@
 {
 	NSNumber *recordLimit = [NSNumber numberWithInt:100];
 
-	[self getHighScores:boardName recordLimit:recordLimit state:nil callback:callback];
+	[self getHighScores:boardName recordLimit:recordLimit  callback:callback];
 }
 
 - (void)getHighScores:(NSString *)boardName
 		  recordLimit:(NSNumber *)recordLimit
-				state:(NSObject *)state
+				
 			 callback:(BuddyGameBoardsGetHighScoresCallback)callback
 {
 	if ([BuddyUtility isNilOrEmpty:boardName])
@@ -70,7 +70,7 @@
 
 	__block BuddyGameBoards *_self = self;
 
-	[[client webService] Game_Score_GetBoardHighScores:boardName RecordLimit:recordLimit RESERVED:@"" state:state
+	[[client webService] Game_Score_GetBoardHighScores:boardName RecordLimit:recordLimit RESERVED:@"" 
 											  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 														{
 															if (callback)
@@ -92,7 +92,7 @@
 																if (exception)
 																{
 																	callback([[BuddyArrayResponse alloc] initWithError:exception
-																												 state:callbackParams.state
+																												 
 																											   apiCall:callbackParams.apiCall]);
 																}
 																else
@@ -137,7 +137,7 @@
 			 daysOld:(NSNumber *)daysOld
 		minimumScore:(NSNumber *)minimumScore
 			  appTag:(NSString *)appTag
-			   state:(NSObject *)state
+			   
 			callback:(BuddyGameBoardsFindScoresCallback)callback
 {
 	[BuddyUtility latLongCheck:latitude longitude:longitude className:@"BuddyGameBoards"];
@@ -171,7 +171,7 @@
 
 	__block BuddyGameBoards *_self = self;
 
-	[[client webService] Game_Score_SearchScores:uid SearchDistance:distanceInMeters SearchLatitude:latitude SearchLongitude:longitude RecordLimit:recordLimit SearchBoard:boardName TimeFilter:daysOld MinimumScore:minimumScore AppTag:appTag RESERVED:@"" state:state
+	[[client webService] Game_Score_SearchScores:uid SearchDistance:distanceInMeters SearchLatitude:latitude SearchLongitude:longitude RecordLimit:recordLimit SearchBoard:boardName TimeFilter:daysOld MinimumScore:minimumScore AppTag:appTag RESERVED:@"" 
 										callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 												  {
 													  if (callback)
@@ -193,7 +193,7 @@
 														  if (exception)
 														  {
 															  callback([[BuddyArrayResponse alloc] initWithError:exception
-																										   state:callbackParams.state
+																										   
 																										 apiCall:callbackParams.apiCall]);
 														  }
 														  else

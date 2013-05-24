@@ -56,13 +56,13 @@
 	 openGroup:(BOOL)openGroup
 	  callback:(BuddyMessageGroupsCreateCallback)callback
 {
-	[self create:name openGroup:openGroup appTag:nil state:nil callback:callback];
+	[self create:name openGroup:openGroup appTag:nil  callback:callback];
 }
 
 - (void)create:(NSString *)name
 	 openGroup:(BOOL)openGroup
 		appTag:(NSString *)appTag
-		 state:(NSObject *)state
+		 
 	  callback:(BuddyMessageGroupsCreateCallback)callback
 {
 	[BuddyUtility checkNameParam:name functionName:@"BuddyMessageGroups"];
@@ -71,7 +71,7 @@
 
 	__block BuddyMessageGroups *_self = self;
 
-	[[client webService] GroupMessages_Manage_CreateGroup:authUser.token GroupName:name GroupSecurity:openGroupString ApplicationTag:appTag RESERVED:@"" state:state
+	[[client webService] GroupMessages_Manage_CreateGroup:authUser.token GroupName:name GroupSecurity:openGroupString ApplicationTag:appTag RESERVED:@"" 
 												 callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 														   {
 															   if (callback)
@@ -91,12 +91,12 @@
 }
 
 - (void)checkIfExists:(NSString *)name
-				state:(NSObject *)state
+				
 			 callback:(BuddyMessageGroupsCheckIfExistsCallback)callback
 {
 	[BuddyUtility checkNameParam:name functionName:@"BuddyMessageGroups"];
 
-	[[client webService] GroupMessages_Manage_CheckForGroup:authUser.token GroupName:name RESERVED:@"" state:state
+	[[client webService] GroupMessages_Manage_CheckForGroup:authUser.token GroupName:name RESERVED:@"" 
 												   callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 															 {
 																 if (callback)
@@ -136,12 +136,11 @@
 	return messageGroupList;
 }
 
-- (void)getAll:(NSObject *)state
-	  callback:(BuddyMessageGroupsGetAllCallback)callback
+- (void)getAll:(BuddyMessageGroupsGetAllCallback)callback
 {
 	__block BuddyMessageGroups *_self = self;
 
-	[[client webService] GroupMessages_Membership_GetAllGroups:authUser.token RESERVED:@"" state:state
+	[[client webService] GroupMessages_Membership_GetAllGroups:authUser.token RESERVED:@"" 
 													  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 																{
 																	if (callback)
@@ -163,7 +162,7 @@
 																		if (exception)
 																		{
 																			callback([[BuddyArrayResponse alloc] initWithError:exception
-																														 state:callbackParams.state
+																														 
 																													   apiCall:callbackParams.apiCall]);
 																		}
 																		else
@@ -176,12 +175,11 @@
 																} copy]];
 }
 
-- (void)getMy:(NSObject *)state
-	 callback:(BuddyMessageGroupsGetMyCallback)callback
+- (void)getMy:(BuddyMessageGroupsGetMyCallback)callback
 {
 	__block BuddyMessageGroups *_self = self;
 
-	[[client webService] GroupMessages_Membership_GetMyList:authUser.token RESERVED:@"" state:state
+	[[client webService] GroupMessages_Membership_GetMyList:authUser.token RESERVED:@"" 
 												   callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 															 {
 																 if (callback)
@@ -203,7 +201,7 @@
 																	 if (exception)
 																	 {
 																		 callback([[BuddyArrayResponse alloc] initWithError:exception
-																													  state:callbackParams.state
+																													  
 																													apiCall:callbackParams.apiCall]);
 																	 }
 																	 else

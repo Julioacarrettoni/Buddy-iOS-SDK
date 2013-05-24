@@ -103,11 +103,11 @@
 
 - (void)getAll:(BuddyFriendsGetCallback)callback
 {
-	[self getAll:nil state:nil callback:callback];
+	[self getAll:nil  callback:callback];
 }
 
 - (void)getAll:(NSDate *)afterDate
-		 state:(NSObject *)state
+		 
 	  callback:(BuddyFriendsGetCallback)callback
 {
 	if (afterDate == nil)
@@ -119,7 +119,7 @@
 
 	__block BuddyFriends *_self = self;
 
-	[[client webService] Friends_Friends_GetList:authUser.token FromDateTime:sdate state:state
+	[[client webService] Friends_Friends_GetList:authUser.token FromDateTime:sdate 
 										callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 												  {
 													  if (callback)
@@ -141,7 +141,7 @@
 														  if (exception)
 														  {
 															  callback([[BuddyArrayResponse alloc] initWithError:exception
-																										   state:callbackParams.state
+																										   
 																										 apiCall:callbackParams.apiCall]);
 														  }
 														  else
@@ -155,12 +155,12 @@
 }
 
 - (void)remove:(BuddyUser *)user
-		 state:(NSObject *)state
+		 
 	  callback:(BuddyFriendsRemoveCallback)callback
 {
 	[BuddyUtility checkForNilUser:user name:@"BuddyFriends"];
 
-	[[client webService] Friends_Friends_Remove:authUser.token FriendProfileID:user.userId state:state
+	[[client webService] Friends_Friends_Remove:authUser.token FriendProfileID:user.userId 
 									   callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 												 {
 													 if (callback)

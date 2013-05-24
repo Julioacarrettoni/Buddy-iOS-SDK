@@ -276,12 +276,11 @@
 	return pictures;
 }
 
-- (void)getProfilePhotos:(NSObject *)state
-				callback:(BuddyUserGetProfilePhotosCallback)callback
+- (void)getProfilePhotos:(BuddyUserGetProfilePhotosCallback)callback
 {
 	__block BuddyUser *_self = self;
 
-	[[client webService] Pictures_ProfilePhoto_GetAll:self.userId state:state
+	[[client webService] Pictures_ProfilePhoto_GetAll:self.userId 
 											 callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 													   {
 														   if (callback)
@@ -303,7 +302,7 @@
 															   if (exception)
 															   {
 																   callback([[BuddyArrayResponse alloc] initWithError:exception
-																												state:callbackParams.state
+																												
 																											  apiCall:callbackParams.apiCall]);
 															   }
 															   else

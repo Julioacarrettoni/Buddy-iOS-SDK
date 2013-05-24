@@ -40,7 +40,7 @@ typedef void (^BuddyUserGetProfilePhotosCallback)(BuddyArrayResponse *response);
  * BuddyClient *bc = [[BuddyClient alloc] initClient:appName
  *                                          password:appPassword];
  *
- * [bc login:@"username" password:@"password" state:nil callback:[^(BuddyAuthenticatedUserResponse *response)
+ * [bc login:@"username" password:@"password"  callback:[^(BuddyAuthenticatedUserResponse *response)
  * {
  *  __block NSArray *users;
  *
@@ -49,7 +49,7 @@ typedef void (^BuddyUserGetProfilePhotosCallback)(BuddyArrayResponse *response);
  *      BuddyAuthenticatedUser user = response.result;
  *      NSNumber *numberToFind = [NSNumber numberWithInt:200];
  *
- *      [user FindUser:numberToFind state:nil callback:[^(BuddyArrayResponse *response)
+ *      [user FindUser:numberToFind  callback:[^(BuddyArrayResponse *response)
  *      {
  *          if (response.isCompleted && response.result)
  *          { // process the array of returned BuddyUsers
@@ -167,7 +167,6 @@ typedef void (^BuddyUserGetProfilePhotosCallback)(BuddyArrayResponse *response);
 /// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will contain an NSArray of BuddyPicturePublic items if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
-- (void)getProfilePhotos:(NSObject *)state
-                callback:(BuddyUserGetProfilePhotosCallback)callback;
+- (void)getProfilePhotos:(BuddyUserGetProfilePhotosCallback)callback;
 
 @end

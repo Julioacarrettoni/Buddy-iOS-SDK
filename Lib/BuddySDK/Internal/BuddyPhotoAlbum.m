@@ -72,10 +72,9 @@
 	return self;
 }
 
-- (void)delete:(NSObject *)state
-	  callback:(BuddyPhotoAlbumDeleteCallback)callback
+- (void)delete:(BuddyPhotoAlbumDeleteCallback)callback
 {
-	[[self.client webService] Pictures_PhotoAlbum_Delete:self.authUser.token PhotoAlbumID:albumId state:state
+	[[self.client webService] Pictures_PhotoAlbum_Delete:self.authUser.token PhotoAlbumID:albumId 
 												callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 														  {
 															  if (callback)
@@ -90,7 +89,7 @@
 				  latitude:(double)latitude
 				 longitude:(double)longitude
 					appTag:(NSString *)appTag
-					 state:(NSObject *)state
+					 
 				  callback:(void (^)(BuddyPictureResponse *response))block
 {
 	NSMutableString *path = [[NSMutableString alloc] init];
@@ -114,7 +113,7 @@
 
 	[[self.client webService] directPost:kPictures_Photo_Add path:path
 								  params:dictParams
-								   state:state
+								   
 								callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 										  {
 											  if (callbackParams.isCompleted && block)
@@ -122,7 +121,7 @@
 												  if (callbackParams.stringResult && [BuddyUtility isAStandardError:callbackParams.stringResult] == FALSE)
 												  {
 													  NSNumber *pictureId = [NSNumber numberWithInt:[callbackParams.stringResult intValue]];
-													  [_self.authUser getPicture:pictureId state:state callback:block];
+													  [_self.authUser getPicture:pictureId  callback:block];
 												  }
 												  else
 												  {
@@ -146,7 +145,7 @@
 							  longitude:(double)longitude
 								 appTag:(NSString *)appTag
 					   watermarkMessage:(NSString *)watermarkMessage
-								  state:(NSObject *)state
+								  
 							   callback:(void (^)(BuddyPictureResponse *response))block
 {
 	NSMutableString *path = [[NSMutableString alloc] init];
@@ -170,7 +169,7 @@
 
 	[[self.client webService] directPost:kPictures_Photo_AddWithWatermark path:path
 								  params:dictParams
-								   state:state
+								   
 								callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 										  {
 											  if (callbackParams.isCompleted && block)
@@ -178,7 +177,7 @@
 												  if (callbackParams.stringResult && [BuddyUtility isAStandardError:callbackParams.stringResult] == FALSE)
 												  {
 													  NSNumber *pictureId = [NSNumber numberWithInt:[callbackParams.stringResult intValue]];
-													  [_self.authUser getPicture:pictureId state:state callback:block];
+													  [_self.authUser getPicture:pictureId  callback:block];
 												  }
 												  else
 												  {
@@ -201,7 +200,7 @@
 		  latitude:(double)latitude
 		 longitude:(double)longitude
 			appTag:(NSString *)appTag
-			 state:(NSObject *)state
+			 
 		  callback:(BuddyPhotoAlbumAddPictureCallback)callback
 {
 	[BuddyUtility checkBlobParam:blob functionName:@"AddPicture"];
@@ -210,13 +209,13 @@
 
 	NSString *crlfEncodedValues = [encodedValue stringByReplacingOccurrencesOfString:@"\r\n" withString:@"%0D%0A"];
 
-	[self InternalAddPicture:crlfEncodedValues comment:comment latitude:latitude longitude:longitude appTag:appTag state:state callback:callback];
+	[self InternalAddPicture:crlfEncodedValues comment:comment latitude:latitude longitude:longitude appTag:appTag  callback:callback];
 }
 
 - (void)addPicture:(NSData *)blob
 		  callback:(BuddyPhotoAlbumAddPictureCallback)callback
 {
-	[self addPicture:blob comment:nil latitude:0.0 longitude:0.0 appTag:nil state:nil callback:callback];
+	[self addPicture:blob comment:nil latitude:0.0 longitude:0.0 appTag:nil  callback:callback];
 }
 
 - (void)addPictureWithWatermark:(NSData *)blob
@@ -225,7 +224,7 @@
 					  longitude:(double)longitude
 						 appTag:(NSString *)appTag
 			   watermarkMessage:(NSString *)watermarkMessage
-						  state:(NSObject *)state
+						  
 					   callback:(BuddyPhotoAlbumAddPictureWithWatermarkCallback)callback
 {
 	[BuddyUtility checkBlobParam:blob functionName:@"AddPictureWithWatermark"];
@@ -234,14 +233,14 @@
 
 	NSString *crlfEncodedValues = [encodedValue stringByReplacingOccurrencesOfString:@"\r\n" withString:@"%0D%0A"];
 
-	[self InternalAddPictureWithWatermark:crlfEncodedValues comment:comment latitude:latitude longitude:longitude appTag:appTag watermarkMessage:watermarkMessage state:state callback:callback];
+	[self InternalAddPictureWithWatermark:crlfEncodedValues comment:comment latitude:latitude longitude:longitude appTag:appTag watermarkMessage:watermarkMessage  callback:callback];
 }
 
 - (void)addPictureWithWatermark:(NSData *)blob
 			   watermarkMessage:(NSString *)watermarkMessage
 					   callback:(BuddyPhotoAlbumAddPictureWithWatermarkCallback)callback
 {
-	[self addPictureWithWatermark:blob comment:nil latitude:0.0 longitude:0.0 appTag:nil watermarkMessage:watermarkMessage state:nil callback:callback];
+	[self addPictureWithWatermark:blob comment:nil latitude:0.0 longitude:0.0 appTag:nil watermarkMessage:watermarkMessage  callback:callback];
 }
 
 - (NSData *)encodeToBase64:(NSData *)blob

@@ -78,11 +78,11 @@
 
 + (NSNumber *)NSNumberFromStringInt:(NSString *)stringInt;
 
-+ (BuddyCallbackParams *)buildBuddyFailure:(NSString *)name reason:(NSString *)reason state:(NSObject*)state;
++ (BuddyCallbackParams *)buildBuddyFailure:(NSString *)name reason:(NSString *)reason ;
 
-+ (BuddyCallbackParams *)buildBuddyError:(NSString *)name reason:(NSString *)reason state:(NSObject*)state;
++ (BuddyCallbackParams *)buildBuddyError:(NSString *)name reason:(NSString *)reason ;
 
-+ (BuddyCallbackParams *)buildBuddyServiceError:(NSString *)name reason:(NSString *)reason state:(NSObject *)state;
++ (BuddyCallbackParams *)buildBuddyServiceError:(NSString *)name reason:(NSString *)reason ;
 
 + (BOOL)isNilOrEmpty:(NSString *)data;
 

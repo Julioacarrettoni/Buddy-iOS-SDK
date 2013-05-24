@@ -99,13 +99,11 @@
 	return dictOut;
 }
 
-- (void)supportedFilters:(NSObject *)state
-				callback:(BuddyPictureSupportedFiltersCallback)callback
+- (void)supportedFilters:(BuddyPictureSupportedFiltersCallback)callback
 {
 	__block BuddyPicture *_self = self;
 
-	[[self.client webService] Pictures_Filters_GetList:state
-											  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+	[[self.client webService] Pictures_Filters_GetList:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 														{
 															if (callback)
 															{
@@ -126,7 +124,7 @@
 																if (exception)
 																{
 																	callback([[BuddyDictionaryResponse alloc] initWithError:exception
-																													  state:callbackParams.state
+																													  
 																													apiCall:callbackParams.apiCall]);
 																}
 																else
@@ -139,12 +137,11 @@
 														} copy]];
 }
 
-- (void)delete:(NSObject *)state
-	  callback:(BuddyPictureDeleteCallback)callback
+- (void)delete:(BuddyPictureDeleteCallback)callback
 {
 	[BuddyUtility checkForToken:authUser.token functionName:@"BuddyPicture"];
 
-	[[self.client webService] Pictures_Photo_Delete:authUser.token PhotoAlbumPhotoID:self.photoId state:state
+	[[self.client webService] Pictures_Photo_Delete:authUser.token PhotoAlbumPhotoID:self.photoId 
 										   callback:[^(BuddyCallbackParams *callbackParams, id jsonArray) {
 														 if (callback)
 														 {
@@ -155,7 +152,7 @@
 
 - (void)applyFilter:(NSString *)filterName
 	   filterParams:(NSString *)filterParams
-			  state:(NSObject *)state
+			  
 		   callback:(BuddyPictureApplyFilterCallback)callback
 {
 	if ([BuddyUtility isNilOrEmpty:filterName])
@@ -167,7 +164,7 @@
 
 	__block BuddyPicture *_self = self;
 
-	[[self.client webService] Pictures_Filters_ApplyFilter:authUser.token ExistingPhotoID:self.photoId FilterName:filterName FilterParameters:filterParams ReplacePhoto:photoReplace state:state
+	[[self.client webService] Pictures_Filters_ApplyFilter:authUser.token ExistingPhotoID:self.photoId FilterName:filterName FilterParameters:filterParams ReplacePhoto:photoReplace 
 												  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray) {
 																if (callbackParams.isCompleted && callback)
 																{
@@ -175,7 +172,7 @@
 																	if (dataResult != nil && [BuddyUtility isAStandardError:dataResult] == FALSE)
 																	{
 																		NSNumber *picID = [NSNumber numberWithInt:[dataResult intValue]];
-																		[_self.authUser getPicture:picID state:state callback:callback];
+																		[_self.authUser getPicture:picID  callback:callback];
 																	}
 																	else
 																	{
@@ -194,12 +191,12 @@
 }
 
 - (void)setAppTag:(NSString *)appTag
-			state:(NSObject *)state
+			
 		 callback:(BuddyPictureSetAppTagCallback)callback
 {
 	[[self.client webService] Pictures_Photo_SetAppTag:authUser.token PhotoAlbumPhotoID:self.photoId
 										ApplicationTag:appTag
-												 state:state
+												 
 											  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray) {
 															if (callback)
 															{

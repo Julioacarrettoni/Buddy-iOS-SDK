@@ -721,34 +721,34 @@ static NSDateFormatter *buddyDateFormatter;
 	}
 }
 
-+ (BuddyCallbackParams *)buildBuddyFailure:(NSString *)name reason:(NSString *)reason state:(NSObject *)state
++ (BuddyCallbackParams *)buildBuddyFailure:(NSString *)name reason:(NSString *)reason 
 {
 	NSString *tempReason = [name stringByAppendingFormat:@": %@", reason];
     
 	NSException *exception = [NSException exceptionWithName:kBuddyUnknownErrorException reason:tempReason userInfo:nil];
     
-	BuddyCallbackParams *callbackParams = [[BuddyCallbackParams alloc] initWithError:exception state:state apiCall:name];
+	BuddyCallbackParams *callbackParams = [[BuddyCallbackParams alloc] initWithError:exception  apiCall:name];
     
 	return callbackParams;
 }
 
-+ (BuddyCallbackParams *)buildBuddyServiceError:(NSString *)name reason:(NSString *)reason state:(NSObject *)state
++ (BuddyCallbackParams *)buildBuddyServiceError:(NSString *)name reason:(NSString *)reason 
 {
 	NSString *tempReason = [name stringByAppendingFormat:@": %@", reason];
     
 	NSException *exception = [NSException exceptionWithName:kBuddyServiceException reason:tempReason userInfo:nil];
     
-	BuddyCallbackParams *callbackParams = [[BuddyCallbackParams alloc] initWithError:exception state:state apiCall:name];
+	BuddyCallbackParams *callbackParams = [[BuddyCallbackParams alloc] initWithError:exception  apiCall:name];
     
 	return callbackParams;
 }
 
 
-+ (BuddyCallbackParams *)buildBuddyError:(NSString *)name reason:(NSString *)reason state:(NSObject *)state
++ (BuddyCallbackParams *)buildBuddyError:(NSString *)name reason:(NSString *)reason 
 {
 	NSException *exception = [BuddyUtility processStandardErrors:reason name:name];
     
-	BuddyCallbackParams *callbackParams = [[BuddyCallbackParams alloc] initWithError:exception state:state apiCall:name];
+	BuddyCallbackParams *callbackParams = [[BuddyCallbackParams alloc] initWithError:exception  apiCall:name];
     
 	return callbackParams;
 }

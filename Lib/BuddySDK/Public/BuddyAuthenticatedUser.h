@@ -99,7 +99,7 @@ typedef void (^BuddyAuthenticatedUserSetProfilePhotoCallback)(BuddyBoolResponse 
  *   NSNumber *userAge = [NSNumber numberWithInt:100];
  *   NSString *userEmail = @"useremail@email.com";
  *
- *   [bc createUser:@"Username" password:@"Password" gender:UserGender_Any age:userAge email:userEmail status:UserStatus_Widowed fuzzLocation:FALSE celebrityMode:FALSE appTag:nil state:nil callback:[^(BuddyAuthenticatedUserResponse *response)
+ *   [bc createUser:@"Username" password:@"Password" gender:UserGender_Any age:userAge email:userEmail status:UserStatus_Widowed fuzzLocation:FALSE celebrityMode:FALSE appTag:nil  callback:[^(BuddyAuthenticatedUserResponse *response)
  *   {
  *      if (response.isCompleted && response.result)
  *      {
@@ -189,7 +189,7 @@ typedef void (^BuddyAuthenticatedUserSetProfilePhotoCallback)(BuddyBoolResponse 
 
 - (void)addProfilePhoto:(NSData *)blob
                  appTag:(NSString *)appTag
-                  state:(NSObject *)state
+                  
                callback:(BuddyAuthenticatedUserAddProfilePhotoCallback)callback;
 
 /// <summary>
@@ -215,7 +215,7 @@ typedef void (^BuddyAuthenticatedUserSetProfilePhotoCallback)(BuddyBoolResponse 
       longitude:(double)longitude
         comment:(NSString *)comment
          appTag:(NSString *)appTag
-          state:(NSObject *)state
+          
        callback:(BuddyAuthenticatedUserCheckInCallback)callback;
 
 /// <summary>
@@ -237,7 +237,7 @@ typedef void (^BuddyAuthenticatedUserSetProfilePhotoCallback)(BuddyBoolResponse 
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will contain an NSArray of BuddyCheckInLocation items if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
 - (void)getCheckins:(NSDate *)afterDate
-              state:(NSObject *)state
+              
            callback:(BuddyAuthenticatedUserGetCheckinsCallback)callback;
 
 /// <summary>
@@ -253,8 +253,7 @@ typedef void (^BuddyAuthenticatedUserSetProfilePhotoCallback)(BuddyBoolResponse 
 /// <param name="state">A user defined object that will be passed to the callback can b e nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
-- (void)delete:(NSObject *)state
-      callback:(BuddyAuthenticatedUserDeleteCallback)callback;
+- (void)delete:(BuddyAuthenticatedUserDeleteCallback)callback;
 
 /// <summary>
 /// Update the profile of this user.
@@ -281,7 +280,7 @@ typedef void (^BuddyAuthenticatedUserSetProfilePhotoCallback)(BuddyBoolResponse 
   fuzzLocation:(BOOL)fuzzLocation
  celebrityMode:(BOOL)celebrityMode
         appTag:(NSString *)appTag
-         state:(NSObject *)state
+         
       callback:(BuddyAuthenticatedUserUpdateCallback)callback;
 
 
@@ -293,7 +292,7 @@ typedef void (^BuddyAuthenticatedUserSetProfilePhotoCallback)(BuddyBoolResponse 
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyPictureResponse will contain the BuddyPicture if found, nil otherwise.</param>
 
 - (void)getPicture:(NSNumber *)pictureId
-             state:(NSObject *)state
+             
           callback:(BuddyAuthenticatedUserGetPictureCallback)callback;
 
 /// <summary>
@@ -310,7 +309,7 @@ typedef void (^BuddyAuthenticatedUserSetProfilePhotoCallback)(BuddyBoolResponse 
                latitude:(double)latitude
               longitude:(double)longitude
            limitResults:(NSNumber *)resultsLimit
-                  state:(NSObject *)state
+                  
                callback:(BuddyAuthenticatedUserSearchForAlbumsCallback)callback;
 
 /// <summary>
@@ -328,7 +327,7 @@ typedef void (^BuddyAuthenticatedUserSetProfilePhotoCallback)(BuddyBoolResponse 
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)deleteProfilePhoto:(BuddyPicturePublic *)picture
-                     state:(NSObject *)state
+                     
                   callback:(BuddyAuthenticatedUserDeleteProfilePhotoCallback)callback;
 
 /// <summary>
@@ -339,7 +338,7 @@ typedef void (^BuddyAuthenticatedUserSetProfilePhotoCallback)(BuddyBoolResponse 
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)setProfilePhoto:(BuddyPicturePublic *)picture
-                  state:(NSObject *)state
+                  
                callback:(BuddyAuthenticatedUserSetProfilePhotoCallback)callback;
 
 /// <summary>
@@ -350,7 +349,7 @@ typedef void (^BuddyAuthenticatedUserSetProfilePhotoCallback)(BuddyBoolResponse 
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyUserResponse will be set to a BuddyUser account associated with the ID if the request was successful otherwise it will be nil.</param>
 
 - (void)findUser:(NSNumber *)userId
-           state:(NSObject *)state
+           
         callback:(BuddyAuthenticatedUserFindUserCallback)callback;
 
 /// <summary>
@@ -379,7 +378,7 @@ typedef void (^BuddyAuthenticatedUserSetProfilePhotoCallback)(BuddyBoolResponse 
            userStatus:(UserStatus)userStatus
 checkinsWithinMinutes:(NSNumber *)checkinsWithinMinutes
                appTag:(NSString *)appTag
-                state:(NSObject *)state
+                
              callback:(BuddyAuthenticatedUserFindUsersCallback)callback;
 
 /// <summary>

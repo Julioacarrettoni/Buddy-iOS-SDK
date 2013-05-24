@@ -52,7 +52,7 @@ typedef void (^BuddyVirtualAlbumsGetCallback)(BuddyVirtualAlbumResponse *respons
 
 - (void)create:(NSString *)name
         appTag:(NSString *)appTag
-         state:(NSObject *)state
+         
       callback:(BuddyVirtualAlbumsCreateCallback)callback;
 
 /// <summary>
@@ -72,7 +72,7 @@ typedef void (^BuddyVirtualAlbumsGetCallback)(BuddyVirtualAlbumResponse *respons
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyVirtualAlbumResponse will be a BuddyVirtualAlbum for the requested albumId if successful otherwise it will be nil.</param>
 
 - (void)get:(NSNumber *)albumId
-      state:(NSObject *)state
+      
    callback:(BuddyVirtualAlbumsGetCallback)callback;
 
 /// <summary>
@@ -81,7 +81,6 @@ typedef void (^BuddyVirtualAlbumsGetCallback)(BuddyVirtualAlbumResponse *respons
 /// <param name="state">An optional user defined object that will be passed to the callback.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will contain an NSArray of albumIds (stored as NSNumbers) if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
-- (void)getMy:(NSObject *)state
-     callback:(BuddyVirtualAlbumsGetMyCallback)callback;
+- (void)getMy:(BuddyVirtualAlbumsGetMyCallback)callback;
 
 @end

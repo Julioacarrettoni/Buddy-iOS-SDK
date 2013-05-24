@@ -28,7 +28,7 @@
 {
 	if (callbackParams.isCompleted && data != nil)
 	{
-		self = [super initTrueWithState:callbackParams.state];
+		self = [super initTrueWithState:nil];
 		result = data;
 	}
 	else
@@ -44,21 +44,12 @@
 {
     NSException *exception = [BuddyUtility makeException:callbackParams.apiCall errorString:errorString];
   
-	self = [super initWithParam:FALSE exception:exception state:callbackParams.state];
+	self = [super initWithParam:FALSE exception:exception ];
   
 	return self; 
 }
 
-- (id)initWithError:(NSString *)apiCall    
-             reason:(NSString *)errorString
-			  state:(NSObject *)state
-{
-    NSException *exception = [BuddyUtility makeException:apiCall errorString:errorString];
- 
-	self = [super initWithParam:FALSE exception:exception state:state];
-  
-	return self; 
-}
+
 
 @end
 
@@ -72,7 +63,7 @@
 {
 	if (callbackParams.isCompleted && data != nil)
 	{
-		self = [super initTrueWithState:callbackParams.state];
+		self = [super initTrueWithState:nil];
 		result = data;
 	}
 	else
@@ -88,21 +79,11 @@
 {
     NSException *exception = [BuddyUtility makeException:callbackParams.apiCall errorString:errorString];
   
-	self = [super initWithParam:FALSE exception:exception state:callbackParams.state];
+	self = [super initWithParam:FALSE exception:exception ];
    
 	return self; 
 }
 
-- (id)initWithError:(NSString *)apiCall    
-             reason:(NSString *)errorString
-			  state:(NSObject *)state
-{
-    NSException *exception = [BuddyUtility makeException:apiCall errorString:errorString];
-   
-	self = [super initWithParam:FALSE exception: exception state:state];
-  
-	return self; 
-}
 
 @end
 
@@ -116,7 +97,7 @@
 {
 	if (callbackParams.isCompleted && data != nil)
 	{
-		self = [super initTrueWithState:callbackParams.state];
+		self = [super initTrueWithState:nil];
 		result = data;
 	}
 	else
@@ -132,21 +113,12 @@
 {
     NSException *exception = [BuddyUtility makeException:callbackParams.apiCall errorString:errorString];
 	
-	self = [super initWithParam:FALSE exception:exception state:callbackParams.state];
+	self = [super initWithParam:FALSE exception:exception ];
    
    return self; 
 }
 
-- (id)initWithError:(NSString *)apiCall    
-             reason:(NSString *)errorString
-			  state:(NSObject *)state
-{
-    NSException *exception = [BuddyUtility makeException:apiCall errorString:errorString];
 
-    self = [super initWithParam:FALSE exception:exception state:state];
-  
-	return self; 
-}
 
 @end
 
@@ -160,7 +132,7 @@
 {
 	if (callbackParams.isCompleted && data != nil)
 	{
-		self = [super initTrueWithState:callbackParams.state];
+		self = [super initTrueWithState:nil];
 		result = data;
 	}
 	else
@@ -176,21 +148,12 @@
 {
     NSException *exception = [BuddyUtility makeException:callbackParams.apiCall errorString:errorString];
     
-	self = [super initWithParam:FALSE exception:exception state:callbackParams.state];
+	self = [super initWithParam:FALSE exception:exception ];
    
 	return self; 
 }
 
-- (id)initWithError:(NSString *)apiCall    
-             reason:(NSString *)errorString
-			  state:(NSObject *)state
-{
-    NSException *exception = [BuddyUtility makeException:apiCall errorString:errorString];
-  
-	self = [super initWithParam:FALSE exception:exception state:state];
-  
-	return self; 
-}
+
 
 @end
 
@@ -204,7 +167,7 @@
 {
 	if (callbackParams.isCompleted && data != nil)
 	{
-		self = [super initTrueWithState:callbackParams.state];
+		self = [super initTrueWithState:nil];
 		result = data;
 	}
 	else
@@ -220,21 +183,12 @@
 {
     NSException *exception = [BuddyUtility makeException:callbackParams.apiCall errorString:errorString];
     
-	self = [super initWithParam:FALSE exception:exception state:callbackParams.state];
+	self = [super initWithParam:FALSE exception:exception ];
  
 	return self; 
 }
 
-- (id)initWithError:(NSString *)apiCall    
-             reason:(NSString *)errorString
-			  state:(NSObject *)state
-{
-    NSException *exception = [BuddyUtility makeException:apiCall errorString:errorString];
- 
-	self = [super initWithParam:FALSE exception:exception state:state];
- 
-	return self; 
-}
+
 
 @end
 
@@ -248,7 +202,7 @@
 {
 	if (callbackParams.isCompleted && data != nil)
 	{
-		self = [super initTrueWithState:callbackParams.state];
+		self = [super initTrueWithState:nil];
 		result = data;
 	}
 	else
@@ -264,21 +218,12 @@
 {
     NSException *exception = [BuddyUtility makeException:callbackParams.apiCall errorString:errorString];
   
-	self = [super initWithParam:FALSE exception:exception state:callbackParams.state];
+	self = [super initWithParam:FALSE exception:exception ];
    
 	return self; 
 }
 
-- (id)initWithError:(NSString *)apiCall    
-             reason:(NSString *)errorString
-			  state:(NSObject *)state
-{
-    NSException *exception = [BuddyUtility makeException:apiCall errorString:errorString];
-  
-	self = [super initWithParam:FALSE exception:exception state:state];
-   
-	return self; 
-}
+
 
 @end
 
@@ -292,7 +237,7 @@
 {
 	if (callbackParams.isCompleted &&  data != nil)
 	{
-		self = [super initTrueWithState:callbackParams.state];
+		self = [super initTrueWithState:nil];
 		result = data;
 	}
 	else
@@ -308,21 +253,12 @@
 {
     NSException *exception = [BuddyUtility makeException:callbackParams.apiCall errorString:errorString];
    
-	self = [super initWithParam:FALSE exception:exception state:callbackParams.state];
+	self = [super initWithParam:FALSE exception:exception ];
  
 	return self; 
 }
 
-- (id)initWithError:(NSString *)apiCall    
-             reason:(NSString *)errorString
-			  state:(NSObject *)state
-{
-    NSException *exception = [BuddyUtility makeException:apiCall errorString:errorString];
-   
-	self = [super initWithParam:FALSE exception:exception state:state];
-   
-	return self; 
-}
+
 
 @end
 
@@ -336,7 +272,7 @@
 {
 	if (callbackParams.isCompleted && data != nil)
 	{
-		self = [super initTrueWithState:callbackParams.state];
+		self = [super initTrueWithState:nil];
 		result = data;
 	}
 	else
@@ -352,21 +288,12 @@
 {
     NSException *exception = [BuddyUtility makeException:callbackParams.apiCall errorString:errorString];
    
-	self = [super initWithParam:FALSE exception:exception state:callbackParams.state];
+	self = [super initWithParam:FALSE exception:exception ];
   
 	return self; 
 }
 
-- (id)initWithError:(NSString *)apiCall    
-             reason:(NSString *)errorString
-			  state:(NSObject *)state
-{
-    NSException *exception = [BuddyUtility makeException:apiCall errorString:errorString];
-  
-	self = [super initWithParam:FALSE exception:exception state:state];
-   
-	return self; 
-}
+
 
 @end
 
@@ -380,7 +307,7 @@
 {
 	if (callbackParams.isCompleted)
 	{
-		self = [super initTrueWithState:callbackParams.state];
+		self = [super initTrueWithState:nil];
 		result = data;
 	}
 	else
@@ -396,7 +323,7 @@
 {
 	if (callbackParams.isCompleted && data != nil)
 	{
-		self = [super initTrueWithState:callbackParams.state];
+		self = [super initTrueWithState:nil];
 		result = data;
 	}
 	else
@@ -412,21 +339,11 @@
 {
     NSException *exception = [BuddyUtility makeException:callbackParams.apiCall errorString:errorString];
  
-	self = [super initWithParam:FALSE exception:exception state:callbackParams.state];
+	self = [super initWithParam:FALSE exception:exception ];
    
 	return self; 
 }
 
-- (id)initWithError:(NSString *)apiCall    
-             reason:(NSString *)errorString
-			  state:(NSObject *)state
-{
-    NSException *exception = [BuddyUtility makeException:apiCall errorString:errorString];
-  
-	self = [super initWithParam:FALSE exception:exception state:state];
-  
-	return self; 
-}
 
 @end
 
@@ -440,7 +357,7 @@
 {
 	if (callbackParams.isCompleted && data != nil)
 	{
-		self = [super initTrueWithState:callbackParams.state];
+		self = [super initTrueWithState:nil];
 		result = data;
 	}
 	else
@@ -456,21 +373,12 @@
 {
     NSException *exception = [BuddyUtility makeException:callbackParams.apiCall errorString:errorString];
 
-    self = [super initWithParam:FALSE exception:exception state:callbackParams.state];
+    self = [super initWithParam:FALSE exception:exception ];
 
     return self; 
 }
 
-- (id)initWithError:(NSString *)apiCall    
-             reason:(NSString *)errorString
-			  state:(NSObject *)state
-{
-    NSException *exception = [BuddyUtility makeException:apiCall errorString:errorString];
-   
-	self = [super initWithParam:FALSE exception:exception state:state];
-   
-	return self; 
-}
+
 
 @end
 
@@ -484,7 +392,7 @@
 {
 	if (callbackParams.isCompleted && data != nil)
 	{
-		self = [super initTrueWithState:callbackParams.state];
+		self = [super initTrueWithState:nil];
 		result = data;
 	}
 	else
@@ -500,21 +408,12 @@
 {
     NSException *exception = [BuddyUtility makeException:callbackParams.apiCall errorString:errorString];
  
-	self = [super initWithParam:FALSE exception:exception state:callbackParams.state];
+	self = [super initWithParam:FALSE exception:exception ];
  
 	return self; 
 }
 
-- (id)initWithError:(NSString *)apiCall    
-             reason:(NSString *)errorString
-			  state:(NSObject *)state
-{
-    NSException *exception = [BuddyUtility makeException:apiCall errorString:errorString];
-  
-	self = [super initWithParam:FALSE exception:exception state:state];
-  
-	return self; 
-}
+
 
 @end
 
@@ -528,7 +427,7 @@
 {
 	if (callbackParams.isCompleted)
 	{
-		self = [super initTrueWithState:callbackParams.state];
+		self = [super initTrueWithState:nil];
 		result = data;
 	}
 	else
@@ -544,7 +443,7 @@
 {
 	if (callbackParams.isCompleted && data != nil)
 	{
-		self = [super initTrueWithState:callbackParams.state];
+		self = [super initTrueWithState:nil];
 		result = data;
 	}
 	else
@@ -560,21 +459,11 @@
 {
     NSException *exception = [BuddyUtility makeException:callbackParams.apiCall errorString:errorString];
   
-	self = [super initWithParam:FALSE exception:exception state:callbackParams.state];
+	self = [super initWithParam:FALSE exception:exception ];
  
 	return self; 
 }
 
-- (id)initWithError:(NSString *)apiCall    
-             reason:(NSString *)errorString
-			  state:(NSObject *)state
-{
-    NSException *exception = [BuddyUtility makeException:apiCall errorString:errorString];
-   
-    self = [super initWithParam:FALSE exception:exception state:state];
-  
-    return self; 
-}
 
 @end
 
@@ -588,7 +477,7 @@
 {
 	if (callbackParams.isCompleted && data != nil)
 	{
-		self = [super initTrueWithState:callbackParams.state];
+		self = [super initTrueWithState:nil];
 		result = data;
 	}
 	else
@@ -604,21 +493,11 @@
 {
     NSException *exception = [BuddyUtility makeException:callbackParams.apiCall errorString:errorString];
 
-    self = [super initWithParam:FALSE exception:exception state:callbackParams.state];
+    self = [super initWithParam:FALSE exception:exception ];
 
     return self; 
 }
 
-- (id)initWithError:(NSString *)apiCall    
-             reason:(NSString *)errorString
-			  state:(NSObject *)state
-{
-    NSException *exception = [BuddyUtility makeException:apiCall errorString:errorString];
-   
-    self = [super initWithParam:FALSE exception:exception state:state];
-  
-    return self; 
-}
 
 @end
 
@@ -632,7 +511,7 @@
 {
 	if (callbackParams.isCompleted && data != nil)
 	{
-		self = [super initTrueWithState:callbackParams.state];
+		self = [super initTrueWithState:nil];
 		result = data;
 	}
 	else
@@ -648,21 +527,11 @@
 {
     NSException *exception = [BuddyUtility makeException:callbackParams.apiCall errorString:errorString];
   
-    self = [super initWithParam:FALSE exception:exception state:callbackParams.state];
+    self = [super initWithParam:FALSE exception:exception ];
    
     return self; 
 }
 
-- (id)initWithError:(NSString *)apiCall    
-             reason:(NSString *)errorString
-			  state:(NSObject *)state
-{
-    NSException *exception = [BuddyUtility makeException:apiCall errorString:errorString];
-  
-    self = [super initWithParam:FALSE exception:exception state:state];
-   
-    return self; 
-}
 
 @end
 
@@ -676,7 +545,7 @@
 {
 	if (callbackParams.isCompleted &&  data != nil)
 	{
-		self = [super initTrueWithState:callbackParams.state];
+		self = [super initTrueWithState:nil];
 		result = data;
 	}
 	else
@@ -692,21 +561,11 @@
 {
     NSException *exception = [BuddyUtility makeException:callbackParams.apiCall errorString:errorString];
 
-    self = [super initWithParam:FALSE exception:exception state:callbackParams.state];
+    self = [super initWithParam:FALSE exception:exception ];
 
     return self; 
 }
 
-- (id)initWithError:(NSString *)apiCall    
-             reason:(NSString *)errorString
-			  state:(NSObject *)state
-{
-    NSException *exception = [BuddyUtility makeException:apiCall errorString:errorString];
-  
-    self = [super initWithParam:FALSE exception:exception state:state];
-  
-	return self; 
-}
 
 @end
 
@@ -720,7 +579,7 @@
 {
 	if (callbackParams.isCompleted && data != nil)
 	{
-		self = [super initTrueWithState:callbackParams.state];
+		self = [super initTrueWithState:nil];
 		result = data;
 	}
 	else
@@ -736,21 +595,11 @@
 {
     NSException *exception = [BuddyUtility makeException:callbackParams.apiCall errorString:errorString];
    
-    self = [super initWithParam:FALSE exception:exception state:callbackParams.state];
+    self = [super initWithParam:FALSE exception:exception ];
  
     return self; 
 }
 
-- (id)initWithError:(NSString *)apiCall    
-             reason:(NSString *)errorString
-			  state:(NSObject *)state
-{
-    NSException *exception = [BuddyUtility makeException:apiCall errorString:errorString];
-  
-    self = [super initWithParam:FALSE exception:exception state:state];
-   
-    return self; 
-}
 
 @end
 
@@ -764,7 +613,7 @@
 {
 	if (callbackParams.isCompleted && data != nil)
 	{
-		self = [super initTrueWithState:callbackParams.state];
+		self = [super initTrueWithState:nil];
 		result = data;
 	}
 	else
@@ -780,7 +629,7 @@
 {
     NSException *exception = [BuddyUtility makeException:callbackParams.apiCall errorString:errorString];
    
-    self = [super initWithParam:FALSE exception:exception state:callbackParams.state];
+    self = [super initWithParam:FALSE exception:exception ];
    
     return self; 
 }
@@ -791,7 +640,7 @@
 {
     NSException *exception = [BuddyUtility makeException:apiCall errorString:errorString];
  
-    self = [super initWithParam:FALSE exception:exception state:state];
+    self = [super initWithParam:FALSE exception:exception ];
    
     return self; 
 }

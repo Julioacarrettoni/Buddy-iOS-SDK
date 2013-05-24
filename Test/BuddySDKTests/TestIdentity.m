@@ -55,7 +55,7 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 
 - (void)alogin
 {
-    [self.buddyClient login:Token state:nil callback:[^(BuddyAuthenticatedUserResponse *response)
+    [self.buddyClient login:Token  callback:[^(BuddyAuthenticatedUserResponse *response)
     {
         if (response.isCompleted)
         {
@@ -237,7 +237,7 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 {
     NSObject *state = [[NSObject alloc] init];
 
-    [buddyuser.identityValues remove:@"John Smith" state:state
+    [buddyuser.identityValues remove:@"John Smith" 
                             callback:[^(BuddyBoolResponse *response)
                             {
                                 if (response.isCompleted && response.result == TRUE)
@@ -256,12 +256,12 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 - (void)atestStateIdentityRemove:(BuddyAuthenticatedUser *)buddyuser
 {
     NSString *state = @"John Smith";
-    [self StateIdentityRemoveTest:buddyuser state:state];
+    [self StateIdentityRemoveTest:buddyuser ];
 }
 
-- (void)StateIdentityRemoveTest:(BuddyAuthenticatedUser *)buddyuser state:(NSObject *)state
+- (void)StateIdentityRemoveTest:(BuddyAuthenticatedUser *)buddyuser 
 {
-    [buddyuser.identityValues remove:@"John Smith" state:state
+    [buddyuser.identityValues remove:@"John Smith" 
                             callback:[^(BuddyBoolResponse *response)
                             {
                                 NSString *_state = (NSString *) response.state;

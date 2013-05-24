@@ -32,7 +32,7 @@
 {
 	if (callbackParams.isCompleted && [callbackParams.stringResult isEqualToString:@"1"])
 	{
-		self = [super initWithParam:TRUE exception:nil state:callbackParams.state];
+		self = [super initWithParam:TRUE exception:nil ];
 		result = TRUE;
 	}
 	else
@@ -41,7 +41,7 @@
 		NSString *errorString = (callbackParams.isCompleted) ? callbackParams.stringResult : callbackParams.exception.reason;
 		NSException *exception = [BuddyUtility processStandardErrors:errorString name:apiCall];
 
-		self = [super initWithParam:FALSE exception:exception state:callbackParams.state];
+		self = [super initWithParam:FALSE exception:exception ];
 		if (!self)
 		{
 			return nil;
@@ -58,7 +58,7 @@
 {
 	if (callbackParams.isCompleted)
 	{
-		self = [super initWithParam:TRUE exception:nil state:callbackParams.state];
+		self = [super initWithParam:TRUE exception:nil ];
 		result = localResult;
 	}
 	else
@@ -66,7 +66,7 @@
 		NSString *errorString = (callbackParams.isCompleted) ? callbackParams.stringResult : callbackParams.exception.reason;
 		NSException *exception = [BuddyUtility processStandardErrors:errorString name:callbackParams.apiCall];
 
-		self = [super initWithParam:FALSE exception:exception state:callbackParams.state];
+		self = [super initWithParam:FALSE exception:exception ];
 		if (!self)
 		{
 			return nil;
@@ -81,7 +81,7 @@
 - (id)initUnKnownErrorResponse:(BuddyCallbackParams *)callbackParams 
                      exception:(NSException *)exception
 {
-    self = [super initWithParam:FALSE exception:exception state:callbackParams.state];
+    self = [super initWithParam:FALSE exception:exception ];
     if (!self)
     {
         return nil;

@@ -29,7 +29,7 @@
  
     __block NSDictionary *_dictAlbums;
  
-    [bc login:@"username" password:@"password" state:nil callback:[^(BuddyAuthenticatedUserResponse *response)
+    [bc login:@"username" password:@"password"  callback:[^(BuddyAuthenticatedUserResponse *response)
     {
         if (response.isCompleted)
         {   // get the user

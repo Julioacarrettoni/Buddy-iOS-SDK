@@ -22,8 +22,8 @@
 //#define _AFNETWORKING_ALLOW_INVALID_SSL_CERTIFICATES_
 
 
-static NSString * const kBuddyAPIBaseURLSSL = @"https://webservice.buddyplatform.com/Service/v1/BuddyService.ashx" ;
-static NSString * const kBuddyAPIBaseURL = @"http://webservice.buddyplatform.com/Service/v1/BuddyService.ashx" ;
+static NSString * const kBuddyAPIBaseURLSSL = @"http://windows/webservice/Service/v1/BuddyService.ashx" ;
+static NSString * const kBuddyAPIBaseURL = @"http://windows/webservice/Service/v1/BuddyService.ashx" ;
 
 @interface ClientServicePlainText : AFHTTPClient
 

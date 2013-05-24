@@ -99,8 +99,7 @@ typedef void (^BuddyAppMetadataSumCallback)(BuddyMetadataSumResponse *response);
 /// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyDictionaryResponse object will be set to an NSDictionary of metadata item/pairs if the request was successful (BuddyDictionaryResponse.isCompleted == TRUE and data was found on the server)  otherwise nil if the request failed.</param>
 
-- (void)getAll:(NSObject *)state
-      callback:(BuddyAppMetadataGetAllCallback)callback;
+- (void)getAll:(BuddyAppMetadataGetAllCallback)callback;
 
 /// <summary>
 /// Get a metadata item with a key. The key can't be null or an empty string.
@@ -110,7 +109,7 @@ typedef void (^BuddyAppMetadataSumCallback)(BuddyMetadataSumResponse *response);
 /// <param name="callback">The callback to call on success or error. The  .result field of the BuddyMetadataItemResponse will be set to a BuddyMetadataItem instance for the requested key if successful (BuddyMetadataItemResponse.isCompleted == TRUE and data was found on the server) otherwise it will be nil.</param>
 
 - (void)get:(NSString *)key
-      state:(NSObject *)state
+      
    callback:(BuddyAppMetadataGetCallback)callback;
 
 /// <summary>
@@ -131,7 +130,7 @@ typedef void (^BuddyAppMetadataSumCallback)(BuddyMetadataSumResponse *response);
    latitude:(double)latitude
   longitude:(double)longitude
      appTag:(NSString *)appTag
-      state:(NSObject *)state
+      
    callback:(BuddyAppMetadataSetCallback)callback;
 
 /// <summary>
@@ -155,7 +154,7 @@ typedef void (^BuddyAppMetadataSumCallback)(BuddyMetadataSumResponse *response);
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse .result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)delete:(NSString *)key
-         state:(NSObject *)state
+         
       callback:(BuddyAppMetadataDeleteCallback)callback;
 
 /// <summary>
@@ -164,8 +163,7 @@ typedef void (^BuddyAppMetadataSumCallback)(BuddyMetadataSumResponse *response);
 /// <param name="state">A user defined object that will be passed to the callback can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse .result field will be TRUE on success, FALSE otherwise.</param>
 
-- (void)deleteAll:(NSObject *)state
-         callback:(BuddyAppMetadataDeleteAllCallback)callback;
+- (void)deleteAll:(BuddyAppMetadataDeleteAllCallback)callback;
 
 /// <summary>
 /// Search for metadata items in this application. Note that this method will only find app-level metadata items.
@@ -197,7 +195,7 @@ updatedMinutesAgo:(NSNumber *)updatedMinutesAgo
     searchAsFloat:(BOOL)searchAsFloat
     sortAscending:(BOOL)sortAscending
      disableCache:(BOOL)disableCache
-            state:(NSObject *)state
+            
          callback:(BuddyAppMetadataFindCallback)callback;
 
 /// <summary>
@@ -232,7 +230,7 @@ withinDistance:(NSNumber *)withinDistance
         longitude:(double)longitude
 updatedMinutesAgo:(NSNumber *)updatedMinutesAgo
        withAppTag:(NSString *)appTag
-            state:(NSObject *)state
+            
          callback:(BuddyAppMetadataSumCallback)callback;
 
 /// <summary>
@@ -265,7 +263,7 @@ updatedMinutesAgo:(NSNumber *)updatedMinutesAgo
         longitude:(double)longitude
 updatedMinutesAgo:(NSNumber *)updatedMinutesAgo
        withAppTag:(NSString *)appTag
-            state:(NSObject *)state
+            
          callback:(BuddyAppMetadataBatchSumCallback)callback;
 
 /// <summary>

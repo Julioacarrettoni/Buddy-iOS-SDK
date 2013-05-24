@@ -42,7 +42,7 @@ typedef void (^BuddyDeviceRecordCrashCallback)(BuddyBoolResponse *response);
  * BuddyClient *bc = [[BuddyClient alloc] initClient:appName
  *                                          password:appPassword];
  *
- * [bc.device recordInformation:@"iphone" deviceType:@"iphone" authenticatedUser:nil appVersion:@"1.0" latitude:55.5 longitude:55.4 metadata:name state:nil callback:^(BuddyBoolResponse *response)
+ * [bc.device recordInformation:@"iphone" deviceType:@"iphone" authenticatedUser:nil appVersion:@"1.0" latitude:55.5 longitude:55.4 metadata:name  callback:^(BuddyBoolResponse *response)
  * {
  *  if (response.isCompleted && response.result == TRUE)
  *      NSLog(@"Analytics_RecordInformation OK");
@@ -53,7 +53,7 @@ typedef void (^BuddyDeviceRecordCrashCallback)(BuddyBoolResponse *response);
  * BuddyClient *bc = [[BuddyClient alloc] initClient:appName
  *                                          password:appPassword];
  *
- * [bc.device recordCrash:@"TestMethod" osVersion:@"iphone" deviceType:@"iphone" authenticatedUser:nil stackTrace:@"" appVersion:@"1.0" latitude:55.7 longitude:55.5 metadata:name state:nil callback:^(BuddyBoolResponse *response)
+ * [bc.device recordCrash:@"TestMethod" osVersion:@"iphone" deviceType:@"iphone" authenticatedUser:nil stackTrace:@"" appVersion:@"1.0" latitude:55.7 longitude:55.5 metadata:name  callback:^(BuddyBoolResponse *response)
  * {
  *  if (response.isCompleted && response.result == TRUE)
  *      NSLog(@"Analytics_RecordCrash OK");
@@ -83,7 +83,7 @@ typedef void (^BuddyDeviceRecordCrashCallback)(BuddyBoolResponse *response);
                  latitude:(double)latitude
                 longitude:(double)longitude
                  metadata:(NSString *)metadata
-                    state:(NSObject *)state
+                    
                  callback:(BuddyDeviceRecordInformationCallback)callback;
 
 /// <summary>
@@ -123,7 +123,7 @@ typedef void (^BuddyDeviceRecordCrashCallback)(BuddyBoolResponse *response);
            latitude:(double)latitude
           longitude:(double)longitude
            metadata:(NSString *)metadata
-              state:(NSObject *)state
+              
            callback:(BuddyDeviceRecordCrashCallback)callback;
 
 /// <summary>

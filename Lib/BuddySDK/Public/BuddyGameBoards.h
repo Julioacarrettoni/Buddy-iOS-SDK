@@ -41,7 +41,7 @@ typedef void (^BuddyGameBoardsFindScoresCallback)(BuddyArrayResponse *response);
  *  BuddyClient *buddyClient = [[BuddyClient alloc] initClient:appName
  *                                                 appPassword:appPassword];
  *
- * [buddyClient login:@"username" password:@"password" state:nil callback:^(BuddyAuthenticatedUserResponse *response)
+ * [buddyClient login:@"username" password:@"password"  callback:^(BuddyAuthenticatedUserResponse *response)
  *  {
  *    if (response.isCompleted)
  *     {   // get the user
@@ -79,7 +79,7 @@ typedef void (^BuddyGameBoardsFindScoresCallback)(BuddyArrayResponse *response);
 
 - (void)getHighScores:(NSString *)boardName
           recordLimit:(NSNumber *)recordLimit
-                state:(NSObject *)state
+                
              callback:(BuddyGameBoardsGetHighScoresCallback)callback;
 
 /// <summary>
@@ -115,7 +115,7 @@ typedef void (^BuddyGameBoardsFindScoresCallback)(BuddyArrayResponse *response);
            daysOld:(NSNumber *)daysOld
       minimumScore:(NSNumber *)minimumScore
             appTag:(NSString *)appTag
-             state:(NSObject *)state
+             
           callback:(BuddyGameBoardsFindScoresCallback)callback;
 
 @end

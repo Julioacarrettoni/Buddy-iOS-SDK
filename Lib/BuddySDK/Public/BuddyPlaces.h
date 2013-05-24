@@ -50,7 +50,7 @@ typedef void (^BuddyPlacesGetCallback)(BuddyPlaceResponse *response);
  *
  *  __block NSArray *_places;
  *
- *  [bc login:@"username" password:@"password" state:nil callback: [^((BuddyAuthenticatedUserResponse *response)
+ *  [bc login:@"username" password:@"password"  callback: [^((BuddyAuthenticatedUserResponse *response)
  *  {
  *  if (response.isCompleted)
  *  {   // get the user
@@ -77,7 +77,7 @@ typedef void (^BuddyPlacesGetCallback)(BuddyPlaceResponse *response);
  *                               autoRecordDeviceInfo:TRUE];
  *  __block NSArray *_placesArray;
  *
- *  [bc login:@"username" password:@"password" state:nil callback:[^((BuddyAuthenticatedUserResponse *response)
+ *  [bc login:@"username" password:@"password"  callback:[^((BuddyAuthenticatedUserResponse *response)
  *  {
  *      if (response.isCompleted)
  *      {   // get the user
@@ -119,7 +119,7 @@ typedef void (^BuddyPlacesGetCallback)(BuddyPlaceResponse *response);
 numberOfResults:(NSNumber *)numberOfResults
    searchForName:(NSString *)searchForName
 searchCategoryId:(NSNumber *)searchCategoryId
-           state:(NSObject *)state
+           
         callback:(BuddyPlacesFindCallback)callback;
 
 /// <summary>
@@ -141,8 +141,7 @@ searchCategoryId:(NSNumber *)searchCategoryId
 /// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyDictionaryResponse object will be set to an NSDictionary of geo-location IDs' (key) and geo-location category (value) pairs if the request was successful otherwise nil if the request failed.</param>
 
-- (void)getCategories:(NSObject *)state
-             callback:(BuddyPlacesGetCategoriesCallback)block;
+- (void)getCategories:(BuddyPlacesGetCategoriesCallback)block;
 
 /// <summary>
 /// Get a Place by its globally unique identifier. This method can also be used to calculate a distance from a lat/long to a place.
@@ -156,7 +155,7 @@ searchCategoryId:(NSNumber *)searchCategoryId
 - (void)get:(NSNumber *)placeId
    latitude:(double)latitude
   longitude:(double)longitude
-      state:(NSObject *)state
+      
    callback:(BuddyPlacesGetCallback)callback;
 
 /// <summary>

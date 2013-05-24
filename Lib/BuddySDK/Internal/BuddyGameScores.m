@@ -86,11 +86,11 @@
 {
 	NSNumber *recordLimit = [NSNumber numberWithInt:100];
 
-    [self getAll:recordLimit state:nil callback:callback];
+    [self getAll:recordLimit  callback:callback];
 }
 
 - (void)getAll:(NSNumber *)recordLimit
-         state:(NSObject *)state
+         
       callback:(BuddyGameScoresGetAllCallback)callback
 {
 	[BuddyUtility checkRecordLimitParam:recordLimit functionName:@"BuddyGameScores"];
@@ -107,7 +107,7 @@
 
 	__block BuddyGameScores *_self = self;
 
-	[[client webService] Game_Score_GetScoresForUser:userId RecordLimit:recordLimit RESERVED:@"" state:state
+	[[client webService] Game_Score_GetScoresForUser:userId RecordLimit:recordLimit RESERVED:@"" 
 											callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 													  {
 														  if (callback)
@@ -129,7 +129,7 @@
 															  if (exception)
 															  {
 																  callback([[BuddyArrayResponse alloc] initWithError:exception
-                                                                                                            state:callbackParams.state
+                                                                                                            
                                                                                                           apiCall:callbackParams.apiCall]);
 															  }
 															  else
@@ -142,8 +142,7 @@
 													  } copy]];
 }
 
-- (void)deleteAll:(NSObject *)state
-         callback:(BuddyGameScoresDeleteAllCallback)callback
+- (void)deleteAll:(BuddyGameScoresDeleteAllCallback)callback
 {
 	NSString *userId;
 
@@ -156,7 +155,7 @@
 		userId = authUser.token;
 	}
 
-	[[client webService] Game_Score_DeleteAllScoresForUser:userId RESERVED:@"" state:state
+	[[client webService] Game_Score_DeleteAllScoresForUser:userId RESERVED:@"" 
 												  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 															{
 																if (callback)
@@ -169,7 +168,7 @@
 - (void)add:(double)score
    callback:(BuddyGameScoresAddCallback)callback
 {
-    [self add:score board:nil rank:nil latitude:0.0 longitude:0.0 oneScorePerPlayer:FALSE appTag:nil state:nil callback:callback];
+    [self add:score board:nil rank:nil latitude:0.0 longitude:0.0 oneScorePerPlayer:FALSE appTag:nil  callback:callback];
 }
 
 - (void)add:(double)score
@@ -179,7 +178,7 @@
         longitude:(double)longitude
 oneScorePerPlayer:(BOOL)oneScorePerPlayer
            appTag:(NSString *)appTag
-            state:(NSObject *)state
+            
          callback:(BuddyGameScoresAddCallback)callback
 {
 	NSString *userId;
@@ -197,7 +196,7 @@ oneScorePerPlayer:(BOOL)oneScorePerPlayer
 
 	NSNumber *oneScore = (oneScorePerPlayer == TRUE) ? [NSNumber numberWithInt:1] : [NSNumber numberWithInt:0];
 
-	[[client webService] Game_Score_Add:userId ScoreLatitude:latitude ScoreLongitude:longitude ScoreRank:rank ScoreValue:score ScoreBoardName:board ApplicationTag:appTag OneScorePerPlayerBit:oneScore RESERVED:@"" state:state
+	[[client webService] Game_Score_Add:userId ScoreLatitude:latitude ScoreLongitude:longitude ScoreRank:rank ScoreValue:score ScoreBoardName:board ApplicationTag:appTag OneScorePerPlayerBit:oneScore RESERVED:@"" 
 							   callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 										 {
 											 if (callback)

@@ -38,7 +38,7 @@ typedef void (^BuddyPlaceSetTagCallback)(BuddyBoolResponse *response);
  *
  *  __block NSArray *_placesArray;
  *
- *  [bc login:@"username" password:@"password" state:nil callback:[^(BuddyAuthenticatedUserResponse *response)
+ *  [bc login:@"username" password:@"password"  callback:[^(BuddyAuthenticatedUserResponse *response)
  *  {
  *      if (response.isCompleted)
  *      {   // get the user
@@ -187,7 +187,7 @@ typedef void (^BuddyPlaceSetTagCallback)(BuddyBoolResponse *response);
 
 - (void)setTag:(NSString *)appTag
        userTag:(NSString *)userTag
-         state:(NSObject *)state
+         
       callback:(BuddyPlaceSetTagCallback)callback;
 
 @end

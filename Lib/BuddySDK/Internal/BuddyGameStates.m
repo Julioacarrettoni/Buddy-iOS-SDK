@@ -57,7 +57,7 @@
 gameStateValue:(NSString *)gameStateValue
       callback:(BuddyGameStatesAddCallback)callback
 {
-    [self add:gameStateKey gameStateValue:gameStateValue appTag:nil state:nil callback:callback];
+    [self add:gameStateKey gameStateValue:gameStateValue appTag:nil  callback:callback];
 }
 
 - (void)checkGamesStateKey:(NSString *)key
@@ -79,7 +79,7 @@ gameStateValue:(NSString *)gameStateValue
 - (void)   add:(NSString *)gameStateKey
 gameStateValue:(NSString *)gameStateValue
         appTag:(NSString *)appTag
-         state:(NSObject *)state
+         
       callback:(BuddyGameStatesAddCallback)callback
 {
 	[self checkGamesStateKey:gameStateKey];
@@ -87,7 +87,7 @@ gameStateValue:(NSString *)gameStateValue
 
 	NSString *userId = [NSString stringWithFormat:@"%d", [user.userId intValue]];
 
-	[[client webService] Game_State_Add:userId GameStateKey:gameStateKey GameStateValue:gameStateValue ApplicationTag:appTag RESERVED:@"" state:state
+	[[client webService] Game_State_Add:userId GameStateKey:gameStateKey GameStateValue:gameStateValue ApplicationTag:appTag RESERVED:@"" 
                                callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 																																							 {
 																																								 if (callback)
@@ -98,14 +98,14 @@ gameStateValue:(NSString *)gameStateValue
 }
 
 - (void)get:(NSString *)gameStateKey
-      state:(NSObject *)state
+      
    callback:(BuddyGameStatesGetCallback)callback
 {
 	[self checkGamesStateKey:gameStateKey];
 
 	NSString *userId = [NSString stringWithFormat:@"%d", [user.userId intValue]];
 
-	[[client webService] Game_State_Get:userId GameStateKey:gameStateKey RESERVED:@"" state:state
+	[[client webService] Game_State_Get:userId GameStateKey:gameStateKey RESERVED:@"" 
 							   callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 										 {
 											 if (callback)
@@ -131,7 +131,7 @@ gameStateValue:(NSString *)gameStateValue
 												 if (exception)
 												 {
 													 callback([[BuddyGameStateResponse alloc] initWithError:exception
-                                                                                                   state:callbackParams.state
+                                                                                                   
                                                                                                  apiCall:callbackParams.apiCall]);
 												 }
 												 else
@@ -147,13 +147,13 @@ gameStateValue:(NSString *)gameStateValue
 gameStateValue:(NSString *)gameStateValue
       callback:(BuddyGameStatesUpdateCallback)callback
 {
-    [self update:gameStateKey gameStateValue:gameStateValue newAppTag:nil state:nil callback:callback];
+    [self update:gameStateKey gameStateValue:gameStateValue newAppTag:nil  callback:callback];
 }
 
 - (void)update:(NSString *)gameStateKey
 gameStateValue:(NSString *)gameStateValue
      newAppTag:(NSString *)newAppTag
-         state:(NSObject *)state
+         
       callback:(BuddyGameStatesUpdateCallback)callback
 {
 	[self checkGamesStateKey:gameStateKey];
@@ -161,7 +161,7 @@ gameStateValue:(NSString *)gameStateValue
 
 	NSString *userId = [NSString stringWithFormat:@"%d", [user.userId intValue]];
 
-	[[client webService] Game_State_Update:userId GameStateKey:gameStateKey GameStateValue:gameStateValue ApplicationTag:newAppTag RESERVED:@"" state:state
+	[[client webService] Game_State_Update:userId GameStateKey:gameStateKey GameStateValue:gameStateValue ApplicationTag:newAppTag RESERVED:@"" 
                                   callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 																																								   {
 																																									   if (callback)
@@ -172,14 +172,14 @@ gameStateValue:(NSString *)gameStateValue
 }
 
 - (void)remove:(NSString *)gameStateKey
-         state:(NSObject *)state
+         
       callback:(BuddyGameStatesRemoveCallback)callback
 {
 	[self checkGamesStateKey:gameStateKey];
 
 	NSString *userId = [NSString stringWithFormat:@"%d", [user.userId intValue]];
 
-	[[client webService] Game_State_Remove:userId GameStateKey:gameStateKey RESERVED:@"" state:state
+	[[client webService] Game_State_Remove:userId GameStateKey:gameStateKey RESERVED:@"" 
 								  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 											{
 												if (callback)
@@ -223,14 +223,13 @@ gameStateValue:(NSString *)gameStateValue
 	return dictOut;
 }
 
-- (void)getAll:(NSObject *)state
-      callback:(BuddyGameStatesGetAllCallback)callback
+- (void)getAll:(BuddyGameStatesGetAllCallback)callback
 {
 	NSString *userId = [NSString stringWithFormat:@"%d", [user.userId intValue]];
 
 	__block BuddyGameStates *_self = self;
 
-	[[client webService] Game_State_GetAll:userId RESERVED:@"" state:state
+	[[client webService] Game_State_GetAll:userId RESERVED:@"" 
 								  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 											{
 												if (callback)
@@ -252,7 +251,7 @@ gameStateValue:(NSString *)gameStateValue
 													if (exception)
 													{
 														callback([[BuddyDictionaryResponse alloc] initWithError:exception
-                                                                                                       state:callbackParams.state
+                                                                                                       
                                                                                                      apiCall:callbackParams.apiCall]);
 													}
 													else

@@ -56,7 +56,7 @@ typedef void (^BuddyPictureSetAppTagCallback)(BuddyBoolResponse *response);
  *  BuddyClient *bc = [[BuddyClient alloc] initClient:appName
  *                                        appPassword:appPassword];
  *
- *  [bc login:@"username" password:@"password" state:nil callback:^(BuddyAuthenticatedUserResponse *response)
+ *  [bc login:@"username" password:@"password"  callback:^(BuddyAuthenticatedUserResponse *response)
  *  {
  *      if (response.isCompleted && response.result)
  *      {   // get the user
@@ -92,8 +92,7 @@ typedef void (^BuddyPictureSetAppTagCallback)(BuddyBoolResponse *response);
 /// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyDictionaryResponses object will be set to an NSDictionary of fildescriptiontername  (key) and description (value) pairs if the request was successful otherwise nil if the request failed.</param>
 
-- (void)supportedFilters:(NSObject *)state
-                callback:(BuddyPictureSupportedFiltersCallback)callback;
+- (void)supportedFilters:(BuddyPictureSupportedFiltersCallback)callback;
 
 /// <summary>
 /// Delete this picture. Note that this object will no longer be valid after this method is called. Subsequent calls will fail.
@@ -101,8 +100,7 @@ typedef void (^BuddyPictureSetAppTagCallback)(BuddyBoolResponse *response);
 /// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
-- (void)delete:(NSObject *)state
-      callback:(BuddyPictureDeleteCallback)callback;
+- (void)delete:(BuddyPictureDeleteCallback)callback;
 
 /// <summary>
 /// Apply a filter to this picture. A new picture is created and returned after the filter is applied.
@@ -114,7 +112,7 @@ typedef void (^BuddyPictureSetAppTagCallback)(BuddyBoolResponse *response);
 
 - (void)applyFilter:(NSString *)filterName
        filterParams:(NSString *)filterParams
-              state:(NSObject *)state
+              
            callback:(BuddyPictureApplyFilterCallback)callback;
 
 /// <summary>
@@ -124,7 +122,7 @@ typedef void (^BuddyPictureSetAppTagCallback)(BuddyBoolResponse *response);
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)setAppTag:(NSString *)appTag
-            state:(NSObject *)state
+            
          callback:(BuddyPictureSetAppTagCallback)callback;
 
 @end

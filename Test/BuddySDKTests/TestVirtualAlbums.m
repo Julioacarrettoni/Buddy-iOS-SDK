@@ -69,7 +69,7 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 
 - (void)alogin
 {
-    [self.buddyClient login:Token state:nil callback:[^(BuddyAuthenticatedUserResponse *response)
+    [self.buddyClient login:Token  callback:[^(BuddyAuthenticatedUserResponse *response)
     {
         if (response.isCompleted && response.result)
         {
@@ -127,7 +127,7 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 
 - (void)photoAlbumCreateWithPic:(NSString *)albumName
 {
-    [self.buddyUser.photoAlbums create:albumName isPublic:FALSE appTag:nil state:nil callback:[^(BuddyPhotoAlbumResponse *response)
+    [self.buddyUser.photoAlbums create:albumName isPublic:FALSE appTag:nil  callback:[^(BuddyPhotoAlbumResponse *response)
     {
         if (response.isCompleted && response.result)
         {
@@ -147,7 +147,7 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
     NSData *blob = [TestBuddySDK GetPicFileData:@"SpaceNeedle"];
     NSData *base64Data = [pAlbum encodeToBase64:blob];
 
-    [pAlbum addPicture:base64Data comment:nil latitude:0.0 longitude:0.0 appTag:nil state:nil callback:[^(BuddyPictureResponse *response)
+    [pAlbum addPicture:base64Data comment:nil latitude:0.0 longitude:0.0 appTag:nil  callback:[^(BuddyPictureResponse *response)
     {
         if (response.isCompleted && response.result != nil)
         {

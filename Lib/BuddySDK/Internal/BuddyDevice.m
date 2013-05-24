@@ -53,7 +53,7 @@
                  authUser:(BuddyAuthenticatedUser *)authUser
                  callback:(BuddyDeviceRecordInformationCallback)callback;
 {
-    [self recordInformation:osVersion deviceType:deviceType authUser:authUser appVersion:@"1.0" latitude:0.0 longitude:0.0 metadata:nil state:nil callback:callback];
+    [self recordInformation:osVersion deviceType:deviceType authUser:authUser appVersion:@"1.0" latitude:0.0 longitude:0.0 metadata:nil  callback:callback];
 }
 
 - (void)recordInformation:(NSString *)osVersion
@@ -63,7 +63,7 @@
                  latitude:(double)latitude
                 longitude:(double)longitude
                  metadata:(NSString *)metadata
-                    state:(NSObject *)state
+                    
                  callback:(BuddyDeviceRecordInformationCallback)callback
 {
 	[self CheckOS:osVersion];
@@ -79,7 +79,7 @@
 
 	NSString *token = authUser.token;
 
-	[[_client webService] Analytics_DeviceInformation_Add:token DeviceOSVersion:osVersion DeviceType:deviceType Latitude:latitude Longitude:latitude AppName:_client.appName AppVersion:appVersion Metadata:metadata state:state
+	[[_client webService] Analytics_DeviceInformation_Add:token DeviceOSVersion:osVersion DeviceType:deviceType Latitude:latitude Longitude:latitude AppName:_client.appName AppVersion:appVersion Metadata:metadata 
 												 callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 														   {
 															   if (callback)
@@ -111,7 +111,7 @@
            authUser:(BuddyAuthenticatedUser *)authUser
            callback:(BuddyDeviceRecordCrashCallback)callback;
 {
-    [self recordCrash:methodName osVersion:osVersion deviceType:deviceType authUser:authUser stackTrace:nil appVersion:nil latitude:0.0 longitude:0.0 metadata:nil state:nil callback:callback];
+    [self recordCrash:methodName osVersion:osVersion deviceType:deviceType authUser:authUser stackTrace:nil appVersion:nil latitude:0.0 longitude:0.0 metadata:nil  callback:callback];
 }
 
 
@@ -124,7 +124,7 @@
            latitude:(double)latitude
           longitude:(double)longitude
            metadata:(NSString *)metadata
-              state:(NSObject *)state
+              
            callback:(BuddyDeviceRecordCrashCallback)callback
 {
 	if ([BuddyUtility isNilOrEmpty:methodName])
@@ -140,7 +140,7 @@
 
 	NSString *token = authUser.token;
 
-	[[_client webService] Analytics_CrashRecords_Add:token AppVersion:appVersion DeviceOSVersion:osVersion DeviceType:deviceType MethodName:methodName StackTrace:stackTrace Metadata:metadata Latitude:latitude Longitude:longitude state:state
+	[[_client webService] Analytics_CrashRecords_Add:token AppVersion:appVersion DeviceOSVersion:osVersion DeviceType:deviceType MethodName:methodName StackTrace:stackTrace Metadata:metadata Latitude:latitude Longitude:longitude 
 											callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 													  {
 														  if (callback)

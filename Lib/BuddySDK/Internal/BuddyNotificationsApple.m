@@ -57,12 +57,12 @@
 - (void)registerDevice:(NSData *)appleDeviceToken
 			  callback:(BuddyNotificationsAppleRegisterDeviceCallback)callback
 {
-	[self registerDevice:appleDeviceToken groupName:nil state:nil callback:callback];
+	[self registerDevice:appleDeviceToken groupName:nil  callback:callback];
 }
 
 - (void)registerDevice:(NSData *)appleDeviceToken
 			 groupName:(NSString *)groupName
-				 state:(NSObject *)state
+				 
 			  callback:(BuddyNotificationsAppleRegisterDeviceCallback)callback
 {
 	if (appleDeviceToken == nil)
@@ -72,7 +72,7 @@
 
 	NSString *hexadecimalString = [BuddyUtility hexadecimalString:appleDeviceToken];
 
-	[[client webService] PushNotifications_Apple_RegisterDevice:authUser.token GroupName:groupName AppleDeviceToken:hexadecimalString state:state
+	[[client webService] PushNotifications_Apple_RegisterDevice:authUser.token GroupName:groupName AppleDeviceToken:hexadecimalString 
 													   callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 																 {
 																	 if (callback)
@@ -82,10 +82,9 @@
 																 } copy]];
 }
 
-- (void)unregisterDevice:(NSObject *)state
-				callback:(BuddyNotificationsAppleUnregisterDeviceCallback)callback
+- (void)unregisterDevice:(BuddyNotificationsAppleUnregisterDeviceCallback)callback
 {
-	[[client webService] PushNotifications_Apple_RemoveDevice:authUser.token state:state
+	[[client webService] PushNotifications_Apple_RemoveDevice:authUser.token 
 													 callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 															   {
 																   if (callback)
@@ -124,13 +123,13 @@
 	NSNumber *currentPage = [NSNumber numberWithInt:1];
 	NSNumber *pageSize = [NSNumber numberWithInt:10];
 
-	[self getRegisteredDevices:nil pageSize:pageSize currentPage:currentPage state:nil callback:callback];
+	[self getRegisteredDevices:nil pageSize:pageSize currentPage:currentPage  callback:callback];
 }
 
 - (void)getRegisteredDevices:(NSString *)group
 					pageSize:(NSNumber *)pageSize
 				 currentPage:(NSNumber *)currentPage
-					   state:(NSObject *)state
+					   
 					callback:(BuddyNotificationsAppleGetRegisteredDevicesCallback)callback
 {
 	if (currentPage == nil)
@@ -148,7 +147,7 @@
 	[[client webService] PushNotifications_Apple_GetRegisteredDevices:group
 															 PageSize:pageSize
 													CurrentPageNumber:currentPage
-																state:state
+																
 															 callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 																	   {
 																		   if (callback)
@@ -170,7 +169,7 @@
 																			   if (exception)
 																			   {
 																				   callback([[BuddyArrayResponse alloc] initWithError:exception
-																																state:callbackParams.state
+																																
 																															  apiCall:callbackParams.apiCall]);
 																			   }
 																			   else
@@ -215,13 +214,11 @@
 	return dictOut;
 }
 
-- (void)getGroups:(NSObject *)state
-		 callback:(BuddyNotificationsAppleGetGroupsCallback)callback
+- (void)getGroups:(BuddyNotificationsAppleGetGroupsCallback)callback
 {
 	__block BuddyNotificationsApple *_self = self;
 
-	[[client webService] PushNotifications_Apple_GetGroupNames:state
-													  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+	[[client webService] PushNotifications_Apple_GetGroupNames:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 																{
 																	if (callback)
 																	{
@@ -242,7 +239,7 @@
 																		if (exception)
 																		{
 																			callback([[BuddyDictionaryResponse alloc] initWithError:exception
-																															  state:callbackParams.state
+																															  
 																															apiCall:callbackParams.apiCall]);
 																		}
 																		else
@@ -261,7 +258,7 @@
 				 sound:(NSString *)sound
 			  callback:(BuddyNotificationsAppleSendRawMessageCallback)callback
 {
-	[self sendRawMessage:senderUserId message:message badge:badge sound:sound customItems:nil deliverAfter:nil groupName:nil state:nil callback:callback];
+	[self sendRawMessage:senderUserId message:message badge:badge sound:sound customItems:nil deliverAfter:nil groupName:nil  callback:callback];
 }
 
 - (void)sendRawMessage:(NSString *)senderUserId
@@ -271,7 +268,7 @@
 		   customItems:(NSString *)customItems
 		  deliverAfter:(NSDate *)deliverAfter
 			 groupName:(NSString *)groupName
-				 state:(NSObject *)state
+				 
 			  callback:(BuddyNotificationsAppleSendRawMessageCallback)callback
 {
 	if (senderUserId == nil)
@@ -296,7 +293,7 @@
 
 	NSString *deliverAfterString = [BuddyUtility buddyDateToString:deliverAfter];
 
-	[[client webService] PushNotifications_Apple_SendRawMessage:senderUserId DeliverAfter:deliverAfterString GroupName:groupName AppleMessage:message AppleBadge:badge AppleSound:sound CustomItems:customItems state:state
+	[[client webService] PushNotifications_Apple_SendRawMessage:senderUserId DeliverAfter:deliverAfterString GroupName:groupName AppleMessage:message AppleBadge:badge AppleSound:sound CustomItems:customItems 
 													   callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 																 {
 																	 if (callback)

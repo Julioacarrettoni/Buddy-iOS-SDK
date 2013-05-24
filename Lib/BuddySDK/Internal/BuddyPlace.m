@@ -107,10 +107,10 @@
 
 - (void)setTag:(NSString *)appTag
        userTag:(NSString *)userTag
-         state:(NSObject *)state
+         
       callback:(BuddyPlaceSetTagCallback)callback
 {
-    [[client webService] GeoLocation_Location_SetTag:authUser.token ExistingGeoID:placeId ApplicationTag:appTag UserTag:userTag RESERVED:@"" state:state callback:[^(BuddyCallbackParams *callbackParams, id jsonArray) {
+    [[client webService] GeoLocation_Location_SetTag:authUser.token ExistingGeoID:placeId ApplicationTag:appTag UserTag:userTag RESERVED:@""  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray) {
         if (callback) {
             callback([[BuddyBoolResponse alloc] initWithResponse:callbackParams]);
         }

@@ -128,7 +128,7 @@
 }
 
 - (void)findUser:(NSNumber *)userId
-		   state:(NSObject *)state
+		   
 		callback:(BuddyAuthenticatedUserFindUserCallback)callback
 {
 	if (userId == nil || [userId intValue] <= 0)
@@ -138,7 +138,7 @@
 
 	__block BuddyAuthenticatedUser *_self = self;
 
-	[[self.client webService] UserAccount_Profile_GetFromUserID:self.token UserIDToFetch:userId state:state
+	[[self.client webService] UserAccount_Profile_GetFromUserID:self.token UserIDToFetch:userId 
 													   callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 																 {
 																	 if (callback)
@@ -160,7 +160,7 @@
 																		 if (exception)
 																		 {
 																			 callback([[BuddyUserResponse alloc] initWithError:exception
-																														 state:callbackParams.state
+																														 
 																													   apiCall:callbackParams.apiCall]);
 																		 }
 																		 else
@@ -201,7 +201,7 @@
 	searchDistance:(NSNumber *)searchDistance
 		  callback:(BuddyAuthenticatedUserFindUsersCallback)callback
 {
-	[self findUser:latitude longitude:longitude searchDistance:searchDistance recordLimit:nil gender:UserGender_Any ageStart:nil ageStop:nil userStatus:UserStatus_AnyUserStatus checkinsWithinMinutes:nil appTag:nil state:nil callback:callback];
+	[self findUser:latitude longitude:longitude searchDistance:searchDistance recordLimit:nil gender:UserGender_Any ageStart:nil ageStop:nil userStatus:UserStatus_AnyUserStatus checkinsWithinMinutes:nil appTag:nil  callback:callback];
 }
 
 - (void)         findUser:(double)latitude
@@ -214,7 +214,7 @@
 			   userStatus:(UserStatus)userStatus
 	checkinsWithinMinutes:(NSNumber *)checkinsWithinMinutes
 				   appTag:(NSString *)appTag
-					state:(NSObject *)state
+					
 				 callback:(BuddyAuthenticatedUserFindUsersCallback)callback
 {
 	[BuddyUtility latLongCheck:latitude longitude:longitude className:@"BuddyAuthenticatedUser"];
@@ -250,7 +250,7 @@
 
 	__block BuddyAuthenticatedUser *_self = self;
 
-	[[self.client webService] UserAccount_Profile_Search:self.token SearchDistance:searchDistance Latitude:latitude Longitude:longitude RecordLimit:recordLimit Gender:genderString AgeStart:ageStart AgeStop:ageStop StatusID:statusInt TimeFilter:timeFilter ApplicationTag:appTag RESERVED:@"" state:state
+	[[self.client webService] UserAccount_Profile_Search:self.token SearchDistance:searchDistance Latitude:latitude Longitude:longitude RecordLimit:recordLimit Gender:genderString AgeStart:ageStart AgeStop:ageStop StatusID:statusInt TimeFilter:timeFilter ApplicationTag:appTag RESERVED:@"" 
 												callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 														  {
 															  if (callback)
@@ -272,7 +272,7 @@
 																  if (exception)
 																  {
 																	  callback([[BuddyArrayResponse alloc] initWithError:exception
-																												   state:callbackParams.state
+																												   
 																												 apiCall:callbackParams.apiCall]);
 																  }
 																  else
@@ -288,12 +288,12 @@
 - (void)addProfilePhoto:(NSData *)blob
 			   callback:(BuddyAuthenticatedUserAddProfilePhotoCallback)callback
 {
-	[self addProfilePhoto:blob appTag:nil state:nil callback:callback];
+	[self addProfilePhoto:blob appTag:nil  callback:callback];
 }
 
 - (void)addProfilePhoto:(NSData *)blob
 				 appTag:(NSString *)appTag
-				  state:(NSObject *)state
+				  
 			   callback:(BuddyAuthenticatedUserAddProfilePhotoCallback)callback
 {
 	[BuddyUtility checkBlobParam:blob functionName:@"BuddyAuthenticatedUser"];
@@ -320,7 +320,7 @@
 	[[self.client webService] directPost:kPictures_ProfilePhoto_Add
 									path:path
 								  params:dictParams
-								   state:state
+								   
 								callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 										  {
 											  if (callback)
@@ -334,17 +334,17 @@
 	  longitude:(double)longitude
 	   callback:(BuddyAuthenticatedUserCheckInCallback)callback
 {
-	[self checkIn:latitude longitude:longitude comment:nil appTag:nil state:nil callback:callback];
+	[self checkIn:latitude longitude:longitude comment:nil appTag:nil  callback:callback];
 }
 
 - (void)checkIn:(double)latitude
 	  longitude:(double)longitude
 		comment:(NSString *)comment
 		 appTag:(NSString *)appTag
-		  state:(NSObject *)state
+		  
 	   callback:(BuddyAuthenticatedUserCheckInCallback)callback
 {
-	[[self.client webService] UserAccount_Location_Checkin:self.token Latitude:latitude Longitude:longitude CheckInComment:comment ApplicationTag:appTag RESERVED:@"" state:state
+	[[self.client webService] UserAccount_Location_Checkin:self.token Latitude:latitude Longitude:longitude CheckInComment:comment ApplicationTag:appTag RESERVED:@"" 
 												  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 															{
 																if (callback)
@@ -379,11 +379,11 @@
 
 - (void)getCheckins:(BuddyAuthenticatedUserGetCheckinsCallback)callback
 {
-	[self getCheckins:nil state:nil callback:callback];
+	[self getCheckins:nil  callback:callback];
 }
 
 - (void)getCheckins:(NSDate *)afterDate
-			  state:(NSObject *)state
+			  
 		   callback:(BuddyAuthenticatedUserGetCheckinsCallback)callback
 {
 	if (afterDate == nil)
@@ -395,7 +395,7 @@
 
 	__block BuddyAuthenticatedUser *_self = self;
 
-	[[self.client webService] UserAccount_Location_GetHistory:self.token FromDateTime:afterDateString state:state
+	[[self.client webService] UserAccount_Location_GetHistory:self.token FromDateTime:afterDateString 
 													 callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 															   {
 																   if (callback)
@@ -417,7 +417,7 @@
 																	   if (exception)
 																	   {
 																		   callback([[BuddyArrayResponse alloc] initWithError:exception
-																														state:callbackParams.state
+																														
 																													  apiCall:callbackParams.apiCall]);
 																	   }
 																	   else
@@ -439,7 +439,7 @@
 	 fuzzLocation:(BOOL)fuzzLocation
 	celebrityMode:(BOOL)celebrityMode
 		   appTag:(NSString *)appTag
-			state:(NSObject *)state
+			
 		 callback:(BuddyAuthenticatedUserUpdateCallback)callback
 {
 	if (age == nil)
@@ -454,7 +454,7 @@
 
 	__block BuddyAuthenticatedUser *_self = self;
 
-	[[self.client webService] UserAccount_Profile_Update:self.token UserName:name UserSuppliedPassword:password UserGender:genderString UserAge:age UserEmail:email StatusID:statusInt FuzzLocationEnabled:fuzzLocationInt CelebModeEnabled:celebrityModeInt ApplicationTag:appTag RESERVED:@"" state:state
+	[[self.client webService] UserAccount_Profile_Update:self.token UserName:name UserSuppliedPassword:password UserGender:genderString UserAge:age UserEmail:email StatusID:statusInt FuzzLocationEnabled:fuzzLocationInt CelebModeEnabled:celebrityModeInt ApplicationTag:appTag RESERVED:@"" 
 												callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 														  {
 															  if (callback)
@@ -500,10 +500,9 @@
 														  } copy]];
 }
 
-- (void)delete:(NSObject *)state
-	  callback:(BuddyAuthenticatedUserDeleteCallback)callback
+- (void)delete:(BuddyAuthenticatedUserDeleteCallback)callback
 {
-	[[self.client webService] UserAccount_Profile_DeleteAccount:self.userId state:state
+	[[self.client webService] UserAccount_Profile_DeleteAccount:self.userId 
 													   callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 																 {
 																	 if (callback)
@@ -514,7 +513,7 @@
 }
 
 - (void)getPicture:(NSNumber *)pictureId
-			 state:(NSObject *)state
+			 
 		  callback:(BuddyAuthenticatedUserGetPictureCallback)callback
 {
 	if (pictureId == nil || [pictureId intValue] < 0)
@@ -524,7 +523,7 @@
 
 	__block BuddyAuthenticatedUser *_self = self;
 
-	[[self.client webService] Pictures_Photo_Get:self.token UserProfileID:self.userId PhotoID:pictureId state:state
+	[[self.client webService] Pictures_Photo_Get:self.token UserProfileID:self.userId PhotoID:pictureId 
 										callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 												  {
 													  if (callback)
@@ -549,7 +548,7 @@
 														  if (exception)
 														  {
 															  callback([[BuddyPictureResponse alloc] initWithError:exception
-																											 state:callbackParams.state
+																											 
 																										   apiCall:callbackParams.apiCall]);
 														  }
 														  else
@@ -615,14 +614,14 @@
 
 - (void)searchForAlbums:(BuddyAuthenticatedUserSearchForAlbumsCallback)callback
 {
-	[self searchForAlbums:nil latitude:0.0 longitude:0.0 limitResults:nil state:nil callback:callback];
+	[self searchForAlbums:nil latitude:0.0 longitude:0.0 limitResults:nil  callback:callback];
 }
 
 - (void)searchForAlbums:(NSNumber *)searchDistanceInMeters
 			   latitude:(double)latitude
 			  longitude:(double)longitude
 		   limitResults:(NSNumber *)resultsLimit
-				  state:(NSObject *)state
+				  
 			   callback:(BuddyAuthenticatedUserSearchForAlbumsCallback)callback
 {
 	if (searchDistanceInMeters == nil)
@@ -637,7 +636,7 @@
 
 	__block BuddyAuthenticatedUser *_self = self;
 
-	[[self.client webService] Pictures_SearchPhotos_Nearby:self.token SearchDistance:searchDistanceInMeters Latitude:latitude Longitude:longitude RecordLimit:resultsLimit state:state
+	[[self.client webService] Pictures_SearchPhotos_Nearby:self.token SearchDistance:searchDistanceInMeters Latitude:latitude Longitude:longitude RecordLimit:resultsLimit 
 												  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 															{
 																if (callback)
@@ -659,7 +658,7 @@
 																	if (exception)
 																	{
 																		callback([[BuddyDictionaryResponse alloc] initWithError:exception
-																														  state:callbackParams.state
+																														  
 																														apiCall:callbackParams.apiCall]);
 																	}
 																	else
@@ -673,7 +672,7 @@
 }
 
 - (void)deleteProfilePhoto:(BuddyPicturePublic *)picture
-					 state:(NSObject *)state
+					 
 				  callback:(BuddyAuthenticatedUserDeleteProfilePhotoCallback)callback
 {
 	if (picture == nil)
@@ -681,7 +680,7 @@
 		[BuddyUtility throwNilArgException:@"BuddyAuthenticatedUser" reason:@"picture"];
 	}
 
-	[[self.client webService] Pictures_ProfilePhoto_Delete:self.token ProfilePhotoID:picture.photoId state:state
+	[[self.client webService] Pictures_ProfilePhoto_Delete:self.token ProfilePhotoID:picture.photoId 
 												  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 															{
 																if (callback)
@@ -692,7 +691,7 @@
 }
 
 - (void)setProfilePhoto:(BuddyPicturePublic *)picture
-				  state:(NSObject *)state
+				  
 			   callback:(BuddyAuthenticatedUserSetProfilePhotoCallback)callback
 {
 	if (picture == nil)
@@ -702,7 +701,7 @@
 
 	NSString *photoId = [NSString stringWithFormat:@"%d", [picture.photoId intValue]];
 
-	[[self.client webService] Pictures_ProfilePhoto_Set:self.token ProfilePhotoResource:photoId state:state
+	[[self.client webService] Pictures_ProfilePhoto_Set:self.token ProfilePhotoResource:photoId 
 											   callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 														 {
 															 if (callback)

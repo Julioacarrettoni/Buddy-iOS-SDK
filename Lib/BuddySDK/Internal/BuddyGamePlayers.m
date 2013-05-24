@@ -58,14 +58,14 @@
 	 latitude:(double)latitude
 	longitude:(double)longitude
 	   appTag:(NSString *)appTag
-		state:(NSObject *)state
+		
 	 callback:(BuddyPlayersAddCallback)callback
 {
 	[BuddyUtility checkNameParam:name functionName:@"BuddyGamePlayers"];
 
 	[BuddyUtility latLongCheck:latitude longitude:longitude className:@"BuddyGamePlayers"];
 
-	[[client webService] Game_Player_Add:authUser.token PlayerName:name PlayerLatitude:latitude PlayerLongitude:longitude PlayerRank:rank PlayerBoardName:board ApplicationTag:appTag RESERVED:@"" state:state
+	[[client webService] Game_Player_Add:authUser.token PlayerName:name PlayerLatitude:latitude PlayerLongitude:longitude PlayerRank:rank PlayerBoardName:board ApplicationTag:appTag RESERVED:@"" 
 								callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 										  {
 											  if (callback)
@@ -78,7 +78,7 @@
 - (void) add:(NSString *)name
 	callback:(BuddyPlayersAddCallback)callback
 {
-	[self add:name board:nil rank:nil latitude:0.0 longitude:0.0 appTag:nil state:nil callback:callback];
+	[self add:name board:nil rank:nil latitude:0.0 longitude:0.0 appTag:nil  callback:callback];
 }
 
 - (void)update:(NSString *)name
@@ -87,14 +87,14 @@
 	  latitude:(double)latitude
 	 longitude:(double)longitude
 		appTag:(NSString *)appTag
-		 state:(NSObject *)state
+		 
 	  callback:(BuddyPlayersUpdateCallback)callback
 {
 	[BuddyUtility checkNameParam:name functionName:@"BuddyGamePlayers"];
 
 	[BuddyUtility latLongCheck:latitude longitude:longitude className:@"BuddyGamePlayers"];
 
-	[[client webService] Game_Player_Update:authUser.token PlayerName:name PlayerLatitude:latitude PlayerLongitude:longitude PlayerRank:rank PlayerBoardName:board ApplicationTag:appTag RESERVED:@"" state:state
+	[[client webService] Game_Player_Update:authUser.token PlayerName:name PlayerLatitude:latitude PlayerLongitude:longitude PlayerRank:rank PlayerBoardName:board ApplicationTag:appTag RESERVED:@"" 
 								   callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 											 {
 												 if (callback)
@@ -107,13 +107,12 @@
 - (void)update:(NSString *)name
 	  callback:(BuddyPlayersUpdateCallback)block
 {
-	[self update:name board:nil rank:nil latitude:0.0 longitude:0.0 appTag:nil state:nil callback:block];
+	[self update:name board:nil rank:nil latitude:0.0 longitude:0.0 appTag:nil  callback:block];
 }
 
-- (void)delete:(NSObject *)state
-	  callback:(BuddyPlayersDeleteCallback)callback
+- (void)delete:(BuddyPlayersDeleteCallback)callback
 {
-	[[client webService] Game_Player_Delete:authUser.token RESERVED:@"" state:state
+	[[client webService] Game_Player_Delete:authUser.token RESERVED:@"" 
 								   callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 											 {
 												 if (callback)
@@ -123,12 +122,11 @@
 											 } copy]];
 }
 
-- (void)getInfo:(NSObject *)state
-	   callback:(BuddyPlayersGetInfoCallback)callback
+- (void)getInfo:(BuddyPlayersGetInfoCallback)callback
 {
 	__block BuddyGamePlayers *_self = self;
 
-	[[client webService] Game_Player_GetPlayerInfo:authUser.token RESERVED:@"" state:state
+	[[client webService] Game_Player_GetPlayerInfo:authUser.token RESERVED:@"" 
 										  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 													{
 														if (callback)
@@ -156,7 +154,7 @@
 															if (exception)
 															{
 																callback([[BuddyGamePlayerResponse alloc] initWithError:exception
-																												  state:callbackParams.state
+																												  
 																												apiCall:callbackParams.apiCall]);
 															}
 															else
@@ -199,7 +197,7 @@
 				  boardName:(NSString *)boardName
 	onlyForLastNumberOfDays:(NSNumber *)onlyForLastNumberOfDays
 					 appTag:(NSString *)appTag
-					  state:(NSObject *)state
+					  
 				   callback:(BuddyPlayersFindCallback)callback
 {
 	if (searchDistanceInMeters == nil)
@@ -219,7 +217,7 @@
 
 	__block BuddyGamePlayers *_self = self;
 
-	[[client webService] Game_Player_SearchPlayers:authUser.token SearchDistance:searchDistanceInMeters SearchLatitude:latitude SearchLongitude:longitude RecordLimit:recordLimit SearchBoard:boardName TimeFilter:onlyForLastNumberOfDays ApplicationTag:appTag RESERVED:@"" state:state
+	[[client webService] Game_Player_SearchPlayers:authUser.token SearchDistance:searchDistanceInMeters SearchLatitude:latitude SearchLongitude:longitude RecordLimit:recordLimit SearchBoard:boardName TimeFilter:onlyForLastNumberOfDays ApplicationTag:appTag RESERVED:@"" 
 										  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 													{
 														if (callback)
@@ -241,7 +239,7 @@
 															if (exception)
 															{
 																callback([[BuddyArrayResponse alloc] initWithError:exception
-																											 state:callbackParams.state
+																											 
 																										   apiCall:callbackParams.apiCall]);
 															}
 															else
