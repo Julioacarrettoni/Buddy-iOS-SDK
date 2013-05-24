@@ -77,9 +77,9 @@
     [[client webService] Videos_Video_AddVideo:authUser.token FriendlyName:friendlyName AppTag:appTag Latitude:latitude Longitude:longitude ContentType:mimeType VideoData:videoData state:state callback:[^(BuddyCallbackParams *callbackParams, id jsonArray){
         if (callbackParams.isCompleted && callback)
         {
-            if ([BuddyUtility isAStandardError:callbackParams.dataResult] == FALSE)
+            if ([BuddyUtility isAStandardError:callbackParams.stringResult] == FALSE)
             {
-                NSNumber *videoId = [NSNumber numberWithInt:[callbackParams.dataResult intValue]];
+                NSNumber *videoId = [NSNumber numberWithInt:[callbackParams.stringResult intValue]];
                 
                 [_self getVideoInfo:videoId state:state callback:[^(BuddyVideoResponse *result2)
                                                                 {
@@ -89,7 +89,7 @@
             }
             else
             {
-                callback([[BuddyVideoResponse alloc] initWithError:callbackParams reason:callbackParams.dataResult]);
+                callback([[BuddyVideoResponse alloc] initWithError:callbackParams reason:callbackParams.stringResult]);
                 _self = nil;
                 
             }

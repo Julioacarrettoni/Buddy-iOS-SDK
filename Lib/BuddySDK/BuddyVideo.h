@@ -49,6 +49,8 @@ typedef void (^BuddyVideoDeleteVideoCallback)(BuddyBoolResponse * response);
 
 @property (readonly, nonatomic, strong) NSDate *lastTouchDate;
 
+@property (readonly, nonatomic, strong) NSString *videoUrl;
+
 //TODO: figure out a better return type
 -(void)getVideo:(NSObject *)state
        callback:(BuddyVideoGetVideoCallback)callback;

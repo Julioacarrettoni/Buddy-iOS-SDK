@@ -267,9 +267,9 @@ callback:(BuddyBlobGetBlobCallback)callback
     [[client webService] Blobs_Blob_AddBlob:authUser.token FriendlyName:friendlyName AppTag:appTag Latitude:latitude Longitude:longitude ContentType:mimeType BlobData:blobData state:state callback:[^(BuddyCallbackParams *callbackParams, id jsonArray){
         if (callbackParams.isCompleted && callback)
         {
-            if ([BuddyUtility isAStandardError:callbackParams.dataResult] == FALSE)
+            if ([BuddyUtility isAStandardError:callbackParams.stringResult] == FALSE)
             {
-                NSNumber *blobId = [NSNumber numberWithInt:[callbackParams.dataResult intValue]];
+                NSNumber *blobId = [NSNumber numberWithInt:[callbackParams.stringResult intValue]];
                 
                 [_self getBlobInfo:blobId state:state callback:[^(BuddyBlobResponse *result2)
                     {
@@ -279,7 +279,7 @@ callback:(BuddyBlobGetBlobCallback)callback
             }
             else
             {
-                callback([[BuddyBlobResponse alloc] initWithError:callbackParams reason:callbackParams.dataResult]);
+                callback([[BuddyBlobResponse alloc] initWithError:callbackParams reason:callbackParams.stringResult]);
                 _self = nil;
 
             }

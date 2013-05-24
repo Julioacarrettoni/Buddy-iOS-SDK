@@ -28,6 +28,7 @@
 @synthesize longitude;
 @synthesize uploadDate;
 @synthesize lastTouchDate;
+@synthesize videoUrl;
 
 - (id)initVideo:(BuddyClient *)localClient authUser:(BuddyAuthenticatedUser *)localAuthUser  videoList:(NSDictionary *)videoList
 {
@@ -53,6 +54,7 @@
     longitude = [BuddyUtility doubleFromString:[videoList objectForKey:@"longitude"]];
     uploadDate = [BuddyUtility dateFromString:[videoList objectForKey:@"uploadDate"]];
     lastTouchDate =[BuddyUtility dateFromString:[videoList objectForKey:@"lastTouchDate"]];
+    videoUrl = [BuddyUtility stringFromString:[videoList objectForKey:@"videoUrl"]];
     
     return self;
 }
