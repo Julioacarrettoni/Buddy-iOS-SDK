@@ -25,7 +25,8 @@
 			apiCall:(NSString *)apiCall
 		  exception:(NSException *)localException
 			  state:(NSObject *)state
-		 dataResult:(NSString *)localDataResult;
+		 dataResult:(NSData *)localDataResult
+            stringResult:(NSString*)localStringResult;
 
 - (id)initWithParam:(BOOL)succeeded
 		  exception:(NSException *)localException

@@ -77,9 +77,9 @@
 															   if (callback)
 															   {
 																   BuddyMessageGroup *messageGroup;
-																   if (callbackParams.isCompleted && [BuddyUtility isAStandardError:callbackParams.dataResult] == FALSE)
+																   if (callbackParams.isCompleted && [BuddyUtility isAStandardError:callbackParams.stringResult] == FALSE)
 																   {
-																	   NSNumber *groupId = [BuddyUtility NSNumberFromStringInt:callbackParams.dataResult];
+																	   NSNumber *groupId = [BuddyUtility NSNumberFromStringInt:callbackParams.stringResult];
 																	   messageGroup = [[BuddyMessageGroup alloc] initMessageGroup:_self.client authUser:_self.authUser groupId:groupId name:name];
 																   }
 
@@ -102,7 +102,7 @@
 																 if (callback)
 																 {
 																	 BOOL exists = FALSE;
-																	 if (callbackParams.isCompleted && [callbackParams.dataResult isEqualToString:@"1"])
+																	 if (callbackParams.isCompleted && [callbackParams.stringResult isEqualToString:@"1"])
 																	 {
 																		 exists = TRUE;
 																	 }

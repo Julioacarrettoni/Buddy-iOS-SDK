@@ -119,14 +119,14 @@
 										  {
 											  if (callbackParams.isCompleted && block)
 											  {
-												  if (callbackParams.dataResult && [BuddyUtility isAStandardError:callbackParams.dataResult] == FALSE)
+												  if (callbackParams.stringResult && [BuddyUtility isAStandardError:callbackParams.stringResult] == FALSE)
 												  {
-													  NSNumber *pictureId = [NSNumber numberWithInt:[callbackParams.dataResult intValue]];
+													  NSNumber *pictureId = [NSNumber numberWithInt:[callbackParams.stringResult intValue]];
 													  [_self.authUser getPicture:pictureId state:state callback:block];
 												  }
 												  else
 												  {
-													  block([[BuddyPictureResponse alloc] initWithError:callbackParams reason:callbackParams.dataResult]);
+													  block([[BuddyPictureResponse alloc] initWithError:callbackParams reason:callbackParams.stringResult]);
 												  }
 											  }
 											  else
@@ -175,14 +175,14 @@
 										  {
 											  if (callbackParams.isCompleted && block)
 											  {
-												  if (callbackParams.dataResult && [BuddyUtility isAStandardError:callbackParams.dataResult] == FALSE)
+												  if (callbackParams.stringResult && [BuddyUtility isAStandardError:callbackParams.stringResult] == FALSE)
 												  {
-													  NSNumber *pictureId = [NSNumber numberWithInt:[callbackParams.dataResult intValue]];
+													  NSNumber *pictureId = [NSNumber numberWithInt:[callbackParams.stringResult intValue]];
 													  [_self.authUser getPicture:pictureId state:state callback:block];
 												  }
 												  else
 												  {
-													  block([[BuddyPictureResponse alloc] initWithError:callbackParams reason:callbackParams.dataResult]);
+													  block([[BuddyPictureResponse alloc] initWithError:callbackParams reason:callbackParams.stringResult]);
 												  }
 											  }
 											  else

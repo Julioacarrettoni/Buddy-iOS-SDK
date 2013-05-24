@@ -124,47 +124,62 @@ static NSString * const BuddySDKHeaderValue = @"Platform=iOS;Version=0.1.1";
 	return jsonData;
 }
 
+
 - (void)processResponse:(AFHTTPRequestOperation *)operation apiCall:(NSString *)apiCall state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonData))callback
 {
+    [self processResponseRaw:operation apiCall:apiCall state:state callback:callback processData:^id(){
+        
+        if (operation) {
+        
+            NSString *responseString = @"";
+        
+            if (operation.responseString){
+                responseString = [[NSString alloc] initWithString:operation.responseString];
+            }
+        
+            if ([responseString length] > 8 && [responseString hasPrefix:@"{"])
+            {
+                @try
+                {
+                    return [self getJson:operation.responseData];
+                }
+                @catch (NSException *ex)
+                {
+                    return ex;
+                }
+            }
+        }
+        return nil;
+        
+    }];
+}
+
+
+
+
+- (void)processResponseRaw:(AFHTTPRequestOperation *)operation apiCall:(NSString *)apiCall state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id data))callback
+    processData:(id (^)())processData
+    {
+        
 	if (operation)
 	{
-		id jsonData = nil;
-                
-        NSString *responseString = @"";
+        id data =operation.responseData;
         
-        if (operation.responseString){
-            responseString = [[NSString alloc] initWithString:operation.responseString];
+        if(processData) {
+            data = processData();
         }
+        
+        if (callback)
+        {
+            NSString* stringResult = nil;
+            if ([data isKindOfClass:[NSString class]]) {
+                stringResult = data;
+            }
+         
+            BuddyCallbackParams *callbackParams = [[BuddyCallbackParams alloc] initWithParam:TRUE apiCall:apiCall exception:nil state:state dataResult:operation.responseData stringResult:stringResult ];
 
-		if ([responseString length] > 8 && [responseString hasPrefix:@"{"])
-		{
-			@try
-			{
-				jsonData = [self getJson:operation.responseData];
-				if (callback)
-				{
-					BuddyCallbackParams *callbackParams = [[BuddyCallbackParams alloc] initWithParam:TRUE apiCall:apiCall exception:nil state:state dataResult:responseString];
-
-					callback(callbackParams, jsonData);
-				}
-			}
-			@catch (NSException *ex)
-			{
-				if (callback)
-				{
-					callback([BuddyUtility buildBuddyServiceError:apiCall reason:ex.reason state:state], nil);
-				}
-			}
-		}
-		else
-		{
-			if (callback)
-			{
-				BuddyCallbackParams *callbackParams = [[BuddyCallbackParams alloc] initWithParam:TRUE apiCall:apiCall exception:nil state:state dataResult:responseString];
-
-				callback(callbackParams, jsonData);
-			}
-		}
+            callback(callbackParams, data);
+        }
 	}
 	else
 	{
@@ -221,6 +236,33 @@ static NSString * const BuddySDKHeaderValue = @"Platform=iOS;Version=0.1.1";
 														 }
 													 } copy]];
 }
+
+-(void)makeDownloadRequest:(NSString *)apiCall
+                    params:(NSDictionary *)params
+                     state:(NSObject *)state
+                  callback:(void (^)(BuddyCallbackParams *callbackParams, NSData* data))callback
+{
+    NSMutableDictionary* requestParams = [BuddyUtility buildCallParams:client.appName appPassword:client.appPassword callParams:params];
+    
+    // build the post path.
+    //
+    NSString* path = [NSString stringWithFormat:@"?%@", apiCall];
+    
+	[[ClientServicePlainText sharedClient] getPath:path
+										 parameters:requestParams
+											success:[^(AFHTTPRequestOperation *operation, id responseData)
+													 {
+														 [self processResponseRaw:operation apiCall:apiCall state:state callback:callback processData:nil];
+													 } copy]
+											failure:[^(AFHTTPRequestOperation *operation, NSError *error)
+													 {
+														 if (callback)
+														 {
+															 callback([BuddyUtility buildBuddyFailure:apiCall reason:[error localizedDescription] state:state], nil);
+														 }
+													 } copy]];
+}
+
 
 
 
@@ -527,6 +569,24 @@ static NSString * const BuddySDKHeaderValue = @"Platform=iOS;Version=0.1.1";
 	[params appendString:@"&RESERVED="];
 	[self makeRequest:@"Pictures_ProfilePhoto_Add" params:params state:state callback:callback];
 }
+
+
+
+- (void)Sound_Sounds_GetSound:(NSString *)soundName quality:(NSString *)quality state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, NSData* data))callback
+{
+    
+    NSDictionary* params = [[NSDictionary alloc]initWithObjectsAndKeys:
+                            soundName, @"SoundName",
+                            quality, @"Quality",
+                            nil];
+    
+    [self makeDownloadRequest:@"Sound_Sounds_GetSound"
+                   params: params
+                    state:state
+                 callback:callback];
+}
+
+
 
 - (void)Pictures_ProfilePhoto_Delete:(NSString *)UserToken ProfilePhotoID:(NSNumber *)ProfilePhotoID state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonString))callback
 {

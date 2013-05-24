@@ -69,6 +69,9 @@
 - (void)Pictures_PhotoAlbum_GetByDateTime:(NSString *)UserToken UserProfileID:(NSNumber *)UserProfileID StartDateTime:(NSString *)StartDateTime state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
 - (void)Pictures_PhotoAlbum_GetList:(NSString *)UserToken UserProfileID:(NSNumber *)UserProfileID state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
 - (void)Pictures_ProfilePhoto_Add:(NSString *)UserToken bytesFullPhotoData:(NSString *)bytesFullPhotoData ApplicationTag:(NSString *)ApplicationTag RESERVED:(NSString *)RESERVED state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
+
+- (void)Sound_Sounds_GetSound:(NSString *)soundName quality:(NSString *)quality state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, NSData* data))callback;
+
 - (void)Pictures_ProfilePhoto_Delete:(NSString *)UserToken ProfilePhotoID:(NSNumber *)ProfilePhotoID state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
 - (void)Pictures_ProfilePhoto_GetAll:(NSNumber *)UserProfileID state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
 - (void)Pictures_ProfilePhoto_GetMyList:(NSString *)UserToken state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;

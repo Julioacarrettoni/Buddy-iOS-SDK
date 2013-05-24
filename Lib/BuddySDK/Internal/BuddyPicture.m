@@ -171,7 +171,7 @@
 												  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray) {
 																if (callbackParams.isCompleted && callback)
 																{
-																	NSString *dataResult = callbackParams.dataResult;
+																	NSString *dataResult = callbackParams.stringResult;
 																	if (dataResult != nil && [BuddyUtility isAStandardError:dataResult] == FALSE)
 																	{
 																		NSNumber *picID = [NSNumber numberWithInt:[dataResult intValue]];

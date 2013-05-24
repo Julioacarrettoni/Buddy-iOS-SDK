@@ -76,7 +76,7 @@
 													 {
 														 if (callbackParams.isCompleted && callback)
 														 {
-															 NSString *result = callbackParams.dataResult;
+															 NSString *result = callbackParams.stringResult;
 															 if (result != nil && [BuddyUtility isAStandardError:result] == FALSE)
 															 {
 																 NSNumber *albumId = [NSNumber numberWithInt:[result intValue]];
@@ -88,7 +88,7 @@
 															 }
 															 else
 															 {
-																 callback([[BuddyPhotoAlbumResponse alloc] initWithError:callbackParams reason:callbackParams.dataResult]);
+																 callback([[BuddyPhotoAlbumResponse alloc] initWithError:callbackParams reason:callbackParams.stringResult]);
 																 _self = nil;
 															 }
 														 }
@@ -267,7 +267,7 @@
 																	   else
 																	   {
 																		   callback([[BuddyPhotoAlbumResponse alloc] initWithError:callbackParams
-																															reason:callbackParams.dataResult]);
+																															reason:callbackParams.stringResult]);
 																		   _self = nil;
 																	   }
 																   }

@@ -71,9 +71,9 @@
 													   {
 														   if (callbackParams.isCompleted && callback)
 														   {
-															   if ([BuddyUtility isAStandardError:callbackParams.dataResult] == FALSE)
+															   if ([BuddyUtility isAStandardError:callbackParams.stringResult] == FALSE)
 															   {
-																   NSNumber *albumId = [NSNumber numberWithInt:[callbackParams.dataResult intValue]];
+																   NSNumber *albumId = [NSNumber numberWithInt:[callbackParams.stringResult intValue]];
 
 																   [_self get:albumId state:state callback:[^(BuddyVirtualAlbumResponse *result2)
 																											{
@@ -83,7 +83,7 @@
 															   }
 															   else
 															   {
-																   callback([[BuddyVirtualAlbumResponse alloc] initWithError:callbackParams reason:callbackParams.dataResult]);
+																   callback([[BuddyVirtualAlbumResponse alloc] initWithError:callbackParams reason:callbackParams.stringResult]);
 																   _self = nil;
 															   }
 														   }
@@ -132,7 +132,7 @@
 																				}
 																				else
 																				{
-																					callback([[BuddyVirtualAlbumResponse alloc] initWithError:callbackParams reason:(callbackParams.isCompleted) ? callbackParams.dataResult:callbackParams.exception.reason]);
+																					callback([[BuddyVirtualAlbumResponse alloc] initWithError:callbackParams reason:(callbackParams.isCompleted) ? callbackParams.stringResult:callbackParams.exception.reason]);
 																				}
 																			}
 																			_self = nil;

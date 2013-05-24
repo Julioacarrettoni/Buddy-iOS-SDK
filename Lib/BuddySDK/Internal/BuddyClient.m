@@ -170,7 +170,7 @@
 										 {
 											 if (callback)
 											 {
-												 callback([[BuddyStringResponse alloc] initWithResponse:callbackParams result:callbackParams.dataResult]);
+												 callback([[BuddyStringResponse alloc] initWithResponse:callbackParams result:callbackParams.stringResult]);
 											 }
 										 } copy]];
 }
@@ -186,7 +186,7 @@
 													 NSDate *date;
 													 if (callbackParams.isCompleted)
 													 {
-														 date = [BuddyUtility buddyDate:callbackParams.dataResult];
+														 date = [BuddyUtility buddyDate:callbackParams.stringResult];
 													 }
 
 													 if (date)
@@ -211,7 +211,7 @@
 												if (callback)
 												{
 													callback([[BuddyStringResponse alloc] initWithResponse:callbackParams
-																									result:(NSString *)callbackParams.dataResult]);
+																									result:(NSString *)callbackParams.stringResult]);
 												}
 											} copy]];
 }
@@ -472,7 +472,7 @@
 														{
 															if (callbackParams.isCompleted)
 															{
-																NSString *dataResult = (NSString *)callbackParams.dataResult;
+																NSString *dataResult = (NSString *)callbackParams.stringResult;
 																if ([dataResult hasPrefix:@"UT-"])
 																{
 																	[_self login:dataResult state:state callback:^(BuddyAuthenticatedUserResponse *result) {
@@ -482,7 +482,7 @@
 																else
 																{
 																	callback([[BuddyAuthenticatedUserResponse alloc] initWithError:callbackParams
-																															reason:callbackParams.dataResult]);
+																															reason:callbackParams.stringResult]);
 																}
 															}
 															else
@@ -578,7 +578,7 @@
 												   {
 													   if (callbackParams.isCompleted && block)
 													   {
-														   NSString *dataResult = (NSString *)callbackParams.dataResult;
+														   NSString *dataResult = (NSString *)callbackParams.stringResult;
 														   if ([dataResult hasPrefix:@"UT-"])
 														   {
 															   block([[BuddyStringResponse alloc] initWithResponse:callbackParams result:dataResult]);
@@ -676,7 +676,7 @@
 															   if (callback)
 															   {
 																   BOOL emailExists = FALSE;
-																   NSString *dataResult = callbackParams.dataResult;
+																   NSString *dataResult = callbackParams.stringResult;
 																   NSException *exception;
 																   if ([dataResult isEqualToString:@"UserEmailTaken"])
 																   {
@@ -713,7 +713,7 @@
 															  if (block)
 															  {
 																  BOOL userNameExists = FALSE;
-																  NSString *dataResult = callbackParams.dataResult;
+																  NSString *dataResult = callbackParams.stringResult;
 																  NSException *exception;
 																  if ([dataResult isEqualToString:@"UserNameAlreadyInUse"])
 																  {
@@ -761,7 +761,7 @@
 												{
 													if (block)
 													{
-														NSString *dataResult = (NSString *)callbackParams.dataResult;
+														NSString *dataResult = (NSString *)callbackParams.stringResult;
 														if (![BuddyUtility isAStandardError:dataResult])
 														{
 															block([[BuddyStringResponse alloc] initWithResponse:callbackParams result:dataResult]);

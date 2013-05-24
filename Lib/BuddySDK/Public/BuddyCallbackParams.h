@@ -41,7 +41,12 @@
 /// <summary>
 /// Gets the raw http response as a string.
 /// </summary>
-@property (readonly, nonatomic, strong) NSString *dataResult;
+@property (readonly, nonatomic, strong) NSData *dataResult;
+
+/// <summary>
+/// Gets the raw http response as a string.
+/// </summary>
+@property (readonly, nonatomic, strong) NSString *stringResult;
 
 /// <summary>
 /// Gets the raw api call.

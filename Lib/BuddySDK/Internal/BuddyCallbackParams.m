@@ -26,6 +26,7 @@
 @synthesize state;
 @synthesize dataResult;
 @synthesize apiCall;
+@synthesize stringResult;
 
 - (id)initTrueWithState:(NSObject *)localState
 {
@@ -38,7 +39,7 @@
 	isCompleted = TRUE;
 	exception = nil;
 	state = localState;
-	dataResult = @"";
+	stringResult = @"";
     
 	return self;
 }
@@ -54,7 +55,7 @@
 	isCompleted = FALSE;
 
 	NSString *errorName = (callback.apiCall == nil) ? @"Unknown" : callback.apiCall;
-	NSString *errorString = (callback.isCompleted) ? callback.dataResult : callback.exception.reason;
+	NSString *errorString = (callback.isCompleted) ? callback.stringResult : callback.exception.reason;
 	exception = [BuddyUtility processStandardErrors:errorString name:errorName];
 	state = callback.state;
 
@@ -74,7 +75,7 @@
 	isCompleted = succeeded;
 	exception = localException;
 	state = localState;
-	dataResult = @"";
+	stringResult = @"";
     
 	return self;
 }
@@ -101,7 +102,8 @@
 			apiCall:(NSString *)localApiCall
 		  exception:(NSException *)localException
 			  state:(NSObject *)localState
-		 dataResult:(NSString *)localDataResult
+        dataResult:(NSData *)localDataResult
+        stringResult: (NSString*)localStringResult
 {
 	self = [super init];
 	if (!self)
@@ -114,7 +116,7 @@
 	state = localState;
 	dataResult = localDataResult;
     apiCall = localApiCall;
-    
+    stringResult = localStringResult;
 	return self;
 }
 

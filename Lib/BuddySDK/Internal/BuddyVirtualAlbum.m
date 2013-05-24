@@ -128,7 +128,7 @@
 														 {
 															 if (callback)
 															 {
-																 if ([BuddyUtility isAStandardError:callbackParams.dataResult])
+																 if ([BuddyUtility isAStandardError:callbackParams.stringResult])
 																 {
 																	 callback([[BuddyBoolResponse alloc] initWithError:callbackParams]);
 																 }
