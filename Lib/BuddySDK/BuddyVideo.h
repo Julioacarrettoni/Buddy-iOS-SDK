@@ -52,16 +52,13 @@ typedef void (^BuddyVideoDeleteVideoCallback)(BuddyBoolResponse * response);
 @property (readonly, nonatomic, strong) NSString *videoUrl;
 
 //TODO: figure out a better return type
--(void)getVideo:(NSObject *)state
-       callback:(BuddyVideoGetVideoCallback)callback;
+-(void)getVideo:(BuddyVideoGetVideoCallback)callback;
 
 -(void)editVideo:(NSString *)localFriendlyName
      localAppTag:(NSString *)localAppTag
-           state:(NSObject *)state
        callback:(BuddyVideoEditVideoCallback)callback;
 
--(void)deleteVideo:(NSObject *)state
-         callback:(BuddyVideoDeleteVideoCallback)callback;
+-(void)deleteVideo:(BuddyVideoDeleteVideoCallback)callback;
 
 
 @end

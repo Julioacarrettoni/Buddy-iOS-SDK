@@ -14,7 +14,7 @@
 
 @interface TestBlob : SenTestCase
 
-@property (nonatomic, strong) BuddyClient *BuddyClient;
+@property (nonatomic, strong) BuddyClient *buddyClient;
 
 @property (nonatomic, strong) BuddyAuthenticatedUser *user;
 

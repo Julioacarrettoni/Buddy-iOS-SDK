@@ -64,14 +64,12 @@
 }
 
 -(void)getBlob:(NSNumber *)blobID
-state:(NSObject *)state
 callback:(BuddyBlobGetBlobCallback)callback
 {
     
 }
 
 -(void)getBlobInfo:(NSNumber*)blobID
-             state:(NSObject *)state
           callback:(BuddyBlobGetBlobInfoCallback)callback
 {
     if (blobID == nil)
@@ -79,7 +77,7 @@ callback:(BuddyBlobGetBlobCallback)callback
 		[BuddyUtility throwNilArgException:@"BuddyBlobs.GetBlobInfo" reason:@"blobId"];
 	}
     
-    [[client webService] Blobs_Blob_GetBlobInfo:authUser.token BlobID:blobID state:state callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+    [[client webService] Blobs_Blob_GetBlobInfo:authUser.token BlobID:blobID callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
         {
             BuddyBlob *blob;
             NSException *exception;
@@ -102,7 +100,6 @@ callback:(BuddyBlobGetBlobCallback)callback
             if (exception)
             {
                 callback([[BuddyBlobResponse alloc] initWithError:exception
-                                                            state:callbackParams.state
                                                           apiCall:callbackParams.apiCall]);
             }
             else
@@ -121,12 +118,11 @@ callback:(BuddyBlobGetBlobCallback)callback
      searchLongitude:(double)searchLongitude
           timeFilter:(int)timeFilter
          recordLimit:(int)recordLimit
-               state:(NSObject *)state
             callback:(BuddyBlobBlobListCallback)callback
 {
     __block BuddyBlobs *_self = self;
     
-    [[client webService] Blobs_Blob_SearchMyBlobs: authUser.token FriendlyName:friendlyName MimeType:mimeType AppTag:appTag SearchDistance:searchDistance SearchLatitude:searchLatitude SearchLongitude:searchLongitude TimeFilter:timeFilter RecordLimit:recordLimit state:state callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+    [[client webService] Blobs_Blob_SearchMyBlobs: authUser.token FriendlyName:friendlyName MimeType:mimeType AppTag:appTag SearchDistance:searchDistance SearchLatitude:searchLatitude SearchLongitude:searchLongitude TimeFilter:timeFilter RecordLimit:recordLimit callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
         {
             if (callback)
               {
@@ -145,7 +141,7 @@ callback:(BuddyBlobGetBlobCallback)callback
                   
                   if (exception)
                   {
-                      callback([[BuddyArrayResponse alloc] initWithError:exception                                                                                                                                                                                                                                                                                                                                                     state:callbackParams.state                                                                                                                                                                                                                                                                                                                                                   apiCall:callbackParams.apiCall]);
+                      callback([[BuddyArrayResponse alloc] initWithError:exception                                                                                                                                                                                                                                                                                                                                   apiCall:callbackParams.apiCall]);
                   }
                   else
                   {                                                                                                                                                                                                                                                                                                        callback([[BuddyArrayResponse alloc] initWithResponse:callbackParams                                                                                                                                                                                                                                                                                                                                                       result:data]);
@@ -163,12 +159,11 @@ callback:(BuddyBlobGetBlobCallback)callback
      searchLongitude:(double)searchLongitude
           timeFilter:(int)timeFilter
          recordLimit:(int)recordLimit
-               state:(NSObject *)state
             callback:(BuddyBlobBlobListCallback)callback
 {
     __block BuddyBlobs *_self = self;
     
-    [[client webService] Blobs_Blob_SearchBlobs: authUser.token FriendlyName:friendlyName MimeType:mimeType AppTag:appTag SearchDistance:searchDistance SearchLatitude:searchLatitude SearchLongitude:searchLongitude TimeFilter:timeFilter RecordLimit:recordLimit state:state callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+    [[client webService] Blobs_Blob_SearchBlobs: authUser.token FriendlyName:friendlyName MimeType:mimeType AppTag:appTag SearchDistance:searchDistance SearchLatitude:searchLatitude SearchLongitude:searchLongitude TimeFilter:timeFilter RecordLimit:recordLimit  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
         {
             if (callback)
             {                                                                                                                                                                                                                                                                       NSArray *data;                                                                                                                                                                                                                                                                                                    NSException *exception;                                                                                                                                                                                                                                                                                            @try                                                                                                                                                                                                                                                                                                    {
@@ -182,7 +177,7 @@ callback:(BuddyBlobGetBlobCallback)callback
                 }
                 if (exception)
                 {
-                    callback([[BuddyArrayResponse alloc] initWithError:exception                                                                                                                                                                                                                                                                                                                                                     state:callbackParams.state                                                                                                                                                                                                                                                                                                                                                   apiCall:callbackParams.apiCall]);
+                    callback([[BuddyArrayResponse alloc] initWithError:exception                                                                                                                                                                                                                                                                                                                             apiCall:callbackParams.apiCall]);
                 }
                 else
                 {                                                                                                                                                                                                                                                                                                        callback([[BuddyArrayResponse alloc] initWithResponse:callbackParams                                                                                                                                                                                                                                                                                                                                                       result:data]);
@@ -194,12 +189,11 @@ callback:(BuddyBlobGetBlobCallback)callback
 
 -(void)getBlobList:(NSNumber*)userID
        recordLimit:(int)recordLimit
-             state:(NSObject *)state
           callback:(BuddyBlobBlobListCallback)callback
 {
     __block BuddyBlobs *_self = self;
     
-    [[client webService] Blobs_Blob_GetBlobList:authUser.token UserID:userID RecordLimit:recordLimit state:state callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+    [[client webService] Blobs_Blob_GetBlobList:authUser.token UserID:userID RecordLimit:recordLimit  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
         {
             if (callback)
             {                                                                                                                                                                                                                                                                       NSArray *data;                                                                                                                                                                                                                                                                                                    NSException *exception;                                                                                                                                                                                                                                                                                            @try                                                                                                                                                                                                                                                                                                    {
@@ -213,7 +207,7 @@ callback:(BuddyBlobGetBlobCallback)callback
                 }
                 if (exception)
                 {
-                    callback([[BuddyArrayResponse alloc] initWithError:exception                                                                                                                                                                                                                                                                                                                                                     state:callbackParams.state                                                                                                                                                                                                                                                                                                                                                   apiCall:callbackParams.apiCall]);
+                    callback([[BuddyArrayResponse alloc] initWithError:exception                                                                                                                                                                                                                                                                                                                                             apiCall:callbackParams.apiCall]);
                 }
                 else
                 {                                                                                                                                                                                                                                                                                                        callback([[BuddyArrayResponse alloc] initWithResponse:callbackParams                                                                                                                                                                                                                                                                                                                                                       result:data]);
@@ -224,11 +218,10 @@ callback:(BuddyBlobGetBlobCallback)callback
 }
 
 -(void)getMyBlobList:(int)recordLimit
-                state:(NSObject *)state
                 callback:(BuddyBlobBlobListCallback)callback
 {
     __block BuddyBlobs *_self = self;
-    [[client webService] Blobs_Blob_GetMyBlobList:authUser.token RecordLimit:recordLimit state:state callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+    [[client webService] Blobs_Blob_GetMyBlobList:authUser.token RecordLimit:recordLimit  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
        {
            if (callback)
            {                                                                                                                                                                                                                                                                       NSArray *data;                                                                                                                                                                                                                                                                                                    NSException *exception;                                                                                                                                                                                                                                                                                            @try                                                                                                                                                                                                                                                                                                    {
@@ -242,7 +235,7 @@ callback:(BuddyBlobGetBlobCallback)callback
                }
                if (exception)
                {
-                   callback([[BuddyArrayResponse alloc] initWithError:exception                                                                                                                                                                                                                                                                                                                                                     state:callbackParams.state                                                                                                                                                                                                                                                                                                                                                   apiCall:callbackParams.apiCall]);
+                   callback([[BuddyArrayResponse alloc] initWithError:exception                                                                                                                                                                                                                                                                                                apiCall:callbackParams.apiCall]);
                }
                else
                {                                                                                                                                                                                                                                                                                                        callback([[BuddyArrayResponse alloc] initWithResponse:callbackParams                                                                                                                                                                                                                                                                                                                                                       result:data]);
@@ -258,20 +251,20 @@ callback:(BuddyBlobGetBlobCallback)callback
      longtidue:(double)longitude
       mimeType:(NSString *)mimeType
       blobData:(NSData *)blobData
-         state:(NSObject *)state
+         
       callback:(BuddyBlobAddBlobCallback)callback
         
 {
     __block BuddyBlobs *_self = self;
     
-    [[client webService] Blobs_Blob_AddBlob:authUser.token FriendlyName:friendlyName AppTag:appTag Latitude:latitude Longitude:longitude ContentType:mimeType BlobData:blobData state:state callback:[^(BuddyCallbackParams *callbackParams, id jsonArray){
+    [[client webService] Blobs_Blob_AddBlob:authUser.token FriendlyName:friendlyName AppTag:appTag Latitude:latitude Longitude:longitude ContentType:mimeType BlobData:blobData callback:[^(BuddyCallbackParams *callbackParams, id jsonArray){
         if (callbackParams.isCompleted && callback)
         {
             if ([BuddyUtility isAStandardError:callbackParams.stringResult] == FALSE)
             {
                 NSNumber *blobId = [NSNumber numberWithInt:[callbackParams.stringResult intValue]];
                 
-                [_self getBlobInfo:blobId state:state callback:[^(BuddyBlobResponse *result2)
+                [_self getBlobInfo:blobId callback:[^(BuddyBlobResponse *result2)
                     {
                         callback(result2);
                         _self = nil;

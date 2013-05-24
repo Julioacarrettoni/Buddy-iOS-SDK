@@ -29,15 +29,12 @@ typedef void (^BuddyBlobBlobListCallback)(BuddyArrayResponse * response);
      longtidue:(double)longitude
       mimeType:(NSString *)mimeType
       blobData:(NSData *)blobData
-         state:(NSObject *)state
       callback:(BuddyBlobAddBlobCallback)callback;
 
 -(void)getBlob:(NSNumber*)blobID
-state:(NSObject *)state
 callback:(BuddyBlobGetBlobCallback)callback;
 
 -(void)getBlobInfo:(NSNumber*)blobID
-             state:(NSObject *)state
           callback:(BuddyBlobGetBlobInfoCallback)callback;
 
 -(void)searchMyBlobs:(NSString *)friendlyName
@@ -48,7 +45,6 @@ callback:(BuddyBlobGetBlobCallback)callback;
           searchLongitude:(double)searchLongitude
                timeFilter:(int)timeFilter
               recordLimit:(int)recordLimit
-                    state:(NSObject *)state
                  callback:(BuddyBlobBlobListCallback)callback;
 
 -(void)searchBlobs:(NSString *)friendlyName
@@ -59,16 +55,13 @@ callback:(BuddyBlobGetBlobCallback)callback;
           searchLongitude:(double)searchLongitude
                timeFilter:(int)timeFilter
               recordLimit:(int)recordLimit
-                    state:(NSObject *)state
                  callback:(BuddyBlobBlobListCallback)callback;
 
 -(void)getBlobList:(NSNumber*)userID
        recordLimit:(int)recordLimit
-             state:(NSObject *)state
           callback:(BuddyBlobBlobListCallback)callback;
 
 -(void)getMyBlobList:(int)recordLimit
-               state:(NSObject *)state
             callback:(BuddyBlobBlobListCallback)callback;
 
 @end

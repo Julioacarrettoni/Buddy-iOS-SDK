@@ -57,18 +57,16 @@
         return self;
 }
 
--(void)getBlob:(NSObject *)state
-      callback:(BuddyBlobGetBlobCallback)callback
+-(void)getBlob:(BuddyBlobGetBlobCallback)callback
 {
-    [self.authUser.blobs getBlob:self.blobId state:state callback:callback];
+    [self.authUser.blobs getBlob:self.blobId callback:callback];
 }
 
 -(void)editBlob:(NSString *)localFriendlyName
     localAppTag:(NSString *)localAppTag
-          state:(NSObject *)state
        callback:(BuddyBlobEditBlobCallback)callback
 {
-    [[client webService] Blobs_Blob_EditInfo:authUser.token BlobID:self.blobId FriendlyName:localFriendlyName AppTag:localAppTag state:state callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+    [[client webService] Blobs_Blob_EditInfo:authUser.token BlobID:self.blobId FriendlyName:localFriendlyName AppTag:localAppTag callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
          {
              if (callback)
              {
@@ -77,10 +75,9 @@
          } copy]];
 }
 
--(void)deleteBlob:state
-         callback:(BuddyBlobDeleteBlobCallback)callback
+-(void)deleteBlob:(BuddyBlobDeleteBlobCallback)callback
 {
-    [[client webService] Blobs_Blob_DeleteBlob:authUser.token BlobID:self.blobId state:state callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+    [[client webService] Blobs_Blob_DeleteBlob:authUser.token BlobID:self.blobId callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
             {
                 if(callback)
                 {

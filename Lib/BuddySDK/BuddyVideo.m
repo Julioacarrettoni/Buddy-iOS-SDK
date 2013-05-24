@@ -59,18 +59,16 @@
     return self;
 }
 
--(void)getVideo:(NSObject *)state
-       callback:(BuddyVideoGetVideoCallback)callback
+-(void)getVideo:(BuddyVideoGetVideoCallback)callback
 {
-    [self.authUser.videos getVideo:self.videoId state:state callback:callback];
+    [self.authUser.videos getVideo:self.videoId callback:callback];
 }
 
 -(void)editVideo:(NSString *)localFriendlyName
     localAppTag:(NSString *)localAppTag
-          state:(NSObject *)state
        callback:(BuddyVideoEditVideoCallback)callback
 {
-    [[client webService] Videos_Video_EditInfo:authUser.token VideoID:self.videoId FriendlyName:localFriendlyName AppTag:localAppTag state:state callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+    [[client webService] Videos_Video_EditInfo:authUser.token VideoID:self.videoId FriendlyName:localFriendlyName AppTag:localAppTag callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
            {
                if (callback)
                {
@@ -79,10 +77,9 @@
            } copy]];
 }
 
--(void)deleteVideo:(NSObject *)state
-         callback:(BuddyVideoDeleteVideoCallback)callback
+-(void)deleteVideo:(BuddyVideoDeleteVideoCallback)callback
 {
-    [[client webService] Videos_Video_DeleteVideo:authUser.token VideoID:self.videoId state:state callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+    [[client webService] Videos_Video_DeleteVideo:authUser.token VideoID:self.videoId callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
        {
            if(callback)
            {

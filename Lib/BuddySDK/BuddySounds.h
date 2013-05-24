@@ -18,7 +18,6 @@ typedef enum {Low=0, Medium=1, High=2} Qualities;
 
 -(void)getSound:(NSString *)soundName
         quality:(Qualities)quality
-          state:(NSObject *)state
-       callback:(BuddySoundGetSoundCallback)callback;
+       callback:(void(^)(NSData *))callback;
 
 @end

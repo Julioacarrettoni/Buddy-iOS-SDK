@@ -69,19 +69,18 @@
       longtidue:(double)longitude
        mimeType:(NSString *)mimeType
       videoData:(NSData *)videoData
-          state:(NSObject *)state
        callback:(BuddyVideoAddVideoCallback)callback
 {
     __block BuddyVideos *_self = self;
     
-    [[client webService] Videos_Video_AddVideo:authUser.token FriendlyName:friendlyName AppTag:appTag Latitude:latitude Longitude:longitude ContentType:mimeType VideoData:videoData state:state callback:[^(BuddyCallbackParams *callbackParams, id jsonArray){
+    [[client webService] Videos_Video_AddVideo:authUser.token FriendlyName:friendlyName AppTag:appTag Latitude:latitude Longitude:longitude ContentType:mimeType VideoData:videoData callback:[^(BuddyCallbackParams *callbackParams, id jsonArray){
         if (callbackParams.isCompleted && callback)
         {
             if ([BuddyUtility isAStandardError:callbackParams.stringResult] == FALSE)
             {
                 NSNumber *videoId = [NSNumber numberWithInt:[callbackParams.stringResult intValue]];
                 
-                [_self getVideoInfo:videoId state:state callback:[^(BuddyVideoResponse *result2)
+                [_self getVideoInfo:videoId callback:[^(BuddyVideoResponse *result2)
                                                                 {
                                                                     callback(result2);
                                                                     _self = nil;
@@ -107,14 +106,12 @@
 }
 
 -(void)getVideo:(NSNumber *)videoID
-         state:(NSObject *)state
       callback:(BuddyVideoGetVideoCallback)callback
 {
     
 }
 
 -(void)getVideoInfo:(NSNumber*)videoID
-             state:(NSObject *)state
           callback:(BuddyVideoGetVideoInfoCallback)callback
 {
     if (videoID == nil)
@@ -122,7 +119,7 @@
 		[BuddyUtility throwNilArgException:@"BuddyVideos.GetVideoInfo" reason:@"videoId"];
 	}
     
-    [[client webService] Videos_Video_GetVideoInfo:authUser.token VideoID:videoID state:state callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+    [[client webService] Videos_Video_GetVideoInfo:authUser.token VideoID:videoID callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
            {
                BuddyVideo *video;
                NSException *exception;
@@ -145,7 +142,6 @@
                if (exception)
                {
                    callback([[BuddyVideoResponse alloc] initWithError:exception
-                                                               state:callbackParams.state
                                                              apiCall:callbackParams.apiCall]);
                }
                else
@@ -164,12 +160,11 @@
      searchLongitude:(double)searchLongitude
           timeFilter:(int)timeFilter
          recordLimit:(int)recordLimit
-               state:(NSObject *)state
             callback:(BuddyVideoVideoListCallback)callback
 {
     __block BuddyVideos *_self = self;
     
-    [[client webService] Videos_Video_SearchMyVideos: authUser.token FriendlyName:friendlyName MimeType:mimeType AppTag:appTag SearchDistance:searchDistance SearchLatitude:searchLatitude SearchLongitude:searchLongitude TimeFilter:timeFilter RecordLimit:recordLimit state:state callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+    [[client webService] Videos_Video_SearchMyVideos: authUser.token FriendlyName:friendlyName MimeType:mimeType AppTag:appTag SearchDistance:searchDistance SearchLatitude:searchLatitude SearchLongitude:searchLongitude TimeFilter:timeFilter RecordLimit:recordLimit callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
             {
                 if (callback)
                 {
@@ -188,7 +183,7 @@
                     
                     if (exception)
                     {
-                        callback([[BuddyArrayResponse alloc] initWithError:exception                                                                                                                                                                                                                                                                                                                                                     state:callbackParams.state                                                                                                                                                                                                                                                                                                                                                   apiCall:callbackParams.apiCall]);
+                        callback([[BuddyArrayResponse alloc] initWithError:exception                                                                                                                                                                                                                                                                                                                      apiCall:callbackParams.apiCall]);
                     }
                     else
                     {                                                                                                                                                                                                                                                                                                        callback([[BuddyArrayResponse alloc] initWithResponse:callbackParams                                                                                                                                                                                                                                                                                                                                                       result:data]);
@@ -206,12 +201,11 @@
    searchLongitude:(double)searchLongitude
         timeFilter:(int)timeFilter
        recordLimit:(int)recordLimit
-             state:(NSObject *)state
           callback:(BuddyVideoVideoListCallback)callback
 {
     __block BuddyVideos *_self = self;
     
-    [[client webService] Videos_Video_SearchVideos: authUser.token FriendlyName:friendlyName MimeType:mimeType AppTag:appTag SearchDistance:searchDistance SearchLatitude:searchLatitude SearchLongitude:searchLongitude TimeFilter:timeFilter RecordLimit:recordLimit state:state callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+    [[client webService] Videos_Video_SearchVideos: authUser.token FriendlyName:friendlyName MimeType:mimeType AppTag:appTag SearchDistance:searchDistance SearchLatitude:searchLatitude SearchLongitude:searchLongitude TimeFilter:timeFilter RecordLimit:recordLimit callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
           {
               if (callback)
               {                                                                                                                                                                                                                                                                       NSArray *data;                                                                                                                                                                                                                                                                                                    NSException *exception;                                                                                                                                                                                                                                                                                            @try                                                                                                                                                                                                                                                                                                    {
@@ -225,7 +219,7 @@
                   }
                   if (exception)
                   {
-                      callback([[BuddyArrayResponse alloc] initWithError:exception                                                                                                                                                                                                                                                                                                                                                     state:callbackParams.state                                                                                                                                                                                                                                                                                                                                                   apiCall:callbackParams.apiCall]);
+                      callback([[BuddyArrayResponse alloc] initWithError:exception                                                                                                                                                                                                                                                                                                                            apiCall:callbackParams.apiCall]);
                   }
                   else
                   {                                                                                                                                                                                                                                                                                                        callback([[BuddyArrayResponse alloc] initWithResponse:callbackParams                                                                                                                                                                                                                                                                                                                                                       result:data]);
@@ -237,12 +231,11 @@
 
 -(void)getVideoList:(NSNumber*)userID
        recordLimit:(int)recordLimit
-             state:(NSObject *)state
           callback:(BuddyVideoVideoListCallback)callback
 {
     __block BuddyVideos *_self = self;
     
-    [[client webService] Videos_Video_GetVideoList:authUser.token UserID:userID RecordLimit:recordLimit state:state callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+    [[client webService] Videos_Video_GetVideoList:authUser.token UserID:userID RecordLimit:recordLimit callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
            {
                if (callback)
                {                                                                                                                                                                                                                                                                       NSArray *data;                                                                                                                                                                                                                                                                                                    NSException *exception;                                                                                                                                                                                                                                                                                            @try                                                                                                                                                                                                                                                                                                    {
@@ -256,7 +249,7 @@
                    }
                    if (exception)
                    {
-                       callback([[BuddyArrayResponse alloc] initWithError:exception                                                                                                                                                                                                                                                                                                                                                     state:callbackParams.state                                                                                                                                                                                                                                                                                                                                                   apiCall:callbackParams.apiCall]);
+                       callback([[BuddyArrayResponse alloc] initWithError:exception                                                                                                                                                                                                                                                                                                                                     apiCall:callbackParams.apiCall]);
                    }
                    else
                    {                                                                                                                                                                                                                                                                                                        callback([[BuddyArrayResponse alloc] initWithResponse:callbackParams                                                                                                                                                                                                                                                                                                                                                       result:data]);
@@ -267,11 +260,10 @@
 }
 
 -(void)getMyVideoList:(int)recordLimit
-               state:(NSObject *)state
             callback:(BuddyVideoVideoListCallback)callback
 {
     __block BuddyVideos *_self = self;
-    [[client webService] Videos_Video_GetMyVideoList:authUser.token RecordLimit:recordLimit state:state callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+    [[client webService] Videos_Video_GetMyVideoList:authUser.token RecordLimit:recordLimit callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
            {
                if (callback)
                {                                                                                                                                                                                                                                                                       NSArray *data;                                                                                                                                                                                                                                                                                                    NSException *exception;                                                                                                                                                                                                                                                                                            @try                                                                                                                                                                                                                                                                                                    {
@@ -285,7 +277,7 @@
                    }
                    if (exception)
                    {
-                       callback([[BuddyArrayResponse alloc] initWithError:exception                                                                                                                                                                                                                                                                                                                                                     state:callbackParams.state                                                                                                                                                                                                                                                                                                                                                   apiCall:callbackParams.apiCall]);
+                       callback([[BuddyArrayResponse alloc] initWithError:exception                                                                                                                                                                                                                                                                                                                                       apiCall:callbackParams.apiCall]);
                    }
                    else
                    {                                                                                                                                                                                                                                                                                                        callback([[BuddyArrayResponse alloc] initWithResponse:callbackParams                                                                                                                                                                                                                                                                                                                                                       result:data]);

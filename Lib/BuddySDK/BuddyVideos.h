@@ -28,15 +28,12 @@ typedef void (^BuddyVideoVideoListCallback)(BuddyArrayResponse * response);
       longtidue:(double)longitude
        mimeType:(NSString *)mimeType
       videoData:(NSData *)videoData
-          state:(NSObject *)state
        callback:(BuddyVideoAddVideoCallback)callback;
 
 -(void)getVideo:(NSNumber *)videoID
-          state:(NSObject *)state
        callback:(BuddyVideoGetVideoCallback)callback;
 
 -(void)getVideoInfo:(NSNumber *)videoID
-              state:(NSObject *)state
            callback:(BuddyVideoGetVideoInfoCallback)callback;
 
 -(void)searchMyVideos:(NSString *)friendlyName
@@ -47,7 +44,6 @@ typedef void (^BuddyVideoVideoListCallback)(BuddyArrayResponse * response);
       searchLongitude:(double)searchLongitude
            timeFilter:(int)timeFilter
           recordLimit:(int)recordLimit
-                state:(NSObject *)state
             callback:(BuddyVideoVideoListCallback)callback;
 
 -(void)searchVideos:(NSString *)friendlyName
@@ -58,15 +54,12 @@ typedef void (^BuddyVideoVideoListCallback)(BuddyArrayResponse * response);
     searchLongitude:(double)searchLongitude
          timeFilter:(int)timeFilter
         recordLimit:(int)recordLimit
-              state:(NSObject *)state
            callback:(BuddyVideoVideoListCallback)callback;
 
 -(void)getVideoList:(NSNumber *)userID
         recordLimit:(int)recordLimit
-              state:(NSObject *)state
            callback:(BuddyVideoVideoListCallback)callback;
 
 -(void)getMyVideoList:(int)recordLimit
-                state:(NSObject *)state
              callback:(BuddyVideoVideoListCallback)callback;
 @end
