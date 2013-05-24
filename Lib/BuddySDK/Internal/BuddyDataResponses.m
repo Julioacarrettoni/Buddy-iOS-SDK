@@ -535,6 +535,90 @@
 
 @end
 
+@implementation BuddyVideoResponse
+
+@synthesize result;
+
+- (id)initWithResponse:(BuddyCallbackParams *)callbackParams
+                result:(BuddyVideo *)data
+{
+    if(callbackParams.isCompleted && data != nil)
+    {
+        self = [super initTrueWithState:callbackParams.state];
+        result = data;
+    }
+    else
+    {
+        self = [super initWithError:callbackParams];
+    }
+    
+    return self;
+}
+
+- (id)initWithError:(BuddyCallbackParams *)callbackParams
+			 reason:(NSString *)errorString
+{
+    NSException *exception = [BuddyUtility makeException:callbackParams.apiCall errorString:errorString];
+    
+	self = [super initWithParam:FALSE exception:exception state:callbackParams.state];
+    
+	return self;
+}
+
+- (id)initWithError:(NSString *)apiCall
+             reason:(NSString *)errorString
+			  state:(NSObject *)state
+{
+    NSException *exception = [BuddyUtility makeException:apiCall errorString:errorString];
+    
+	self = [super initWithParam:FALSE exception:exception state:state];
+    
+	return self;
+}
+
+@end
+
+@implementation BuddyBlobResponse
+
+@synthesize result;
+
+- (id)initWithResponse:(BuddyCallbackParams *)callbackParams
+                result:(BuddyBlob *)data
+{
+    if(callbackParams.isCompleted && data != nil)
+    {
+        self = [super initTrueWithState:callbackParams.state];
+        result = data;
+    }
+    else
+    {
+        self = [super initWithError:callbackParams];
+    }
+    
+    return self;
+}
+
+- (id)initWithError:(BuddyCallbackParams *)callbackParams
+			 reason:(NSString *)errorString
+{
+    NSException *exception = [BuddyUtility makeException:callbackParams.apiCall errorString:errorString];
+    
+	self = [super initWithParam:FALSE exception:exception state:callbackParams.state];
+    
+	return self;
+}
+
+- (id)initWithError:(NSString *)apiCall
+             reason:(NSString *)errorString
+			  state:(NSObject *)state
+{
+    NSException *exception = [BuddyUtility makeException:apiCall errorString:errorString];
+    
+	self = [super initWithParam:FALSE exception:exception state:state];
+    
+	return self;
+}
+@end
 
 @implementation BuddyUserResponse
 

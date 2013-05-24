@@ -6,6 +6,7 @@
 //
 //
 
+#import "BuddyBlobs.h"
 #import "BuddyBlob.h"
 #import "BuddyUtility.h"
 #import "BuddyDataResponses_Exn.h"
@@ -28,18 +29,18 @@
 @synthesize uploadDate;
 @synthesize lastTouchDate;
 
-- (id)initBlob:(BuddyClient *)localClient authUser:(BuddyAuthenticatedUser *)localAuthUser blobList:(NSDictionary *)blobList
+- (id)initBlob:(BuddyClient *)localClient authUser:(BuddyAuthenticatedUser *)localAuthUser  blobList:(NSDictionary *)blobList
 {
         self = [super init];
         if(!self)
-            {
-                    return nil;
-                }
+        {
+            return nil;
+        }
     
         if (blobList == nil || [blobList count] == 0)
-            {
-                    return self;
-                }
+        {
+            return self;
+        }
         client = (BuddyClient *)localClient;
         authUser = (BuddyAuthenticatedUser *)localAuthUser;
         blobId = [BuddyUtility NSNumberFromStringLong :[blobList objectForKey:@"blobID"]];
@@ -54,19 +55,38 @@
         lastTouchDate =[BuddyUtility dateFromString:[blobList objectForKey:@"lastTouchDate"]];
     
         return self;
-    }
+}
 
--(void)getBlob:(BuddyBlobGetBlobCallback)callback
+-(void)getBlob:(NSObject *)state
+      callback:(BuddyBlobGetBlobCallback)callback
 {
-    }
+    [self.authUser.blobs getBlob:self.blobId state:state callback:callback];
+}
 
--(void)editBlob:(NSString *)friendlyName
-         appTag:(NSString *)appTag
+-(void)editBlob:(NSString *)localFriendlyName
+    localAppTag:(NSString *)localAppTag
+          state:(NSObject *)state
        callback:(BuddyBlobEditBlobCallback)callback
 {
-    }
+    [[client webService] Blobs_Blob_EditInfo:authUser.token BlobID:self.blobId FriendlyName:localFriendlyName AppTag:localAppTag state:state callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+         {
+             if (callback)
+             {
+                 callback([[BuddyBoolResponse alloc] initWithResponse:callbackParams]);
+             }
+         } copy]];
+}
 
--(void)deleteBlob:(BuddyBlobDeleteBlobCallback)callback
-{}
+-(void)deleteBlob:state
+         callback:(BuddyBlobDeleteBlobCallback)callback
+{
+    [[client webService] Blobs_Blob_DeleteBlob:authUser.token BlobID:self.blobId state:state callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+            {
+                if(callback)
+                {
+                    callback([[BuddyBoolResponse alloc] initWithResponse:callbackParams]);
+                }
+            } copy]];
+}
 
 @end

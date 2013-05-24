@@ -11,8 +11,6 @@
 @class BuddyArrayResponse;
 @class BuddyBoolResponse;
 
-typedef void (^BuddyBlobGetBlobCallback)(BuddyArrayResponse *response);
-
 typedef void (^BuddyBlobEditBlobCallback)(BuddyBoolResponse * response);
 
 typedef void (^BuddyBlobDeleteBlobCallback) (BuddyBoolResponse * response);
@@ -51,12 +49,15 @@ typedef void (^BuddyBlobDeleteBlobCallback) (BuddyBoolResponse * response);
 @property (readonly, nonatomic, strong) NSDate *lastTouchDate;
 
 //TODO: figure out a better return type
--(void)getBlob:(BuddyBlobGetBlobCallback)callback;
+-(void)getBlob:(NSObject *)state
+      callback:(BuddyBlobGetBlobCallback)callback;
 
--(void)editBlob:(NSString *)friendlyName
-         appTag:(NSString *)appTag
+-(void)editBlob:(NSString *)localFriendlyName
+         localAppTag:(NSString *)localAppTag
+          state:(NSObject *)state
        callback:(BuddyBlobEditBlobCallback)callback;
 
--(void)deleteBlob:(BuddyBlobDeleteBlobCallback)callback;
+-(void)deleteBlob:(NSObject *)state
+         callback:(BuddyBlobDeleteBlobCallback)callback;
 
 @end

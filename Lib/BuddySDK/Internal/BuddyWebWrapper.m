@@ -1642,7 +1642,7 @@ static NSString * const BuddySDKHeaderValue = @"Platform=iOS;Version=0.1.1";
     
         [self makeRequest:@"Blobs_Blob_EditInfo" params:params state:state callback:callback];
 }
-//TODO
+
 -(void)Blobs_Blob_GetBlob:(NSString *)UserToken BlobID:(NSNumber *)BlobID state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback
 {
         NSMutableString *params = [BuddyUtility setParams:@"Blobs_Blob_GetBlob" appName:client.appName appPassword:client.appPassword userToken:UserToken];
@@ -1652,16 +1652,17 @@ static NSString * const BuddySDKHeaderValue = @"Platform=iOS;Version=0.1.1";
 }
 
 //TODO
--(void)Blobs_Blob_AddBlob:(NSString *)UserToken FriendlyName:(NSString *)FriendlyName AppTag:(NSString *)AppTag Latitude:(double)Latitude Longitude:(double)Longitude BlobData:(NSData *)BlobData state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback
+-(void)Blobs_Blob_AddBlob:(NSString *)UserToken FriendlyName:(NSString *)FriendlyName AppTag:(NSString *)AppTag Latitude:(double)Latitude Longitude:(double)Longitude ContentType:(NSString *)ContentType BlobData:(NSData *)BlobData state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback
 {
-    BuddyFile *file = [[BuddyFile alloc]ContentType, @"BlobData", BlobData];
-        NSDictionary* params = [[NSDictionary alloc]intiWithOjectsAndKeys:
-                                    UserToken, @"UserToken",
-                                    FriendlyName, @"FriendlyName",
-                                    AppTag, @"AppTag",
-                                    Latitude, @"Latitude",
-                                    Longitude, @"Longitude",
-                                [BuddyFile alloc]]
+    BuddyFile *file = [[BuddyFile alloc]initWithData:BlobData contentType:ContentType fileName:@"BlobData"];
+    NSDictionary* params = [[NSDictionary alloc]initWithObjectsAndKeys:UserToken, @"UserToken",
+                            FriendlyName, @"FriendlyName",
+                            AppTag, @"AppTag",
+                            Latitude, @"Latitude",
+                            Longitude, @"Longitude",
+                            file, @"BlobData", nil];
+    
+    [self makePostRequest:@"Blobs_Blob_AddBlob" params:params state:state callback:callback];
 }
 
 -(void)Blobs_Blob_DeleteBlob:(NSString *)UserToken BlobID:(NSNumber *)BlobID state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback
@@ -1717,6 +1718,110 @@ static NSString * const BuddySDKHeaderValue = @"Platform=iOS;Version=0.1.1";
         [params appendFormat:@"&RecordLimit=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%d", RecordLimit]]];
     
         [self makeRequest:@"Blobs_Blob_GetMyBlobList" params:params state:state callback:callback];
+}
+
+-(void)Videos_Video_GetVideoInfo:(NSString *)UserToken VideoID:(NSNumber *)VideoID state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonString))callback
+{
+    NSMutableString *params = [BuddyUtility setParams:@"Videos_Video_GetVideoInfo" appName:client.appName appPassword:client.appPassword userToken:(NSString *)UserToken];
+    [params appendFormat:@"&VideoID=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%@", VideoID]]];
+    
+    [self makeRequest:@"Videos_Video_GetVideoInfo" params:params state:state callback:callback];
+}
+
+-(void)Videos_Video_EditInfo:(NSString *)UserToken VideoID:(NSNumber *)VideoID FriendlyName:(NSString *)FriendlyName AppTag:(NSString *)AppTag state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback
+{
+    NSMutableString *params = [BuddyUtility setParams:@"Videos_Video_EditInfo" appName:client.appName appPassword:client.appPassword userToken:(NSString *) UserToken];
+    [params appendFormat:@"&VideoID=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%@", VideoID]]];
+    [params appendFormat:@"&FriendlyName=%@", [BuddyUtility encodeValue:FriendlyName]];
+    [params appendFormat:@"&AppTag=%@", [BuddyUtility encodeValue:AppTag]];
+    
+    [self makeRequest:@"Videos_Video_EditInfo" params:params state:state callback:callback];
+}
+
+-(void)Videos_Video_GetVideo:(NSString *)UserToken VideoID:(NSNumber *)VideoID state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback
+{
+    NSMutableString *params = [BuddyUtility setParams:@"Videos_Video_GetVideo" appName:client.appName appPassword:client.appPassword userToken:UserToken];
+    [params appendFormat:@"&VideoID=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%@", VideoID]]];
+    
+    [self makeRequest:@"Videos_Video_GetVideo" params:params state:state callback:callback];
+}
+
+//TODO
+-(void)Videos_Video_AddVideo:(NSString *)UserToken FriendlyName:(NSString *)FriendlyName AppTag:(NSString *)AppTag Latitude:(double)Latitude Longitude:(double)Longitude ContentType:(NSString *)ContentType VideoData:(NSData *)VideoData state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback
+{
+    BuddyFile *file = [[BuddyFile alloc]initWithData:VideoData contentType:ContentType fileName:@"VideoData"];
+    NSDictionary* params = [[NSDictionary alloc]initWithObjectsAndKeys:UserToken, @"UserToken",
+                            FriendlyName, @"FriendlyName",
+                            AppTag, @"AppTag",
+                            Latitude, @"Latitude",
+                            Longitude, @"Longitude",
+                            file, @"VideoData", nil];
+    
+    [self makePostRequest:@"Videos_Video_AddVideo" params:params state:state callback:callback];
+}
+
+-(void)Videos_Video_DeleteVideo:(NSString *)UserToken VideoID:(NSNumber *)VideoID state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback
+{
+    NSMutableString *params = [BuddyUtility setParams:@"Videos_Video_DeleteVideo" appName:client.appName appPassword:client.appPassword userToken:(NSString *)UserToken];
+    [params appendFormat:@"&VideoID=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%@", VideoID]]];
+    
+    [self makeRequest:@"Videos_Video_DeleteVideo" params:params state:state callback:callback];
+}
+
+-(void)Videos_Video_SearchMyVideos:(NSString *)UserToken FriendlyName:(NSString *)FriendlyName MimeType:(NSString *)MimeType AppTag:(NSString *)AppTag SearchDistance:(int)SearchDistance SearchLatitude:(double)SearchLatitude SearchLongitude:(double)SearchLongitude TimeFilter:(int)TimeFilter RecordLimit:(int)RecordLimit state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback
+{
+    NSMutableString *params = [BuddyUtility setParams:@"Videos_Video_SearchMyVideos" appName:client.appName appPassword:client.appPassword userToken:(NSString *)UserToken];
+    [params appendFormat:@"&FriendlyName=%@", [BuddyUtility encodeValue:FriendlyName]];
+    [params appendFormat:@"&MimeType=%@", [BuddyUtility encodeValue:MimeType]];
+    [params appendFormat:@"&AppTag=%@", [BuddyUtility encodeValue:AppTag]];
+    [params appendFormat:@"&SearchDistance=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%d", SearchDistance]]];
+    [params appendFormat:@"&SearchLatitude=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%f", SearchLatitude]]];
+    [params appendFormat:@"&SearchLongitude=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%f", SearchLongitude]]];
+    [params appendFormat:@"&TimeFilter=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%d", TimeFilter]]];
+    [params appendFormat:@"&RecordLimit=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%d", RecordLimit]]];
+    
+    [self makeRequest:@"Videos_Video_SearchMyVideos" params:params state:state callback:callback];
+}
+
+-(void)Videos_Video_SearchVideos:(NSString *)UserToken FriendlyName:(NSString *)FriendlyName MimeType:(NSString *)MimeType AppTag:(NSString *)AppTag SearchDistance:(int)SearchDistance SearchLatitude:(double)SearchLatitude SearchLongitude:(double)SearchLongitude TimeFilter:(int)TimeFilter RecordLimit:(int)RecordLimit state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback
+{
+    NSMutableString *params = [BuddyUtility setParams:@"Videos_Video_SearchVideos" appName:client.appName appPassword:client.appPassword userToken:(NSString *)UserToken];
+    [params appendFormat:@"&FriendlyName=%@", [BuddyUtility encodeValue:FriendlyName]];
+    [params appendFormat:@"&MimeType=%@", [BuddyUtility encodeValue:MimeType]];
+    [params appendFormat:@"&AppTag=%@", [BuddyUtility encodeValue:AppTag]];
+    [params appendFormat:@"&SearchDistance=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%d", SearchDistance]]];
+    [params appendFormat:@"&SearchLatitude=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%f", SearchLatitude]]];
+    [params appendFormat:@"&SearchLongitude=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%f", SearchLongitude]]];
+    [params appendFormat:@"&TimeFilter=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%d", TimeFilter]]];
+    [params appendFormat:@"&RecordLimit=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%d", RecordLimit]]];
+    
+    [self makeRequest:@"Videos_Video_SearchVideos" params:params state:state callback:callback];
+}
+
+-(void)Videos_Video_GetVideoList:(NSString *)UserToken UserID:(NSNumber *)UserID RecordLimit:(int)RecordLimit state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback
+{
+    NSMutableString *params = [BuddyUtility setParams:@"Videos_Video_GetVideoList" appName:client.appName appPassword:client.appPassword userToken:(NSString *)UserToken];
+    [params appendFormat:@"&UserID=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%@", UserID]]];
+    [params appendFormat:@"&RecordLimit=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%d", RecordLimit]]];
+    
+    [self makeRequest:@"Videos_Video_GetVideoList" params:params state:state callback:callback];
+}
+
+-(void)Videos_Video_GetMyVideoList:(NSString *)UserToken RecordLimit:(int)RecordLimit state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback
+{
+    NSMutableString *params = [BuddyUtility setParams:@"Videos_Video_GetMyVideoList" appName:client.appName appPassword:client.appPassword userToken:(NSString *)UserToken];
+    [params appendFormat:@"&RecordLimit=%@", [BuddyUtility encodeValue:[NSString stringWithFormat:@"%d", RecordLimit]]];
+    
+    [self makeRequest:@"Videos_Video_GetMyVideoList" params:params state:state callback:callback];
+}
+
+-(void)Sound_Sounds_GetSound:(NSString *)SoundName Quality:(NSString *)Quality state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *, id))callback
+{
+    NSDictionary* params = [[NSDictionary alloc]initWithObjectsAndKeys:
+                            SoundName, @"SoundName",
+                            Quality, @"Quality", nil];
+    
+    [self makePostRequest:@"Sound_Sounds_GetSound" params:params state:state callback:callback];
 }
 
 @end

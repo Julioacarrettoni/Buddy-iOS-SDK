@@ -9,26 +9,35 @@
 #import "BuddyBlobs.h"
 #import "BuddyBlob.h"
 #import "BuddyClient_Exn.h"
+#import "BuddyDataResponses_Exn.h"
+#import "BuddyUtility.h"
+#import "BuddyWebWrapper.h"
 
 @implementation BuddyBlobs
 
 @synthesize client;
 @synthesize authUser;
 
+-(void)dealloc
+{
+    client =nil;
+    authUser=nil;
+}
+
 -(id)initBlobs:(BuddyClient *)localClient
       authUser:(BuddyAuthenticatedUser *)localAuthUser
 {
-        self = [super init];
-        if(!self)
-            {
-                    return nil;
-                }
-    
-        client = (BuddyClient *)localClient;
-        authUser = (BuddyAuthenticatedUser *)localAuthUser;
-    
-        return self;
+    self = [super init];
+    if(!self)
+    {
+        return nil;
     }
+
+    client = (BuddyClient *)localClient;
+    authUser = (BuddyAuthenticatedUser *)localAuthUser;
+
+    return self;
+}
 
 -(NSArray *)makeBlobsList:(NSArray *)data
 {
@@ -54,14 +63,236 @@
     return blobs;
 }
 
+-(void)getBlob:(NSNumber *)blobID
+state:(NSObject *)state
+callback:(BuddyBlobGetBlobCallback)callback
+{
+    
+}
+
+-(void)getBlobInfo:(NSNumber*)blobID
+             state:(NSObject *)state
+          callback:(BuddyBlobGetBlobInfoCallback)callback
+{
+    if (blobID == nil)
+	{
+		[BuddyUtility throwNilArgException:@"BuddyBlobs.GetBlobInfo" reason:@"blobId"];
+	}
+    
+    [[client webService] Blobs_Blob_GetBlobInfo:authUser.token BlobID:blobID state:state callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+        {
+            BuddyBlob *blob;
+            NSException *exception;
+            @try
+            {
+                if (callbackParams.isCompleted && jsonArray != nil && [jsonArray count] > 0)
+                {
+                    NSDictionary *dict = (NSDictionary *)[jsonArray objectAtIndex:0];
+                    if (dict && [dict count] > 0)
+                    {
+                        blob = [[BuddyBlob alloc] initBlob:client authUser:authUser blobList:dict];
+                    }
+                }
+            }
+            @catch (NSException *ex)
+            {
+                exception = ex;
+            }
+            
+            if (exception)
+            {
+                callback([[BuddyBlobResponse alloc] initWithError:exception
+                                                            state:callbackParams.state
+                                                          apiCall:callbackParams.apiCall]);
+            }
+            else
+            {
+                callback([[BuddyBlobResponse alloc] initWithResponse:callbackParams
+                                                              result:blob]);
+            }
+        } copy]];
+}
+
+-(void)searchMyBlobs:(NSString *)friendlyName
+            mimeType:(NSString *)mimeType
+              appTag:(NSString *)appTag
+      searchDistance:(int)searchDistance
+      searchLatitude:(double)searchLatitude
+     searchLongitude:(double)searchLongitude
+          timeFilter:(int)timeFilter
+         recordLimit:(int)recordLimit
+               state:(NSObject *)state
+            callback:(BuddyBlobBlobListCallback)callback
+{
+    __block BuddyBlobs *_self = self;
+    
+    [[client webService] Blobs_Blob_SearchMyBlobs: authUser.token FriendlyName:friendlyName MimeType:mimeType AppTag:appTag SearchDistance:searchDistance SearchLatitude:searchLatitude SearchLongitude:searchLongitude TimeFilter:timeFilter RecordLimit:recordLimit state:state callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+        {
+            if (callback)
+              {
+                  NSArray *data;
+                  NSException *exception;
+                  @try
+                  {
+                      if (callbackParams.isCompleted && jsonArray != nil)
+                      {                                                                                                                                                                                                                                                                                                            data = [_self makeBlobsList:jsonArray];
+                      }
+                  }
+                  @catch (NSException *ex)
+                  {
+                      exception = ex;
+                  }
+                  
+                  if (exception)
+                  {
+                      callback([[BuddyArrayResponse alloc] initWithError:exception                                                                                                                                                                                                                                                                                                                                                     state:callbackParams.state                                                                                                                                                                                                                                                                                                                                                   apiCall:callbackParams.apiCall]);
+                  }
+                  else
+                  {                                                                                                                                                                                                                                                                                                        callback([[BuddyArrayResponse alloc] initWithResponse:callbackParams                                                                                                                                                                                                                                                                                                                                                       result:data]);
+                  }
+              }
+            _self = nil;
+        } copy]];
+}
+
+-(void)searchBlobs:(NSString *)friendlyName
+            mimeType:(NSString *)mimeType
+              appTag:(NSString *)appTag
+      searchDistance:(int)searchDistance
+      searchLatitude:(double)searchLatitude
+     searchLongitude:(double)searchLongitude
+          timeFilter:(int)timeFilter
+         recordLimit:(int)recordLimit
+               state:(NSObject *)state
+            callback:(BuddyBlobBlobListCallback)callback
+{
+    __block BuddyBlobs *_self = self;
+    
+    [[client webService] Blobs_Blob_SearchBlobs: authUser.token FriendlyName:friendlyName MimeType:mimeType AppTag:appTag SearchDistance:searchDistance SearchLatitude:searchLatitude SearchLongitude:searchLongitude TimeFilter:timeFilter RecordLimit:recordLimit state:state callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+        {
+            if (callback)
+            {                                                                                                                                                                                                                                                                       NSArray *data;                                                                                                                                                                                                                                                                                                    NSException *exception;                                                                                                                                                                                                                                                                                            @try                                                                                                                                                                                                                                                                                                    {
+                    if (callbackParams.isCompleted && jsonArray != nil)
+                    {                                                                                                                                                                                                                                                                                                            data = [_self makeBlobsList:jsonArray];
+                    }
+                }
+                @catch (NSException *ex)
+                {
+                    exception = ex;
+                }
+                if (exception)
+                {
+                    callback([[BuddyArrayResponse alloc] initWithError:exception                                                                                                                                                                                                                                                                                                                                                     state:callbackParams.state                                                                                                                                                                                                                                                                                                                                                   apiCall:callbackParams.apiCall]);
+                }
+                else
+                {                                                                                                                                                                                                                                                                                                        callback([[BuddyArrayResponse alloc] initWithResponse:callbackParams                                                                                                                                                                                                                                                                                                                                                       result:data]);
+                }
+            }
+            _self = nil;
+        } copy]];
+}
+
+-(void)getBlobList:(NSNumber*)userID
+       recordLimit:(int)recordLimit
+             state:(NSObject *)state
+          callback:(BuddyBlobBlobListCallback)callback
+{
+    __block BuddyBlobs *_self = self;
+    
+    [[client webService] Blobs_Blob_GetBlobList:authUser.token UserID:userID RecordLimit:recordLimit state:state callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+        {
+            if (callback)
+            {                                                                                                                                                                                                                                                                       NSArray *data;                                                                                                                                                                                                                                                                                                    NSException *exception;                                                                                                                                                                                                                                                                                            @try                                                                                                                                                                                                                                                                                                    {
+                    if (callbackParams.isCompleted && jsonArray != nil)
+                    {                                                                                                                                                                                                                                                                                                            data = [_self makeBlobsList:jsonArray];
+                    }
+                }
+                @catch (NSException *ex)
+                {
+                    exception = ex;
+                }
+                if (exception)
+                {
+                    callback([[BuddyArrayResponse alloc] initWithError:exception                                                                                                                                                                                                                                                                                                                                                     state:callbackParams.state                                                                                                                                                                                                                                                                                                                                                   apiCall:callbackParams.apiCall]);
+                }
+                else
+                {                                                                                                                                                                                                                                                                                                        callback([[BuddyArrayResponse alloc] initWithResponse:callbackParams                                                                                                                                                                                                                                                                                                                                                       result:data]);
+                }
+            }
+            _self = nil;
+        } copy]];
+}
+
+-(void)getMyBlobList:(int)recordLimit
+                state:(NSObject *)state
+                callback:(BuddyBlobBlobListCallback)callback
+{
+    __block BuddyBlobs *_self = self;
+    [[client webService] Blobs_Blob_GetMyBlobList:authUser.token RecordLimit:recordLimit state:state callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+       {
+           if (callback)
+           {                                                                                                                                                                                                                                                                       NSArray *data;                                                                                                                                                                                                                                                                                                    NSException *exception;                                                                                                                                                                                                                                                                                            @try                                                                                                                                                                                                                                                                                                    {
+               if (callbackParams.isCompleted && jsonArray != nil)
+               {                                                                                                                                                                                                                                                                                                            data = [_self makeBlobsList:jsonArray];
+               }
+           }
+               @catch (NSException *ex)
+               {
+                   exception = ex;
+               }
+               if (exception)
+               {
+                   callback([[BuddyArrayResponse alloc] initWithError:exception                                                                                                                                                                                                                                                                                                                                                     state:callbackParams.state                                                                                                                                                                                                                                                                                                                                                   apiCall:callbackParams.apiCall]);
+               }
+               else
+               {                                                                                                                                                                                                                                                                                                        callback([[BuddyArrayResponse alloc] initWithResponse:callbackParams                                                                                                                                                                                                                                                                                                                                                       result:data]);
+               }
+           }
+           _self = nil;
+       } copy]];
+}
+
 -(void)addBlob:(NSString *)friendlyName
         appTag:(NSString *)appTag
       latitude:(double)latitude
      longtidue:(double)longitude
       mimeType:(NSString *)mimeType
       blobData:(NSData *)blobData
+         state:(NSObject *)state
+      callback:(BuddyBlobAddBlobCallback)callback
+        
 {
-    [[client webService] Blobs_Blob_AddBlob:authUser.token FriendlyName:friendlyName AppTag:appTag Latitude:latitude Longitude:longitude BlobData:blobData]
+    __block BuddyBlobs *_self = self;
+    
+    [[client webService] Blobs_Blob_AddBlob:authUser.token FriendlyName:friendlyName AppTag:appTag Latitude:latitude Longitude:longitude ContentType:mimeType BlobData:blobData state:state callback:[^(BuddyCallbackParams *callbackParams, id jsonArray){
+        if (callbackParams.isCompleted && callback)
+        {
+            if ([BuddyUtility isAStandardError:callbackParams.dataResult] == FALSE)
+            {
+                NSNumber *blobId = [NSNumber numberWithInt:[callbackParams.dataResult intValue]];
+                
+                [_self getBlobInfo:blobId state:state callback:[^(BuddyBlobResponse *result2)
+                    {
+                        callback(result2);
+                        _self = nil;
+                    } copy]];
+            }
+            else
+            {
+                callback([[BuddyBlobResponse alloc] initWithError:callbackParams reason:callbackParams.dataResult]);
+                _self = nil;
+
+            }
+        }
+        else
+        {
+            if (callback)
+            {
+                callback([[BuddyBlobResponse alloc] initWithError:callbackParams reason:callbackParams.exception.reason]);
+            }
+            _self = nil;
+        }
+    } copy]];
 }
 
 @end

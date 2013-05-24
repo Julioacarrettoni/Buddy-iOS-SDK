@@ -206,6 +206,26 @@
 @property(readonly, nonatomic, strong) BuddyMetadataItem *result;
 @end
 
+@class BuddyVideo;
+
+@interface BuddyVideoResponse : BuddyCallbackParams
+/// <summary>
+/// Gets the result of an Buddy API call. result is a BuddyVideo. result should be checked for nil, before being used.
+/// </summary>
+@property (readonly, nonatomic, strong) BuddyVideo *result;
+
+@end
+
+@class BuddyBlob;
+
+@interface BuddyBlobResponse : BuddyCallbackParams
+/// <summary>
+/// Gets the result of an Buddy API call. result is a BuddyBlob. result should be checked for nil, before being used.
+/// </summary>
+@property(readonly, nonatomic, strong) BuddyBlob *result;
+
+@end
+
 
 @class BuddyUser;
 /// <summary>

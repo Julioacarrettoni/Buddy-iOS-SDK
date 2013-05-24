@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BuddyVideos.h"
 
-typedef void (^BuddyVideoGetVideoCallback)(NSData * response);
+@class BuddyArrayResponse;
+@class BuddyBoolResponse;
 
 typedef void (^BuddyVideoEditVideoCallback)(BuddyBoolResponse * response);
 
@@ -48,13 +50,16 @@ typedef void (^BuddyVideoDeleteVideoCallback)(BuddyBoolResponse * response);
 @property (readonly, nonatomic, strong) NSDate *lastTouchDate;
 
 //TODO: figure out a better return type
--(void)getVideo:(BuddyVideoGetVideoCallback)callback;
+-(void)getVideo:(NSObject *)state
+       callback:(BuddyVideoGetVideoCallback)callback;
 
--(void)editVideo:(NSString *)friendlyName
-         appTag:(NSString *)appTag
+-(void)editVideo:(NSString *)localFriendlyName
+     localAppTag:(NSString *)localAppTag
+           state:(NSObject *)state
        callback:(BuddyVideoEditVideoCallback)callback;
 
--(void)deleteBlob:(BuddyVideoDeleteVideoCallback)callback;
+-(void)deleteVideo:(NSObject *)state
+         callback:(BuddyVideoDeleteVideoCallback)callback;
 
 
 @end

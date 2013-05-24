@@ -330,7 +330,8 @@
 @property (readonly, nonatomic, assign) BuddyUser *user;
 
 - (id)initVideo:(BuddyClient *)client
-			authUser:(BuddyAuthenticatedUser *)authUser;
+			authUser:(BuddyAuthenticatedUser *)authUser
+           videoList:(NSDictionary *)videoList;
 
 @end
 
@@ -346,6 +347,18 @@
 			authUser:(BuddyAuthenticatedUser *)authUser;
 
 - (NSArray *)makeVideosList:(NSArray *)data;
+
+@end
+
+#import "BuddySounds.h"
+
+@interface BuddySounds()
+
+@property (readonly, nonatomic, assign) BuddyClient *client;
+@property (readonly, nonatomic, assign) BuddyAuthenticatedUser *authUser;
+
+- (id)initSounds:(BuddyClient *)client
+        authUser:(BuddyAuthenticatedUser *)authUser;
 
 @end
 

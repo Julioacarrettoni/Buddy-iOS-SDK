@@ -116,6 +116,37 @@
 
 @end
 
+@class BuddyVideo;
+
+@interface BuddyVideoResponse()
+
+- (id)initWithResponse:(BuddyCallbackParams *)callbackParams
+				result:(BuddyVideo *)data;
+
+- (id)initWithError:(BuddyCallbackParams *)callbackParams
+			 reason:(NSString *)errorString;
+
+- (id)initWithError:(NSString *)apiCall
+			 reason:(NSString *)errorString
+			  state:(NSObject *)state;
+
+@end
+
+@class BuddyBlob;
+
+@interface BuddyBlobResponse()
+
+- (id)initWithResponse:(BuddyCallbackParams *)callbackParams
+				result:(BuddyBlob *)data;
+
+- (id)initWithError:(BuddyCallbackParams *)callbackParams
+			 reason:(NSString *)errorString;
+
+- (id)initWithError:(NSString *)apiCall
+			 reason:(NSString *)errorString
+			  state:(NSObject *)state;
+
+@end
 
 @class BuddyMetadataSum;
 
