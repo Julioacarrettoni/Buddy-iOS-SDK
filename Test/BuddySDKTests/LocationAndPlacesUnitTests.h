@@ -21,16 +21,10 @@
 @class BuddyClient;
 
 
-@interface TestLocationsAndPlaces : SenTestCase
+@interface LocationAndPlacesUnitTests : SenTestCase
 
 @property (nonatomic, strong) BuddyClient *buddyClient;
 
 @property (nonatomic, strong) BuddyAuthenticatedUser *user;
-
-@property (nonatomic, strong) NSArray *places;
-
-@property (nonatomic, strong) NSDictionary *categoryDict;
-
-@property (nonatomic, strong) NSString *flagId;
 
 @end

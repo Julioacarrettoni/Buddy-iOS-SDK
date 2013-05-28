@@ -14,7 +14,7 @@
  * the License.
  */
 
-#import "TestFriendRequest.h"
+#import "FriendsUnitTests.h"
 #import "BuddyCallbackParams.h"
 #import "BuddyDataResponses.h"
 #import "BuddyBoolResponse.h"
@@ -22,10 +22,8 @@
 #import "BuddyClient.h"
 
 
-@implementation TestFriendRequest
+@implementation FriendsUnitTests
 
-@synthesize fixedUser;
-@synthesize fixedUser2;
 @synthesize buddyClient;
 @synthesize tokenUser;
 
@@ -37,29 +35,30 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 - (void)setUp
 {
     [super setUp];
-
+    
     self.buddyClient = [[BuddyClient alloc] initClient:AppName
                                            appPassword:AppPassword
                                             appVersion:@"1"
                                   autoRecordDeviceInfo:TRUE];
-
-    STAssertNotNil(self.buddyClient, @"TestFriendRequest failed buddyClient nil");
+    
+    STAssertNotNil(self.buddyClient, @"FriendsUnitTests failed buddyClient nil");
 }
 
 - (void)tearDown
 {
     [super tearDown];
-
+    
     self.buddyClient = nil;
 }
 
 - (void)waitloop
 {
     NSDate *loopTil = [NSDate dateWithTimeIntervalSinceNow:20];
-
+    
     while (bwaiting && [loopTil timeIntervalSinceNow] > 0)
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:loopTil];
 }
+
 
 - (void)alogin
 {
@@ -78,42 +77,44 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
                                                       } copy]];
 }
 
+
+
 - (void)testFriendRequestGetParsing
 {
     NSArray *resArray = [TestBuddySDK GetTextFileData:@"Test_FriendRequest"];
-
+    
     bwaiting = true;
     [self alogin];
     [self waitloop];
-
+    
     if (!self.tokenUser)
     {
         STFail(@"testFriendRequestGetParsing login failed.");
         return;
     }
-
+    
     NSArray *dict = [self.tokenUser.friends performSelector:@selector(makeFriendsList:) withObject:resArray];
-
+    
     if ([dict count] != 2)
     {
         STFail(@"testFriendRequestGetParsing failed dict should have 2 items");
     }
-
+    
     resArray = [TestBuddySDK GetTextFileData:@"Test_NoData"];
     dict = [self.tokenUser.friends performSelector:@selector(makeFriendsList:) withObject:resArray];
-
+    
     if ([dict count] != 0)
     {
         STFail(@"testFriendRequestGetParsing failed dict should have 0 items");
     }
-
+    
     resArray = [TestBuddySDK GetTextFileData:@"Test_EmptyData"];
     dict = [self.tokenUser.friends performSelector:@selector(makeFriendsList:) withObject:resArray];
     if ([dict count] != 0)
     {
         STFail(@"testFriendRequestGetParsing failed dict should have 0 items");
     }
-
+    
     resArray = [TestBuddySDK GetTextFileData:@"Test_FriendRequestBad"];
     @try
     {
@@ -132,37 +133,37 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 - (void)testFriendsGetListParsing
 {
     NSArray *resArray = [TestBuddySDK GetTextFileData:@"Test_FriendsGetList"];
-
+    
     bwaiting = true;
     [self alogin];
     [self waitloop];
-
+    
     if (!self.tokenUser)
     {
         STFail(@"testFriendsGetListParsing login failed.");
         return;
     }
-
+    
     NSArray *dict = [self.tokenUser.friends performSelector:@selector(makeFriendsList:) withObject:resArray];
     if ([dict count] != 2)
     {
         STFail(@"testFriendsGetListParsing failed dict should have 2 items");
     }
-
+    
     resArray = [TestBuddySDK GetTextFileData:@"Test_NoData"];
     dict = [self.tokenUser.friends performSelector:@selector(makeFriendsList:) withObject:resArray];
     if ([dict count] != 0)
     {
         STFail(@"testFriendsGetListParsing failed dict should have 0 items");
     }
-
+    
     resArray = [TestBuddySDK GetTextFileData:@"Test_EmptyData"];
     dict = [self.tokenUser.friends performSelector:@selector(makeFriendsList:) withObject:resArray];
     if ([dict count] != 0)
     {
         STFail(@"testFriendsGetListParsing failed dict should have 0 items");
     }
-
+    
     resArray = [TestBuddySDK GetTextFileData:@"Test_FriendsGetListBad"];
     @try
     {
@@ -178,4 +179,7 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
     }
 }
 
+
 @end
+
+

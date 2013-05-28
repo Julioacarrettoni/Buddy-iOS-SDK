@@ -1,0 +1,48 @@
+{
+   "data": [
+      {
+         "startupID": "http://www.crunchbase.com/company/airbiquity7",
+         "startupName": "Airbiquity",
+         "streetAddress": "1011 Western Avenue Suite 600",
+         "city": "Seattle",
+         "state": "http://www.crunchbase.com/company/airbiquityWA",
+         "zipPostal": "http://www.crunchbase.com/company/airbiquity98104",
+         "phoneNumber": "http://www.crunchbase.com/company/airbiquity",
+         "metroLocation": "Seattle Area",
+         "homePageURL": "http://www.airbiquity.com",
+         "crunchBaseUrl": "http://www.crunchbase.com/company/airbiquity",
+         "customData": "Super-cool company",
+         "Industry": "Software",
+         "LogoURL": " http:// airbiquity.co/logo.png",
+         "employeeCount": "",
+         "totalFundingRaised": "",
+         "fundingSource": "",
+         "twitterURL": "",
+         "facebookURL": "",
+         "linkedinURL": "",
+         "centerLat": "http://www.crunchbase.com/company/airbiquity47.604588",
+         "centerLong": "http://www.crunchbase.com/company/airbiquity-122.337750",
+         "distanceInMiles": "http://www.crunchbase.com/company/airbiquity0",
+         "distanceInKilometers": "http://www.crunchbase.com/company/airbiquity0",
+         "distanceInMeters": "http://www.crunchbase.com/company/airbiquity0",
+         "distanceInYards": "http://www.crunchbase.com/company/airbiquity0"
+      },
+ {
+         "startupID": "8",
+         "startupName": "Airbiquity2",
+         "streetAddress": "1011 Western Avenue Suite 600",
+          "employeeCount": "",
+         "totalFundingRaised": "",
+         "fundingSource": "",
+         "twitterURL": "",
+         "facebookURL": "",
+         "linkedinURL": "",
+         "centerLat": "47.604588",
+         "centerLong": "-122.337750",
+         "distanceInMiles": "0",
+         "distanceInKilometers": "0",
+         "distanceInMeters": "0",
+         "distanceInYards": "0"
+      }
+   ]
+}

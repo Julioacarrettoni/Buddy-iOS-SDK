@@ -196,4 +196,15 @@
 - (void)Videos_Video_GetMyVideoList:(NSString *)UserToken RecordLimit:(int)RecordLimit callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
 - (void)Sound_Sounds_GetSound:(NSString *)SoundName Quality:(NSString *)Quality callback:(void (^)(BuddyCallbackParams * callbackParams, id jsonArray))callback;
 
+- (void)StartupData_Location_GetMetroList:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
+- (void)StartupData_Location_Search:(NSString *)UserToken SearchDistance:(NSString *)SearchDistance Latitude:(double)Latitude Longitude:(double)Longitude RecordLimit:(NSNumber *)RecordLimit SearchName: (NSString *)SearchName state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
+- (void)StartupData_Location_GetFromMetroArea:(NSString *)UserToken MetroName:(NSString *)MetroName RecordLimit:(int)RecordLimit state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
+
+- (void)Commerce_Receipt_Save:(NSString *)UserToken ReceiptData:(NSString *)ReceiptData CustomTransactionID:(NSString *)CustomTransactionID AppData:(NSString *)AppData TotalCost:(NSString *)TotalCost TotalQuantity:(int)TotalQuantity StoreItemID:(NSString *)StoreItemID StoreName:(NSString *)StoreName state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
+- (void)Commerce_Receipt_GetForUserAndTransactionID:(NSString *)UserToken CustomTransactionID:(NSString *)CustomTransactionID state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
+- (void)Commerce_Receipt_GetForUser:(NSString *)UserToken FromDateTime:(NSString *)FromDateTime                                              state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
+- (void)Commerce_Store_GetAllItems:(NSString *)UserToken state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
+- (void)Commerce_Store_GetActiveItems:(NSString *)UserToken state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
+- (void)Commerce_Store_GetFreeItems:(NSString *)UserToken state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
+
 @end

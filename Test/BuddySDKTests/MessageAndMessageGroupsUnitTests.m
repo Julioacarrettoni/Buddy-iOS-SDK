@@ -14,7 +14,7 @@
  * the License.
  */
 
-#import "TestMessageAndMessageGroups.h"
+#import "MessageAndMessageGroupsUnitTests.h"
 #import "TestBuddySDK.h"
 #import "BuddyCallbackParams.h"
 #import "BuddyDataResponses.h"
@@ -26,14 +26,10 @@
 #import "BuddyGroupMessage.h"
 
 
-@implementation TestMessageAndMessageGroups
+@implementation MessageAndMessageGroupsUnitTests
 
-@synthesize tempUser;
 @synthesize user;
 @synthesize buddyClient;
-@synthesize buddyMessages1;
-@synthesize buddyMessages2;
-@synthesize buddymessageGroupArray;
 
 static NSString *AppName = @"Buddy iOS SDK test app";
 static NSString *AppPassword = @"8C9E044D-7DB7-42DE-A376-16460B58008E";
@@ -43,33 +39,31 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 - (void)setUp
 {
     [super setUp];
-
+    
     self.buddyClient = [[BuddyClient alloc] initClient:AppName
                                            appPassword:AppPassword
                                             appVersion:@"1"
                                   autoRecordDeviceInfo:TRUE];
-
-    STAssertNotNil(self.buddyClient, @"TestMessageAndMessageGroups: buddyclient nil");
-
+    
+    STAssertNotNil(self.buddyClient, @"MessageAndMessageGroupsUnitTests: buddyclient nil");
+    
     self.user = nil;
 }
 
 - (void)tearDown
 {
     [super tearDown];
-
+    
     self.buddyClient = nil;
-    self.buddymessageGroupArray = nil;
 }
 
 - (void)waitloop
 {
     NSDate *loopTil = [NSDate dateWithTimeIntervalSinceNow:30];
-
+    
     while (bwaiting && [loopTil timeIntervalSinceNow] > 0)
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:loopTil];
 }
-
 
 - (void)alogin
 {
@@ -90,37 +84,37 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 - (void)testMessageParsing
 {
     NSArray *resArray = [TestBuddySDK GetTextFileData:@"Test_MessageListGet"];
-
+    
     bwaiting = true;
     [self alogin];
     [self waitloop];
-
+    
     if (!self.user)
     {
         STFail(@"testMessageParsing login failed.");
         return;
     }
-
+    
     NSArray *dict = [self.user.messages performSelector:@selector(makeMessageList:) withObject:resArray];
     if ([dict count] != 2)
     {
         STFail(@"testMessageParsing failed dict should have 2 items");
     }
-
+    
     resArray = [TestBuddySDK GetTextFileData:@"Test_NoData"];
     dict = [self.user.messages performSelector:@selector(makeMessageList:) withObject:resArray];
     if ([dict count] != 0)
     {
         STFail(@"testMessageParsing failed dict should have 0 items");
     }
-
+    
     resArray = [TestBuddySDK GetTextFileData:@"Test_EmptyData"];
     dict = [self.user.messages performSelector:@selector(makeMessageList:) withObject:resArray];
     if ([dict count] != 0)
     {
         STFail(@"testMessageParsing failed dict should have 0 items");
     }
-
+    
     resArray = [TestBuddySDK GetTextFileData:@"Test_MessageListGetBad"];
     dict = [self.user.messages performSelector:@selector(makeMessageList:) withObject:resArray];
     if ([dict count] != 2)
@@ -132,37 +126,37 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 - (void)testMessageParsingTo
 {
     NSArray *resArray = [TestBuddySDK GetTextFileData:@"Test_MessageListGet"];
-
+    
     bwaiting = true;
     [self alogin];
     [self waitloop];
-
+    
     if (!self.user)
     {
         STFail(@"testMessageParsingTo login failed.");
         return;
     }
-
+    
     NSArray *dict = [self.user.messages performSelector:@selector(makeMessageList:) withObject:resArray];
     if ([dict count] != 2)
     {
         STFail(@"testMessageParsingTo failed dict should have 2 items");
     }
-
+    
     resArray = [TestBuddySDK GetTextFileData:@"Test_NoData"];
     dict = [self.user.messages performSelector:@selector(makeMessageList:) withObject:resArray];
     if ([dict count] != 0)
     {
         STFail(@"testMessageParsingTo failed dict should have 0 items");
     }
-
+    
     resArray = [TestBuddySDK GetTextFileData:@"Test_EmptyData"];
     dict = [self.user.messages performSelector:@selector(makeMessageList:) withObject:resArray];
     if ([dict count] != 0)
     {
         STFail(@"testMessageParsingTo failed dict should have 0 items");
     }
-
+    
     resArray = [TestBuddySDK GetTextFileData:@"Test_MessageListGetBad"];
     dict = [self.user.messages performSelector:@selector(makeMessageList:) withObject:resArray];
     if ([dict count] != 2)
@@ -174,37 +168,37 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 - (void)testMessageParsingFrom
 {
     NSArray *resArray = [TestBuddySDK GetTextFileData:@"Test_MessageListGet"];
-
+    
     bwaiting = true;
     [self alogin];
     [self waitloop];
-
+    
     if (!self.user)
     {
         STFail(@"testMessageParsingFrom login failed.");
         return;
     }
-
+    
     NSArray *dict = [self.user.messages performSelector:@selector(makeMessageList:) withObject:resArray];
     if ([dict count] != 2)
     {
         STFail(@"testMessageParsingFrom failed dict should have 2 items");
     }
-
+    
     resArray = [TestBuddySDK GetTextFileData:@"Test_NoData"];
     dict = [self.user.messages performSelector:@selector(makeMessageList:) withObject:resArray];
     if ([dict count] != 0)
     {
         STFail(@"testMessageParsingFrom failed dict should have 0 items");
     }
-
+    
     resArray = [TestBuddySDK GetTextFileData:@"Test_EmptyData"];
     dict = [self.user.messages performSelector:@selector(makeMessageList:) withObject:resArray];
     if ([dict count] != 0)
     {
         STFail(@"testMessageParsingFrom failed dict should have 0 items");
     }
-
+    
     resArray = [TestBuddySDK GetTextFileData:@"Test_MessageListGetBad"];
     dict = [self.user.messages performSelector:@selector(makeMessageList:) withObject:resArray];
     if ([dict count] != 2)
@@ -216,17 +210,17 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 - (void)testMessageParsingGroups
 {
     NSArray *resArray = [TestBuddySDK GetTextFileData:@"Test_GroupMessagesMembershipGetAllGroups"];
-
+    
     bwaiting = true;
     [self alogin];
     [self waitloop];
-
+    
     if (!self.user)
     {
         STFail(@"testMessageParsingGroups login failed.");
         return;
     }
-
+    
     NSArray *dict = [self.user.messages.groups performSelector:@selector(makeMessageGroupList:) withObject:resArray];
     if ([dict count] != 3)
     {
@@ -235,7 +229,7 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
     else
     {
         BuddyMessageGroup *pMG = (BuddyMessageGroup *) [dict objectAtIndex:0];
-
+        
         NSArray *messageArray = [TestBuddySDK GetTextFileData:@"Test_GroupMessage"];
         if ([messageArray count] > 0)
         {
@@ -255,15 +249,15 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
             }
         }
     }
-
+    
     resArray = [TestBuddySDK GetTextFileData:@"Test_NoData"];
     dict = [self.user.messages.groups performSelector:@selector(makeMessageGroupList:) withObject:resArray];
     if ([dict count] != 0)
     {
         STFail(@"testMessageParsingGroups failed dict should have 0 items");
     }
-
-
+    
+    
     resArray = [TestBuddySDK GetTextFileData:@"Test_EmptyData"];
     dict = [self.user.messages.groups performSelector:@selector(makeMessageGroupList:) withObject:resArray];
     if ([dict count] != 0)

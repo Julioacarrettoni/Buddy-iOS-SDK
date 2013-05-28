@@ -32,7 +32,7 @@
 
 - (id)initWithClient:(BuddyClient *)localClient
 {
-    [BuddyUtility checkForNilClient:localClient name:@"BuddyAppMetadata"];
+	[BuddyUtility checkForNilClient:localClient name:@"BuddyAppMetadata"];
 
 	self = [super init];
 	if (!self)
@@ -166,7 +166,6 @@
 }
 
 - (void)get:(NSString *)key
-      
    callback:(BuddyAppMetadataGetCallback)callback
 {
 	[self checkForKey:key];
@@ -205,9 +204,9 @@
 																} copy]];
 }
 
-- (void)set:(NSString *)key
-      value:(NSString *)value
-   callback:(BuddyAppMetadataSetCallback)callback
+- (void) set:(NSString *)key
+	   value:(NSString *)value
+	callback:(BuddyAppMetadataSetCallback)callback
 {
     [self set:key value:value latitude:0.0 longitude:0.0 appTag:nil  callback:callback];
 }
@@ -234,7 +233,6 @@
 }
 
 - (void)delete:(NSString *)key
-         
       callback:(BuddyAppMetadataDeleteCallback)callback
 {
 	[self checkForKey:key];
@@ -260,10 +258,10 @@
 																	  } copy]];
 }
 
-- (void)find:(NSNumber *)searchDistanceMeters
-    latitude:(double)latitude
-   longitude:(double)longitude
-    callback:(BuddyAppMetadataFindCallback)callback
+- (void) find:(NSNumber *)searchDistanceMeters
+	 latitude:(double)latitude
+	longitude:(double)longitude
+	 callback:(BuddyAppMetadataFindCallback)callback
 {
     [self find:searchDistanceMeters latitude:latitude longitude:longitude numberOfResults:nil withKey:nil withValue:nil updatedMinutesAgo:nil valueMin:nil valueMax:nil searchAsFloat:FALSE sortAscending:TRUE disableCache:TRUE  callback:callback];
 }
@@ -280,7 +278,6 @@ updatedMinutesAgo:(NSNumber *)updatedMinutesAgo
     searchAsFloat:(BOOL)searchAsFloat
     sortAscending:(BOOL)sortAscending
      disableCache:(BOOL)disableCache
-            
          callback:(BuddyAppMetadataFindCallback)callback
 {
 	if (searchDistanceMeters == nil)
@@ -311,8 +308,8 @@ updatedMinutesAgo:(NSNumber *)updatedMinutesAgo
 	NSString *search = [NSString stringWithFormat:@"%d", [searchDistanceMeters intValue]];
 	NSString *updateTime = [NSString stringWithFormat:@"%d", [updatedMinutesAgo intValue]];
 	NSNumber *searchAsFloatInt = [NSNumber numberWithInt:(searchAsFloat  == TRUE) ? 1:0];
-	NSString *sortAscendingString = [NSString stringWithString:(sortAscending == TRUE) ? @"1":@"0"];
-	NSString *disableCacheString = [NSString stringWithString:(disableCache  == TRUE) ? @"1":@"0"];
+	NSString *sortAscendingString = [NSString stringWithString:(sortAscending == TRUE) ? @"ASC":@"DESC"];
+	NSString *disableCacheString = [NSString stringWithString:(disableCache  == TRUE) ? @"true":@""];
 
 	__block BuddyAppMetadata *_self = self;
 	__block double _latitude = latitude;
@@ -331,8 +328,8 @@ updatedMinutesAgo:(NSNumber *)updatedMinutesAgo
 																				   if (callbackParams.isCompleted && jsonArray != nil)
 																				   {
 																					   dictMetaItems = [_self makeMetadataItemDictionary:jsonArray
-                                                                                                                                latitude:_latitude
-                                                                                                                               longitude:_longitude];
+																																latitude:_latitude
+																															   longitude:_longitude];
 																				   }
 																			   }
 																			   @catch (NSException *ex)
@@ -353,8 +350,8 @@ updatedMinutesAgo:(NSNumber *)updatedMinutesAgo
 																	   } copy]];
 }
 
-- (void)sum:(NSString *)forKeys
-   callback:(BuddyAppMetadataSumCallback)callback
+- (void) sum:(NSString *)forKeys
+	callback:(BuddyAppMetadataSumCallback)callback
 {
     [self sum:forKeys withinDistance:nil latitude:0.0 longitude:0.0 updatedMinutesAgo:nil withAppTag:nil  callback:callback];
 }
@@ -415,8 +412,7 @@ updatedMinutesAgo:(NSNumber *)updatedMinutesAgo
 																		if (exception)
 																		{
 																			callback([[BuddyMetadataSumResponse alloc] initWithError:exception
-                                                                                                                               
-                                                                                                                             apiCall:callbackParams.apiCall]);
+                                                                                                                                                                                                                                                          apiCall:callbackParams.apiCall]);
 																		}
 																		else
 																		{
@@ -452,7 +448,7 @@ updatedMinutesAgo:(NSNumber *)updatedMinutesAgo
 }
 
 - (void)batchSum:(NSString *)forKeys
-        callback:(BuddyAppMetadataBatchSumCallback)callback
+		callback:(BuddyAppMetadataBatchSumCallback)callback
 {
     [self batchSum:forKeys withinDistance:nil latitude:0.0 longitude:0.0 updatedMinutesAgo:nil withAppTag:nil  callback:callback];
 }
@@ -486,7 +482,7 @@ updatedMinutesAgo:(NSNumber *)updatedMinutesAgo
 	{
 		NSArray *arrayString = [forKeys componentsSeparatedByString:@";"];
 
-        withinDistanceString = [NSMutableString stringWithString:@"-1"];
+		withinDistanceString = [NSMutableString stringWithString:@"-1"];
 		int j = (int)([arrayString count] - 1);
 		for (int i = 0; i < j; i++)
 		{
@@ -495,7 +491,7 @@ updatedMinutesAgo:(NSNumber *)updatedMinutesAgo
 	}
 	else
 	{
-        withinDistanceString = [NSMutableString stringWithString:withinDistance];
+		withinDistanceString = [NSMutableString stringWithString:withinDistance];
 	}
 
 	__block BuddyAppMetadata *_self = self;
@@ -527,7 +523,7 @@ updatedMinutesAgo:(NSNumber *)updatedMinutesAgo
 																			 else
 																			 {
 																				 callback([[BuddyArrayResponse alloc] initWithResponse:callbackParams
-																															 result:data]);
+																																result:data]);
 																			 }
 																		 }
 																		 _self = nil;

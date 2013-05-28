@@ -533,7 +533,7 @@ static NSArray *validErrors;
 					   @"CouldNotUpdateInformation",
 					   @"HTTP 400 Response",
 					   @"GenericFilterApplicationIssue",
-					   @"CouldNotfindFilteredPhoto",
+					   @"CouldNotfindFilteredPhoto",@"iOsReceiptSandboxSettingInvalid",
 					   nil];
 	}
     
@@ -682,6 +682,11 @@ static NSDateFormatter *dateFormatter;
 + (int)intFromString:(NSString *)string
 {
 	return [string intValue];
+}
+
++ (long long)longFromString:(NSString *)string
+{
+    return [string longLongValue];
 }
 
 + (BOOL)boolFromString:(NSString *)string

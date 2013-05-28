@@ -39,6 +39,15 @@
             </BuildableReference>
          </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "A6291F31165C01640051F83C"
+            BuildableName = "BuddyUnitTestHarness.app"
+            BlueprintName = "BuddyUnitTestHarness"
+            ReferencedContainer = "container:../test/BuddySDKTests.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -49,6 +58,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "A6291F31165C01640051F83C"
+            BuildableName = "BuddyUnitTestHarness.app"
+            BlueprintName = "BuddyUnitTestHarness"
+            ReferencedContainer = "container:../test/BuddySDKTests.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

@@ -14,22 +14,20 @@
  * the License.
  */
 
-
 #import <SenTestingKit/SenTestingKit.h>
 
 
-@class BuddyAuthenticatedUser;
+@class BuddyPicture;
 @class BuddyClient;
+@class BuddyAuthenticatedUser;
+@class BuddyPhotoAlbum;
+@class BuddyPicturePublic;
 
 
-@interface TestFriendRequest : SenTestCase
-
-@property (nonatomic, strong) BuddyAuthenticatedUser *fixedUser;
-
-@property (nonatomic, strong) BuddyAuthenticatedUser *fixedUser2;
+@interface PicturesAndAlbumsUnitTests : SenTestCase
 
 @property (nonatomic, strong) BuddyClient *buddyClient;
 
-@property (nonatomic, strong) BuddyAuthenticatedUser *tokenUser;
+@property (nonatomic, strong) BuddyAuthenticatedUser *user;
 
 @end

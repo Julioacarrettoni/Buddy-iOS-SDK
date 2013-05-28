@@ -17,24 +17,14 @@
 #import <SenTestingKit/SenTestingKit.h>
 
 
-@class BuddyAuthenticatedUser;
 @class BuddyClient;
-@class BuddyMessages;
+@class BuddyAuthenticatedUser;
 
 
-@interface TestMessageAndMessageGroups : SenTestCase
-
-@property (nonatomic, strong) BuddyAuthenticatedUser *tempUser;
-
-@property (nonatomic, strong) BuddyAuthenticatedUser *user;
+@interface CommerceUnitTests : SenTestCase
 
 @property (nonatomic, strong) BuddyClient *buddyClient;
 
-@property (nonatomic, strong) BuddyMessages *buddyMessages1;
-
-@property (nonatomic, strong) BuddyMessages *buddyMessages2;
-
-@property (nonatomic, strong) NSArray *buddymessageGroupArray;
+@property (nonatomic, strong) BuddyAuthenticatedUser *user;
 
 @end
-

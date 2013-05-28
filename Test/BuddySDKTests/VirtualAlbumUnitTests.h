@@ -5,7 +5,7 @@
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0 
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
@@ -17,14 +17,25 @@
 #import <SenTestingKit/SenTestingKit.h>
 
 
-@class BuddyClient;
+@class BuddyPicture;
 @class BuddyAuthenticatedUser;
+@class BuddyVirtualAlbum;
+@class BuddyClient;
+@class BuddyVirtualAlbums;
 
 
-@interface TestAppUserMetadata : SenTestCase
+@interface VirtualAlbumUnitTests : SenTestCase
 
-@property (nonatomic, strong) BuddyAuthenticatedUser *user; 
+@property (nonatomic, strong) BuddyPicture *picture;
 
-@property (nonatomic, strong) BuddyClient *buddyClient; 
+@property (nonatomic, strong) BuddyAuthenticatedUser *buddyUser;
+
+@property (nonatomic, strong) BuddyVirtualAlbum *virtualAlbum;
+
+@property (nonatomic, strong) BuddyClient *buddyClient;
+
+@property (nonatomic, strong) BuddyVirtualAlbums *virtualAlbums;
+
+@property (nonatomic, strong) NSArray *virtualAlbumArray;
 
 @end

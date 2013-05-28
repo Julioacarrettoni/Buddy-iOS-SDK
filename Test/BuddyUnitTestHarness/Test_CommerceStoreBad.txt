@@ -1,0 +1,28 @@
+{
+   "data":[
+      {
+         "storeItemID":"gjhgjhgjhgjhgjhgjhgjh49",
+         "itemName":"https://buddy.com/sampledownloads/blue.jpg",
+         "itemIconUri":"https://buddy.com/sampledownloads/blue.jpg",
+         "itemDownloadUri":"https://buddy.com/sampledownloads/blue.jpg",
+         "itemPreviewUri":"",
+         "itemFreeFlag":"https://buddy.com/sampledownloads/blue.jpgFalse",
+         "itemDescription":"Description",
+         "itemDateTime":"https://buddy.com/sampledownloads/blue.jpg10/23/2012 12:32:38 PM",
+         "itemAvailableFlag":"https://buddy.com/sampledownloads/blue.jpgTrue",
+         "itemCost":"https://buddy.com/sampledownloads/blue.jpg6",
+         "appData":"https://buddy.com/sampledownloads/blue.jpg",
+         "customItemID":"https://buddy.com/sampledownloads/blue.jpg1a"
+      },
+  {
+         "storeItemID":"496",
+         "itemName":"TestName6",
+         "itemIconUri":"https://buddy.com/sampledownloads/blue.jpg",
+         "itemDownloadUri":"https://buddy.com/sampledownloads/blue.jpg",
+         "itemAvailableFlag":"True",
+         "itemCost":"6",
+         "appData":"https://buddy.com/sampledownloads/blue.jpg",
+         "customItemID":"1a"
+      }
+   ]
+}

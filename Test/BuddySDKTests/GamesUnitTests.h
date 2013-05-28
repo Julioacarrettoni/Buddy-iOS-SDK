@@ -16,26 +16,13 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-
-@class BuddyPicture;
 @class BuddyAuthenticatedUser;
-@class BuddyVirtualAlbum;
 @class BuddyClient;
-@class BuddyVirtualAlbums;
 
+@interface GamesUnitTests : SenTestCase
 
-@interface TestVirtualAlbums : SenTestCase
-
-@property (nonatomic, strong) BuddyPicture *picture;
-
-@property (nonatomic, strong) BuddyAuthenticatedUser *buddyUser;
-
-@property (nonatomic, strong) BuddyVirtualAlbum *virtualAlbum;
+@property (nonatomic, strong) BuddyAuthenticatedUser *user;
 
 @property (nonatomic, strong) BuddyClient *buddyClient;
-
-@property (nonatomic, strong) BuddyVirtualAlbums *virtualAlbums;
-
-@property (nonatomic, strong) NSArray *virtualAlbumArray;
 
 @end

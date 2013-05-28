@@ -7,16 +7,16 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.buddy.SDK.testapp.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.buddy.SDK.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.1.1</string>
+	<string>0.1.3</string>
 	<key>CFBundleSignature</key>
 	<string>BUDY</string>
 	<key>CFBundleVersion</key>
-	<string>0.1.1</string>
+	<string>0.1.3</string>
 </dict>
 </plist>

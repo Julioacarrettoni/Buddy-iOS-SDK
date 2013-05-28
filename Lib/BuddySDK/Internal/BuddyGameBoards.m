@@ -49,7 +49,7 @@
 }
 
 - (void)getHighScores:(NSString *)boardName
-			 callback:(BuddyGameBoardsGetHighScoresCallback)callback
+			 callback:(BuddyGameBoardsGetScoresCallback)callback
 {
 	NSNumber *recordLimit = [NSNumber numberWithInt:100];
 
@@ -103,6 +103,63 @@
 															}
 															_self = nil;
 														} copy]];
+}
+
+- (void)getLowScores:(NSString *)boardName
+			callback:(BuddyGameBoardsGetScoresCallback)callback
+{
+	NSNumber *recordLimit = [NSNumber numberWithInt:100];
+
+	[self getLowScores:boardName recordLimit:recordLimit state:nil callback:callback];
+}
+
+- (void)getLowScores:(NSString *)boardName
+		 recordLimit:(NSNumber *)recordLimit
+			   state:(NSObject *)state
+			callback:(BuddyGameBoardsGetScoresCallback)callback
+{
+	if ([BuddyUtility isNilOrEmpty:boardName])
+	{
+		[BuddyUtility throwNilArgException:@"BuddyGameBoards" reason:@"boardName"];
+	}
+
+	[BuddyUtility checkRecordLimitParam:recordLimit functionName:@"BuddyGameBoards"];
+
+	__block BuddyGameBoards *_self = self;
+
+	[[client webService] Game_Score_GetBoardLowScores:boardName RecordLimit:recordLimit RESERVED:@"" state:state
+											 callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+													   {
+														   if (callback)
+														   {
+															   NSArray *data;
+															   NSException *exception;
+															   @try
+															   {
+																   if (callbackParams.isCompleted && jsonArray != nil)
+																   {
+																	   data = [_self makeScores:jsonArray];
+																   }
+															   }
+															   @catch (NSException *ex)
+															   {
+																   exception = ex;
+															   }
+
+															   if (exception)
+															   {
+																   callback([[BuddyArrayResponse alloc] initWithError:exception
+																												state:callbackParams.state
+																											  apiCall:callbackParams.apiCall]);
+															   }
+															   else
+															   {
+																   callback([[BuddyArrayResponse alloc] initWithResponse:callbackParams
+																												  result:data]);
+															   }
+														   }
+														   _self = nil;
+													   } copy]];
 }
 
 - (NSArray *)makeScores:(NSArray *)data

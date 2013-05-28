@@ -42,6 +42,8 @@
 @synthesize gamePlayers;
 @synthesize blobs;
 @synthesize videos;
+@synthesize startups;
+@synthesize commerce;
 
 - (NSString *)toString
 {
@@ -94,6 +96,10 @@
     
     videos = [[BuddyVideos alloc] initVideos:localClient authUser:self];
 
+    startups  = [[BuddyStartups alloc] initWithAuthUser:localClient authUser:self];
+    
+    commerce = [[BuddyCommerce alloc] initWithAuthUser:localClient authUser:self];
+    
 	[self updateFromProfile:profile];
 
 	return self;

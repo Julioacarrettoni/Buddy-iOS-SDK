@@ -14,28 +14,17 @@
  * the License.
  */
 
+
 #import <SenTestingKit/SenTestingKit.h>
 
 
-@class BuddyPicture;
 @class BuddyClient;
 @class BuddyAuthenticatedUser;
-@class BuddyPhotoAlbum;
-@class BuddyPicturePublic;
 
-
-@interface TestPicturesAndAlbums : SenTestCase
+@interface FriendsUnitTests : SenTestCase
 
 @property (nonatomic, strong) BuddyClient *buddyClient;
 
-@property (nonatomic, strong) BuddyPicture *currentPict;
-
-@property (nonatomic, strong) BuddyAuthenticatedUser *user;
-
-@property (nonatomic, strong) BuddyPhotoAlbum *photoAlbum;
-
-@property (nonatomic, strong) BuddyPicturePublic *currentPictPublic;
-
-@property (nonatomic, strong) NSDictionary *allPhotoAlbums;
+@property (nonatomic, strong) BuddyAuthenticatedUser *tokenUser;
 
 @end

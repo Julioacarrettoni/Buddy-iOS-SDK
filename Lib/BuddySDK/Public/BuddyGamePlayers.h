@@ -69,7 +69,6 @@ typedef void (^BuddyPlayersFindCallback)(BuddyArrayResponse *response);
    latitude:(double)latitude
   longitude:(double)longitude
      appTag:(NSString *)appTag
-      
    callback:(BuddyPlayersAddCallback)callback;
 
 /// <summary>
@@ -78,8 +77,8 @@ typedef void (^BuddyPlayersFindCallback)(BuddyArrayResponse *response);
 /// <param name="name">The name of the new player.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
-- (void)add:(NSString *)name
-   callback:(BuddyPlayersAddCallback)callback;
+- (void) add:(NSString *)name
+	callback:(BuddyPlayersAddCallback)callback;
 
 /// <summary>
 /// Updates one or more fields of an existing Player object which was previously created.
@@ -99,7 +98,6 @@ typedef void (^BuddyPlayersFindCallback)(BuddyArrayResponse *response);
       latitude:(double)latitude
      longitude:(double)longitude
         appTag:(NSString *)appTag
-         
       callback:(BuddyPlayersUpdateCallback)callback;
 
 /// <summary>
@@ -108,7 +106,7 @@ typedef void (^BuddyPlayersFindCallback)(BuddyArrayResponse *response);
 /// <param name="name">The name of the new player.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 - (void)update:(NSString *)name
-      callback:(BuddyPlayersUpdateCallback)block;
+	  callback:(BuddyPlayersUpdateCallback)block;
 
 /// <summary>
 /// Delete the player object for this user.
@@ -146,7 +144,6 @@ typedef void (^BuddyPlayersFindCallback)(BuddyArrayResponse *response);
               boardName:(NSString *)boardName
 onlyForLastNumberOfDays:(NSNumber *)onlyForLastNumberOfDays
                  appTag:(NSString *)appTag
-                  
                callback:(BuddyPlayersFindCallback)callback;
 
 @end

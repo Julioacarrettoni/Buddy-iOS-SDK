@@ -19,9 +19,10 @@
 
 @class BuddyAuthenticatedUser;
 @class BuddyClient;
+@class BuddyMessages;
 
 
-@interface TestGames : SenTestCase
+@interface MessageAndMessageGroupsUnitTests : SenTestCase
 
 @property (nonatomic, strong) BuddyAuthenticatedUser *user;
 

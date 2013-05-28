@@ -54,7 +54,7 @@
 							comment:[BuddyUtility stringFromString:[data objectForKey:@"photoComment"]]
 							 appTag:[BuddyUtility stringFromString:[data objectForKey:@"applicationTag"]]
 							addedOn:[BuddyUtility dateFromString:[data objectForKey:@"photoAdded"]]
-							photoID:[BuddyUtility NSNumberFromStringInt:[data objectForKey:@"photoID"]]
+							photoId:[BuddyUtility NSNumberFromStringInt:[data objectForKey:@"photoID"]]
 							   user:(BuddyUser *)localAuthUser];
 	if (!self)
 	{

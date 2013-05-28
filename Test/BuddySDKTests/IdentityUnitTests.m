@@ -14,16 +14,16 @@
  * the License.
  */
 
+#import "IdentityUnitTests.h"
 #import "TestBuddySDK.h"
 #import "BuddyCallbackParams.h"
 #import "BuddyDataResponses.h"
 #import "BuddyBoolResponse.h"
-#import "TestIdentity.h"
 #import "BuddyClient.h"
 #import "BuddyIdentityItemSearchResult.h"
 
 
-@implementation TestIdentity
+@implementation IdentityUnitTests
 
 static NSString *AppName = @"Buddy iOS SDK test app";
 static NSString *AppPassword = @"8C9E044D-7DB7-42DE-A376-16460B58008E";
@@ -36,19 +36,19 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 - (void)setUp
 {
     [super setUp];
-
+    
     self.buddyClient = [[BuddyClient alloc] initClient:AppName
                                            appPassword:AppPassword
                                             appVersion:@"1"
                                   autoRecordDeviceInfo:TRUE];
-
-    STAssertNotNil(self.buddyClient, @"TestIdentity failed buddyClient nil");
+    
+    STAssertNotNil(self.buddyClient, @"IdentityUnitTests failed buddyClient nil");
 }
 
 - (void)tearDown
 {
     [super tearDown];
-
+    
     self.buddyClient = nil;
     self.user = nil;
 }
@@ -73,32 +73,31 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 - (void)waitloop
 {
     NSDate *loopTil = [NSDate dateWithTimeIntervalSinceNow:15];
-
+    
     while (bwaiting && [loopTil timeIntervalSinceNow] > 0)
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:loopTil];
 }
 
-
 - (void)testIdentityParsing
 {
     NSArray *resArray = [TestBuddySDK GetTextFileData:@"Test_Identity"];
-
+    
     bwaiting = true;
     [self alogin];
     [self waitloop];
-
+    
     if (!self.user)
     {
         STFail(@"testIdentityParsing login failed.");
         return;
     }
-
+    
     NSArray *dataout = [self.user.identityValues performSelector:@selector(makeIdentityList:) withObject:resArray];
     if ([dataout count] != 3)
     {
         STFail(@"testIdentityParsing failed makeIdentityList expected 3");
     }
-
+    
     NSArray *dataout1 = [self.user.identityValues performSelector:@selector(makeIdentitySearchList:) withObject:resArray];
     if ([dataout1 count] != 3)
     {
@@ -109,30 +108,30 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 - (void)testIdentityParsingMyList
 {
     NSArray *resArray = [TestBuddySDK GetTextFileData:@"Test_IdentityMyList"];
-
+    
     bwaiting = true;
     [self alogin];
     [self waitloop];
-
+    
     if (!self.user)
     {
         STFail(@"testIdentityParsingMyList login failed.");
         return;
     }
-
+    
     NSArray *dataout = [self.user.identityValues performSelector:@selector(makeIdentityList:) withObject:resArray];
-
+    
     if ([dataout count] != 3)
     {
         STFail(@"testIdentityParsingMyList failed makeIdentityList expected 3 ");
     }
-
+    
     NSArray *dataout1 = [self.user.identityValues performSelector:@selector(makeIdentitySearchList:) withObject:resArray];
     if ([dataout1 count] != 3)
     {
         STFail(@"testIdentityParsingMyList makeIdentitySearchList expects 3 ");
     }
-
+    
     if ([dataout1 count] > 0)
     {
         BuddyIdentityItemSearchResult *bSrc = [dataout1 objectAtIndex:0];
@@ -150,23 +149,23 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 - (void)testIdentityParsingNoData
 {
     NSArray *resArray = [TestBuddySDK GetTextFileData:@"Test_NoData"];
-
+    
     bwaiting = true;
     [self alogin];
     [self waitloop];
-
+    
     if (!self.user)
     {
         STFail(@"testIdentityParsingNoData login failed.");
         return;
     }
-
+    
     NSArray *dataout = [self.user.identityValues performSelector:@selector(makeIdentityList:) withObject:resArray];
     if ([dataout count] != 0)
     {
         STFail(@"testIdentityParsingNoData failed makeIdentityList expected 0");
     }
-
+    
     NSArray *dataout1 = [self.user.identityValues performSelector:@selector(makeIdentitySearchList:) withObject:resArray];
     if ([dataout1 count] != 0)
     {
@@ -177,23 +176,23 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 - (void)testIdentityParsingBadData
 {
     NSArray *resArray = [TestBuddySDK GetTextFileData:@"Test_IdentityBad"];
-
+    
     bwaiting = true;
     [self alogin];
     [self waitloop];
-
+    
     if (!self.user)
     {
         STFail(@"testIdentityParsingBadData login failed.");
         return;
     }
-
+    
     NSArray *dataout = [self.user.identityValues performSelector:@selector(makeIdentityList:) withObject:resArray];
     if ([dataout count] != 3)
     {
         STFail(@"testIdentityParsingBadData failed makeIdentityList expected 3");
     }
-
+    
     NSArray *dataout1 = [self.user.identityValues performSelector:@selector(makeIdentitySearchList:) withObject:resArray];
     if ([dataout1 count] != 3)
     {
@@ -204,23 +203,23 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 - (void)testIdentityParsingEmptyData
 {
     NSArray *resArray = [TestBuddySDK GetTextFileData:@"Test_EmptyData"];
-
+    
     bwaiting = true;
     [self alogin];
     [self waitloop];
-
+    
     if (!self.user)
     {
         STFail(@"testIdentityParsingEmptyData login failed.");
         return;
     }
-
+    
     NSArray *dataout = [self.user.identityValues performSelector:@selector(makeIdentityList:) withObject:resArray];
     if ([dataout count] != 0)
     {
         STFail(@"testIdentityParsingEmptyData expects 0");
     }
-
+    
     NSArray *dataout1 = [self.user.identityValues performSelector:@selector(makeIdentitySearchList:) withObject:resArray];
     if ([dataout1 count] != 0)
     {

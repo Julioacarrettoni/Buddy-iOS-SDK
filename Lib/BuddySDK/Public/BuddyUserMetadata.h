@@ -30,7 +30,7 @@
  */
 typedef void (^BuddyUserMetadataGetAllCallback)(BuddyDictionaryResponse *response);
 
-/** Callback signature for the BuddyUserMetadataGet function. The  .result field of the BuddyMetadataItemResponse will be set to a BuddyMetadataItem instance for the requested key if successful otherwise it will be nil. If there was an exception or error (e.g. unknown server response or invalid data) the Response.exception field will be set to an exception instance and the raw response from the server, if any, will be held in the Response.dataResult field.
+/** Callback signature for the BuddyUserMetadataGet function. The .result field of the BuddyMetadataItemResponse will be set to a BuddyMetadataItem instance for the requested key if successful otherwise it will be nil. If there was an exception or error (e.g. unknown server response or invalid data) the Response.exception field will be set to an exception instance and the raw response from the server, if any, will be held in the Response.dataResult field.
  */
 typedef void (^BuddyUserMetadataGetCallback)(BuddyMetadataItemResponse *response);
 
@@ -54,10 +54,14 @@ typedef void (^BuddyUserMetadataFindCallback)(BuddyDictionaryResponse *response)
  */
 typedef void (^BuddyUserMetadataBatchSumCallback)(BuddyArrayResponse *response);
 
-/** Callback signature for the BuddyUserMetadataBatchSum function. The  .result field of the BuddyMetadataSumResponse will be a BuddyMetadataSum instance (containing the sum of all the found metadata item values requested) if the request was successful otherwise it will be nil.
+/** Callback signature for the BuddyUserMetadataBatchSum function. The .result field of the BuddyMetadataSumResponse will be a BuddyMetadataSum instance (containing the sum of all the found metadata item values requested) if the request was successful otherwise it will be nil.
  *  If there was an exception or error (e.g. unknown server response or invalid data) the Response.exception  field will be set to an exception instance and the raw response from the server, if any, will be held in the Response.dataResult field.
  */
 typedef void (^BuddyUserMetadataSumCallback)(BuddyMetadataSumResponse *response);
+
+/** Callback signature for the BuddyUserMetadataBatchSet function. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise. If there was an exception or error (e.g. unknown server response or invalid data) the Response.exception field will be set to an exception instance and the raw response from the server, if any, will be held in the Response.dataResult field.
+ */
+typedef void (^BuddyUserMetadataBatchSetCallback)(BuddyBoolResponse *response);
 
 
 /// <summary>
@@ -222,7 +226,7 @@ updatedMinutesAgo:(NSNumber *)updatedMinutesAgo
 /// <param name="updatedMinutesAgo">Optionally sum only on items that have been updated a number of minutes ago, can be nil.</param>
 /// <param name="withAppTag">Optionally sum only items that have a certain application tag, can be nil.</param>
 /// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
-/// <param name="callback">The callback to call on success or error. The  .result field of the BuddyMetadataSumResponse will be a BuddyMetadataSum instance (containing the sum of all the found metadata item values requested) if the request was successful otherwise it will be nil.</param>
+/// <param name="callback">The callback to call on success or error. The .result field of the BuddyMetadataSumResponse will be a BuddyMetadataSum instance (containing the sum of all the found metadata item values requested) if the request was successful otherwise it will be nil.</param>
 
 - (void)   sum:(NSString *)forKeys
 withinDistance:(NSNumber *)withinDistance
@@ -238,7 +242,7 @@ updatedMinutesAgo:(NSNumber *)updatedMinutesAgo
 /// need to be numbers or floats, otherwise this method will fail.
 /// </summary>
 /// <param name="forKeys">The key to use to filter the items that need to be summed. Is always treated as a wildcard.</param>
-/// <param name="callback">The callback to call on success or error. The  .result field of the BuddyMetadataSumResponse will be a BuddyMetadataSum instance (containing the sum of all the found metadata item values requested) if the request was successful otherwise it will be nil.</param>
+/// <param name="callback">The callback to call on success or error. The .result field of the BuddyMetadataSumResponse will be a BuddyMetadataSum instance (containing the sum of all the found metadata item values requested) if the request was successful otherwise it will be nil.</param>
 
 - (void)sum:(NSString *)forKeys
    callback:(BuddyUserMetadataSumCallback)callback;
@@ -277,4 +281,38 @@ updatedMinutesAgo:(NSNumber *)updatedMinutesAgo
 - (void)batchSum:(NSString *)forKeys
         callback:(BuddyUserMetadataBatchSumCallback)callback;
 
+/// <summary>
+/// Set metadata item values for keys. You can additionally add a latitude and longitude coordinate to record the location
+/// from where these items were set, or tag all items with a custom tag. 
+/// The item doesn't have to exist to be set, this method acts as an Add method in cases where the item doesn't exist.
+/// </summary>
+/// <param name="keys">The keys of the metadata items, can't be null or empty.</param>
+/// <param name="values">The values of the metadata items, can't be null or empty.</param>
+/// <param name="latitude">Optional latitude of the metadata items.</param>
+/// <param name="longitude">Optional longitude of the metadata items.</param>
+/// <param name="appTag">The optional application tag for these items.</param>
+/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
+/// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
+
+- (void)batchSet:(NSString *)keys
+          values:(NSString *)values
+        latitude:(double)latitude
+       longitude:(double)longitude
+          appTag:(NSString *)appTag
+           state:(NSObject *)state
+        callback:(BuddyUserMetadataBatchSetCallback)callback;
+
+
+/// <summary>
+/// Set metadata item values for keys. You can additionally add a latitude and longitude coordinate to record the location
+/// from where these items were set, or tag all items with a custom tag. 
+/// The item doesn't have to exist to be set, this method acts as an Add method in cases where the item doesn't exist.
+/// </summary>
+/// <param name="keys">The keys of the metadata items, can't be null or empty.</param>
+/// <param name="values">The values of the metadata items, can't be null or empty.</param>
+/// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
+
+- (void)batchSet:(NSString *)keys
+          values:(NSString *)values
+        callback:(BuddyUserMetadataBatchSetCallback)callback;
 @end

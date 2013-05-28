@@ -28,6 +28,8 @@
 #import "BuddyBlobs.h"
 #import "BuddyVideos.h"
 
+#import "BuddyStartups.h"
+#import "BuddyCommerce.h"
 
 @class BuddyClient;
 @class BuddyNotificationsApple;
@@ -184,6 +186,17 @@ typedef void (^BuddyAuthenticatedUserSetProfilePhotoCallback)(BuddyBoolResponse 
 @property (readonly, nonatomic, strong) BuddyBlobs *blobs;
 
 @property (readonly, nonatomic, strong) BuddyVideos *videos;
+
+/// <summary>
+/// Gets and object that can be used for commerce for the user.
+/// </summary>
+@property (readonly, nonatomic, strong) BuddyCommerce *commerce;
+
+/// <summary>
+/// Gets and object that can be used to search for startups around the user.
+/// </summary>
+@property (readonly, nonatomic, strong) BuddyStartups *startups;
+
 
 /// <summary>
 /// Add a profile photo for this user.

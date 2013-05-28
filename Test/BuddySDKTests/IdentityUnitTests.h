@@ -21,7 +21,7 @@
 @class BuddyAuthenticatedUser;
 
 
-@interface TestIdentity : SenTestCase
+@interface IdentityUnitTests : SenTestCase
 
 @property (nonatomic, strong) BuddyClient *buddyClient;
 

@@ -17,19 +17,15 @@
 #import "BuddyCallbackParams.h"
 #import "BuddyDataResponses.h"
 #import "BuddyBoolResponse.h"
-#import "TestPicturesAndAlbums.h"
+#import "PicturesAndAlbumsUnitTests.h"
 #import "BuddyClient.h"
 #import "BuddyPhotoAlbum.h"
 
 
-@implementation TestPicturesAndAlbums
+@implementation PicturesAndAlbumsUnitTests
 
-@synthesize currentPict;
 @synthesize buddyClient;
 @synthesize user;
-@synthesize photoAlbum;
-@synthesize currentPictPublic;
-@synthesize allPhotoAlbums;
 
 static NSString *AppName = @"Buddy iOS SDK test app";
 static NSString *AppPassword = @"8C9E044D-7DB7-42DE-A376-16460B58008E";
@@ -39,34 +35,26 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 - (void)setUp
 {
     [super setUp];
-
+    
     self.buddyClient = [[BuddyClient alloc] initClient:AppName
                                            appPassword:AppPassword
                                             appVersion:@"1"
                                   autoRecordDeviceInfo:TRUE];
-
-    STAssertNotNil(self.buddyClient, @"TestPicturesAndAlbums failed buddyClient nil");
+    
+    STAssertNotNil(self.buddyClient, @"PicturesAndAlbumsUnitTests failed buddyClient nil");
 }
 
 - (void)tearDown
 {
     [super tearDown];
-
+    
     self.buddyClient = nil;
 }
 
 - (void)waitloop
 {
     NSDate *loopTil = [NSDate dateWithTimeIntervalSinceNow:150];
-
-    while (bwaiting && [loopTil timeIntervalSinceNow] > 0)
-        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:loopTil];
-}
-
-- (void)waitloop2
-{
-    NSDate *loopTil = [NSDate dateWithTimeIntervalSinceNow:15];
-
+    
     while (bwaiting && [loopTil timeIntervalSinceNow] > 0)
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:loopTil];
 }
@@ -87,10 +75,11 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
     } copy]];
 }
 
+
 - (void)testBuddyPublicPicture
 {
     NSArray *resArray = [TestBuddySDK GetTextFileData:@"Test_PublicPicture"];
-
+    
     bwaiting = true;
     [self aLogin];
     [self waitloop];
@@ -99,15 +88,15 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
         STFail(@"testBuddyPublicPicture login failed.");
         return;
     }
-
+    
     NSArray *dataOut = [self.user performSelector:@selector(makePictureList:) withObject:resArray];
-
+    
     if (dataOut == nil || [dataOut count] != 2)
     {
         STFail(@"testBuddyPublicPicture failed expected 2 PublicPictures");
     }
     resArray = [TestBuddySDK GetTextFileData:@"Test_EmptyData"];
-
+    
     dataOut = [self.user performSelector:@selector(makePictureList:) withObject:resArray];
     if (dataOut == nil || [dataOut count] != 0)
     {
@@ -118,7 +107,7 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 - (void)testBuddyPhotoAlbumCreation
 {
     NSArray *resArray = [TestBuddySDK GetTextFileData:@"Test_PicturesPhotoAlbumGet"];
-
+    
     bwaiting = true;
     [self aLogin];
     [self waitloop];
@@ -127,9 +116,9 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
         STFail(@"testBuddyPhotoAlbumCreation login failed.");
         return;
     }
-
+    
     BuddyPhotoAlbum *album = [self.user.photoAlbums performSelector:@selector(makeBuddyPhotoAlbum:) withObject:resArray];
-
+    
     if (album == nil || [album.pictures count] != 3)
     {
         STFail(@"BuddyPhotoAlbumCreation failed expected 3");
@@ -139,7 +128,7 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 - (void)testBuddyGetAllPictures
 {
     NSArray *resArray = [TestBuddySDK GetTextFileData:@"Test_PicturesPhotoAlbumGetAllPictures"];
-
+    
     bwaiting = true;
     [self aLogin];
     [self waitloop];
@@ -148,9 +137,9 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
         STFail(@"testBuddyGetAllPictures login failed.");
         return;
     }
-
+    
     NSDictionary *albums = [self.user.photoAlbums performSelector:@selector(makeBuddyPhotoAlbumDictionary:) withObject:resArray];
-
+    
     if (albums == nil)
     {
         STFail(@"testBuddyGetAllPictures failed albums == nil");
@@ -160,7 +149,7 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 - (void)testBuddyGetAllPicturesBadData
 {
     NSArray *resArray = [TestBuddySDK GetTextFileData:@"Test_PicturesPhotoAlbumGetAllPicturesBad"];
-
+    
     bwaiting = true;
     [self aLogin];
     [self waitloop];
@@ -169,9 +158,9 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
         STFail(@"testBuddyGetAllPicturesBadData login failed.");
         return;
     }
-
+    
     NSDictionary *albums = [self.user.photoAlbums performSelector:@selector(makeBuddyPhotoAlbumDictionary:) withObject:resArray];
-
+    
     if (albums == nil)
     {
         STFail(@"testBuddyGetAllPicturesBadData failed albums == nil");
@@ -181,7 +170,7 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 - (void)testBuddyGetAllPicturesNoData
 {
     NSArray *resArray = [TestBuddySDK GetTextFileData:@"Test_NoData"];
-
+    
     bwaiting = true;
     [self aLogin];
     [self waitloop];
@@ -190,14 +179,14 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
         STFail(@"testBuddyGetAllPicturesNoData login failed.");
         return;
     }
-
+    
     NSDictionary *albums = [self.user.photoAlbums performSelector:@selector(makeBuddyPhotoAlbumDictionary:) withObject:resArray];
-
+    
     if (albums == nil)
     {
         STFail(@"testBuddyGetAllPicturesNoData failed");
     }
-
+    
     resArray = [TestBuddySDK GetTextFileData:@"Test_EmptyData"];
     albums = [self.user.photoAlbums performSelector:@selector(makeBuddyPhotoAlbumDictionary:) withObject:resArray];
     if (albums == nil || [albums count] > 0)
@@ -209,7 +198,7 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 - (void)testBuddyPhotoAlbumCreationAndFilterListParsing
 {
     NSArray *resArray = [TestBuddySDK GetTextFileData:@"Test_PicturesPhotoAlbumGet"];
-
+    
     bwaiting = true;
     [self aLogin];
     [self waitloop];
@@ -218,28 +207,28 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
         STFail(@"testBuddyGetAllPicturesNoData login failed.");
         return;
     }
-
+    
     BuddyPhotoAlbum *album = [self.user.photoAlbums performSelector:@selector(makeBuddyPhotoAlbum:) withObject:resArray];
-
+    
     if (album == nil)
     {
         STFail(@"BuddyPhotoAlbumCreationAndFilterListParsing failed");
     }
-
+    
     if ([album.pictures count] != 3)
     {
         STFail(@"BuddyPhotoAlbumCreationAndFilterListParsing failed album.pictures != 3 ");
     }
-
+    
     BuddyPicture *picture = [album.pictures objectAtIndex:0];
-
+    
     if (picture == nil)
     {
         STFail(@"BuddyPhotoAlbumCreationAndFilterListParsing failed picture = nil");
     }
-
+    
     NSArray *resArray2 = [TestBuddySDK GetTextFileData:@"Test_FilterList"];
-
+    
     NSDictionary *filterList = [picture performSelector:@selector(makeFilterDictionary:) withObject:resArray2];
     if (filterList == nil || [filterList count] < 1)
     {
@@ -255,7 +244,7 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 - (void)atestBuddyPhotoAlbumCreationAndPictureFilterListRequestAndParsing
 {
     NSArray *resArray = [TestBuddySDK GetTextFileData:@"Test_PicturesPhotoAlbumGet"];
-
+    
     bwaiting = true;
     [self aLogin];
     [self waitloop];
@@ -264,16 +253,16 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
         STFail(@"atestBuddyPhotoAlbumCreationAndPictureFilterListRequestAndParsing login failed.");
         return;
     }
-
+    
     BuddyPhotoAlbum *album = [self.user.photoAlbums performSelector:@selector(makeBuddyPhotoAlbum:) withObject:resArray];
-
+    
     if (album == nil || [album.pictures count] != 3)
     {
         STFail(@"atestBuddyPhotoAlbumCreationAndPictureFilterListRequestAndParsing failed");
     }
-
+    
     BuddyPicture *picture = [album.pictures objectAtIndex:0];
-
+    
     if (picture == nil)
     {
         STFail(@"atestBuddyPhotoAlbumCreationAndPictureFilterListRequestAndParsing failed picture != nil");
@@ -283,7 +272,7 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 - (void)testBuddyPhotoAlbumCreationNoData
 {
     NSArray *resArray = [TestBuddySDK GetTextFileData:@"Test_NoData"];
-
+    
     bwaiting = true;
     [self aLogin];
     [self waitloop];
@@ -292,14 +281,14 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
         STFail(@"testBuddyPhotoAlbumCreationNoData login failed.");
         return;
     }
-
+    
     BuddyPhotoAlbum *album = [self.user.photoAlbums performSelector:@selector(makeBuddyPhotoAlbum:) withObject:resArray];
-
+    
     if (album == nil || [album.pictures count] != 0)
     {
         STFail(@"testBuddyPhotoAlbumCreationNoData NoData failed");
     }
-
+    
     resArray = [TestBuddySDK GetTextFileData:@"Test_EmptyData"];
     if (album == nil || [album.pictures count] != 0)
     {
@@ -315,7 +304,7 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 - (void)atestBuddyPhotoAlbumCreationAndPictureDeleteRequestAndParsing
 {
     NSArray *resArray = [TestBuddySDK GetTextFileData:@"Test_PicturesPhotoAlbumGet"];
-
+    
     bwaiting = true;
     [self aLogin];
     [self waitloop];
@@ -324,25 +313,24 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
         STFail(@"atestBuddyPhotoAlbumCreationAndPictureDeleteRequestAndParsing login failed.");
         return;
     }
-
+    
     BuddyPhotoAlbum *album = [self.user.photoAlbums performSelector:@selector(makeBuddyPhotoAlbum:) withObject:resArray];
-
+    
     if (album == nil)
     {
         STFail(@"atestBuddyPhotoAlbumCreationAndPictureDeleteRequestAndParsing failed album == nil");
     }
-
+    
     if ([album.pictures count] != 3)
     {
         STFail(@"atestBuddyPhotoAlbumCreationAndPictureDeleteRequestAndParsing failed album.pictures != 3");
     }
-
+    
     BuddyPicture *picture = [album.pictures objectAtIndex:0];
-
+    
     if (picture == nil)
     {
         STFail(@"atestBuddyPhotoAlbumCreationAndPictureDeleteRequestAndParsing failed picture = nil");
     }
 }
-
 @end

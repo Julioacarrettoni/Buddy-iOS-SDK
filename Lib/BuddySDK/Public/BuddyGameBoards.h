@@ -22,9 +22,9 @@
 
 // BuddyGameBoards callback definitions
 
-/** Callback signature for the BuddyGameBoardsGetHighScores function. The .result field of the BuddyArrayResponse will contain an NSArray of BuddyGameScore items if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise. If there was an exception or error (e.g. unknown server response or invalid data) the response.exception field will be set to an exception instance and the raw response from the server, if any, will be held in the response.dataResult field.
+/** Callback signature for the BuddyGameBoardsGetScores function. The .result field of the BuddyArrayResponse will contain an NSArray of BuddyGameScore items if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise. If there was an exception or error (e.g. unknown server response or invalid data) the response.exception field will be set to an exception instance and the raw response from the server, if any, will be held in the response.dataResult field.
  */
-typedef void (^BuddyGameBoardsGetHighScoresCallback)(BuddyArrayResponse *response);
+typedef void (^BuddyGameBoardsGetScoresCallback)(BuddyArrayResponse *response);
 
 /** Callback signature for the BuddyGameBoardsFindScores function. The .result field of the BuddyArrayResponse will contain an NSArray of BuddyGameScore items if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise. If there was an exception or error (e.g. unknown server response or invalid data) the response.exception field will be set to an exception instance and the raw response from the server, if any, will be held in the response.dataResult field.
  */
@@ -68,7 +68,6 @@ typedef void (^BuddyGameBoardsFindScoresCallback)(BuddyArrayResponse *response);
 
 @interface BuddyGameBoards : NSObject
 
-
 /// <summary>
 /// Gets a list of high scores for a specific game board.
 /// </summary>
@@ -79,7 +78,6 @@ typedef void (^BuddyGameBoardsFindScoresCallback)(BuddyArrayResponse *response);
 
 - (void)getHighScores:(NSString *)boardName
           recordLimit:(NSNumber *)recordLimit
-                
              callback:(BuddyGameBoardsGetHighScoresCallback)callback;
 
 /// <summary>
@@ -89,7 +87,29 @@ typedef void (^BuddyGameBoardsFindScoresCallback)(BuddyArrayResponse *response);
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will be an NSArray of BuddyGameScore items if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
 - (void)getHighScores:(NSString *)boardName
-             callback:(BuddyGameBoardsGetHighScoresCallback)callback;
+             callback:(BuddyGameBoardsGetScoresCallback)callback;
+
+/// <summary>
+/// Gets a list of low scores for a specific game board.
+/// </summary>
+/// <param name="boardName">The board name can be a specific string or a 'LIKE' pattern using %.</param>
+/// <param name="recordLimit">The maximum number of scores to return.</param>
+/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
+/// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will be an NSArray of BuddyGameScore items if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
+
+- (void)getLowScores:(NSString *)boardName
+          recordLimit:(NSNumber *)recordLimit
+                state:(NSObject *)state
+             callback:(BuddyGameBoardsGetScoresCallback)callback;
+
+/// <summary>
+/// Gets a list of low scores for a specific game board.
+/// </summary>
+/// <param name="boardName">The board name can be a specific string or a 'LIKE' pattern using %.</param>
+/// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will be an NSArray of BuddyGameScore items if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
+
+- (void)getLowScores:(NSString *)boardName
+             callback:(BuddyGameBoardsGetScoresCallback)callback;
 
 /// <summary>
 /// Search for game scores based on a number of different parameters.

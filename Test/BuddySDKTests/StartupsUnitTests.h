@@ -1,11 +1,11 @@
 /*
  * Copyright (C) 2012 Buddy Platform, Inc.
  *
- * Licensed under the BUDDY SDK LICENSE  (the "License"); you may not
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
  *
- * http://www.buddy.com/terms-of-service/ 
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
@@ -13,15 +13,18 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+
 #import <SenTestingKit/SenTestingKit.h>
-#import <Foundation/Foundation.h>
 
 
-@interface BuddyTestAppTests 
+@class BuddyClient;
+@class BuddyAuthenticatedUser;
 
-+(NSArray *) GetTextFileData: (NSString *) filename;
-+(NSData *) GetPicFileData: (NSString *) filename;
 
+@interface StartupsUnitTests : SenTestCase
+
+@property (nonatomic, strong) BuddyClient *buddyClient;
+
+@property (nonatomic, strong) BuddyAuthenticatedUser *user;
 
 @end
-
