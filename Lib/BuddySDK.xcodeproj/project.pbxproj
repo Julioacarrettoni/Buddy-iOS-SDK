@@ -7,17 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B94D4EB17500FA500B70454 /* BuddyBlob.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B94D4E617500FA500B70454 /* BuddyBlob.h */; };
-		1B94D4EC17500FA500B70454 /* BuddyBlobs.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B94D4E717500FA500B70454 /* BuddyBlobs.h */; };
-		1B94D4ED17500FA500B70454 /* BuddySounds.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B94D4E817500FA500B70454 /* BuddySounds.h */; };
-		1B94D4EE17500FA500B70454 /* BuddyVideo.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B94D4E917500FA500B70454 /* BuddyVideo.h */; };
-		1B94D4EF17500FA500B70454 /* BuddyVideos.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B94D4EA17500FA500B70454 /* BuddyVideos.h */; };
+		1B94D4EB17500FA500B70454 /* BuddyBlob.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B94D4E617500FA500B70454 /* BuddyBlob.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1B94D4EC17500FA500B70454 /* BuddyBlobs.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B94D4E717500FA500B70454 /* BuddyBlobs.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1B94D4ED17500FA500B70454 /* BuddySounds.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B94D4E817500FA500B70454 /* BuddySounds.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1B94D4EE17500FA500B70454 /* BuddyVideo.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B94D4E917500FA500B70454 /* BuddyVideo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1B94D4EF17500FA500B70454 /* BuddyVideos.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B94D4EA17500FA500B70454 /* BuddyVideos.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1B94D4F517500FC500B70454 /* BuddyBlob.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B94D4F017500FC500B70454 /* BuddyBlob.m */; };
 		1B94D4F617500FC500B70454 /* BuddyBlobs.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B94D4F117500FC500B70454 /* BuddyBlobs.m */; };
 		1B94D4F717500FC500B70454 /* BuddySounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B94D4F217500FC500B70454 /* BuddySounds.m */; };
 		1B94D4F817500FC500B70454 /* BuddyVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B94D4F317500FC500B70454 /* BuddyVideo.m */; };
 		1B94D4F917500FC500B70454 /* BuddyVideos.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B94D4F417500FC500B70454 /* BuddyVideos.m */; };
-		2946DE05174D696A005BE2F4 /* BuddyFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 2946DE03174D696A005BE2F4 /* BuddyFile.h */; };
+		1B94D4FA175028D600B70454 /* BuddyBlob.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1B94D4E617500FA500B70454 /* BuddyBlob.h */; };
+		1B94D4FB175028D600B70454 /* BuddyBlobs.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1B94D4E717500FA500B70454 /* BuddyBlobs.h */; };
+		1B94D4FC175028D600B70454 /* BuddySounds.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1B94D4E817500FA500B70454 /* BuddySounds.h */; };
+		1B94D4FD175028D600B70454 /* BuddyVideo.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1B94D4E917500FA500B70454 /* BuddyVideo.h */; };
+		1B94D4FE175028D600B70454 /* BuddyVideos.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1B94D4EA17500FA500B70454 /* BuddyVideos.h */; };
+		2946DE05174D696A005BE2F4 /* BuddyFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 2946DE03174D696A005BE2F4 /* BuddyFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2946DE06174D696A005BE2F4 /* BuddyFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2946DE04174D696A005BE2F4 /* BuddyFile.m */; };
 		A6291F80165C01800051F83C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6291F7F165C01800051F83C /* Foundation.framework */; };
 		D40FDA9F1695F5060028C609 /* AFHTTPClient.h in Headers */ = {isa = PBXBuildFile; fileRef = D40FDA861695F5060028C609 /* AFHTTPClient.h */; };
@@ -184,6 +189,11 @@
 			dstPath = include;
 			dstSubfolderSpec = 16;
 			files = (
+				1B94D4FA175028D600B70454 /* BuddyBlob.h in CopyFiles */,
+				1B94D4FB175028D600B70454 /* BuddyBlobs.h in CopyFiles */,
+				1B94D4FC175028D600B70454 /* BuddySounds.h in CopyFiles */,
+				1B94D4FD175028D600B70454 /* BuddyVideo.h in CopyFiles */,
+				1B94D4FE175028D600B70454 /* BuddyVideos.h in CopyFiles */,
 				D474B2A41698DEE00020204D /* BuddyNotificationsApple.h in CopyFiles */,
 				D474B2791698ACE90020204D /* BuddyVirtualAlbum.h in CopyFiles */,
 				D474B27A1698ACE90020204D /* BuddyEnums.h in CopyFiles */,
@@ -599,6 +609,12 @@
 				D4F41972169626EE00C38DD3 /* BuddyMessageGroup.h in Headers */,
 				D4F419741696270B00C38DD3 /* BuddyMessageGroups.h in Headers */,
 				D4F419761696274F00C38DD3 /* BuddyMetadataItem.h in Headers */,
+				2946DE05174D696A005BE2F4 /* BuddyFile.h in Headers */,
+				1B94D4EB17500FA500B70454 /* BuddyBlob.h in Headers */,
+				1B94D4EC17500FA500B70454 /* BuddyBlobs.h in Headers */,
+				1B94D4ED17500FA500B70454 /* BuddySounds.h in Headers */,
+				1B94D4EE17500FA500B70454 /* BuddyVideo.h in Headers */,
+				1B94D4EF17500FA500B70454 /* BuddyVideos.h in Headers */,
 				D4F419781696276600C38DD3 /* BuddyMetadataSum.h in Headers */,
 				D47220C3169614340066A899 /* BuddyUser.h in Headers */,
 				D4F4197A169627CA00C38DD3 /* BuddyNotificationsApple.h in Headers */,
@@ -634,12 +650,6 @@
 				D40FDABE1695FCE00028C609 /* BuddyUtility.h in Headers */,
 				D474B3AE169B7AA70020204D /* AFJSONUtilities.h in Headers */,
 				D4E4E80E169F8B4200C735B3 /* BuddyAll.h in Headers */,
-				2946DE05174D696A005BE2F4 /* BuddyFile.h in Headers */,
-				1B94D4EB17500FA500B70454 /* BuddyBlob.h in Headers */,
-				1B94D4EC17500FA500B70454 /* BuddyBlobs.h in Headers */,
-				1B94D4ED17500FA500B70454 /* BuddySounds.h in Headers */,
-				1B94D4EE17500FA500B70454 /* BuddyVideo.h in Headers */,
-				1B94D4EF17500FA500B70454 /* BuddyVideos.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

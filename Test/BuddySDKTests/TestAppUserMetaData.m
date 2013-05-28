@@ -82,10 +82,99 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 								 }
 								 else
 								 {
+                                     NSLog(@"alogin %@", response.stringResult);
 									 STFail(@"alogin failed");
 								 }
 								 bwaiting = false;
 							 } copy]];
+}
+
+- (void)testUserMetaData
+{
+    bwaiting = true;
+    [self alogin];
+    [self waitloop];
+
+    int icount = 1;
+    while(icount != 0)
+    {
+        bwaiting = true;
+        [self addData];
+        [self waitloop];
+        
+        bwaiting = true;
+        [self sumData];
+        [self waitloop];
+        
+        bwaiting = true;
+        [self batchSumData];
+        [self waitloop];
+        
+        icount--;
+    }
+}
+
+- (void)addData
+{
+    __block TestAppUserMetadata *_self = self;
+    [_self.user.metadata set:@"TestKey1" value:@"124" latitude:0.0 longitude:0.0 appTag:@"AppTag" callback:[^(BuddyBoolResponse *response)
+            {
+                if(response.isCompleted)
+                {
+                    NSLog(@"addUserMetaData OK");
+                }
+                else
+                {
+                    STFail(@"addUserMetaData failed !response.isCompleted");
+                }
+                bwaiting = false;
+            } copy]];
+    [_self.user.metadata set:@"TestKey2" value:@"5235" latitude:0.0 longitude:0.0 appTag:@"AppTag" callback:[^(BuddyBoolResponse *response)
+             {
+                 if(response.isCompleted)
+                 {
+                     NSLog(@"addUserMetaData OK");
+                 }
+                 else
+                 {
+                     STFail(@"addUserMetaData failed !response.isCompleted");
+                 }
+                 bwaiting = false;
+             } copy]];
+}
+
+- (void)batchSumData
+{
+    __block TestAppUserMetadata *_self = self;
+    [_self.user.metadata batchSum:@"TestKey%;TestKey1" callback:[^(BuddyArrayResponse *response)
+         {
+             if(response.isCompleted)
+             {
+                  [response.result objectAtIndex:0];
+             }else
+             {
+                 STFail(@"BatchSumData failed !response.isCompleted");
+             }
+         } copy]];
+}
+
+- (void)sumData
+{
+    __block TestAppUserMetadata *_self = self;
+    [_self.user.metadata sum:@"TestKey%" callback:[^(BuddyMetadataSumResponse *response)
+       {
+           if(response.isCompleted)
+           {
+               if(response.result.total != 5359)
+               {
+                   STFail(@"addUserMetaData should have had 5359 as total");
+               }
+           }
+           else
+           {
+               STFail(@"addUserMetaData failed !response.isCompleted");
+           }
+       } copy]];
 }
 
 - (void)testApplicationMetadataParseGoodDataTest

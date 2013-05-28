@@ -80,7 +80,6 @@
 }
 
 - (id)initWithError:(NSException *)localException
-			  state:(NSObject *)localState
 			apiCall:(NSString *)localApiCall
 {
 	self = [super init];

@@ -33,7 +33,6 @@
 			  ;
 
 - (id)initWithError:(NSException *)localException
-			  
 			apiCall:(NSString *)apiCall;
 
 - (id)initWithError:(BuddyCallbackParams *)callback;

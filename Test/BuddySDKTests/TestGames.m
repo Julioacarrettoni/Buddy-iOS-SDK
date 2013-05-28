@@ -191,8 +191,7 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 
 - (void)deleteGamePlayers:(NSString *)name
 {
-    [self.user.gamePlayers delete:name
-                         callback:[^(BuddyBoolResponse *response)
+    [self.user.gamePlayers delete:[^(BuddyBoolResponse *response)
                          {
                              if (response.isCompleted && response.result)
                              {
@@ -208,8 +207,7 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 
 - (void)getInfoGamePlayers:(NSString *)name
 {
-    [self.user.gamePlayers getInfo:name
-                          callback:[^(BuddyGamePlayerResponse *response)
+    [self.user.gamePlayers getInfo:[^(BuddyGamePlayerResponse *response)
                           {
                               if (response.isCompleted)
                               {

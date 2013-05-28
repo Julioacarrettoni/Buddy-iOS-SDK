@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1B4FA4E0174E87080066F951 /* TestBlob.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4FA4DF174E87080066F951 /* TestBlob.m */; };
+		1B927FF51752F5C600ADC6C9 /* TestAppMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B927FF41752F5C600ADC6C9 /* TestAppMetaData.m */; };
+		1B94D5001750473100B70454 /* Test_GetBlobs.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1B94D4FF1750473100B70454 /* Test_GetBlobs.txt */; };
 		A291F26816CEEFBF0094FF57 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A291F26716CEEFBF0094FF57 /* Default-568h@2x.png */; };
 		A2CFC5E516FCDDD9007FBCD8 /* libBuddySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2CFC5E416FCDDD9007FBCD8 /* libBuddySDK.a */; };
 		A6291F37165C01640051F83C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6291F36165C01640051F83C /* UIKit.framework */; };
@@ -96,6 +98,9 @@
 /* Begin PBXFileReference section */
 		1B4FA4DE174E87080066F951 /* TestBlob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestBlob.h; path = ../../Test/BuddySDKTests/TestBlob.h; sourceTree = "<group>"; };
 		1B4FA4DF174E87080066F951 /* TestBlob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestBlob.m; path = ../../Test/BuddySDKTests/TestBlob.m; sourceTree = "<group>"; };
+		1B927FF31752F5C600ADC6C9 /* TestAppMetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestAppMetaData.h; path = ../../Test/BuddySDKTests/TestAppMetaData.h; sourceTree = "<group>"; };
+		1B927FF41752F5C600ADC6C9 /* TestAppMetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestAppMetaData.m; path = ../../Test/BuddySDKTests/TestAppMetaData.m; sourceTree = "<group>"; };
+		1B94D4FF1750473100B70454 /* Test_GetBlobs.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Test_GetBlobs.txt; path = ../../Test/BuddyUnitTestHarness/Test_GetBlobs.txt; sourceTree = "<group>"; };
 		A2342FA016EE5E2E00B13A12 /* BuddySDKTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BuddySDKTests-Prefix.pch"; sourceTree = "<group>"; };
 		A291F26716CEEFBF0094FF57 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../../Test/BuddyUnitTestHarness/Default-568h@2x.png"; sourceTree = "<group>"; };
 		A2CFC5E416FCDDD9007FBCD8 /* libBuddySDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBuddySDK.a; path = "../Lib/BuddySDK/Release-Lib/libBuddySDK.a"; sourceTree = "<group>"; };
@@ -268,6 +273,7 @@
 		A6291F3D165C01640051F83C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1B94D4FF1750473100B70454 /* Test_GetBlobs.txt */,
 				A6291F3E165C01640051F83C /* BuddyUnitTestHarness-Info.plist */,
 				A6291F44165C01640051F83C /* BuddyUnitTestHarness-Prefix.pch */,
 				A291F26716CEEFBF0094FF57 /* Default-568h@2x.png */,
@@ -343,6 +349,8 @@
 				D423D18E167DDB2C00E1D249 /* TestVirtualAlbums.m */,
 				1B4FA4DE174E87080066F951 /* TestBlob.h */,
 				1B4FA4DF174E87080066F951 /* TestBlob.m */,
+				1B927FF31752F5C600ADC6C9 /* TestAppMetaData.h */,
+				1B927FF41752F5C600ADC6C9 /* TestAppMetaData.m */,
 			);
 			path = BuddySDKTests;
 			sourceTree = "<group>";
@@ -473,6 +481,7 @@
 				D49CC0FF16C920A900935A75 /* Test_FriendsGetList.txt in Resources */,
 				D49CC10016C920A900935A75 /* Test_MetadataSum.txt in Resources */,
 				A291F26816CEEFBF0094FF57 /* Default-568h@2x.png in Resources */,
+				1B94D5001750473100B70454 /* Test_GetBlobs.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +537,7 @@
 				D490008516766F1E004F37C9 /* TestFriendRequest.m in Sources */,
 				D423D18F167DDB2C00E1D249 /* TestVirtualAlbums.m in Sources */,
 				1B4FA4E0174E87080066F951 /* TestBlob.m in Sources */,
+				1B927FF51752F5C600ADC6C9 /* TestAppMetaData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
