@@ -73,26 +73,26 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
     [self alogin];
     [self waitloop];
     
-//    int icount =1;
-//    while (icount != 0) {
-//        bwaiting = true;
-//        [self addMetaData];
-//        [self waitloop];
-//        
-//        bwaiting = true;
-//        [self addMetaData2];
-//        [self waitloop];
-//        
-//        bwaiting = true;
-//        [self sumMetaData];
-//        [self waitloop];
-//        
-//        bwaiting = true;
-//        [self batchSumMetaData];
-//        [self waitloop];
-//        
-//        icount--;
-//    }
+    int icount =1;
+    while (icount != 0) {
+        bwaiting = true;
+        [self addMetaData];
+        [self waitloop];
+        
+        bwaiting = true;
+        [self addMetaData2];
+        [self waitloop];
+        
+        bwaiting = true;
+        [self sumMetaData];
+        [self waitloop];
+        
+        bwaiting = true;
+        [self batchSumMetaData];
+        [self waitloop];
+        
+        icount--;
+    }
 }
 
 - (void)addMetaData

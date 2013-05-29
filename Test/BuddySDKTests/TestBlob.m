@@ -81,33 +81,33 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
     
     int icount =1;
     while (icount != 0) {
-//        bwaiting = true;
-//        BuddyBlob* blob = [self addBlob];
-//        [self waitloop];
-//        
-//        bwaiting = true;
-//        [self getBlobInfo:blob];
-//        [self waitloop];
-//        
-//        bwaiting = true;
-//        [self getBlob:blob];
-//        [self waitloop];
-//    
-//        bwaiting = true;
-//        [self getBlobList:blob];
-//        [self waitloop];
-//        
-//        bwaiting = true;
-//        [self getMyBlobList:blob];
-//        [self waitloop];
-//        
-//        bwaiting = true;
-//        [self searchBlobs:blob];
-//        [self waitloop];
-//        
-//        bwaiting = true;
-//        [self searchMyBlobs:blob];
-//        [self waitloop];
+        bwaiting = true;
+        BuddyBlob* blob = [self addBlob];
+        [self waitloop];
+        
+        bwaiting = true;
+        [self getBlobInfo:blob];
+        [self waitloop];
+        
+        bwaiting = true;
+        [self getBlob:blob];
+        [self waitloop];
+    
+        bwaiting = true;
+        [self getBlobList:blob];
+        [self waitloop];
+        
+        bwaiting = true;
+        [self getMyBlobList:blob];
+        [self waitloop];
+        
+        bwaiting = true;
+        [self searchBlobs:blob];
+        [self waitloop];
+        
+        bwaiting = true;
+        [self searchMyBlobs:blob];
+        [self waitloop];
         
         icount--;
     }
