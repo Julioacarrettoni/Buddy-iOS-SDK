@@ -164,7 +164,6 @@ typedef void (^BuddyUserGetProfilePhotosCallback)(BuddyArrayResponse *response);
 /// <summary>
 /// Gets a list of profile photos for this user.
 /// </summary>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will contain an NSArray of BuddyPicturePublic items if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
 - (void)getProfilePhotos:(BuddyUserGetProfilePhotosCallback)callback;

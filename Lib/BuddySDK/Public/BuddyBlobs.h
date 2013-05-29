@@ -15,8 +15,6 @@
 
 typedef void (^BuddyBlobAddBlobCallback)(BuddyBlobResponse * response);
 
-typedef void (^BuddyBlobGetBlobCallback) (BuddyArrayResponse * response);
-
 typedef void (^BuddyBlobGetBlobInfoCallback)(BuddyBlobResponse * response);
 
 typedef void (^BuddyBlobBlobListCallback)(BuddyArrayResponse * response);
@@ -32,7 +30,7 @@ typedef void (^BuddyBlobBlobListCallback)(BuddyArrayResponse * response);
       callback:(BuddyBlobAddBlobCallback)callback;
 
 -(void)getBlob:(NSNumber*)blobID
-callback:(BuddyBlobGetBlobCallback)callback;
+callback:(void(^)(NSData *))callback;
 
 -(void)getBlobInfo:(NSNumber*)blobID
           callback:(BuddyBlobGetBlobInfoCallback)callback;

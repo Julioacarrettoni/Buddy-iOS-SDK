@@ -58,12 +58,6 @@
     
     return self;
 }
-
--(void)getVideo:(BuddyVideoGetVideoCallback)callback
-{
-    [self.authUser.videos getVideo:self.videoId callback:callback];
-}
-
 -(void)editVideo:(NSString *)localFriendlyName
     localAppTag:(NSString *)localAppTag
        callback:(BuddyVideoEditVideoCallback)callback

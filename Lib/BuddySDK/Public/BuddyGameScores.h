@@ -86,7 +86,6 @@ typedef void (^BuddyGameScoresAddCallback)(BuddyBoolResponse *response);
 /// Return all score entries for this user.
 /// </summary>
 /// <param name="recordLimit">Limit the number of entries returned.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will be an NSArray of BuddyGameScore items if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
 - (void)getAll:(NSNumber *)recordLimit
@@ -103,7 +102,6 @@ typedef void (^BuddyGameScoresAddCallback)(BuddyBoolResponse *response);
 /// <summary>
 /// Delete all scores for this user.
 /// </summary>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)deleteAll:(BuddyGameScoresDeleteAllCallback)callback;
@@ -118,7 +116,6 @@ typedef void (^BuddyGameScoresAddCallback)(BuddyBoolResponse *response);
 /// <param name="longitude">Optional longitude for this score.</param>
 /// <param name="oneScorePerPlayer">The one-score-per-player parameter. Setting this to true will always update the score for this user, instead of creating a new one.</param>
 /// <param name="appTag">An optional application tag for this score, can be nil.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)add:(double)score

@@ -97,7 +97,6 @@ typedef void (^BuddyVirtualAlbumUpdatePictureCallback)(BuddyBoolResponse *respon
 /// <summary>
 /// Delete this virtual album.
 /// </summary>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)delete:(BuddyVirtualAlbumDeleteCallback)callback;
@@ -106,7 +105,6 @@ typedef void (^BuddyVirtualAlbumUpdatePictureCallback)(BuddyBoolResponse *respon
 /// Add an existing (uploaded) photo to a virtual album. This photo can be either private or public (either PicturePublic and Picture will work).
 /// </summary>
 /// <param name="picture">The picture to add to the virtual albums. Either PicturePublic or Picture works.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)addPicture:(BuddyPicturePublic *)picture
@@ -117,7 +115,6 @@ typedef void (^BuddyVirtualAlbumUpdatePictureCallback)(BuddyBoolResponse *respon
 /// Add a list of pictures to this virtual album.
 /// </summary>
 /// <param name="pictureBatch">The list of pictures to add to this photo album. Either PicturePublic or Picture works.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)addPictureBatch:(NSArray *)pictureBatch
@@ -128,7 +125,6 @@ typedef void (^BuddyVirtualAlbumUpdatePictureCallback)(BuddyBoolResponse *respon
 /// Remove a picture from this virtual album.
 /// </summary>
 /// <param name="picture">The picture to remove from the album. Either PicturePublic or Picture works.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)removePicture:(BuddyPicturePublic *)picture
@@ -140,7 +136,6 @@ typedef void (^BuddyVirtualAlbumUpdatePictureCallback)(BuddyBoolResponse *respon
 /// </summary>
 /// <param name="newName">The new name for the album.</param>
 /// <param name="newAppTag">An optional new application tag for the album.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)update:(NSString *)newName
@@ -163,7 +158,6 @@ typedef void (^BuddyVirtualAlbumUpdatePictureCallback)(BuddyBoolResponse *respon
 /// <param name="picture">The picture to be updated, either PicturePublic or Picture works.</param>
 /// <param name="newComment">The new comment to set for the picture.</param>
 /// <param name="newAppTag">An optional new application tag for the picture, can be nil.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)updatePicture:(BuddyPicturePublic *)picture

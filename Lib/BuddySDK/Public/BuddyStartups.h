@@ -46,7 +46,6 @@ typedef void (^BuddyStartupsGetFromMetroAreaCallback)(BuddyArrayResponse *respon
 /// <param name="longitude">The longitude where the search should start.</param>
 /// <param name="numberOfResults">The number of search results to return.</param>
 /// <param name="searchForName">Optional search string, for example: "Star*" to search for all startups that begin with the string "Star".</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will contain an NSArray of BuddyStartup items if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
 - (void)       find:(NSNumber *)searchDistanceInMeters
@@ -54,7 +53,6 @@ typedef void (^BuddyStartupsGetFromMetroAreaCallback)(BuddyArrayResponse *respon
 		  longitude:(double)longitude
 	numberOfResults:(NSNumber *)numberOfResults
 	  searchForName:(NSString *)searchForName
-			  state:(NSObject *)state
 		   callback:(BuddyStartupsFindCallback)callback;
 
 /// <summary>
@@ -76,11 +74,9 @@ typedef void (^BuddyStartupsGetFromMetroAreaCallback)(BuddyArrayResponse *respon
 /// <summary>
 /// Gets a list of the supported metro areas for statups including the URL to an image for each area returned.
 /// </summary>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will contain an NSArray of BuddyMetroArea items if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
-- (void)getMetroAreaList:(NSObject *)state
-				callback:(BuddyStartupsGetMetroAreaListCallback)callback;
+- (void)getMetroAreaList:(BuddyStartupsGetMetroAreaListCallback)callback;
 
 
 /// <summary>
@@ -88,12 +84,10 @@ typedef void (^BuddyStartupsGetFromMetroAreaCallback)(BuddyArrayResponse *respon
 /// </summary>
 /// <param name="metroName">The name of the metro area within which to search for startups.</param>
 /// <param name="recordLimit">The number of search results to return.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will contain an NSArray of BuddyStartup items if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
 - (void)getFromMetroArea:(NSString *)metroName
 			 recordLimit:(int)recordLimit
-				   state:(NSObject *)state
 				callback:(BuddyStartupsGetFromMetroAreaCallback)callback;
 
 

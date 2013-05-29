@@ -14,16 +14,13 @@
 @implementation BuddySounds
 
 @synthesize client;
-@synthesize authUser;
 
 -(void)dealloc
 {
     client =nil;
-    authUser=nil;
 }
 
 -(id)initSounds:(BuddyClient *)localClient
-       authUser:(BuddyAuthenticatedUser *)localAuthUser
 {
     self = [super init];
     if(!self)
@@ -32,7 +29,6 @@
     }
     
     client = (BuddyClient *)localClient;
-    authUser = (BuddyAuthenticatedUser *)localAuthUser;
     
     return self;
 }

@@ -96,7 +96,6 @@ typedef void (^BuddyAppMetadataSumCallback)(BuddyMetadataSumResponse *response);
 /// Get all the metadata items for this application. Note that this can be a very time-consuming method, try to retrieve specific items if possible
 /// or do a search.
 /// </summary>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyDictionaryResponse object will be set to an NSDictionary of metadata item/pairs if the request was successful (BuddyDictionaryResponse.isCompleted == TRUE and data was found on the server)  otherwise nil if the request failed.</param>
 
 - (void)getAll:(BuddyAppMetadataGetAllCallback)callback;
@@ -105,7 +104,6 @@ typedef void (^BuddyAppMetadataSumCallback)(BuddyMetadataSumResponse *response);
 /// Get a metadata item with a key. The key can't be null or an empty string.
 /// </summary>
 /// <param name="key">The key to use to reference the metadata item.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyMetadataItemResponse will be set to a BuddyMetadataItem instance for the requested key if successful (BuddyMetadataItemResponse.isCompleted == TRUE and data was found on the server) otherwise it will be nil.</param>
 
 - (void)get:(NSString *)key
@@ -122,7 +120,6 @@ typedef void (^BuddyAppMetadataSumCallback)(BuddyMetadataSumResponse *response);
 /// <param name="latitude">Optional latitude of the metadata item.</param>
 /// <param name="longitude">Optional longitude of the metadata item.</param>
 /// <param name="appTag">The optional application tag for this item, can be nil.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse .result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)set:(NSString *)key
@@ -150,7 +147,6 @@ typedef void (^BuddyAppMetadataSumCallback)(BuddyMetadataSumResponse *response);
 /// Delete a metadata item referenced by key.
 /// </summary>
 /// <param name="key">A valid key of a metadata item. The key can't be null or empty.</param>
-/// <param name="state">A user defined object that will be passed to the callback can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse .result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)delete:(NSString *)key
@@ -160,7 +156,6 @@ typedef void (^BuddyAppMetadataSumCallback)(BuddyMetadataSumResponse *response);
 /// <summary>
 /// Delete all application metadata. There is no way to recover from this operation, be careful when you call it.
 /// </summary>
-/// <param name="state">A user defined object that will be passed to the callback can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse .result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)deleteAll:(BuddyAppMetadataDeleteAllCallback)callback;
@@ -180,7 +175,6 @@ typedef void (^BuddyAppMetadataSumCallback)(BuddyMetadataSumResponse *response);
 /// <param name="searchAsFloat">Treat all metadata values as floats. Useful for min/max searches.</param>
 /// <param name="sortAscending">Sort the results ascending.</param>
 /// <param name="disableCache">Disable cache searches.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyDictionaryResponse  will be set to an NSDictionary of metadata keys mapped to items if the request was successful (BuddyDictionaryResponse.isCompleted == TRUE and data was found on the server) otherwise nil if the request failed.</param>
 
 - (void)find:(NSNumber *)searchDistanceMeters
@@ -221,7 +215,6 @@ updatedMinutesAgo:(NSNumber *)updatedMinutesAgo
 /// <param name="longitude">Optional longitude where the search can be started from.</param>
 /// <param name="updatedMinutesAgo">Optionally sum only on items that have been updated a number of minutes ago, can be nil.</param>
 /// <param name="withAppTag">Optionally sum only items that have a certain application tag, can be nil.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyMetadataSumResponse will be a BuddyMetadataSum instance (containing the sum of all the found metadata item values requested) if the request was successful (BuddyMetadataSumResponse.isCompleted == TRUE and data was found on the server) otherwise it will be nil.</param>
 
 - (void)   sum:(NSString *)forKeys
@@ -254,7 +247,6 @@ updatedMinutesAgo:(NSNumber *)updatedMinutesAgo
 /// <param name="longitude">Optional longitude where the search can be started from.</param>
 /// <param name="updatedMinutesAgo">Optionally sum only on items that have been updated a number of minutes ago, can be nil.</param>
 /// <param name="withAppTag">Optionally sum only items that have a certain application tag, can be nil.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will contain an NSArray of BuddyMetadataSum items if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
 - (void)batchSum:(NSString *)forKeys

@@ -134,7 +134,6 @@ typedef void (^BuddyMetadataItemDeleteCallback)(BuddyBoolResponse *response);
 /// <param name="latitude">Optional latitude for this item.</param>
 /// <param name="longitude">Optional longitude for this item.</param>
 /// <param name="appTag">The optional application tag for this item, can be nil.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)set:(NSString *)value
@@ -156,7 +155,6 @@ typedef void (^BuddyMetadataItemDeleteCallback)(BuddyBoolResponse *response);
 /// <summary>
 /// Deletes this metadata item.
 /// </summary>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)delete:(BuddyMetadataItemDeleteCallback)callback;

@@ -30,9 +30,6 @@ typedef void (^BuddyVideoVideoListCallback)(BuddyArrayResponse * response);
       videoData:(NSData *)videoData
        callback:(BuddyVideoAddVideoCallback)callback;
 
--(void)getVideo:(NSNumber *)videoID
-       callback:(BuddyVideoGetVideoCallback)callback;
-
 -(void)getVideoInfo:(NSNumber *)videoID
            callback:(BuddyVideoGetVideoInfoCallback)callback;
 

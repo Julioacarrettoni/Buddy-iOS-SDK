@@ -78,7 +78,6 @@ typedef void (^BuddyMessagesGetSentCallback)(BuddyArrayResponse *response);
 /// <param name="toUser">The user to send a message to.</param>
 /// <param name="message">The message to send, must be less then 200 characters.</param>
 /// <param name="appTag">An optional application tag to set for the message, can be nil.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)send:(BuddyUser *)toUser
@@ -102,7 +101,6 @@ typedef void (^BuddyMessagesGetSentCallback)(BuddyArrayResponse *response);
 /// Get all received message by the current user.
 /// </summary>
 /// <param name="afterDate">Optionally retrieve only messages after a certain DateTime.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will contain an NSArray of BuddyMessage items sent to the user if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
 - (void)getReceived:(NSDate *)afterDate
@@ -120,7 +118,6 @@ typedef void (^BuddyMessagesGetSentCallback)(BuddyArrayResponse *response);
 /// Get all sent message by the current user.
 /// </summary>
 /// <param name="afterDate">Optionally retrieve only messages after a certain DateTime.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will contain an NSArray of BuddyMessage items sent by the user if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
 - (void)getSent:(NSDate *)afterDate

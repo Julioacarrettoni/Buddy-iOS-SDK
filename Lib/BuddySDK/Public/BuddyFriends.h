@@ -98,7 +98,6 @@ typedef void (^BuddyFriendsGetBlockedCallback)(BuddyArrayResponse *response);
 /// Returns the list of friends for the currently logged in user.
 /// </summary>
 /// <param name="afterDate">Filter the list by friends added 'afterDate'.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will contain an NSArray of BuddyUser items if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
 - (void)getAll:(NSDate *)afterDate
@@ -116,7 +115,6 @@ typedef void (^BuddyFriendsGetBlockedCallback)(BuddyArrayResponse *response);
 /// Remove a user from the current list of friends.
 /// </summary>
 /// <param name="user">The user to remove from the friends list. Must be already on the list and can't be null.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)remove:(BuddyUser *)user

@@ -99,7 +99,6 @@
 		  longitude:(double)longitude
 	numberOfResults:(NSNumber *)numberOfResults
 	  searchForName:(NSString *)searchForName
-			  state:(NSObject *)state
 		   callback:(BuddyStartupsFindCallback)callback
 {
 	[BuddyUtility latLongCheck:latitude longitude:longitude className:@"BuddyStartups"];
@@ -118,7 +117,7 @@
 
 	NSString *distance = [searchDistanceInMeters stringValue];
 
-	[[client webService] StartupData_Location_Search:authUser.token SearchDistance:distance Latitude:latitude Longitude:longitude RecordLimit:numberOfResults SearchName:searchForName state:state
+	[[client webService] StartupData_Location_Search:authUser.token SearchDistance:distance Latitude:latitude Longitude:longitude RecordLimit:numberOfResults SearchName:searchForName
 											callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 													  {
 														  if (callback)
@@ -140,7 +139,6 @@
 															  if (exception)
 															  {
 																  callback([[BuddyArrayResponse alloc] initWithError:exception
-																											   state:callbackParams.state
 																											 apiCall:callbackParams.apiCall]);
 															  }
 															  else
@@ -159,16 +157,14 @@
 	numberOfResults:(NSNumber *)numberOfResults
 		   callback:(BuddyStartupsFindCallback)callback
 {
-	[self find:searchDistanceInMeters latitude:latitude longitude:longitude numberOfResults:numberOfResults searchForName:nil state:nil callback:callback];
+	[self find:searchDistanceInMeters latitude:latitude longitude:longitude numberOfResults:numberOfResults searchForName:nil callback:callback];
 }
 
-- (void)getMetroAreaList:(NSObject *)state
-				callback:(BuddyStartupsGetMetroAreaListCallback)callback
+- (void)getMetroAreaList:(BuddyStartupsGetMetroAreaListCallback)callback
 {
 	__block BuddyStartups *_self = self;
 
-	[[client webService] StartupData_Location_GetMetroList:state
-												  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+	[[client webService] StartupData_Location_GetMetroList:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 															{
 																if (callback)
 																{
@@ -189,7 +185,6 @@
 																	if (exception)
 																	{
 																		callback([[BuddyArrayResponse alloc] initWithError:exception
-																													 state:callbackParams.state
 																												   apiCall:callbackParams.apiCall]);
 																	}
 																	else
@@ -204,7 +199,6 @@
 
 - (void)getFromMetroArea:(NSString *)metroName
 			 recordLimit:(int)recordLimit
-				   state:(NSObject *)state
 				callback:(BuddyStartupsGetFromMetroAreaCallback)callback
 {
 	[BuddyUtility checkNameParam:metroName functionName:@"BuddyStartups"];
@@ -216,7 +210,7 @@
 
 	__block BuddyStartups *_self = self;
 
-	[[client webService] StartupData_Location_GetFromMetroArea:authUser.token MetroName:metroName RecordLimit:recordLimit state:state
+	[[client webService] StartupData_Location_GetFromMetroArea:authUser.token MetroName:metroName RecordLimit:recordLimit
 													  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 																{
 																	NSArray *data;
@@ -236,7 +230,6 @@
 																	if (exception)
 																	{
 																		callback([[BuddyArrayResponse alloc] initWithError:exception
-																													 state:callbackParams.state
 																												   apiCall:callbackParams.apiCall]);
 																	}
 																	else

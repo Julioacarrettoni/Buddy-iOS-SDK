@@ -33,6 +33,7 @@
 @synthesize device = _device;
 @synthesize gameBoards = _gameBoards;
 @synthesize metadata = _metadata;
+@synthesize sounds = _sounds;
 @synthesize webWrapper = _webWrapper;
 
 @synthesize recordDeviceInfo;
@@ -136,6 +137,7 @@
 	_device = [[BuddyDevice alloc] initWithClient:self];
 	_gameBoards = [[BuddyGameBoards alloc] initWithClient:self];
 	_metadata = [[BuddyAppMetadata alloc] initWithClient:self];
+    _sounds = [[BuddySounds alloc] initSounds:self];
 }
 
 - (id)init
@@ -733,7 +735,7 @@
 		 sessionName:(NSString *)sessionName
 			callback:(void (^)(BuddyStringResponse *response))block
 {
-	[self StartSession:user sessionName:sessionName appTag:nil  callback:block];
+	[self startSession:user sessionName:sessionName appTag:nil  callback:block];
 }
 
 - (void)startSession:(BuddyAuthenticatedUser *)user
@@ -771,7 +773,7 @@
 		 sessionId:(NSString *)sessionId
 		  callback:(void (^)(BuddyBoolResponse *response))block
 {
-	[self EndSession:user sessionId:sessionId appTag:nil  callback:block];
+	[self endSession:user sessionId:sessionId appTag:nil  callback:block];
 }
 
 - (void)endSession:(BuddyAuthenticatedUser *)user
@@ -819,7 +821,7 @@
 				metricValue:(NSString *)metricValue
 				   callback:(void (^)(BuddyBoolResponse *response))block
 {
-	[self RecordSessionMetric:user sessionId:sessionId metricKey:metricKey metricValue:metricValue appTag:nil  callback:block];
+	[self recordSessionMetric:user sessionId:sessionId metricKey:metricKey metricValue:metricValue appTag:nil  callback:block];
 }
 
 - (void)recordSessionMetric:(BuddyAuthenticatedUser *)user
@@ -852,43 +854,34 @@
 													   } copy]];
 }
 
-- (void)CheckIfUsernameExists:(NSString *)userName
-						state:(NSObject *)state
-					 callback:(void (^)(BuddyBoolResponse *response))block
-{
-    [self checkIfUsernameExists:userName state:state callback:block];
-}
-
 - (void)StartSession:(BuddyAuthenticatedUser *)user
 		 sessionName:(NSString *)sessionName
 			callback:(void (^)(BuddyStringResponse *response))block
 {
-	[self startSession:user sessionName:sessionName appTag:nil state:nil callback:block];
+	[self startSession:user sessionName:sessionName appTag:nil callback:block];
 }
 
 - (void)StartSession:(BuddyAuthenticatedUser *)user
 		 sessionName:(NSString *)sessionName
 			  appTag:(NSString *)appTag
-			   state:(NSObject *)state
 			callback:(void (^)(BuddyStringResponse *response))block
 {
-	[self startSession:user sessionName:sessionName appTag:appTag state:state callback:block];
+	[self startSession:user sessionName:sessionName appTag:appTag callback:block];
 }
 
 - (void)EndSession:(BuddyAuthenticatedUser *)user
 		 sessionId:(NSString *)sessionId
 		  callback:(void (^)(BuddyBoolResponse *response))block
 {
-	[self endSession:user sessionId:sessionId appTag:nil state:nil callback:block];
+	[self endSession:user sessionId:sessionId appTag:nil callback:block];
 }
 
 - (void)EndSession:(BuddyAuthenticatedUser *)user
 		 sessionId:(NSString *)sessionId
 			appTag:(NSString *)appTag
-			 state:(NSObject *)state
 		  callback:(void (^)(BuddyBoolResponse *response))block
 {
-	[self endSession:user sessionId:sessionId appTag:appTag state:state callback:block];
+	[self endSession:user sessionId:sessionId appTag:appTag callback:block];
 }
 
 - (void)RecordSessionMetric:(BuddyAuthenticatedUser *)user
@@ -897,7 +890,7 @@
 				metricValue:(NSString *)metricValue
 				   callback:(void (^)(BuddyBoolResponse *response))block
 {
-	[self recordSessionMetric:user sessionId:sessionId metricKey:metricKey metricValue:metricValue appTag:nil state:nil callback:block];
+	[self recordSessionMetric:user sessionId:sessionId metricKey:metricKey metricValue:metricValue appTag:nil callback:block];
 }
 
 - (void)RecordSessionMetric:(BuddyAuthenticatedUser *)user
@@ -905,9 +898,8 @@
 				  metricKey:(NSString *)metricKey
 				metricValue:(NSString *)metricValue
 					 appTag:(NSString *)appTag
-					  state:(NSObject *)state
 				   callback:(void (^)(BuddyBoolResponse *response))block
 {
-	[self recordSessionMetric:user sessionId:sessionId metricKey:metricKey metricValue:metricValue appTag:appTag state:state callback:block];
+	[self recordSessionMetric:user sessionId:sessionId metricKey:metricKey metricValue:metricValue appTag:appTag callback:block];
 }
 @end

@@ -89,7 +89,6 @@ typedef void (^BuddyPictureSetAppTagCallback)(BuddyBoolResponse *response);
 /// <summary>
 /// Returns a list of supported filters that can be applied to this picture. Example filters are: Hue Shift, Crop, etc.
 /// </summary>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyDictionaryResponses object will be set to an NSDictionary of fildescriptiontername  (key) and description (value) pairs if the request was successful otherwise nil if the request failed.</param>
 
 - (void)supportedFilters:(BuddyPictureSupportedFiltersCallback)callback;
@@ -97,7 +96,6 @@ typedef void (^BuddyPictureSetAppTagCallback)(BuddyBoolResponse *response);
 /// <summary>
 /// Delete this picture. Note that this object will no longer be valid after this method is called. Subsequent calls will fail.
 /// </summary>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)delete:(BuddyPictureDeleteCallback)callback;
@@ -107,7 +105,6 @@ typedef void (^BuddyPictureSetAppTagCallback)(BuddyBoolResponse *response);
 /// </summary>
 /// <param name="filterName">The name of the filter to apply. Can't be null or empty.</param>
 /// <param name="filterParams">A semi-colon separated list of filter parameter names and values. For example: CropLeft=30;CropRight=40.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyPictureResponse will contain the new BuddyPicture with the filter applied if the request is successful, nil otherwise.</param>
 
 - (void)applyFilter:(NSString *)filterName
@@ -118,7 +115,6 @@ typedef void (^BuddyPictureSetAppTagCallback)(BuddyBoolResponse *response);
 /// <summary>
 /// Sets the appTag (metadata) for an existing picture in an existing photo album, for the specified Photo ID.
 /// </summary>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)setAppTag:(NSString *)appTag

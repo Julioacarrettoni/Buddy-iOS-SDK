@@ -130,6 +130,7 @@
 - (void)Game_Score_Add:(NSString *)UserTokenOrID ScoreLatitude:(double)ScoreLatitude ScoreLongitude:(double)ScoreLongitude ScoreRank:(NSString *)ScoreRank ScoreValue:(double)ScoreValue ScoreBoardName:(NSString *)ScoreBoardName ApplicationTag:(NSString *)ApplicationTag OneScorePerPlayerBit:(NSNumber *)OneScorePerPlayerBit RESERVED:(NSString *)RESERVED  callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
 - (void)Game_Score_DeleteAllScoresForUser:(NSString *)UserTokenOrID RESERVED:(NSString *)RESERVED  callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
 - (void)Game_Score_GetBoardHighScores:(NSString *)ScoreBoardName RecordLimit:(NSNumber *)RecordLimit RESERVED:(NSString *)RESERVED  callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
+- (void)Game_Score_GetBoardLowScores:(NSString *)ScoreBoardName RecordLimit:(NSNumber *)RecordLimit RESERVED:(NSString *)RESERVED  callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
 - (void)Game_Score_GetScoresForUser:(NSString *)UserTokenOrID RecordLimit:(NSNumber *)RecordLimit RESERVED:(NSString *)RESERVED  callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
 - (void)Game_Score_SearchScores:(NSString *)UserTokenOrID SearchDistance:(NSNumber *)SearchDistance SearchLatitude:(double)SearchLatitude SearchLongitude:(double)SearchLongitude RecordLimit:(NSNumber *)RecordLimit SearchBoard:(NSString *)SearchBoard TimeFilter:(NSNumber *)TimeFilter MinimumScore:(NSNumber *)MinimumScore AppTag:(NSString *)AppTag RESERVED:(NSString *)RESERVED  callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
 - (void)Game_Player_Add:(NSString *)UserTokenOrID PlayerName:(NSString *)PlayerName PlayerLatitude:(double)PlayerLatitude PlayerLongitude:(double)PlayerLongitude PlayerRank:(NSString *)PlayerRank PlayerBoardName:(NSString *)PlayerBoardName ApplicationTag:(NSString *)ApplicationTag RESERVED:(NSString *)RESERVED  callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
@@ -150,6 +151,7 @@
 - (void)Analytics_Session_End:(NSString *)UserToken SessionID:(NSString *)SessionID EndAppTag:(NSString *)EndAppTag  callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
 - (void)Analytics_Session_RecordMetric:(NSString *)UserToken SessionID:(NSString *)SessionID MetricKey:(NSString *)MetricKey MetricValue:(NSString *)MetricValue AppTag:(NSString *)AppTag  callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
 - (void)MetaData_UserMetaDataValue_BatchSum:(NSString *)UserToken UserMetaKeyCollection:(NSString *)UserMetaKeyCollection SearchDistanceCollection:(NSString *)SearchDistanceCollection Latitude:(double)Latitude Longitude:(double)Longitude TimeFilter:(NSString *)TimeFilter ApplicationTag:(NSString *)ApplicationTag RESERVED:(NSString *)RESERVED  callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
+- (void)MetaData_UserMetaDataValue_BatchSet:(NSString *)UserToken UserMetaKeyCollection:(NSString *)MetaKeys UserMetaValueCollection:(NSString *)MetaValues MetaLatitude:(double)MetaLatitude MetaLongitude:(double)MetaLongitude ApplicationTag:(NSString *)ApplicationTag RESERVED:(NSString *)RESERVED callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
 - (void)MetaData_UserMetaDataValue_Delete:(NSString *)UserToken MetaKey:(NSString *)MetaKey  callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
 - (void)MetaData_UserMetaDataValue_DeleteAll:(NSString *)UserToken  callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
 - (void)MetaData_UserMetaDataValue_Get:(NSString *)UserToken MetaKey:(NSString *)MetaKey  callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
@@ -196,15 +198,15 @@
 - (void)Videos_Video_GetMyVideoList:(NSString *)UserToken RecordLimit:(int)RecordLimit callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
 - (void)Sound_Sounds_GetSound:(NSString *)SoundName Quality:(NSString *)Quality callback:(void (^)(BuddyCallbackParams * callbackParams, id jsonArray))callback;
 
-- (void)StartupData_Location_GetMetroList:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
-- (void)StartupData_Location_Search:(NSString *)UserToken SearchDistance:(NSString *)SearchDistance Latitude:(double)Latitude Longitude:(double)Longitude RecordLimit:(NSNumber *)RecordLimit SearchName: (NSString *)SearchName state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
-- (void)StartupData_Location_GetFromMetroArea:(NSString *)UserToken MetroName:(NSString *)MetroName RecordLimit:(int)RecordLimit state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
+- (void)StartupData_Location_GetMetroList:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
+- (void)StartupData_Location_Search:(NSString *)UserToken SearchDistance:(NSString *)SearchDistance Latitude:(double)Latitude Longitude:(double)Longitude RecordLimit:(NSNumber *)RecordLimit SearchName: (NSString *)SearchName callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
+- (void)StartupData_Location_GetFromMetroArea:(NSString *)UserToken MetroName:(NSString *)MetroName RecordLimit:(int)RecordLimit callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
 
-- (void)Commerce_Receipt_Save:(NSString *)UserToken ReceiptData:(NSString *)ReceiptData CustomTransactionID:(NSString *)CustomTransactionID AppData:(NSString *)AppData TotalCost:(NSString *)TotalCost TotalQuantity:(int)TotalQuantity StoreItemID:(NSString *)StoreItemID StoreName:(NSString *)StoreName state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
-- (void)Commerce_Receipt_GetForUserAndTransactionID:(NSString *)UserToken CustomTransactionID:(NSString *)CustomTransactionID state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
-- (void)Commerce_Receipt_GetForUser:(NSString *)UserToken FromDateTime:(NSString *)FromDateTime                                              state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
-- (void)Commerce_Store_GetAllItems:(NSString *)UserToken state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
-- (void)Commerce_Store_GetActiveItems:(NSString *)UserToken state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
-- (void)Commerce_Store_GetFreeItems:(NSString *)UserToken state:(NSObject *)state callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
+- (void)Commerce_Receipt_Save:(NSString *)UserToken ReceiptData:(NSString *)ReceiptData CustomTransactionID:(NSString *)CustomTransactionID AppData:(NSString *)AppData TotalCost:(NSString *)TotalCost TotalQuantity:(int)TotalQuantity StoreItemID:(NSString *)StoreItemID StoreName:(NSString *)StoreName callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
+- (void)Commerce_Receipt_GetForUserAndTransactionID:(NSString *)UserToken CustomTransactionID:(NSString *)CustomTransactionID callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
+- (void)Commerce_Receipt_GetForUser:(NSString *)UserToken FromDateTime:(NSString *)FromDateTime callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
+- (void)Commerce_Store_GetAllItems:(NSString *)UserToken callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
+- (void)Commerce_Store_GetActiveItems:(NSString *)UserToken callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
+- (void)Commerce_Store_GetFreeItems:(NSString *)UserToken callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonArray))callback;
 
 @end

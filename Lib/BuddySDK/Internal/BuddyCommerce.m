@@ -94,7 +94,6 @@
     if (exception)
     {
         callback([[BuddyArrayResponse alloc] initWithError:exception
-                                                     state:callbackParams.state
                                                    apiCall:callbackParams.apiCall]);
     }
     else
@@ -105,7 +104,6 @@
 }
 
 - (void)getReceiptsForUser:(NSDate *)fromDateTime
-                     state:(NSObject *)state
                   callback:(BuddyCommerceGetReceiptsCallback)callback
 {
  	__block BuddyCommerce *_self = self;
@@ -116,8 +114,7 @@
         dateString = [BuddyUtility buddyDateToString:fromDateTime];
     }
     
-    [[client webService] Commerce_Receipt_GetForUser:authUser.token FromDateTime:dateString state:state
-                                            callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+    [[client webService] Commerce_Receipt_GetForUser:authUser.token FromDateTime:dateString callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
                                                     {
                                                        [_self processReceiptCallBack:callbackParams data:jsonArray callback:callback];
                                                         _self = nil; 
@@ -125,7 +122,6 @@
 }
                                                       
 - (void)getReceiptForUserAndTransactionID:(NSString *)customTransactionID
-                                    state:(NSObject *)state
                                  callback:(BuddyCommerceGetReceiptsCallback)callback
 {
     if ([BuddyUtility isNilOrEmpty:customTransactionID])
@@ -134,14 +130,12 @@
     }
     
 	__block BuddyCommerce *_self = self;
-    [[client webService] Commerce_Receipt_GetForUserAndTransactionID:authUser.token CustomTransactionID:customTransactionID
-                                                               state:state
-                                                            callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
-                                                                    {
-                                                                       [_self processReceiptCallBack:callbackParams data:jsonArray callback:callback];
-                                                                        _self = nil; 
-                                                                    } copy]];
-     
+    [[client webService] Commerce_Receipt_GetForUserAndTransactionID:authUser.token CustomTransactionID:customTransactionID callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+        {
+           [_self processReceiptCallBack:callbackParams data:jsonArray callback:callback];
+            _self = nil; 
+        } copy]];
+    
 }
 
 - (void)saveReceipt:(NSString *)totalCost
@@ -151,7 +145,6 @@
         receiptData:(NSString *)receiptData
 customTransactionID:(NSString *)customTransactionID
             appData:(NSString *)appData
-              state:(NSObject *)state
            callback:(BuddyCommerceSaveReceiptCallback)callback
 {
     if ([BuddyUtility isNilOrEmpty:totalCost])
@@ -166,7 +159,7 @@ customTransactionID:(NSString *)customTransactionID
     
     NSString *storeItemIDstring = [NSString stringWithFormat:@"%@", storeItemID];
     
-    [[client webService] Commerce_Receipt_Save:authUser.token ReceiptData:receiptData CustomTransactionID:customTransactionID AppData:appData TotalCost:totalCost TotalQuantity:totalQuantity StoreItemID:storeItemIDstring StoreName:storeName state:state callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+    [[client webService] Commerce_Receipt_Save:authUser.token ReceiptData:receiptData CustomTransactionID:customTransactionID AppData:appData TotalCost:totalCost TotalQuantity:totalQuantity StoreItemID:storeItemIDstring StoreName:storeName callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
     {
         if (callback)
         {
@@ -181,7 +174,7 @@ customTransactionID:(NSString *)customTransactionID
           storeName:(NSString *)storeName 
            callback:(BuddyCommerceSaveReceiptCallback)callback
 {
-    [self saveReceipt:totalCost totalQuantity:totalQuantity storeItemID:storeItemID storeName:storeName receiptData:nil customTransactionID:nil appData:nil state:nil callback:callback]; 
+    [self saveReceipt:totalCost totalQuantity:totalQuantity storeItemID:storeItemID storeName:storeName receiptData:nil customTransactionID:nil appData:nil callback:callback]; 
 }
 
 - (void)verifyiOSReceipt:(NSString *)totalCost
@@ -191,11 +184,10 @@ customTransactionID:(NSString *)customTransactionID
              appleItemID:(NSString *)appleItemID 
      customTransactionID:(NSString *)customTransactionID
                  appData:(NSString *)appData
-                   state:(NSObject *)state
                 callback:(BuddyCommerceSaveReceiptCallback)callback
 {
     [self internalVerifySaveiOSReceipt:kCommerce_Receipt_VerifyiOSReceipt
-                             totalCost:totalCost totalQuantity:totalQuantity receiptData:receiptData useSandbox:useSandbox appleItemID:appleItemID customTransactionID:customTransactionID appData:appData state:state callback:callback]; 
+                             totalCost:totalCost totalQuantity:totalQuantity receiptData:receiptData useSandbox:useSandbox appleItemID:appleItemID customTransactionID:customTransactionID appData:appData callback:callback]; 
 }
 
 - (void)verifyiOSReceipt:(NSString *)totalCost
@@ -205,7 +197,7 @@ customTransactionID:(NSString *)customTransactionID
              appleItemID:(NSString *)appleItemID
                 callback:(BuddyCommerceSaveReceiptCallback)callback
 {
-    [self verifyiOSReceipt:totalCost totalQuantity:totalQuantity receiptData:receiptData useSandbox:useSandbox appleItemID:appleItemID customTransactionID:nil appData:nil state:nil callback:callback];
+    [self verifyiOSReceipt:totalCost totalQuantity:totalQuantity receiptData:receiptData useSandbox:useSandbox appleItemID:appleItemID customTransactionID:nil appData:nil callback:callback];
 }
 
 - (void)verifyAndSaveiOSReceipt:(NSString *)totalCost
@@ -215,11 +207,10 @@ customTransactionID:(NSString *)customTransactionID
                     appleItemID:(NSString *)appleItemID 
             customTransactionID:(NSString *)customTransactionID
                         appData:(NSString *)appData
-                          state:(NSObject *)state
                        callback:(BuddyCommerceSaveReceiptCallback)callback
 {
     [self internalVerifySaveiOSReceipt:kCommerce_Receipt_VerifyAndSaveiOSReceipt
-                             totalCost:totalCost totalQuantity:totalQuantity receiptData:receiptData useSandbox:useSandbox appleItemID:appleItemID customTransactionID:customTransactionID appData:appData state:appData callback:callback];
+                             totalCost:totalCost totalQuantity:totalQuantity receiptData:receiptData useSandbox:useSandbox appleItemID:appleItemID customTransactionID:customTransactionID appData:appData callback:callback];
 }
 
 - (void)verifyAndSaveiOSReceipt:(NSString *)totalCost
@@ -229,7 +220,7 @@ customTransactionID:(NSString *)customTransactionID
                     appleItemID:(NSString *)appleItemID
                        callback:(BuddyCommerceSaveReceiptCallback)callback
 {
-    [self verifyAndSaveiOSReceipt:totalCost totalQuantity:totalQuantity receiptData:receiptData useSandbox:useSandbox appleItemID:appleItemID customTransactionID:nil appData:nil state:nil callback:callback];
+    [self verifyAndSaveiOSReceipt:totalCost totalQuantity:totalQuantity receiptData:receiptData useSandbox:useSandbox appleItemID:appleItemID customTransactionID:nil appData:nil callback:callback];
 }
 
 - (void)internalVerifySaveiOSReceipt:(NSString *)webServiceApi
@@ -240,7 +231,6 @@ customTransactionID:(NSString *)customTransactionID
                          appleItemID:(NSString *)appleItemID
                  customTransactionID:(NSString *)customTransactionID
                              appData:(NSString *)appData
-                               state:(NSObject *)state
                             callback:(BuddyCommerceSaveReceiptCallback)callback
 {
     if ([BuddyUtility isNilOrEmpty:totalCost])
@@ -275,7 +265,6 @@ customTransactionID:(NSString *)customTransactionID
 	[[self.client webService] directPost:webServiceApi
                                     path:path
                                   params:dictParams
-                                   state:state
                                 callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
                                           {
                                               if (callback)
@@ -332,7 +321,6 @@ customTransactionID:(NSString *)customTransactionID
     if (exception)
     {
         callback([[BuddyArrayResponse alloc] initWithError:exception
-                                                     state:callbackParams.state
                                                    apiCall:callbackParams.apiCall]);
     }
     else
@@ -342,12 +330,11 @@ customTransactionID:(NSString *)customTransactionID
     }   
 }
 
-- (void)getAllStoreItems:(NSObject *)state
-                callback:(BuddyCommerceStoreItemsCallback)callback
+- (void)getAllStoreItems:(BuddyCommerceStoreItemsCallback)callback
 {
   	__block BuddyCommerce *_self = self;
     
-	[[client webService] Commerce_Store_GetAllItems:authUser.token state:state
+	[[client webService] Commerce_Store_GetAllItems:authUser.token
                                             callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
                                                     {
                                                        [_self processCallBack:callbackParams data:jsonArray callback:callback];
@@ -356,12 +343,11 @@ customTransactionID:(NSString *)customTransactionID
    
 }
 
-- (void)getActiveStoreItems:(NSObject *)state
-                   callback:(BuddyCommerceStoreItemsCallback)callback
+- (void)getActiveStoreItems:(BuddyCommerceStoreItemsCallback)callback
 {
   	__block BuddyCommerce *_self = self;
     
-	[[client webService] Commerce_Store_GetActiveItems:authUser.token state:state
+	[[client webService] Commerce_Store_GetActiveItems:authUser.token
                                             callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
                                                       {
                                                         [_self processCallBack:callbackParams data:jsonArray callback:callback];
@@ -369,13 +355,11 @@ customTransactionID:(NSString *)customTransactionID
                                                       } copy]];     
 }
 
-- (void)getFreeStoreItems:(NSObject *)state
-                 callback:(BuddyCommerceStoreItemsCallback)callback
+- (void)getFreeStoreItems:(BuddyCommerceStoreItemsCallback)callback
 {
  	__block BuddyCommerce *_self = self;
     
-	[[client webService] Commerce_Store_GetFreeItems:authUser.token state:state
-                                            callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+	[[client webService] Commerce_Store_GetFreeItems:authUser.token callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 													{
 											           [_self processCallBack:callbackParams data:jsonArray callback:callback];
                                             			_self = nil;

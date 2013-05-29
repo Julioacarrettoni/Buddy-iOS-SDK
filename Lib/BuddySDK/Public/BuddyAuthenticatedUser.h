@@ -203,7 +203,6 @@ typedef void (^BuddyAuthenticatedUserSetProfilePhotoCallback)(BuddyBoolResponse 
 /// </summary>
 /// <param name="blob">An array of bytes that represent the image you are adding.</param>
 /// <param name="appTag">An optional tag for the photo, can be nil.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)addProfilePhoto:(NSData *)blob
@@ -227,7 +226,6 @@ typedef void (^BuddyAuthenticatedUserSetProfilePhotoCallback)(BuddyBoolResponse 
 /// <param name="longitude">The longitude of the location.</param>
 /// <param name="comment">An optional comment for the check-in, can be nil.</param>
 /// <param name="appTag">An optional application specific tag for the location, can be nil.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)checkIn:(double)latitude
@@ -252,7 +250,6 @@ typedef void (^BuddyAuthenticatedUserSetProfilePhotoCallback)(BuddyBoolResponse 
 /// Get a list of user check-in locations.
 /// </summary>
 /// <param name="afterDate">Filter the list to return only check-in after a date.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will contain an NSArray of BuddyCheckInLocation items if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
 - (void)getCheckins:(NSDate *)afterDate
@@ -269,7 +266,6 @@ typedef void (^BuddyAuthenticatedUserSetProfilePhotoCallback)(BuddyBoolResponse 
 // <summary>
 /// Delete this user.
 /// </summary>
-/// <param name="state">A user defined object that will be passed to the callback can b e nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)delete:(BuddyAuthenticatedUserDeleteCallback)callback;
@@ -287,7 +283,6 @@ typedef void (^BuddyAuthenticatedUserSetProfilePhotoCallback)(BuddyBoolResponse 
 /// randomized in all searches by other users.</param>
 /// <param name="celebrityMode">Change in celebrity mode for this user. If celebrity mode is enabled the user will be hidden from all searches in the system.</param>
 /// <param name="appTag">Optional update to the custom application tag for this user, can be nil.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)update:(NSString *)name
@@ -307,7 +302,6 @@ typedef void (^BuddyAuthenticatedUserSetProfilePhotoCallback)(BuddyBoolResponse 
 /// Retrieve a picture by its unique ID. Any picture that the user owns or is publicly available can be retrieved.
 /// </summary>
 /// <param name="pictureId">The id of the picture to retrieve.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyPictureResponse will contain the BuddyPicture if found, nil otherwise.</param>
 
 - (void)getPicture:(NSNumber *)pictureId
@@ -321,7 +315,6 @@ typedef void (^BuddyAuthenticatedUserSetProfilePhotoCallback)(BuddyBoolResponse 
 /// <param name="latitude">Search for photos added near a latitude.</param>
 /// <param name="longitude">Search for photos added near a longitude.</param>
 /// <param name="limitResults">Optionally limit the number of returned photos. Note that this parameter limits the photos returned, not albums. It's possible that a partial album is returned, can be nil.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyDictionaryResponse will be a NSDictionary of PhotoAlbumID/BuddyPhotoAlbum pairs if the request was successful otherwise nil if the request failed.</param>
 
 - (void)searchForAlbums:(NSNumber *)searchDistanceInMeters
@@ -342,7 +335,6 @@ typedef void (^BuddyAuthenticatedUserSetProfilePhotoCallback)(BuddyBoolResponse 
 /// Delete a profile photo for this user. You can use the GetProfilePhotos method to retrieve all the profile photos.
 /// </summary>
 /// <param name="picture">The photo to delete.</param>
-/// <param name="state">An optional user defined object that will be passed to the callback.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)deleteProfilePhoto:(BuddyPicturePublic *)picture
@@ -353,7 +345,6 @@ typedef void (^BuddyAuthenticatedUserSetProfilePhotoCallback)(BuddyBoolResponse 
 /// Set a new "active" profile photo from the list of profile photos that the user has uploaded. The photo needs to be already uploaded.
 /// </summary>
 /// <param name="picture">The photo to set as the "active" profile photo.</param>
-/// <param name="state">A user defined object that will be passed to the callback can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)setProfilePhoto:(BuddyPicturePublic *)picture
@@ -364,7 +355,6 @@ typedef void (^BuddyAuthenticatedUserSetProfilePhotoCallback)(BuddyBoolResponse 
 /// Find the public profile of a user from their unique user ID. This method can be used to find any user associated with this Application.
 /// </summary>
 /// <param name="userId">The ID of the user, must be bigger than 0.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyUserResponse will be set to a BuddyUser account associated with the ID if the request was successful otherwise it will be nil.</param>
 
 - (void)findUser:(NSNumber *)userId
@@ -384,7 +374,6 @@ typedef void (^BuddyAuthenticatedUserSetProfilePhotoCallback)(BuddyBoolResponse 
 /// <param name="userStatus">The status of the users to search for. Use UserStatus.Any to ignore this parameter.</param>
 /// <param name="checkinsWithinMinutes">Filter for users who have checked-in in the past 'checkinsWithinMinutes' number of minutes, can be nil.</param>
 /// <param name="appTag">Search for the custom appTag that was stored with the user, can be nil.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyDataResponse will contain an NSArray of BuddyUser items if the request was successful (BuddyDataResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
 - (void)findUser:(double)latitude

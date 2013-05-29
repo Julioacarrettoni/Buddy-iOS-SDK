@@ -182,7 +182,6 @@ typedef void (^BuddyPlaceSetTagCallback)(BuddyBoolResponse *response);
 /// </summary>
 /// <param name="appTag">The application level tag to set.</param>
 /// <param name="userTag">The user-level tag to set for this Place.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)setTag:(NSString *)appTag

@@ -12,6 +12,10 @@
 #import "BuddyDataResponses.h"
 #import "BuddyBoolResponse.h"
 #import "BuddyClient.h"
+#import "BuddyAuthenticatedUser.h"
+#import "BuddyBlobs.h"
+#import "BuddyBlob.h"
+
 
 @implementation TestBlob
 
@@ -41,6 +45,7 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
     [super tearDown];
     
     self.buddyClient = nil;
+    self.user = nil;
 }
 
 - (void)waitloop
@@ -77,35 +82,149 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
     int icount =1;
     while (icount != 0) {
 //        bwaiting = true;
-//        [self addBlob];
+//        BuddyBlob* blob = [self addBlob];
 //        [self waitloop];
 //        
 //        bwaiting = true;
-//        [self getBlobInfo];
+//        [self getBlobInfo:blob];
 //        [self waitloop];
 //        
 //        bwaiting = true;
-//        [self getBlob];
+//        [self getBlob:blob];
 //        [self waitloop];
+//    
+//        bwaiting = true;
+//        [self getBlobList:blob];
+//        [self waitloop];
+//        
+//        bwaiting = true;
+//        [self getMyBlobList:blob];
+//        [self waitloop];
+//        
+//        bwaiting = true;
+//        [self searchBlobs:blob];
+//        [self waitloop];
+//        
+//        bwaiting = true;
+//        [self searchMyBlobs:blob];
+//        [self waitloop];
+        
         icount--;
-    
     }
 }
 
--(void)addBlob
+-(BuddyBlob*)addBlob
+{
+    NSString* str = @"testData";
+    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    
+    __block BuddyBlob * blob = nil;
+    
+    __block TestBlob *_self = self;
+    [_self.user.blobs addBlob:@"friendlyName" appTag:@"Tag" latitude:0.0 longtidue:0.0 mimeType:@"video/mp4" blobData:data callback:[^(BuddyBlobResponse *response)
+         {
+             if(response.isCompleted)
+             {
+                 NSLog(@"addBlob OK");
+                 blob = response.result;
+             }
+             else
+             {
+                 STFail(@"addBlob failed !response.isCompleted");
+             }
+         } copy]];
+    [self waitloop];
+    return blob;
+}
+
+-(void)getBlobInfo:(BuddyBlob *)blob
 {
     __block TestBlob *_self = self;
+    [_self.user.blobs getBlobInfo:blob.blobId callback:[^(BuddyBlobResponse *response)
+        {
+            if(response.isCompleted && response.result)
+            {
+                NSLog(@"getBlobInfo OK");
+            }
+            else
+            {
+                STFail(@"getBlobInfo failed !response.isCompleted");
+            }
+        } copy]];
 }
 
--(void)getBlobInfo
+-(void)getBlob:(BuddyBlob *)blob
 {
-
+    __block TestBlob *_self = self;
+    [_self.user.blobs getBlob:blob.blobId callback:^(NSData *data){
+        if(!data || data.length < 1)
+        {
+            STFail(@"getBlob failed ");
+        }
+    }];
 }
 
--(void)getBlob
+-(void)searchBlobs:(BuddyBlob *)blob
 {
+    __block TestBlob *_self = self;
+    [_self.user.blobs searchBlobs:@"friendlyName" mimeType:@"video/mp4" appTag:@"Tag" searchDistance:10 searchLatitude:0.0 searchLongitude:0.0 timeFilter:5 recordLimit:10 callback:[^(BuddyArrayResponse *response)
+             {
+                 if(response.isCompleted)
+                 {
+                     [response.result objectAtIndex:0];
+                 }else
+                 {
+                     STFail(@"searchBlobs failed !response.isCompleted");
+                 }
+             } copy]];
+}
+
+-(void)searchMyBlobs:(BuddyBlob *)blob
+{
+    __block TestBlob *_self = self;
+    [_self.user.blobs searchMyBlobs:@"friendlyName" mimeType:@"video/mp4" appTag:@"Tag" searchDistance:10 searchLatitude:0.0 searchLongitude:0.0 timeFilter:5 recordLimit:10 callback:[^(BuddyArrayResponse *response)
+           {
+               if(response.isCompleted)
+               {
+                   [response.result objectAtIndex:0];
+               }else
+               {
+                   STFail(@"searchBlobs failed !response.isCompleted");
+               }
+           } copy]];
 
 }
+
+-(void)getMyBlobList:(BuddyBlob *)blob
+{
+    __block TestBlob *_self = self;
+    [_self.user.blobs getMyBlobList:10 callback:[^(BuddyArrayResponse *response)
+         {
+             if(response.isCompleted)
+             {
+                 [response.result objectAtIndex:0];
+             }else
+             {
+                 STFail(@"searchBlobs failed !response.isCompleted");
+             }
+         } copy]];
+}
+
+-(void)getBlobList:(BuddyBlob *)blob
+{
+    __block TestBlob *_self = self;
+    [_self.user.blobs getBlobList:blob.owner recordLimit:10 callback:[^(BuddyArrayResponse *response)
+         {
+             if(response.isCompleted)
+             {
+                 [response.result objectAtIndex:0];
+             }else
+             {
+                 STFail(@"searchBlobs failed !response.isCompleted");
+             }
+         } copy]];
+}
+
 
 - (void)testGetBlobs
 {

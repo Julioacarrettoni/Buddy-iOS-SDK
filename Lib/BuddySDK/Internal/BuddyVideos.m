@@ -105,12 +105,6 @@
 
 }
 
--(void)getVideo:(NSNumber *)videoID
-      callback:(BuddyVideoGetVideoCallback)callback
-{
-    
-}
-
 -(void)getVideoInfo:(NSNumber*)videoID
           callback:(BuddyVideoGetVideoInfoCallback)callback
 {

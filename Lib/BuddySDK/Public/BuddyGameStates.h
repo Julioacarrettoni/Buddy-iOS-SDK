@@ -89,7 +89,6 @@ typedef void (^BuddyGameStatesGetAllCallback)(BuddyDictionaryResponse *response)
 /// <param name="gameStateKey">The game state key.</param>
 /// <param name="gameStateValue">The value to persist.</param>
 /// <param name="appTag">An optional application tag for this score, can be nil.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)   add:(NSString *)gameStateKey
@@ -113,7 +112,6 @@ gameStateValue:(NSString *)gameStateValue
 /// Get a GameState item with a key. The key can't be null or an empty string.
 /// </summary>
 /// <param name="gameStateKey">The gameStateKey to use to reference the GameState item.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyGameStateResponse will contain a BuddyGameState instance it the request was successful otherwise it will be nil if it doesn't exist.</param>
 
 - (void)get:(NSString *)gameStateKey
@@ -126,7 +124,6 @@ gameStateValue:(NSString *)gameStateValue
 /// <param name="gameStateKey">The key to update.</param>
 /// <param name="gameStateValue">The value to update.</param>
 /// <param name="newAppTag">An optional new application tag for the value, can be nil.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)update:(NSString *)gameStateKey
@@ -150,7 +147,6 @@ gameStateValue:(NSString *)gameStateValue
 /// Remove a GameState key.
 /// </summary>
 /// <param name="gameStateKey">The key to remove from the GameState.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)remove:(NSString *)gameStateKey
@@ -160,7 +156,6 @@ gameStateValue:(NSString *)gameStateValue
 /// <summary>
 /// Get all GameState keys and values.
 /// </summary>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyDictionaryResponse will be a NSDictionary of name/value pairs for this user's GameState if the request was successful (BuddyDictionaryResponse.isCompleted == TRUE and data was found on the server) otherwise nil if the request failed.</param>
 
 - (void)getAll:(BuddyGameStatesGetAllCallback)callback;

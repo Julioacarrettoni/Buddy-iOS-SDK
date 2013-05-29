@@ -60,7 +60,6 @@ typedef void (^BuddyPlayersFindCallback)(BuddyArrayResponse *response);
 /// <param name="latitude">The latitude of the location where the Player object is being created.</param>
 /// <param name="longitude">The longitude of the location where the Player object is being created.</param>
 /// <param name="appTag">Optional metadata to store with the Player object. ie: a list of players, game state, etc. Leave empty or set to null if there is no data to store with the score, can be nil.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)add:(NSString *)name
@@ -89,7 +88,6 @@ typedef void (^BuddyPlayersFindCallback)(BuddyArrayResponse *response);
 /// <param name="latitude">The latitude of the location where the Player object is being updated.</param>
 /// <param name="longitude">The longitude of the location where the Player object is being updated.</param>
 /// <param name="appTag">Optional metadata to store with the Player object. ie: a list of players, game state, etc. Leave empty or set to null if there is no data to store with the score, can be nil.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)update:(NSString *)name
@@ -112,14 +110,12 @@ typedef void (^BuddyPlayersFindCallback)(BuddyArrayResponse *response);
 /// Delete the player object for this user.
 /// </summary>
 /// <param name="callback">The async callback to call on success or error. The first parameter is true on success, false otherwise.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 - (void)delete:(BuddyPlayersDeleteCallback)callback;
 
 /// <summary>
 /// Get all the player info for this user.
 /// </summary>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyGamePlayerResponse will be a BuddyGamePlayer instance containing player info for this user if the request was successful (BuddyGamePlayerResponse.isCompleted == TRUE and data was found on the server) or otherwise nil.</param>
 
 - (void)getInfo:(BuddyPlayersGetInfoCallback)callback;
@@ -134,7 +130,6 @@ typedef void (^BuddyPlayersFindCallback)(BuddyArrayResponse *response);
 /// <param name="boardName">Searches for scores which contain the specified board. Leave empty or pass in null if no board filter is to be used, can be nil.</param>
 /// <param name="onlyForLastNumberOfDays">The number of days into the past for which to look for scores. ie: passing in 5 will filter scores to include those which were added/updated on or after 5 days ago. Pass in -1 to ignore this filter, can be nil.</param>
 /// <param name="appTag">Searches for scores with the specified applicationTag stored with them. Leave empty or pass in null to ignore this filter, can be nil.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will contain an NSArray of BuddyGamePlayer items if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
 - (void)find:(NSNumber *)searchDistanceInMeters

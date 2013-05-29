@@ -565,17 +565,6 @@
 	return self;
 }
 
-- (id)initWithError:(NSString *)apiCall
-             reason:(NSString *)errorString
-			  state:(NSObject *)state
-{
-    NSException *exception = [BuddyUtility makeException:apiCall errorString:errorString];
-    
-	self = [super initWithParam:FALSE exception:exception];
-    
-	return self;
-}
-
 @end
 
 @implementation BuddyBlobResponse
@@ -608,9 +597,8 @@
 	return self;
 }
 
-- (id)initWithError:(NSString *)apiCall
+- (id)initWithErrorString:(NSString *)apiCall
              reason:(NSString *)errorString
-			  state:(NSObject *)state
 {
     NSException *exception = [BuddyUtility makeException:apiCall errorString:errorString];
     
@@ -718,9 +706,8 @@
     return self; 
 }
 
-- (id)initWithError:(NSString *)apiCall    
+- (id)initWithErrorString:(NSString *)apiCall
              reason:(NSString *)errorString
-              state: (NSObject *)state
 {
     NSException *exception = [BuddyUtility makeException:apiCall errorString:errorString];
  

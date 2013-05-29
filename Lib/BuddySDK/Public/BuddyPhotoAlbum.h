@@ -105,7 +105,6 @@ typedef void (^BuddyPhotoAlbumSetAppTagCallback)(BuddyBoolResponse *response);
 /// <summary>
 /// Delete this photo album.
 /// </summary>
-/// <param name="state">A user defined object that will be passed to the callback can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)delete:(BuddyPhotoAlbumDeleteCallback)callback;
@@ -118,7 +117,6 @@ typedef void (^BuddyPhotoAlbumSetAppTagCallback)(BuddyBoolResponse *response);
 /// <param name="latitude">A latitude for the picture.</param>
 /// <param name="longitude">A longitude for the picture.</param>
 /// <param name="appTag">An application tag, can be nil.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyPictureResponse will contain the new BuddyPicture that was added, nil otherwise.</param>
 
 - (void)addPicture:(NSData *)blob
@@ -147,7 +145,6 @@ typedef void (^BuddyPhotoAlbumSetAppTagCallback)(BuddyBoolResponse *response);
 /// <param name="longitude">A longitude for the picture, can be 0.</param>
 /// <param name="appTag">A application tag can be nil.</param>
 /// <param name="watermarkMessage">A message to watermark the image with, can be nil.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyPictureResponse will contain the new BuddyPicture that was added, nil otherwise.</param>
 
 - (void)addPictureWithWatermark:(NSData *)blob

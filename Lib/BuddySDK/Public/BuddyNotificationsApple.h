@@ -108,7 +108,6 @@ typedef void (^BuddyNotificationsAppleGetGroupsCallback)(BuddyDictionaryResponse
 /// </summary>
 /// <param name="appleDeviceToken">A token provided by the Apple Push Notification Service (APNs) which identifies the device to register (analogous to a phone number). Cannot be nil.</param>
 /// <param name="groupName">Register this device as part of a group, so that you can send the whole group messages, can be nil.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)registerDevice:(NSData *)appleDeviceToken
@@ -128,7 +127,6 @@ typedef void (^BuddyNotificationsAppleGetGroupsCallback)(BuddyDictionaryResponse
 /// <summary>
 /// Unregister the current user from push notifications for Apple devices.
 /// </summary>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)unregisterDevice:(BuddyNotificationsAppleUnregisterDeviceCallback)callback;
@@ -139,7 +137,6 @@ typedef void (^BuddyNotificationsAppleGetGroupsCallback)(BuddyDictionaryResponse
 /// <param name="group">Optionally filter only devices in a certain group, can be nil.</param>
 /// <param name="pageSize">Set the number of devices that will be returned for each call of this method.</param>
 /// <param name="currentPage">Set the current page.</param>
-/// <param name="state">A user defined object that will be passed to the callback can be nil.</param>
 /// <param name="callback">The callback to call on success or error. If success BuddyArrayResponse .result is a NSArray  of registered devices with user IDs. You can then user the IDs to send notifications to those users.</param>
 
 - (void)getRegisteredDevices:(NSString *)group
@@ -159,7 +156,6 @@ typedef void (^BuddyNotificationsAppleGetGroupsCallback)(BuddyDictionaryResponse
 /// Get a list of Apple groups that have been registered with Buddy as well as the number of users in each group. groups can be used to batch-send
 /// push notifications to a number of users at the same time.
 /// </summary>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. If successful the BuddyDictionaryResponse.result field is a NSDictionary of group names with counts per group.</param>
 
 - (void)getGroups:(BuddyNotificationsAppleGetGroupsCallback)callback;
@@ -174,7 +170,6 @@ typedef void (^BuddyNotificationsAppleGetGroupsCallback)(BuddyDictionaryResponse
 /// <param name="customItems">metadata to send with the message for the receiving application to use. Data should be specified as key/value pairs where each key and value are separated by a comma and each pair is separated by a ";" character including the last pair i.e.: key,value;key,value;. Leave empty or set to nil if there is no metadata to send.</param>
 /// <param name="deliverAfter">Schedule the message to be delivered after a certain date.</param>
 /// <param name="groupName">Send messages to an entire group of users, not just a one.</param>
-/// <param name="state">An user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)sendRawMessage:(NSString *)senderUserId

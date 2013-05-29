@@ -110,7 +110,6 @@ typedef void (^BuddyPlacesGetCallback)(BuddyPlaceResponse *response);
 /// <param name="numberOfResults">Number of result to return, can be nil will default to 100.</param>
 /// <param name="searchForName">Search string, for example: "Star*" to search for all place that start with the string "Star" set to "" to ignore.</param>
 /// <param name="searchCategoryId">Search category ID to narrow down the search with, to -1 to ignore, can be nil.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will contain an NSArray of BuddyPlace items if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
 - (void)find:(NSNumber *)searchDistanceInMeters
@@ -138,7 +137,6 @@ searchCategoryId:(NSNumber *)searchCategoryId
 /// <summary>
 /// Get all geo-location categories in Buddy.
 /// </summary>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyDictionaryResponse object will be set to an NSDictionary of geo-location IDs' (key) and geo-location category (value) pairs if the request was successful otherwise nil if the request failed.</param>
 
 - (void)getCategories:(BuddyPlacesGetCategoriesCallback)block;
@@ -149,7 +147,6 @@ searchCategoryId:(NSNumber *)searchCategoryId
 /// <param name="placeId">The ID of the place to retrieve.</param>
 /// <param name="latitude">Optional latitude to calculate a distance to.</param>
 /// <param name="longitude">Optional longitude to calculate a distance to.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyPlaceResponse will contain the BuddyPlace if the request is successful or nil if there is no place with the given ID.</param>
 
 - (void)get:(NSNumber *)placeId

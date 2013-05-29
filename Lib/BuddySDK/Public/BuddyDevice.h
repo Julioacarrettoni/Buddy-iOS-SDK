@@ -73,7 +73,6 @@ typedef void (^BuddyDeviceRecordCrashCallback)(BuddyBoolResponse *response);
 /// <param name="latitude">Optional latitude where this report was submitted.</param>
 /// <param name="longitude">Optional longitude where this report was submitted.</param>
 /// <param name="metadata">An optional application specific metadata string to include with the report, can be nil.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)recordInformation:(NSString *)osVersion
@@ -111,7 +110,6 @@ typedef void (^BuddyDeviceRecordCrashCallback)(BuddyBoolResponse *response);
 /// <param name="latitude">Optional latitude where this report was submitted.</param>
 /// <param name="longitude">Optional longitude where this report was submitted.</param>
 /// <param name="metadata">An optional application specific metadata string to include with the report, can be nil.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)recordCrash:(NSString *)methodName

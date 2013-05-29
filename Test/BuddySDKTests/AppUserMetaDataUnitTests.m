@@ -89,28 +89,32 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
     [self alogin];
     [self waitloop];
 
-    int icount = 1;
-    while(icount != 0)
-    {
-        bwaiting = true;
-        [self addData];
-        [self waitloop];
-        
-        bwaiting = true;
-        [self sumData];
-        [self waitloop];
-        
-        bwaiting = true;
-        [self batchSumData];
-        [self waitloop];
-        
-        icount--;
-    }
+//    int icount = 1;
+//    while(icount != 0)
+//    {
+//        bwaiting = true;
+//        [self addData];
+//        [self waitloop];
+//        
+//        bwaiting = true;
+//        [self addData2];
+//        [self waitloop];
+//        
+//        bwaiting = true;
+//        [self sumData];
+//        [self waitloop];
+//        
+//        bwaiting = true;
+//        [self batchSumData];
+//        [self waitloop];
+//        
+//        icount--;
+//    }
 }
 
 - (void)addData
 {
-    __block TestAppUserMetadata *_self = self;
+    __block AppUserMetaDataUnitTests *_self = self;
     [_self.user.metadata set:@"TestKey1" value:@"124" latitude:0.0 longitude:0.0 appTag:@"AppTag" callback:[^(BuddyBoolResponse *response)
             {
                 if(response.isCompleted)
@@ -123,23 +127,28 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
                 }
                 bwaiting = false;
             } copy]];
+}
+
+- (void)addData2
+{
+    __block AppUserMetaDataUnitTests *_self = self;
     [_self.user.metadata set:@"TestKey2" value:@"5235" latitude:0.0 longitude:0.0 appTag:@"AppTag" callback:[^(BuddyBoolResponse *response)
+         {
+             if(response.isCompleted)
              {
-                 if(response.isCompleted)
-                 {
-                     NSLog(@"addUserMetaData OK");
-                 }
-                 else
-                 {
-                     STFail(@"addUserMetaData failed !response.isCompleted");
-                 }
-                 bwaiting = false;
-             } copy]];
+                 NSLog(@"addUserMetaData2 OK");
+             }
+             else
+             {
+                 STFail(@"addUserMetaData2 failed !response.isCompleted");
+             }
+             bwaiting = false;
+         } copy]];
 }
 
 - (void)batchSumData
 {
-    __block TestAppUserMetadata *_self = self;
+    __block AppUserMetaDataUnitTests *_self = self;
     [_self.user.metadata batchSum:@"TestKey%;TestKey1" callback:[^(BuddyArrayResponse *response)
          {
              if(response.isCompleted)
@@ -154,19 +163,19 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 
 - (void)sumData
 {
-    __block TestAppUserMetadata *_self = self;
+    __block AppUserMetaDataUnitTests *_self = self;
     [_self.user.metadata sum:@"TestKey%" callback:[^(BuddyMetadataSumResponse *response)
        {
            if(response.isCompleted)
            {
                if(response.result.total != 5359)
                {
-                   STFail(@"addUserMetaData should have had 5359 as total");
+                   STFail(@"sumUserMetaData should have had 5359 as total");
                }
            }
            else
            {
-               STFail(@"addUserMetaData failed !response.isCompleted");
+               STFail(@"sumUserMetaData failed !response.isCompleted");
            }
        } copy]];
 }

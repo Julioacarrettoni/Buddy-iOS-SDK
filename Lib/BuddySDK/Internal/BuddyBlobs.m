@@ -64,9 +64,11 @@
 }
 
 -(void)getBlob:(NSNumber *)blobID
-callback:(BuddyBlobGetBlobCallback)callback
+callback:(void(^)(NSData *))callback
 {
-    
+    [[client webService] Blobs_Blob_GetBlob:authUser.token BlobID:blobID callback:^(BuddyCallbackParams *callbackParams, NSData *data) {
+        callback(data);
+    }];
 }
 
 -(void)getBlobInfo:(NSNumber*)blobID
@@ -251,7 +253,6 @@ callback:(BuddyBlobGetBlobCallback)callback
      longtidue:(double)longitude
       mimeType:(NSString *)mimeType
       blobData:(NSData *)blobData
-         
       callback:(BuddyBlobAddBlobCallback)callback
         
 {

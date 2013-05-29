@@ -439,8 +439,7 @@
 @property (readonly, nonatomic, assign) BuddyClient *client;
 @property (readonly, nonatomic, assign) BuddyAuthenticatedUser *authUser;
 
-- (id)initSounds:(BuddyClient *)client
-        authUser:(BuddyAuthenticatedUser *)authUser;
+- (id)initSounds:(BuddyClient *)client;
 
 @end
 

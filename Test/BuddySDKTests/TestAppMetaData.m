@@ -73,22 +73,26 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
     [self alogin];
     [self waitloop];
     
-    int icount =1;
-    while (icount != 0) {
-        bwaiting = true;
-        [self addMetaData];
-        [self waitloop];
-        
-        bwaiting = true;
-        [self sumMetaData];
-        [self waitloop];
-        
-        bwaiting = true;
-        [self batchSumMetaData];
-        [self waitloop];
-        
-        icount--;
-    }
+//    int icount =1;
+//    while (icount != 0) {
+//        bwaiting = true;
+//        [self addMetaData];
+//        [self waitloop];
+//        
+//        bwaiting = true;
+//        [self addMetaData2];
+//        [self waitloop];
+//        
+//        bwaiting = true;
+//        [self sumMetaData];
+//        [self waitloop];
+//        
+//        bwaiting = true;
+//        [self batchSumMetaData];
+//        [self waitloop];
+//        
+//        icount--;
+//    }
 }
 
 - (void)addMetaData
@@ -98,24 +102,28 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
        {
            if(response.isCompleted)
            {
-               NSLog(@"addMetaData OK");
+               NSLog(@"addMetaData1 OK");
            }
            else
            {
-               STFail(@"addMetaData failed !response.isCompleted");
+               STFail(@"addMetaData1 failed !response.isCompleted");
            }
            bwaiting = false;
        } copy]];
-    bwaiting = true;
+}
+
+- (void)addMetaData2
+{
+    __block TestAppMetaData *_self =self;
     [_self.buddyClient.metadata set:@"TestKey2" value:@"5235" callback:[^(BuddyBoolResponse *response)
         {
             if(response.isCompleted)
             {
-                NSLog(@"addUserMetaData OK");
+                NSLog(@"addMetaData2 OK");
             }
             else
             {
-                STFail(@"addMetaData failed !response.isCompleted");
+                STFail(@"addMetaData2 failed !response.isCompleted");
             }
             bwaiting = false;
         } copy]];
@@ -130,11 +138,11 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
             {
                 if(response.result.total != 5359)
                 {
-                    STFail(@"addMetaData should have had 5359 as total");
+                    STFail(@"sumMetaData should have had 5359 as total");
                 }
             }else
             {
-                STFail(@"addMetaData failed !response.isCompleted");
+                STFail(@"sumMetaData failed !response.isCompleted");
             }
         } copy]];
 }

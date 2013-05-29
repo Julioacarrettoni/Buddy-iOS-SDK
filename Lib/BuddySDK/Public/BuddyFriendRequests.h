@@ -87,12 +87,10 @@ typedef void (^BuddyFriendRequestsDenyCallback)(BuddyBoolResponse *response);
 /// </summary>
 /// <param name="user">The user to send the request to, can't be null.</param>
 /// <param name="appTag">Mark this request with an tag, can be used on the user's side to make a decision on whether to accept the request.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)add:(BuddyUser *)user
      appTag:(NSString *)appTag
-      
    callback:(BuddyFriendRequestsAddCallback)callback;
 
 /// <summary>
@@ -108,7 +106,6 @@ typedef void (^BuddyFriendRequestsDenyCallback)(BuddyBoolResponse *response);
 /// A list of all users that have request to be friends with this user.
 /// </summary>
 /// <param name="afterDate">Filter the list by returning only the friend requests after a certain date.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will contain an NSArray of BuddyUser items that have pending friend requests if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
 - (void)getAll:(NSDate *)afterDate
@@ -127,7 +124,6 @@ typedef void (^BuddyFriendRequestsDenyCallback)(BuddyBoolResponse *response);
 /// </summary>
 /// <param name="user">The user to accept as friend. Can't be null and must be on the friend requests list.</param>
 /// <param name="appTag">Tag this friend accept with a string.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise (i.e. the user doesn't exist).</param>
 
 - (void)accept:(BuddyUser *)user
@@ -148,7 +144,6 @@ typedef void (^BuddyFriendRequestsDenyCallback)(BuddyBoolResponse *response);
 /// Deny the friend request from a user.
 /// </summary>
 /// <param name="user">The user to deny the friend request from. user can't be null and must be on the friend request list.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)deny:(BuddyUser *)user

@@ -23,6 +23,7 @@
 #import "BuddyDevice.h"
 #import "BuddyGameBoards.h"
 #import "BuddyAppMetadata.h"
+#import "BuddySounds.h"
 
 
 @class BuddyBoolResponse;
@@ -176,6 +177,11 @@ typedef void (^BuddyRecordSessionMetricCallback)(BuddyBoolResponse *response);
 @property (readonly, nonatomic, strong) BuddyAppMetadata *metadata;
 
 /// <summary>
+/// Gets an object that can be used to retrieve sounds.
+/// </summary>
+@property (readonly, nonatomic, strong) BuddySounds *sounds;
+
+/// <summary>
 /// Initializes a new instance of the BuddyClient class. To get an application username and password, go to http://buddy.com, create a new
 /// developer account and create a new application.
 /// </summary>
@@ -203,7 +209,6 @@ typedef void (^BuddyRecordSessionMetricCallback)(BuddyBoolResponse *response);
 /// <summary>
 /// Ping the service.
 /// </summary>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of BuddyStringResponse will be "Pong" if the server responded. If the BuddyBoolResponse.isCompleted field is FALSE check the BuddyStringResponse.dataResult and/or BuddyStringResponse.exception for error information.</param>
 
 - (void)ping:(BuddyClientPingCallback)callback;
@@ -211,7 +216,6 @@ typedef void (^BuddyRecordSessionMetricCallback)(BuddyBoolResponse *response);
 /// <summary>
 /// Get the current Buddy webservice date/time.
 /// </summary>
-/// <param name="state">A user defined object that will be passed to the callback.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyDateResponse will contain an NSDate instance corresponding to the date time of the Buddy webservice or nil if the request failed.</param>
 
 - (void)getServiceTime:(BuddyClientGetServiceTimeCallback)callback;
@@ -219,7 +223,6 @@ typedef void (^BuddyRecordSessionMetricCallback)(BuddyBoolResponse *response);
 /// <summary>
 /// Get the current version of the service that is being used by this SDK.
 /// </summary>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyStringResponse will be the version of the service if the request was successful. If the BuddyStringResponse.isCompleted field is FALSE check the BuddyStringResponse.dataResult and/or BuddyStringResponse.exception for error information.</param>
 
 - (void)getServiceVersion:(BuddyClientGetServiceVersionCallback)callback;
@@ -229,7 +232,6 @@ typedef void (^BuddyRecordSessionMetricCallback)(BuddyBoolResponse *response);
 /// </summary>
 /// <param name="fromRow">Used for paging, retrieve only records starting fromRow.</param>
 /// <param name="pageSize">Used for paging, specify page size.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will be an NSArray of email addresses (NSStrings) if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
 - (void)getUserEmails:(NSNumber *)fromRow
@@ -251,7 +253,6 @@ typedef void (^BuddyRecordSessionMetricCallback)(BuddyBoolResponse *response);
 /// </summary>
 /// <param name="fromRow">Used for paging, retrieve only records starting fromRow.</param>
 /// <param name="pageSize">Used for paging, specify page size.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will be an NSArray of BuddyUsers if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
 - (void)getUserProfiles:(NSNumber *)fromRow
@@ -271,7 +272,6 @@ typedef void (^BuddyRecordSessionMetricCallback)(BuddyBoolResponse *response);
 /// <summary>
 /// This method will return a list of statistics for the application covering items such as total users, photos, etc. or nil if error.
 /// </summary>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will contain an NSArray of BuddyApplicationStatistics items if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
 - (void)getApplicationStatistics:(BuddyClientGetApplicationStatisticsCallback)callback;
@@ -281,7 +281,6 @@ typedef void (^BuddyRecordSessionMetricCallback)(BuddyBoolResponse *response);
 /// </summary>
 /// <param name="userName">The username of the user. Can't be nil or empty.</param>
 /// <param name="password">The password of the user. Can't be nil.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. If the Login was successful the .result field of BuddyAuthenticatedUserResponse object will be set to the authenticated user otherwise it will be nil.</param>
 
 - (void)login:(NSString *)userName
@@ -294,7 +293,6 @@ typedef void (^BuddyRecordSessionMetricCallback)(BuddyBoolResponse *response);
 /// username/password combination.
 /// </summary>
 /// <param name="token">The private token of the user to login.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. If the Login was successful the .result field of BuddyAuthenticatedUserResponse will be set to the authenticated user otherwise it will be nil.</param>
 
 - (void)login:(NSString *)token
@@ -313,7 +311,6 @@ typedef void (^BuddyRecordSessionMetricCallback)(BuddyBoolResponse *response);
 /// <param name="fuzzLocation">Set location fuzzing for this user. When enabled user location is randomized in searches.</param>
 /// <param name="celebrityMode">Set the celebrity mode for this user. When enabled this user will be absent from all searches.</param>
 /// <param name="appTag">A custom tag for this user, can be nil.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. If the Login was successful the .result field of BuddyAuthenticatedUserResponse will be set to the authenticated user otherwise it will be nil.</param>
 
 - (void)createUser:(NSString *)userName
@@ -343,21 +340,10 @@ typedef void (^BuddyRecordSessionMetricCallback)(BuddyBoolResponse *response);
 /// Check if another user with the same email already exists in the system.
 /// </summary>
 /// <param name="email">The email to check for, can't be nil.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on it the email address exists, FALSE otherwise.</param>
 - (void)checkIfEmailExists:(NSString *)email
                      
                   callback:(BuddyClientCheckIfEmailExistsCallback)callback;
-
-/// <summary>
-/// Check if another user with the same name already exists in the system.
-/// </summary>
-/// <param name="userName">The name to check for, can't be null or empty.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
-/// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE if the user name exists, FALSE otherwise.</param>
-- (void)CheckIfUsernameExists:(NSString *)userName
-						
-					 callback:(BuddyClientCheckIfUsernameExistsCallback)callback;
 
 /// <summary>
 /// Starts an analytics session
@@ -365,9 +351,8 @@ typedef void (^BuddyRecordSessionMetricCallback)(BuddyBoolResponse *response);
 /// <param name="user">The user that is starting this session.</param>
 /// <param name="sessionName">The name of the session.</param>
 /// <param name="appTag">An optional custom tag to include with the session.</param>
-/// <param name="state">A  user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call upon success or error.  The .result field of BuddyStringResponse will be set to the session identifier if the request was successful otherwise nil.</param>
-- (void)StartSession:(BuddyAuthenticatedUser *)user
+- (void)startSession:(BuddyAuthenticatedUser *)user
 		 sessionName:(NSString *)sessionName
 			  appTag:(NSString *)appTag
 			   
@@ -389,10 +374,9 @@ typedef void (^BuddyRecordSessionMetricCallback)(BuddyBoolResponse *response);
 /// <param name="user">The user that is starting this session.</param>
 /// <param name="sessionId">The id of the session, returned from StartSessionAsync.</param>
 /// <param name="appTag">An optional custom tag to include with the session.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
-- (void)EndSession:(BuddyAuthenticatedUser *)user
+- (void)endSession:(BuddyAuthenticatedUser *)user
 		 sessionId:(NSString *)sessionId
 			appTag:(NSString *)appTag
 			 
@@ -418,10 +402,9 @@ typedef void (^BuddyRecordSessionMetricCallback)(BuddyBoolResponse *response);
 /// <param name="metricKey">A custom key describing the metric.</param>
 /// <param name="metricValue">The value to set.</param>
 /// <param name="appTag">An optional custom tag to include with the metric.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
-- (void)RecordSessionMetric:(BuddyAuthenticatedUser *)user
+- (void)recordSessionMetric:(BuddyAuthenticatedUser *)user
 				  sessionId:(NSString *)sessionId
 				  metricKey:(NSString *)metricKey
 				metricValue:(NSString *)metricValue
@@ -452,13 +435,11 @@ typedef void (^BuddyRecordSessionMetricCallback)(BuddyBoolResponse *response);
 
 
 - (void)CheckIfUsernameExists:(NSString *)userName
-                        state:(NSObject *)state
                      callback:(BuddyClientCheckIfUsernameExistsCallback)callback DEPRECATED_ATTRIBUTE;
 
 - (void)StartSession:(BuddyAuthenticatedUser *)user
          sessionName:(NSString *)sessionName
               appTag:(NSString *)appTag
-               state:(NSObject *)state
             callback:(BuddyStartSessionCallback)callback DEPRECATED_ATTRIBUTE;
 
 - (void)StartSession:(BuddyAuthenticatedUser *)user
@@ -468,7 +449,6 @@ typedef void (^BuddyRecordSessionMetricCallback)(BuddyBoolResponse *response);
 - (void)EndSession:(BuddyAuthenticatedUser *)user
          sessionId:(NSString *)sessionId
             appTag:(NSString *)appTag
-             state:(NSObject *)state
           callback:(BuddyEndSessionCallback)callback DEPRECATED_ATTRIBUTE;
 
 - (void)EndSession:(BuddyAuthenticatedUser *)user
@@ -480,7 +460,6 @@ typedef void (^BuddyRecordSessionMetricCallback)(BuddyBoolResponse *response);
                   metricKey:(NSString *)metricKey
                 metricValue:(NSString *)metricValue
                      appTag:(NSString *)appTag
-                      state:(NSObject *)state
                    callback:(BuddyRecordSessionMetricCallback)callback DEPRECATED_ATTRIBUTE;
 
 - (void)RecordSessionMetric:(BuddyAuthenticatedUser *)user

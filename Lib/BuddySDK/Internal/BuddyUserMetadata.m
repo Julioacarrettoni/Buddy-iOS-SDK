@@ -153,7 +153,6 @@
 }
 
 - (void) get:(NSString *)key
-	   
 	callback:(BuddyUserMetadataGetCallback)callback
 {
 	[self checkForKey:key];
@@ -204,7 +203,6 @@
 	 latitude:(double)latitude
 	longitude:(double)longitude
 	   appTag:(NSString *)appTag
-		
 	 callback:(BuddyUserMetadataSetCallback)callback
 {
 	[self checkForKey:key];
@@ -225,7 +223,6 @@
 }
 
 - (void)delete:(NSString *)key
-		 
 	  callback:(BuddyUserMetadataDeleteCallback)callback
 {
 	[self checkForKey:key];
@@ -297,7 +294,7 @@
 
 	__block BuddyUserMetadata *_self = self;
 
-	[[client webService] MetaData_UserMetaDataValue_Search:self.token SearchDistance:searchDistanceMeters Latitude:latitude Longitude:longitude RecordLimit:numberOfResults MetaKeySearch:withKey MetaValueSearch:withValue TimeFilter:updateTime SortValueAsFloat:searchAsFloatInt SortDirection:sortAscendingInt DisableCache:disableCacheInt 
+	[[client webService] MetaData_UserMetaDataValue_Search:self.token SearchDistance:searchDistanceMeters Latitude:latitude Longitude:longitude RecordLimit:numberOfResults MetaKeySearch:withKey MetaValueSearch:withValue TimeFilter:updateTime SortValueAsFloat:searchAsFloatInt SortDirection:sortAscendingInt DisableCache:disableCacheString
 												  callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 															{
 																if (callback)
@@ -524,7 +521,7 @@
 		  values:(NSString *)values
 		callback:(BuddyUserMetadataBatchSetCallback)callback
 {
-	[self batchSet:keys values:values latitude:0.0 longitude:0.0 appTag:nil state:nil callback:callback];
+	[self batchSet:keys values:values latitude:0.0 longitude:0.0 appTag:nil callback:callback];
 }
 
 - (void)batchSet:(NSString *)keys
@@ -532,7 +529,6 @@
 		latitude:(double)latitude
 	   longitude:(double)longitude
 		  appTag:(NSString *)appTag
-		   state:(NSObject *)state
 		callback:(BuddyUserMetadataBatchSetCallback)callback
 {
 	if ([BuddyUtility isNilOrEmpty:keys])
@@ -545,7 +541,7 @@
 		[BuddyUtility throwNilArgException:@"BuddyUserMetadata" reason:@"values"];
 	}
 
-	[[client webService] MetaData_UserMetaDataValue_BatchSet:self.token UserMetaKeyCollection:keys UserMetaValueCollection:values MetaLatitude:latitude MetaLongitude:longitude ApplicationTag:appTag RESERVED:@"" state:state
+	[[client webService] MetaData_UserMetaDataValue_BatchSet:self.token UserMetaKeyCollection:keys UserMetaValueCollection:values MetaLatitude:latitude MetaLongitude:longitude ApplicationTag:appTag RESERVED:@""
 													callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 															  {
 																  if (callback)

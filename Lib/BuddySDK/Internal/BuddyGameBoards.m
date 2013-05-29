@@ -59,7 +59,7 @@
 - (void)getHighScores:(NSString *)boardName
 		  recordLimit:(NSNumber *)recordLimit
 				
-			 callback:(BuddyGameBoardsGetHighScoresCallback)callback
+			 callback:(BuddyGameBoardsGetScoresCallback)callback
 {
 	if ([BuddyUtility isNilOrEmpty:boardName])
 	{
@@ -110,12 +110,11 @@
 {
 	NSNumber *recordLimit = [NSNumber numberWithInt:100];
 
-	[self getLowScores:boardName recordLimit:recordLimit state:nil callback:callback];
+	[self getLowScores:boardName recordLimit:recordLimit callback:callback];
 }
 
 - (void)getLowScores:(NSString *)boardName
 		 recordLimit:(NSNumber *)recordLimit
-			   state:(NSObject *)state
 			callback:(BuddyGameBoardsGetScoresCallback)callback
 {
 	if ([BuddyUtility isNilOrEmpty:boardName])
@@ -127,7 +126,7 @@
 
 	__block BuddyGameBoards *_self = self;
 
-	[[client webService] Game_Score_GetBoardLowScores:boardName RecordLimit:recordLimit RESERVED:@"" state:state
+	[[client webService] Game_Score_GetBoardLowScores:boardName RecordLimit:recordLimit RESERVED:@""
 											 callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 													   {
 														   if (callback)
@@ -149,8 +148,7 @@
 															   if (exception)
 															   {
 																   callback([[BuddyArrayResponse alloc] initWithError:exception
-																												state:callbackParams.state
-																											  apiCall:callbackParams.apiCall]);
+																												apiCall:callbackParams.apiCall]);
 															   }
 															   else
 															   {

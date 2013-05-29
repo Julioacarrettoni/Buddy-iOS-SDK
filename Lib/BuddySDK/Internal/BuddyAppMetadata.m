@@ -216,7 +216,6 @@
    latitude:(double)latitude
   longitude:(double)longitude
      appTag:(NSString *)appTag
-      
    callback:(BuddyAppMetadataSetCallback)callback
 {
 	[self checkForKey:key];

@@ -77,7 +77,6 @@ typedef void (^BuddyIdentityCheckForValuesCallback)(BuddyArrayResponse *response
 /// <summary>
 /// Returns all the identity values for this user.
 /// </summary>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponses will contain an NSArray of BuddyIdentityItem items if the request was successful (BuddyArrayResponses.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
 - (void)getAll:(BuddyIdentityGetAllCallback)callback;
@@ -86,7 +85,6 @@ typedef void (^BuddyIdentityCheckForValuesCallback)(BuddyArrayResponse *response
 /// Add an identity value for this user.
 /// </summary>
 /// <param name="value">The value to add.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)add:(NSString *)value
@@ -97,7 +95,6 @@ typedef void (^BuddyIdentityCheckForValuesCallback)(BuddyArrayResponse *response
 /// Remove an identity value for this user.
 /// </summary>
 /// <param name="value">The value to remove.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)remove:(NSString *)value
@@ -108,7 +105,6 @@ typedef void (^BuddyIdentityCheckForValuesCallback)(BuddyArrayResponse *response
 /// Check for the existence of an identity value in the system. The search is perform for the entire app.
 /// </summary>
 /// <param name="values">The value to search for. This can either be a single value or a semi-colon separated list of values.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponses will contain an NSArray of BDYIdentityItemSearchResult items if the request was successful (BuddyArrayResponses.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
 - (void)checkForValues:(NSString *)values

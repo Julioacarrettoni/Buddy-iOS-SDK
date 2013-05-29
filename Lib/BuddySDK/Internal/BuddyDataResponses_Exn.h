@@ -125,10 +125,6 @@
 - (id)initWithError:(BuddyCallbackParams *)callbackParams
 			 reason:(NSString *)errorString;
 
-- (id)initWithError:(NSString *)apiCall
-			 reason:(NSString *)errorString
-			  state:(NSObject *)state;
-
 @end
 
 @class BuddyBlob;
@@ -141,9 +137,8 @@
 - (id)initWithError:(BuddyCallbackParams *)callbackParams
 			 reason:(NSString *)errorString;
 
-- (id)initWithError:(NSString *)apiCall
-			 reason:(NSString *)errorString
-			  state:(NSObject *)state;
+- (id)initWithErrorString:(NSString *)apiCall
+			 reason:(NSString *)errorString;
 
 @end
 

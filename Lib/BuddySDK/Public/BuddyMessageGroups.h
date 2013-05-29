@@ -77,7 +77,6 @@ typedef void (^BuddyMessageGroupsGetMyCallback)(BuddyArrayResponse *response);
 /// <param name="name">The name of the new group, must be unique for the app.</param>
 /// <param name="openGroup">Optionally whether to make to group open for all user (anyone can join, set to TRUE), or closed (only the owner can add users to it set to FALSE).</param>
 /// <param name="appTag">An optional application tag for this message group, can be nil.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyMessageGroupResponse will be set a BuddyMessageGroup if the request was successful otherwise it will be nil if a group with that name already exists.</param>
 
 - (void)create:(NSString *)name
@@ -101,7 +100,6 @@ typedef void (^BuddyMessageGroupsGetMyCallback)(BuddyArrayResponse *response);
 /// Check if a group with this name already exists.
 /// </summary>
 /// <param name="name">The name of the group to check for.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)checkIfExists:(NSString *)name
@@ -111,7 +109,6 @@ typedef void (^BuddyMessageGroupsGetMyCallback)(BuddyArrayResponse *response);
 /// <summary>
 /// Get all message groups for this app.
 /// </summary>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will contain an NSArray of BuddyMessageGroup items if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
 - (void)getAll:(BuddyMessageGroupsGetAllCallback)callback;
@@ -119,7 +116,6 @@ typedef void (^BuddyMessageGroupsGetMyCallback)(BuddyArrayResponse *response);
 /// <summary>
 /// Get all message groups that this user is part of.
 /// </summary>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will contain an NSArray of BuddyMessageGroup items if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
 - (void)getMy:(BuddyMessageGroupsGetMyCallback)callback;

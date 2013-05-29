@@ -36,22 +36,18 @@ typedef void (^BuddyCommerceStoreItemsCallback)(BuddyArrayResponse *response);
 /// Finds the receipt list based on the FromDateTime parameter for the currently logged in user.
 /// </summary>
 /// <param name="fromDateTime">The starting date and time to get receipts from, leave this blank to get all the receipts.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will be set to an NSArray of BuddyReceipts if the request was successful otherwise nil if the request failed.</param>
 
 - (void)getReceiptsForUser:(NSDate *)fromDateTime
-                     state:(NSObject *)state
                   callback:(BuddyCommerceGetReceiptsCallback)callback;
     
 /// <summary>
 /// Finds the receipt associated with the specified CustomTransactionID for the currently logged in user.
 /// </summary>
 /// <param name="customTransactionID">The CustomTransactionID of the transaction. For Facebook payments this is the OrderID of the transaction.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will be set to an NSArray of BuddyReceipts if the request was successful otherwise nil if the request failed.</param>
 
 - (void)getReceiptForUserAndTransactionID:(NSString *)customTransactionID
-                                    state:(NSObject *)state
                                  callback:(BuddyCommerceGetReceiptsCallback)callback;
 
 /// <summary>
@@ -64,7 +60,6 @@ typedef void (^BuddyCommerceStoreItemsCallback)(BuddyArrayResponse *response);
 /// <param name="receiptData">Optional information to store with the receipt such as notes about the transaction.</param>
 /// <param name="customTransactionID">An optional app-specific ID to associate with the purchase.</param>
 /// <param name="appData">Optional metadata to associate with the transaction.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)saveReceipt:(NSString *)totalCost
@@ -74,7 +69,6 @@ typedef void (^BuddyCommerceStoreItemsCallback)(BuddyArrayResponse *response);
         receiptData:(NSString *)receiptData
 customTransactionID:(NSString *)customTransactionID
             appData:(NSString *)appData
-              state:(NSObject *)state
            callback:(BuddyCommerceSaveReceiptCallback)callback;
 
 /// <summary>
@@ -102,7 +96,6 @@ customTransactionID:(NSString *)customTransactionID
 /// <param name="appleItemID">The optional ID associated with the item as assigned by Apple.</param>
 /// <param name="customTransactionID">An optional app-specific ID to associate with the purchase.</param>
 /// <param name="appData">Optional metadata to associated with the transaction.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)verifyiOSReceipt:(NSString *)totalCost
@@ -112,7 +105,6 @@ customTransactionID:(NSString *)customTransactionID
              appleItemID:(NSString *)appleItemID
      customTransactionID:(NSString *)customTransactionID
                  appData:(NSString *)appData
-                   state:(NSObject *)state
                 callback:(BuddyCommerceSaveReceiptCallback)callback;
 
 /// <summary>
@@ -142,7 +134,6 @@ customTransactionID:(NSString *)customTransactionID
 /// <param name="appleItemID">The optional ID associated with the item as assigned by Apple.</param>
 /// <param name="customTransactionID">An optional app-specific ID to associate with the purchase.</param>
 /// <param name="appData">Optional metadata to associated with the transaction.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)verifyAndSaveiOSReceipt:(NSString *)totalCost
@@ -152,7 +143,6 @@ customTransactionID:(NSString *)customTransactionID
              appleItemID:(NSString *)appleItemID 
      customTransactionID:(NSString *)customTransactionID
                  appData:(NSString *)appData
-                   state:(NSObject *)state
                 callback:(BuddyCommerceSaveReceiptCallback)callback;
 
 /// <summary>
@@ -175,28 +165,22 @@ customTransactionID:(NSString *)customTransactionID
 /// <summary>
 /// Returns information about all items in the store for the current application.
 /// </summary>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will be set to an NSArray of BuddyStoreItem if the request was successful otherwise nil if the request failed.</param>
 
-- (void)getAllStoreItems:(NSObject *)state
-                callback:(BuddyCommerceStoreItemsCallback)callback;
+- (void)getAllStoreItems:(BuddyCommerceStoreItemsCallback)callback;
 
 /// <summary>
 /// Returns information about all store items for an application which are currently active (available for sale).
 /// </summary>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will be set to an NSArray of BuddyStoreItem if the request was successful otherwise nil if the request failed.</param>
 
-- (void)getActiveStoreItems:(NSObject *)state
-                   callback:(BuddyCommerceStoreItemsCallback)callback;
+- (void)getActiveStoreItems:(BuddyCommerceStoreItemsCallback)callback;
 
 /// <summary>
 /// Returns information about all items in the store for the current application which are marked as free.
 /// </summary>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will be set to an NSArray of BuddyStoreItem if the request was successful otherwise nil if the request failed.</param>
 
-- (void)getFreeStoreItems:(NSObject *)state
-                 callback:(BuddyCommerceStoreItemsCallback)callback;
+- (void)getFreeStoreItems:(BuddyCommerceStoreItemsCallback)callback;
 
 @end

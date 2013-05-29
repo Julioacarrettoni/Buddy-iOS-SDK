@@ -86,7 +86,6 @@ typedef void (^BuddyPhotoAlbumsGetAllCallback)(BuddyDictionaryResponse *response
 /// <param name="name">The name of the new album.</param>
 /// <param name="isPublic">Make the album publicly visible to other users.</param>
 /// <param name="appTag">Optionally add a custom application tag for this user, can be nil.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyPhotoAlbumResponse will be the new BuddyPhotoAlbum that was created if the request was successful or nil if an error occurred.</param>
 
 - (void)create:(NSString *)name
@@ -108,7 +107,6 @@ typedef void (^BuddyPhotoAlbumsGetAllCallback)(BuddyDictionaryResponse *response
 /// Get a photo album by ID. This album doesn't need to be owned by this user.
 /// </summary>
 /// <param name="albumId">The ID of the album.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyPhotoAlbumResponse will contain the BuddyPhotoAlbum if the request was successful or nil if an error occurred.</param>
 
 - (void)get:(NSNumber *)albumId
@@ -120,7 +118,6 @@ typedef void (^BuddyPhotoAlbumsGetAllCallback)(BuddyDictionaryResponse *response
 /// Call photoAlbums.GetAll to get all the albums.
 /// </summary>
 /// <param name="albumName">The name of the album to retrieve. Can't be null or empty.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyPhotoAlbumResponse will contain the BuddyPhotoAlbum if the request was successful or nil if an error occurred.</param>
 
 - (void)getWithName:(NSString *)albumName
@@ -131,7 +128,6 @@ typedef void (^BuddyPhotoAlbumsGetAllCallback)(BuddyDictionaryResponse *response
 /// Return all photo albums for this user. Note that this can be a time-consuming operation since all the Picture data is retrieved as well.
 /// </summary>
 /// <param name="afterDate">Optionally return all albums created after a date, can be nil.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyDictionaryResponse object will be set to an NSDictionary of PhotoAlbumIds (key) and BuddyPhotoAlbums (value) pairs if the request was successful otherwise nil if the request failed.</param>
 
 - (void)getAll:(NSDate *)afterDate

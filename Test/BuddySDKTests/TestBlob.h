@@ -10,6 +10,7 @@
 
 @class BuddyClient;
 @class BuddyAuthenticatedUser;
+@class BuddyBlobs;
 
 
 @interface TestBlob : SenTestCase

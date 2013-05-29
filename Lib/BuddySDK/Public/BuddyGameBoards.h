@@ -73,12 +73,11 @@ typedef void (^BuddyGameBoardsFindScoresCallback)(BuddyArrayResponse *response);
 /// </summary>
 /// <param name="boardName">The board name can be a specific string or a 'LIKE' pattern using %.</param>
 /// <param name="recordLimit">The maximum number of scores to return.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will be an NSArray of BuddyGameScore items if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
 - (void)getHighScores:(NSString *)boardName
           recordLimit:(NSNumber *)recordLimit
-             callback:(BuddyGameBoardsGetHighScoresCallback)callback;
+             callback:(BuddyGameBoardsGetScoresCallback)callback;
 
 /// <summary>
 /// Gets a list of high scores for a specific game board.
@@ -94,12 +93,10 @@ typedef void (^BuddyGameBoardsFindScoresCallback)(BuddyArrayResponse *response);
 /// </summary>
 /// <param name="boardName">The board name can be a specific string or a 'LIKE' pattern using %.</param>
 /// <param name="recordLimit">The maximum number of scores to return.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will be an NSArray of BuddyGameScore items if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
 - (void)getLowScores:(NSString *)boardName
-          recordLimit:(NSNumber *)recordLimit
-                state:(NSObject *)state
+          recordLimit:(NSNumber *)recordLimit\
              callback:(BuddyGameBoardsGetScoresCallback)callback;
 
 /// <summary>
@@ -123,7 +120,6 @@ typedef void (^BuddyGameBoardsFindScoresCallback)(BuddyArrayResponse *response);
 /// <param name="daysOld">Optionally only return scores that are X number of days old, can be nil.</param>
 /// <param name="minimumScore">Optionally only return scores that are above a certain minimum score, can be nil.</param>
 /// <param name="appTag">Optionally return only scores that have a certain app tag, can be nil.</param>
-/// <param name="state">A user defined object that will be passed to the callback, can be nil.</param>
 /// <param name="callback">The callback to call on success or error. The .result field of the BuddyArrayResponse will be an NSArray of BuddyGameScore items if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise.</param>
 
 - (void)findScores:(BuddyUser *)user
