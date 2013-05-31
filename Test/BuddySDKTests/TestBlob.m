@@ -31,7 +31,7 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 {
     [super setUp];
     
-    self.buddyClient = [[BuddyClient alloc] initClient:AppName
+    buddyClient = [[BuddyClient alloc] initClient:AppName
                                            appPassword:AppPassword
                                             appVersion:@"1"
                                   autoRecordDeviceInfo:TRUE];
@@ -109,8 +109,42 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
         [self searchMyBlobs:blob];
         [self waitloop];
         
+        bwaiting = true;
+        [self editBlob:blob];
+        [self waitloop];
+        
+        bwaiting = true;
+        [self deleteBlob:blob];
+        [self waitloop];
+        
         icount--;
     }
+}
+
+-(void)deleteBlob:(BuddyBlob *)blob
+{
+    [blob deleteBlob:[^(BuddyBoolResponse *response)
+      {
+          if (response.isCompleted) {
+              NSLog(@"deleteBlob OK");
+              Boolean success = response.result;
+          }
+      } copy]];
+}
+
+-(void)editBlob:(BuddyBlob *)blob
+{
+    [blob editBlob:@"friendly" localAppTag:@"newTag" callback:[^(BuddyBoolResponse *response)
+       {
+           if(response.isCompleted)
+           {
+               NSLog(@"editBlob OK");
+               Boolean success = response.result;
+           }
+           else{
+               STFail(@"editBlob failed !response.isCompleted");
+           }
+       } copy]];
 }
 
 -(BuddyBlob*)addBlob
@@ -121,7 +155,7 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
     __block BuddyBlob * blob = nil;
     
     __block TestBlob *_self = self;
-    [_self.user.blobs addBlob:@"friendlyName" appTag:@"Tag" latitude:0.0 longtidue:0.0 mimeType:@"video/mp4" blobData:data callback:[^(BuddyBlobResponse *response)
+    [_self.user.blobs addBlob:@"friendlyName" appTag:@"Tag" latitude:0.0 longitude:0.0 mimeType:@"video/mp4" blobData:data callback:[^(BuddyBlobResponse *response)
          {
              if(response.isCompleted)
              {

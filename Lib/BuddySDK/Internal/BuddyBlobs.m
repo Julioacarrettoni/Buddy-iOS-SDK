@@ -250,7 +250,7 @@ callback:(void(^)(NSData *))callback
 -(void)addBlob:(NSString *)friendlyName
         appTag:(NSString *)appTag
       latitude:(double)latitude
-     longtidue:(double)longitude
+     longitude:(double)longitude
       mimeType:(NSString *)mimeType
       blobData:(NSData *)blobData
       callback:(BuddyBlobAddBlobCallback)callback

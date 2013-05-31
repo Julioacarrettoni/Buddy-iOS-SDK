@@ -25,7 +25,7 @@ typedef void (^BuddyVideoVideoListCallback)(BuddyArrayResponse * response);
 -(void)addVideo:(NSString *)friendlyName
          appTag:(NSString *)appTag
        latitude:(double)latitude
-      longtidue:(double)longitude
+      longitude:(double)longitude
        mimeType:(NSString *)mimeType
       videoData:(NSData *)videoData
        callback:(BuddyVideoAddVideoCallback)callback;
