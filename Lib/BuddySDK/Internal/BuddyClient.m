@@ -446,6 +446,52 @@
 													 } copy]];
 }
 
+- (void)socialLogin:(NSString *)providerName
+     providerUserId:(NSString *)providerUserId
+        accessToken:(NSString *)accessToken
+           callback:(BuddyClientLoginCallback)callback
+{
+    if([BuddyUtility isNilOrEmpty:providerName])
+    {
+        [BuddyUtility throwNilArgException:@"BuddyClient" reason:@"Provider name"];
+    }
+    if([BuddyUtility isNilOrEmpty:providerUserId])
+    {
+        [BuddyUtility throwNilArgException:@"BuddyClient" reason:@"Provider UserId"];
+    }
+    if([BuddyUtility isNilOrEmpty:accessToken])
+    {
+        [BuddyUtility throwNilArgException:@"BuddyClient" reason:@"Access Token"];
+    }
+    
+    __block BuddyClient *_self = self;
+    
+    [[self webService] UserAccount_Profile_SocialLogin:providerName ProviderUserID:providerUserId AccessToken:accessToken callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+            {
+                if(callback)
+                {
+                    if(callbackParams.isCompleted && jsonArray != nil && [jsonArray count] > 0)
+                    {
+                        NSDictionary *dict = (NSDictionary *)[jsonArray objectAtIndex:0];
+                        if(dict && [dict count] > 0)
+                        {
+                            NSString* token = [dict objectForKey:@"userToken"];
+                            [_self login:token callback:^(BuddyAuthenticatedUserResponse *result) {
+                                callback(result);
+                            }];
+                        } else
+                        {
+                            callback([[BuddyAuthenticatedUserResponse alloc] initWithError:callbackParams reason:callbackParams.stringResult]);
+                        }
+                    } else
+                    {
+                        callback([[BuddyAuthenticatedUserResponse alloc] initWithError:callbackParams reason:(NSString *)callbackParams.exception.reason]);
+                    }
+                }
+                _self = nil;
+            } copy]];
+}
+
 - (void)login:(NSString *)userName
 	 password:(NSString *)password
 		

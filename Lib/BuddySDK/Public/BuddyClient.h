@@ -277,6 +277,19 @@ typedef void (^BuddyRecordSessionMetricCallback)(BuddyBoolResponse *response);
 - (void)getApplicationStatistics:(BuddyClientGetApplicationStatisticsCallback)callback;
 
 /// <summary>
+/// Create a new user using the given Social account or log into the existing user
+/// for that account.
+/// </summary>
+/// <param name="providerName">The name of the social login provider to use.</param>
+/// <param name="providerUserId">The Id by which the social user can be retrieved from the social login provider.</param>
+/// <param name="accessToken">An access token which will allow requests to be made on the users behalf.</param>
+/// <param name="callback">The callback to call on success or error. If the Login was successful the .result field of BuddyAuthenticatedUserResponse object will be set to the authenticated user otherwise it will be nil.</param>
+- (void)socialLogin:(NSString *)providerName
+     providerUserId:(NSString *)providerUserId
+        accessToken:(NSString *)accessToken
+           callback:(BuddyClientLoginCallback)callback;
+
+/// <summary>
 /// Login an existing user with their username and password.
 /// </summary>
 /// <param name="userName">The username of the user. Can't be nil or empty.</param>

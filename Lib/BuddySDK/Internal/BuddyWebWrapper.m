@@ -26,7 +26,7 @@
 #define kHttpGetTimeout  60
 #define kHttpPostTimeout 60
 
-static NSString *const BuddySDKHeaderValue = @"iOS,v0.1.3";
+static NSString *const BuddySDKHeaderValue = @"iOS,v0.1.4";
 
 @implementation BuddyWebWrapper
 
@@ -412,6 +412,16 @@ static NSString *const BuddySDKHeaderValue = @"iOS,v0.1.3";
 
 	[params appendString:@"&RESERVED="];
 	[self makeRequest:@"UserAccount_Profile_GetUserIDFromUserToken" params:params  callback:callback];
+}
+
+- (void)UserAccount_Profile_SocialLogin:(NSString *)ProviderName ProviderUserID:(NSString *)ProviderUserId AccessToken:(NSString *)AccessToken callback:(void (^)(BuddyCallbackParams *, id))callback
+{
+    NSMutableString *params = [BuddyUtility setParams:@"UserAccount_Profile_SocialLogin" appName:client.appName appPassword:client.appPassword];
+    [params appendFormat:@"&ProviderName=%@", [BuddyUtility encodeValue:ProviderName]];
+    [params appendFormat:@"&ProviderUserID=%@", [BuddyUtility encodeValue:ProviderUserId]];
+    [params appendFormat:@"&AccessToken=%@", [BuddyUtility encodeValue:AccessToken]];
+    
+    [self makeRequest:@"UserAccount_Profile_SocialLogin" params:params callback:callback];
 }
 
 - (void)UserAccount_Profile_Recover:(NSString *)userName UserSuppliedPassword:(NSString *)UserSuppliedPassword  callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonString))callback
