@@ -30,6 +30,22 @@
 @end
 
 
+
+/// <summary>
+/// Represents a callback response containing a BOOL.
+/// </summary>
+
+@interface BuddyBoolResponse : BuddyCallbackParams
+
+/// <summary>
+/// Gets the BOOL response value for the callback. TRUE for success FALSE for failure.
+/// </summary>
+@property (readonly, nonatomic, assign) BOOL result;
+
+@end
+
+
+
 /// <summary>
 /// Represents a callback response containing an Date item, such and an ID.
 /// </summary>

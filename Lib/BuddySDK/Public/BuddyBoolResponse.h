@@ -16,17 +16,4 @@
 
 #import <Foundation/Foundation.h>
 #import "BuddyCallbackParams.h"
-
-
-/// <summary>
-/// Represents a callback response containing a BOOL.
-/// </summary>
-
-@interface BuddyBoolResponse : BuddyCallbackParams
-
-/// <summary>
-/// Gets the BOOL response value for the callback. TRUE for success FALSE for failure.
-/// </summary>
-@property (readonly, nonatomic, assign) BOOL result;
-
-@end
+#import "BuddyDataResponses.h"

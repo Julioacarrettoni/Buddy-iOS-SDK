@@ -19,6 +19,8 @@
 #import "BuddyUtility.h"
 #import "BuddyWebWrapper.h"
 
+#import <UIKit/UIKit.h>
+
 
 /// <summary>
 /// Represents an object that can be used to record device analytics, like device types and app crashes.
@@ -48,12 +50,16 @@
 	_client = nil;
 }
 
+-(NSString*)id {
+    
+    return[[UIDevice currentDevice] uniqueIdentifier];
+}
+
 - (void)recordInformation:(NSString *)osVersion
                deviceType:(NSString *)deviceType
                  authUser:(BuddyAuthenticatedUser *)authUser
                  callback:(BuddyDeviceRecordInformationCallback)callback;
-{
-    [self recordInformation:osVersion deviceType:deviceType authUser:authUser appVersion:@"1.0" latitude:0.0 longitude:0.0 metadata:nil  callback:callback];
+{ [self recordInformation:osVersion deviceType:deviceType authUser:authUser appVersion:@"1.0" latitude:0.0 longitude:0.0 metadata:[self id] callback:callback];
 }
 
 - (void)recordInformation:(NSString *)osVersion

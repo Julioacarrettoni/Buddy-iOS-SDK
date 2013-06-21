@@ -63,6 +63,8 @@ typedef void (^BuddyDeviceRecordCrashCallback)(BuddyBoolResponse *response);
 
 @interface BuddyDevice : NSObject
 
+-(NSString*)id;
+
 /// <summary>
 /// Record runtime device type information. This info will be uploaded to the Buddy service and can later be used for analytics purposes.
 /// </summary>

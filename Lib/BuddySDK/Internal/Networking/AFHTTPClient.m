@@ -42,7 +42,7 @@
 #endif
 
 
-#import <BuddyFile.h>
+#import "BuddyFile.h"
 
 @interface AFMultipartFormData : NSObject <AFMultipartFormData>
 

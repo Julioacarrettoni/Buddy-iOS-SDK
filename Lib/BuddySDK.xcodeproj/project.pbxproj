@@ -7,22 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B94D4EB17500FA500B70454 /* BuddyBlob.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B94D4E617500FA500B70454 /* BuddyBlob.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1B94D4EC17500FA500B70454 /* BuddyBlobs.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B94D4E717500FA500B70454 /* BuddyBlobs.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1B94D4ED17500FA500B70454 /* BuddySounds.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B94D4E817500FA500B70454 /* BuddySounds.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1B94D4EE17500FA500B70454 /* BuddyVideo.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B94D4E917500FA500B70454 /* BuddyVideo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1B94D4EF17500FA500B70454 /* BuddyVideos.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B94D4EA17500FA500B70454 /* BuddyVideos.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1B94D4F517500FC500B70454 /* BuddyBlob.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B94D4F017500FC500B70454 /* BuddyBlob.m */; };
-		1B94D4F617500FC500B70454 /* BuddyBlobs.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B94D4F117500FC500B70454 /* BuddyBlobs.m */; };
-		1B94D4F717500FC500B70454 /* BuddySounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B94D4F217500FC500B70454 /* BuddySounds.m */; };
-		1B94D4F817500FC500B70454 /* BuddyVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B94D4F317500FC500B70454 /* BuddyVideo.m */; };
-		1B94D4F917500FC500B70454 /* BuddyVideos.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B94D4F417500FC500B70454 /* BuddyVideos.m */; };
-		1B94D4FA175028D600B70454 /* BuddyBlob.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1B94D4E617500FA500B70454 /* BuddyBlob.h */; };
-		1B94D4FB175028D600B70454 /* BuddyBlobs.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1B94D4E717500FA500B70454 /* BuddyBlobs.h */; };
-		1B94D4FC175028D600B70454 /* BuddySounds.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1B94D4E817500FA500B70454 /* BuddySounds.h */; };
-		1B94D4FD175028D600B70454 /* BuddyVideo.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1B94D4E917500FA500B70454 /* BuddyVideo.h */; };
-		1B94D4FE175028D600B70454 /* BuddyVideos.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1B94D4EA17500FA500B70454 /* BuddyVideos.h */; };
-		2946DE05174D696A005BE2F4 /* BuddyFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 2946DE03174D696A005BE2F4 /* BuddyFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2908839D1775005D001C9DEF /* BuddyBlob.m in Sources */ = {isa = PBXBuildFile; fileRef = 290883921775005D001C9DEF /* BuddyBlob.m */; };
+		2908839E1775005D001C9DEF /* BuddyBlobs.m in Sources */ = {isa = PBXBuildFile; fileRef = 290883931775005D001C9DEF /* BuddyBlobs.m */; };
+		2908839F1775005D001C9DEF /* BuddyCommerce.m in Sources */ = {isa = PBXBuildFile; fileRef = 290883941775005D001C9DEF /* BuddyCommerce.m */; };
+		290883A01775005D001C9DEF /* BuddyMetroArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 290883951775005D001C9DEF /* BuddyMetroArea.m */; };
+		290883A11775005D001C9DEF /* BuddyReceipt.m in Sources */ = {isa = PBXBuildFile; fileRef = 290883961775005D001C9DEF /* BuddyReceipt.m */; };
+		290883A21775005D001C9DEF /* BuddySounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 290883971775005D001C9DEF /* BuddySounds.m */; };
+		290883A31775005D001C9DEF /* BuddyStartup.m in Sources */ = {isa = PBXBuildFile; fileRef = 290883981775005D001C9DEF /* BuddyStartup.m */; };
+		290883A41775005D001C9DEF /* BuddyStartups.m in Sources */ = {isa = PBXBuildFile; fileRef = 290883991775005D001C9DEF /* BuddyStartups.m */; };
+		290883A51775005D001C9DEF /* BuddyStoreItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2908839A1775005D001C9DEF /* BuddyStoreItem.m */; };
+		290883A61775005D001C9DEF /* BuddyVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2908839B1775005D001C9DEF /* BuddyVideo.m */; };
+		290883A71775005D001C9DEF /* BuddyVideos.m in Sources */ = {isa = PBXBuildFile; fileRef = 2908839C1775005D001C9DEF /* BuddyVideos.m */; };
+		2908845D17750816001C9DEF /* BuddyBlob.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2908837E1775002E001C9DEF /* BuddyBlob.h */; };
+		2908845E17750816001C9DEF /* BuddyBlobs.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2908837F1775002E001C9DEF /* BuddyBlobs.h */; };
+		2908845F17750816001C9DEF /* BuddyCommerce.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 290883801775002E001C9DEF /* BuddyCommerce.h */; };
+		2908846017750816001C9DEF /* BuddyReceipt.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 290883811775002E001C9DEF /* BuddyReceipt.h */; };
+		2908846117750816001C9DEF /* BuddySounds.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 290883821775002E001C9DEF /* BuddySounds.h */; };
+		2908846217750816001C9DEF /* BuddyStartup.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 290883831775002E001C9DEF /* BuddyStartup.h */; };
+		2908846317750816001C9DEF /* BuddyStartups.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 290883841775002E001C9DEF /* BuddyStartups.h */; };
+		2908846417750816001C9DEF /* BuddyStoreItem.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 290883851775002E001C9DEF /* BuddyStoreItem.h */; };
+		2908846517750816001C9DEF /* BuddyVideo.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 290883861775002E001C9DEF /* BuddyVideo.h */; };
+		2908846617750816001C9DEF /* BuddyVideos.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 290883871775002E001C9DEF /* BuddyVideos.h */; };
+		2908846717750816001C9DEF /* BuddyMetroArea.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2908837C17750018001C9DEF /* BuddyMetroArea.h */; };
+		2908846817750816001C9DEF /* BuddyAll.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D4E4E80D169F8B4200C735B3 /* BuddyAll.h */; };
+		29345ABE1773DB3B00EEB8F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29345ABD1773DB3B00EEB8F5 /* UIKit.framework */; };
 		2946DE06174D696A005BE2F4 /* BuddyFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2946DE04174D696A005BE2F4 /* BuddyFile.m */; };
 		A6291F80165C01800051F83C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6291F7F165C01800051F83C /* Foundation.framework */; };
 		D40FDA9F1695F5060028C609 /* AFHTTPClient.h in Headers */ = {isa = PBXBuildFile; fileRef = D40FDA861695F5060028C609 /* AFHTTPClient.h */; };
@@ -52,28 +60,6 @@
 		D40FDABB1695FC7F0028C609 /* BuddyWebWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = D40FDAB91695FC7F0028C609 /* BuddyWebWrapper.m */; };
 		D40FDABE1695FCE00028C609 /* BuddyUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = D40FDABC1695FCE00028C609 /* BuddyUtility.h */; };
 		D40FDABF1695FCE00028C609 /* BuddyUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = D40FDABD1695FCE00028C609 /* BuddyUtility.m */; };
-		D41885E816F3BE8800385248 /* BuddyCommerce.h in Headers */ = {isa = PBXBuildFile; fileRef = D41885E716F3BE8800385248 /* BuddyCommerce.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D41885EB16F3BE9D00385248 /* BuddyStoreItem.h in Headers */ = {isa = PBXBuildFile; fileRef = D41885EA16F3BE9D00385248 /* BuddyStoreItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D41885ED16F3BEB200385248 /* BuddyCommerce.m in Sources */ = {isa = PBXBuildFile; fileRef = D41885EC16F3BEB200385248 /* BuddyCommerce.m */; };
-		D41885EF16F3BEBD00385248 /* BuddyStoreItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D41885EE16F3BEBD00385248 /* BuddyStoreItem.m */; };
-		D41885F816F3D52B00385248 /* BuddyReceipt.h in Headers */ = {isa = PBXBuildFile; fileRef = D41885F716F3D52B00385248 /* BuddyReceipt.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D41885FB16F3D53B00385248 /* BuddyReceipt.m in Sources */ = {isa = PBXBuildFile; fileRef = D41885FA16F3D53B00385248 /* BuddyReceipt.m */; };
-		D41885FC16F53F9A00385248 /* BuddyCommerce.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D41885E716F3BE8800385248 /* BuddyCommerce.h */; };
-		D41885FD16F53F9A00385248 /* BuddyReceipt.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D41885F716F3D52B00385248 /* BuddyReceipt.h */; };
-		D41885FE16F53F9A00385248 /* BuddyStoreItem.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D41885EA16F3BE9D00385248 /* BuddyStoreItem.h */; };
-		D47220C3169614340066A899 /* BuddyUser.h in Headers */ = {isa = PBXBuildFile; fileRef = D47220C2169614340066A899 /* BuddyUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D47220C5169614B30066A899 /* BuddyClient.h in Headers */ = {isa = PBXBuildFile; fileRef = D47220C4169614B30066A899 /* BuddyClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D47220C7169615430066A899 /* BuddyMessages.h in Headers */ = {isa = PBXBuildFile; fileRef = D47220C6169615430066A899 /* BuddyMessages.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D47220C9169615AD0066A899 /* BuddyApplicationStatistics.h in Headers */ = {isa = PBXBuildFile; fileRef = D47220C8169615AD0066A899 /* BuddyApplicationStatistics.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D47220CB169615DB0066A899 /* BuddyAppMetadata.h in Headers */ = {isa = PBXBuildFile; fileRef = D47220CA169615DB0066A899 /* BuddyAppMetadata.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D47220CD1696162C0066A899 /* BuddyCheckInLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = D47220CC1696162C0066A899 /* BuddyCheckInLocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D47220CF1696164C0066A899 /* BuddyAuthenticatedUser.h in Headers */ = {isa = PBXBuildFile; fileRef = D47220CE1696164C0066A899 /* BuddyAuthenticatedUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D47220D1169616F80066A899 /* BuddyDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = D47220D0169616F80066A899 /* BuddyDevice.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D47220D3169617190066A899 /* BuddyFriendRequests.h in Headers */ = {isa = PBXBuildFile; fileRef = D47220D2169617190066A899 /* BuddyFriendRequests.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D47220D5169623AE0066A899 /* BuddyFriends.h in Headers */ = {isa = PBXBuildFile; fileRef = D47220D4169623AD0066A899 /* BuddyFriends.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D47220D7169623CF0066A899 /* BuddyGameBoards.h in Headers */ = {isa = PBXBuildFile; fileRef = D47220D6169623CF0066A899 /* BuddyGameBoards.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D47220D9169624130066A899 /* BuddyGamePlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = D47220D8169624130066A899 /* BuddyGamePlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D47220DB1696243A0066A899 /* BuddyGamePlayers.h in Headers */ = {isa = PBXBuildFile; fileRef = D47220DA1696243A0066A899 /* BuddyGamePlayers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D474B2791698ACE90020204D /* BuddyVirtualAlbum.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D4A9F2961696EAAE001C54B7 /* BuddyVirtualAlbum.h */; };
 		D474B27A1698ACE90020204D /* BuddyEnums.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D4A9F24416964FD4001C54B7 /* BuddyEnums.h */; };
 		D474B27B1698ACE90020204D /* BuddyCallbackParams.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D4F4199716963F0400C38DD3 /* BuddyCallbackParams.h */; };
@@ -122,7 +108,6 @@
 		D4A9F23F16964CA2001C54B7 /* BuddyBoolResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A9F23E16964CA2001C54B7 /* BuddyBoolResponse.m */; };
 		D4A9F24116964CBF001C54B7 /* BuddyCallbackParams.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A9F24016964CBF001C54B7 /* BuddyCallbackParams.m */; };
 		D4A9F24316964F78001C54B7 /* BuddyClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A9F24216964F78001C54B7 /* BuddyClient.m */; };
-		D4A9F24516964FD4001C54B7 /* BuddyEnums.h in Headers */ = {isa = PBXBuildFile; fileRef = D4A9F24416964FD4001C54B7 /* BuddyEnums.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D4A9F24716965066001C54B7 /* BuddyCheckInLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A9F24616965066001C54B7 /* BuddyCheckInLocation.m */; };
 		D4A9F249169650AB001C54B7 /* BuddyUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A9F248169650AB001C54B7 /* BuddyUser.m */; };
 		D4A9F24B169650EB001C54B7 /* BuddyGameScore.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A9F24A169650EB001C54B7 /* BuddyGameScore.m */; };
@@ -160,45 +145,6 @@
 		D4A9F28F16965912001C54B7 /* BuddyGamePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A9F28E16965911001C54B7 /* BuddyGamePlayer.m */; };
 		D4A9F29116965926001C54B7 /* BuddyGamePlayers.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A9F29016965925001C54B7 /* BuddyGamePlayers.m */; };
 		D4A9F29516965C1B001C54B7 /* BuddyMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A9F29416965C18001C54B7 /* BuddyMessage.m */; };
-		D4A9F2971696EAAE001C54B7 /* BuddyVirtualAlbum.h in Headers */ = {isa = PBXBuildFile; fileRef = D4A9F2961696EAAE001C54B7 /* BuddyVirtualAlbum.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4DF082D16F3952B00041D7A /* BuddyMetroArea.h in Headers */ = {isa = PBXBuildFile; fileRef = D4DF082C16F3952B00041D7A /* BuddyMetroArea.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4DF083016F3954300041D7A /* BuddyStartup.h in Headers */ = {isa = PBXBuildFile; fileRef = D4DF082F16F3954200041D7A /* BuddyStartup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4DF083216F3955200041D7A /* BuddyStartups.h in Headers */ = {isa = PBXBuildFile; fileRef = D4DF083116F3955200041D7A /* BuddyStartups.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4DF083416F3958500041D7A /* BuddyMetroArea.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DF083316F3958500041D7A /* BuddyMetroArea.m */; };
-		D4DF083616F3959000041D7A /* BuddyStartup.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DF083516F3959000041D7A /* BuddyStartup.m */; };
-		D4DF083816F3959E00041D7A /* BuddyStartups.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DF083716F3959E00041D7A /* BuddyStartups.m */; };
-		D4DF084016F399B700041D7A /* BuddyAll.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D4E4E80D169F8B4200C735B3 /* BuddyAll.h */; };
-		D4DF084116F399B700041D7A /* BuddyMetroArea.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D4DF082C16F3952B00041D7A /* BuddyMetroArea.h */; };
-		D4DF084216F399B700041D7A /* BuddyStartup.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D4DF082F16F3954200041D7A /* BuddyStartup.h */; };
-		D4DF084316F399B700041D7A /* BuddyStartups.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D4DF083116F3955200041D7A /* BuddyStartups.h */; };
-		D4E4E80E169F8B4200C735B3 /* BuddyAll.h in Headers */ = {isa = PBXBuildFile; fileRef = D4E4E80D169F8B4200C735B3 /* BuddyAll.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4F419601696251200C38DD3 /* BuddyGameScore.h in Headers */ = {isa = PBXBuildFile; fileRef = D4F4195F1696251200C38DD3 /* BuddyGameScore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4F419621696252300C38DD3 /* BuddyGameScores.h in Headers */ = {isa = PBXBuildFile; fileRef = D4F419611696252300C38DD3 /* BuddyGameScores.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4F419641696255E00C38DD3 /* BuddyGameState.h in Headers */ = {isa = PBXBuildFile; fileRef = D4F419631696255E00C38DD3 /* BuddyGameState.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4F419661696258100C38DD3 /* BuddyGameStates.h in Headers */ = {isa = PBXBuildFile; fileRef = D4F419651696258100C38DD3 /* BuddyGameStates.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4F41968169625BF00C38DD3 /* BuddyGroupMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = D4F41967169625BF00C38DD3 /* BuddyGroupMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4F4196A169625DE00C38DD3 /* BuddyIdentity.h in Headers */ = {isa = PBXBuildFile; fileRef = D4F41969169625DE00C38DD3 /* BuddyIdentity.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4F4196C1696261D00C38DD3 /* BuddyIdentityItem.h in Headers */ = {isa = PBXBuildFile; fileRef = D4F4196B1696261D00C38DD3 /* BuddyIdentityItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4F4196E1696263100C38DD3 /* BuddyIdentityItemSearchResult.h in Headers */ = {isa = PBXBuildFile; fileRef = D4F4196D1696263100C38DD3 /* BuddyIdentityItemSearchResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4F41970169626D400C38DD3 /* BuddyMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = D4F4196F169626D400C38DD3 /* BuddyMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4F41972169626EE00C38DD3 /* BuddyMessageGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = D4F41971169626EE00C38DD3 /* BuddyMessageGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4F419741696270B00C38DD3 /* BuddyMessageGroups.h in Headers */ = {isa = PBXBuildFile; fileRef = D4F419731696270B00C38DD3 /* BuddyMessageGroups.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4F419761696274F00C38DD3 /* BuddyMetadataItem.h in Headers */ = {isa = PBXBuildFile; fileRef = D4F419751696274F00C38DD3 /* BuddyMetadataItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4F419781696276600C38DD3 /* BuddyMetadataSum.h in Headers */ = {isa = PBXBuildFile; fileRef = D4F419771696276600C38DD3 /* BuddyMetadataSum.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4F4197A169627CA00C38DD3 /* BuddyNotificationsApple.h in Headers */ = {isa = PBXBuildFile; fileRef = D4F41979169627CA00C38DD3 /* BuddyNotificationsApple.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4F4197C169627E600C38DD3 /* BuddyPhotoAlbum.h in Headers */ = {isa = PBXBuildFile; fileRef = D4F4197B169627E600C38DD3 /* BuddyPhotoAlbum.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4F4197E1696280100C38DD3 /* BuddyPhotoAlbumPublic.h in Headers */ = {isa = PBXBuildFile; fileRef = D4F4197D1696280100C38DD3 /* BuddyPhotoAlbumPublic.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4F419801696285400C38DD3 /* BuddyPicture.h in Headers */ = {isa = PBXBuildFile; fileRef = D4F4197F1696285400C38DD3 /* BuddyPicture.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4F419821696286B00C38DD3 /* BuddyPicturePublic.h in Headers */ = {isa = PBXBuildFile; fileRef = D4F419811696286B00C38DD3 /* BuddyPicturePublic.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4F41984169628AC00C38DD3 /* BuddyPhotoAlbums.h in Headers */ = {isa = PBXBuildFile; fileRef = D4F41983169628AC00C38DD3 /* BuddyPhotoAlbums.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4F4198616962C6200C38DD3 /* BuddyPlace.h in Headers */ = {isa = PBXBuildFile; fileRef = D4F4198516962C6200C38DD3 /* BuddyPlace.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4F4198816962C7800C38DD3 /* BuddyPlaces.h in Headers */ = {isa = PBXBuildFile; fileRef = D4F4198716962C7800C38DD3 /* BuddyPlaces.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4F4198A16962C9000C38DD3 /* BuddyRegisteredDeviceApple.h in Headers */ = {isa = PBXBuildFile; fileRef = D4F4198916962C9000C38DD3 /* BuddyRegisteredDeviceApple.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4F4198E16962CE000C38DD3 /* BuddyUserMetadata.h in Headers */ = {isa = PBXBuildFile; fileRef = D4F4198D16962CE000C38DD3 /* BuddyUserMetadata.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4F4199216962D3E00C38DD3 /* BuddyVirtualAlbums.h in Headers */ = {isa = PBXBuildFile; fileRef = D4F4199116962D3E00C38DD3 /* BuddyVirtualAlbums.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4F4199416963ECE00C38DD3 /* BuddyDataResponses.h in Headers */ = {isa = PBXBuildFile; fileRef = D4F4199316963ECD00C38DD3 /* BuddyDataResponses.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4F4199616963EE500C38DD3 /* BuddyBoolResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D4F4199516963EE400C38DD3 /* BuddyBoolResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4F4199816963F0800C38DD3 /* BuddyCallbackParams.h in Headers */ = {isa = PBXBuildFile; fileRef = D4F4199716963F0400C38DD3 /* BuddyCallbackParams.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -208,18 +154,18 @@
 			dstPath = include;
 			dstSubfolderSpec = 16;
 			files = (
-				1B94D4FA175028D600B70454 /* BuddyBlob.h in CopyFiles */,
-				1B94D4FB175028D600B70454 /* BuddyBlobs.h in CopyFiles */,
-				1B94D4FC175028D600B70454 /* BuddySounds.h in CopyFiles */,
-				1B94D4FD175028D600B70454 /* BuddyVideo.h in CopyFiles */,
-				1B94D4FE175028D600B70454 /* BuddyVideos.h in CopyFiles */,
-				D41885FC16F53F9A00385248 /* BuddyCommerce.h in CopyFiles */,
-				D41885FD16F53F9A00385248 /* BuddyReceipt.h in CopyFiles */,
-				D41885FE16F53F9A00385248 /* BuddyStoreItem.h in CopyFiles */,
-				D4DF084016F399B700041D7A /* BuddyAll.h in CopyFiles */,
-				D4DF084116F399B700041D7A /* BuddyMetroArea.h in CopyFiles */,
-				D4DF084216F399B700041D7A /* BuddyStartup.h in CopyFiles */,
-				D4DF084316F399B700041D7A /* BuddyStartups.h in CopyFiles */,
+				2908845D17750816001C9DEF /* BuddyBlob.h in CopyFiles */,
+				2908845E17750816001C9DEF /* BuddyBlobs.h in CopyFiles */,
+				2908845F17750816001C9DEF /* BuddyCommerce.h in CopyFiles */,
+				2908846017750816001C9DEF /* BuddyReceipt.h in CopyFiles */,
+				2908846117750816001C9DEF /* BuddySounds.h in CopyFiles */,
+				2908846217750816001C9DEF /* BuddyStartup.h in CopyFiles */,
+				2908846317750816001C9DEF /* BuddyStartups.h in CopyFiles */,
+				2908846417750816001C9DEF /* BuddyStoreItem.h in CopyFiles */,
+				2908846517750816001C9DEF /* BuddyVideo.h in CopyFiles */,
+				2908846617750816001C9DEF /* BuddyVideos.h in CopyFiles */,
+				2908846717750816001C9DEF /* BuddyMetroArea.h in CopyFiles */,
+				2908846817750816001C9DEF /* BuddyAll.h in CopyFiles */,
 				D474B2A41698DEE00020204D /* BuddyNotificationsApple.h in CopyFiles */,
 				D474B2791698ACE90020204D /* BuddyVirtualAlbum.h in CopyFiles */,
 				D474B27A1698ACE90020204D /* BuddyEnums.h in CopyFiles */,
@@ -268,16 +214,30 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1B94D4E617500FA500B70454 /* BuddyBlob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddyBlob.h; path = ../../../Lib/BuddySDK/Public/BuddyBlob.h; sourceTree = "<group>"; };
-		1B94D4E717500FA500B70454 /* BuddyBlobs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddyBlobs.h; path = ../../../Lib/BuddySDK/Public/BuddyBlobs.h; sourceTree = "<group>"; };
-		1B94D4E817500FA500B70454 /* BuddySounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddySounds.h; path = ../../../Lib/BuddySDK/Public/BuddySounds.h; sourceTree = "<group>"; };
-		1B94D4E917500FA500B70454 /* BuddyVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddyVideo.h; path = ../../../Lib/BuddySDK/Public/BuddyVideo.h; sourceTree = "<group>"; };
-		1B94D4EA17500FA500B70454 /* BuddyVideos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddyVideos.h; path = ../../../Lib/BuddySDK/Public/BuddyVideos.h; sourceTree = "<group>"; };
-		1B94D4F017500FC500B70454 /* BuddyBlob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyBlob.m; path = ../../Lib/BuddySDK/Internal/BuddyBlob.m; sourceTree = "<group>"; };
-		1B94D4F117500FC500B70454 /* BuddyBlobs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyBlobs.m; path = ../../Lib/BuddySDK/Internal/BuddyBlobs.m; sourceTree = "<group>"; };
-		1B94D4F217500FC500B70454 /* BuddySounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddySounds.m; path = ../../Lib/BuddySDK/Internal/BuddySounds.m; sourceTree = "<group>"; };
-		1B94D4F317500FC500B70454 /* BuddyVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyVideo.m; path = ../../Lib/BuddySDK/Internal/BuddyVideo.m; sourceTree = "<group>"; };
-		1B94D4F417500FC500B70454 /* BuddyVideos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyVideos.m; path = ../../Lib/BuddySDK/Internal/BuddyVideos.m; sourceTree = "<group>"; };
+		2908837C17750018001C9DEF /* BuddyMetroArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddyMetroArea.h; path = ../../../Lib/BuddySDK/Public/BuddyMetroArea.h; sourceTree = "<group>"; };
+		2908837E1775002E001C9DEF /* BuddyBlob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddyBlob.h; path = ../../../Lib/BuddySDK/Public/BuddyBlob.h; sourceTree = "<group>"; };
+		2908837F1775002E001C9DEF /* BuddyBlobs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddyBlobs.h; path = ../../../Lib/BuddySDK/Public/BuddyBlobs.h; sourceTree = "<group>"; };
+		290883801775002E001C9DEF /* BuddyCommerce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddyCommerce.h; path = ../../../Lib/BuddySDK/Public/BuddyCommerce.h; sourceTree = "<group>"; };
+		290883811775002E001C9DEF /* BuddyReceipt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddyReceipt.h; path = ../../../Lib/BuddySDK/Public/BuddyReceipt.h; sourceTree = "<group>"; };
+		290883821775002E001C9DEF /* BuddySounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddySounds.h; path = ../../../Lib/BuddySDK/Public/BuddySounds.h; sourceTree = "<group>"; };
+		290883831775002E001C9DEF /* BuddyStartup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddyStartup.h; path = ../../../Lib/BuddySDK/Public/BuddyStartup.h; sourceTree = "<group>"; };
+		290883841775002E001C9DEF /* BuddyStartups.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddyStartups.h; path = ../../../Lib/BuddySDK/Public/BuddyStartups.h; sourceTree = "<group>"; };
+		290883851775002E001C9DEF /* BuddyStoreItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddyStoreItem.h; path = ../../../Lib/BuddySDK/Public/BuddyStoreItem.h; sourceTree = "<group>"; };
+		290883861775002E001C9DEF /* BuddyVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddyVideo.h; path = ../../../Lib/BuddySDK/Public/BuddyVideo.h; sourceTree = "<group>"; };
+		290883871775002E001C9DEF /* BuddyVideos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddyVideos.h; path = ../../../Lib/BuddySDK/Public/BuddyVideos.h; sourceTree = "<group>"; };
+		290883921775005D001C9DEF /* BuddyBlob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyBlob.m; path = ../../Lib/BuddySDK/Internal/BuddyBlob.m; sourceTree = "<group>"; };
+		290883931775005D001C9DEF /* BuddyBlobs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyBlobs.m; path = ../../Lib/BuddySDK/Internal/BuddyBlobs.m; sourceTree = "<group>"; };
+		290883941775005D001C9DEF /* BuddyCommerce.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyCommerce.m; path = ../../Lib/BuddySDK/Internal/BuddyCommerce.m; sourceTree = "<group>"; };
+		290883951775005D001C9DEF /* BuddyMetroArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyMetroArea.m; path = ../../Lib/BuddySDK/Internal/BuddyMetroArea.m; sourceTree = "<group>"; };
+		290883961775005D001C9DEF /* BuddyReceipt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyReceipt.m; path = ../../Lib/BuddySDK/Internal/BuddyReceipt.m; sourceTree = "<group>"; };
+		290883971775005D001C9DEF /* BuddySounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddySounds.m; path = ../../Lib/BuddySDK/Internal/BuddySounds.m; sourceTree = "<group>"; };
+		290883981775005D001C9DEF /* BuddyStartup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyStartup.m; path = ../../Lib/BuddySDK/Internal/BuddyStartup.m; sourceTree = "<group>"; };
+		290883991775005D001C9DEF /* BuddyStartups.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyStartups.m; path = ../../Lib/BuddySDK/Internal/BuddyStartups.m; sourceTree = "<group>"; };
+		2908839A1775005D001C9DEF /* BuddyStoreItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyStoreItem.m; path = ../../Lib/BuddySDK/Internal/BuddyStoreItem.m; sourceTree = "<group>"; };
+		2908839B1775005D001C9DEF /* BuddyVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyVideo.m; path = ../../Lib/BuddySDK/Internal/BuddyVideo.m; sourceTree = "<group>"; };
+		2908839C1775005D001C9DEF /* BuddyVideos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyVideos.m; path = ../../Lib/BuddySDK/Internal/BuddyVideos.m; sourceTree = "<group>"; };
+		29345A5A1773D2A400EEB8F5 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		29345ABD1773DB3B00EEB8F5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2946DE03174D696A005BE2F4 /* BuddyFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddyFile.h; path = Internal/BuddyFile.h; sourceTree = "<group>"; };
 		2946DE04174D696A005BE2F4 /* BuddyFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyFile.m; path = Internal/BuddyFile.m; sourceTree = "<group>"; };
 		A6291F7C165C01800051F83C /* libBuddySDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBuddySDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -310,12 +270,6 @@
 		D40FDAB91695FC7F0028C609 /* BuddyWebWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyWebWrapper.m; path = Internal/BuddyWebWrapper.m; sourceTree = "<group>"; };
 		D40FDABC1695FCE00028C609 /* BuddyUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddyUtility.h; path = Internal/BuddyUtility.h; sourceTree = "<group>"; };
 		D40FDABD1695FCE00028C609 /* BuddyUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyUtility.m; path = Internal/BuddyUtility.m; sourceTree = "<group>"; };
-		D41885E716F3BE8800385248 /* BuddyCommerce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddyCommerce.h; path = ../../../Lib/BuddySDK/Public/BuddyCommerce.h; sourceTree = "<group>"; };
-		D41885EA16F3BE9D00385248 /* BuddyStoreItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddyStoreItem.h; path = ../../../Lib/BuddySDK/Public/BuddyStoreItem.h; sourceTree = "<group>"; };
-		D41885EC16F3BEB200385248 /* BuddyCommerce.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyCommerce.m; path = ../../Lib/BuddySDK/Internal/BuddyCommerce.m; sourceTree = "<group>"; };
-		D41885EE16F3BEBD00385248 /* BuddyStoreItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyStoreItem.m; path = ../../Lib/BuddySDK/Internal/BuddyStoreItem.m; sourceTree = "<group>"; };
-		D41885F716F3D52B00385248 /* BuddyReceipt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddyReceipt.h; path = ../../../Lib/BuddySDK/Public/BuddyReceipt.h; sourceTree = "<group>"; };
-		D41885FA16F3D53B00385248 /* BuddyReceipt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyReceipt.m; path = ../../Lib/BuddySDK/Internal/BuddyReceipt.m; sourceTree = "<group>"; };
 		D47220C2169614340066A899 /* BuddyUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuddyUser.h; sourceTree = "<group>"; };
 		D47220C4169614B30066A899 /* BuddyClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = BuddyClient.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		D47220C6169615430066A899 /* BuddyMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuddyMessages.h; sourceTree = "<group>"; };
@@ -375,12 +329,6 @@
 		D4A9F29416965C18001C54B7 /* BuddyMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyMessage.m; path = Internal/BuddyMessage.m; sourceTree = "<group>"; };
 		D4A9F2961696EAAE001C54B7 /* BuddyVirtualAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuddyVirtualAlbum.h; sourceTree = "<group>"; };
 		D4B61EB0168DB6F6005D1D38 /* BuddyDataResponses_Exn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BuddyDataResponses_Exn.h; path = Internal/BuddyDataResponses_Exn.h; sourceTree = "<group>"; };
-		D4DF082C16F3952B00041D7A /* BuddyMetroArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddyMetroArea.h; path = ../../../Lib/BuddySDK/Public/BuddyMetroArea.h; sourceTree = "<group>"; };
-		D4DF082F16F3954200041D7A /* BuddyStartup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddyStartup.h; path = ../../../Lib/BuddySDK/Public/BuddyStartup.h; sourceTree = "<group>"; };
-		D4DF083116F3955200041D7A /* BuddyStartups.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddyStartups.h; path = ../../../Lib/BuddySDK/Public/BuddyStartups.h; sourceTree = "<group>"; };
-		D4DF083316F3958500041D7A /* BuddyMetroArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyMetroArea.m; path = ../../Lib/BuddySDK/Internal/BuddyMetroArea.m; sourceTree = "<group>"; };
-		D4DF083516F3959000041D7A /* BuddyStartup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyStartup.m; path = ../../Lib/BuddySDK/Internal/BuddyStartup.m; sourceTree = "<group>"; };
-		D4DF083716F3959E00041D7A /* BuddyStartups.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyStartups.m; path = ../../Lib/BuddySDK/Internal/BuddyStartups.m; sourceTree = "<group>"; };
 		D4E1EF061682151D0023A208 /* BuddyClient_Exn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BuddyClient_Exn.h; path = Internal/BuddyClient_Exn.h; sourceTree = "<group>"; };
 		D4E4E80D169F8B4200C735B3 /* BuddyAll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuddyAll.h; sourceTree = "<group>"; };
 		D4F4195F1696251200C38DD3 /* BuddyGameScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuddyGameScore.h; sourceTree = "<group>"; };
@@ -417,6 +365,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29345ABE1773DB3B00EEB8F5 /* UIKit.framework in Frameworks */,
 				A6291F80165C01800051F83C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,6 +376,8 @@
 		A6291F71165C01800051F83C = {
 			isa = PBXGroup;
 			children = (
+				29345ABD1773DB3B00EEB8F5 /* UIKit.framework */,
+				29345A5A1773D2A400EEB8F5 /* AdSupport.framework */,
 				A6291F81165C01800051F83C /* BuddySDK */,
 				A6291F7E165C01800051F83C /* Frameworks */,
 				A6291F7D165C01800051F83C /* Products */,
@@ -503,11 +454,17 @@
 		D47220C0169613F60066A899 /* Public */ = {
 			isa = PBXGroup;
 			children = (
-				1B94D4E617500FA500B70454 /* BuddyBlob.h */,
-				1B94D4E717500FA500B70454 /* BuddyBlobs.h */,
-				1B94D4E817500FA500B70454 /* BuddySounds.h */,
-				1B94D4E917500FA500B70454 /* BuddyVideo.h */,
-				1B94D4EA17500FA500B70454 /* BuddyVideos.h */,
+				2908837E1775002E001C9DEF /* BuddyBlob.h */,
+				2908837F1775002E001C9DEF /* BuddyBlobs.h */,
+				290883801775002E001C9DEF /* BuddyCommerce.h */,
+				290883811775002E001C9DEF /* BuddyReceipt.h */,
+				290883821775002E001C9DEF /* BuddySounds.h */,
+				290883831775002E001C9DEF /* BuddyStartup.h */,
+				290883841775002E001C9DEF /* BuddyStartups.h */,
+				290883851775002E001C9DEF /* BuddyStoreItem.h */,
+				290883861775002E001C9DEF /* BuddyVideo.h */,
+				290883871775002E001C9DEF /* BuddyVideos.h */,
+				2908837C17750018001C9DEF /* BuddyMetroArea.h */,
 				D4E4E80D169F8B4200C735B3 /* BuddyAll.h */,
 				D47220C8169615AD0066A899 /* BuddyApplicationStatistics.h */,
 				D47220CA169615DB0066A899 /* BuddyAppMetadata.h */,
@@ -516,7 +473,6 @@
 				D4F4199716963F0400C38DD3 /* BuddyCallbackParams.h */,
 				D47220CC1696162C0066A899 /* BuddyCheckInLocation.h */,
 				D47220C4169614B30066A899 /* BuddyClient.h */,
-				D41885E716F3BE8800385248 /* BuddyCommerce.h */,
 				D4F4199316963ECD00C38DD3 /* BuddyDataResponses.h */,
 				D47220D0169616F80066A899 /* BuddyDevice.h */,
 				D4A9F24416964FD4001C54B7 /* BuddyEnums.h */,
@@ -539,7 +495,6 @@
 				D47220C6169615430066A899 /* BuddyMessages.h */,
 				D4F419751696274F00C38DD3 /* BuddyMetadataItem.h */,
 				D4F419771696276600C38DD3 /* BuddyMetadataSum.h */,
-				D4DF082C16F3952B00041D7A /* BuddyMetroArea.h */,
 				D4F41979169627CA00C38DD3 /* BuddyNotificationsApple.h */,
 				D4F4197B169627E600C38DD3 /* BuddyPhotoAlbum.h */,
 				D4F4197D1696280100C38DD3 /* BuddyPhotoAlbumPublic.h */,
@@ -548,11 +503,7 @@
 				D4F419811696286B00C38DD3 /* BuddyPicturePublic.h */,
 				D4F4198516962C6200C38DD3 /* BuddyPlace.h */,
 				D4F4198716962C7800C38DD3 /* BuddyPlaces.h */,
-				D41885F716F3D52B00385248 /* BuddyReceipt.h */,
 				D4F4198916962C9000C38DD3 /* BuddyRegisteredDeviceApple.h */,
-				D4DF082F16F3954200041D7A /* BuddyStartup.h */,
-				D4DF083116F3955200041D7A /* BuddyStartups.h */,
-				D41885EA16F3BE9D00385248 /* BuddyStoreItem.h */,
 				D47220C2169614340066A899 /* BuddyUser.h */,
 				D4F4198D16962CE000C38DD3 /* BuddyUserMetadata.h */,
 				D4A9F2961696EAAE001C54B7 /* BuddyVirtualAlbum.h */,
@@ -564,11 +515,17 @@
 		D4E9DE95166663AB00D28D59 /* Internal */ = {
 			isa = PBXGroup;
 			children = (
-				1B94D4F017500FC500B70454 /* BuddyBlob.m */,
-				1B94D4F117500FC500B70454 /* BuddyBlobs.m */,
-				1B94D4F217500FC500B70454 /* BuddySounds.m */,
-				1B94D4F317500FC500B70454 /* BuddyVideo.m */,
-				1B94D4F417500FC500B70454 /* BuddyVideos.m */,
+				290883921775005D001C9DEF /* BuddyBlob.m */,
+				290883931775005D001C9DEF /* BuddyBlobs.m */,
+				290883941775005D001C9DEF /* BuddyCommerce.m */,
+				290883951775005D001C9DEF /* BuddyMetroArea.m */,
+				290883961775005D001C9DEF /* BuddyReceipt.m */,
+				290883971775005D001C9DEF /* BuddySounds.m */,
+				290883981775005D001C9DEF /* BuddyStartup.m */,
+				290883991775005D001C9DEF /* BuddyStartups.m */,
+				2908839A1775005D001C9DEF /* BuddyStoreItem.m */,
+				2908839B1775005D001C9DEF /* BuddyVideo.m */,
+				2908839C1775005D001C9DEF /* BuddyVideos.m */,
 				D4A9F28616965861001C54B7 /* BuddyApplicationStatistics.m */,
 				D4A9F2841696584B001C54B7 /* BuddyAppMetadata.m */,
 				D4A9F25C169652D2001C54B7 /* BuddyAuthenticatedUser.m */,
@@ -577,7 +534,6 @@
 				D4A9F24616965066001C54B7 /* BuddyCheckInLocation.m */,
 				D4A9F24216964F78001C54B7 /* BuddyClient.m */,
 				D4E1EF061682151D0023A208 /* BuddyClient_Exn.h */,
-				D41885EC16F3BEB200385248 /* BuddyCommerce.m */,
 				D4A9F23C16964C8B001C54B7 /* BuddyDataResponses.m */,
 				D4B61EB0168DB6F6005D1D38 /* BuddyDataResponses_Exn.h */,
 				D4A9F2661696550B001C54B7 /* BuddyDevice.m */,
@@ -600,7 +556,6 @@
 				D4A9F28A169658DF001C54B7 /* BuddyMessages.m */,
 				D4A9F28216965833001C54B7 /* BuddyMetadataItem.m */,
 				D4A9F2801696581D001C54B7 /* BuddyMetadataSum.m */,
-				D4DF083316F3958500041D7A /* BuddyMetroArea.m */,
 				D4A9F25216965185001C54B7 /* BuddyNotificationsApple.m */,
 				D4A9F2541696524D001C54B7 /* BuddyPhotoAlbum.m */,
 				D4A9F25616965261001C54B7 /* BuddyPhotoAlbumPublic.m */,
@@ -609,11 +564,7 @@
 				D4A9F25E16965312001C54B7 /* BuddyPicturePublic.m */,
 				D4A9F26216965338001C54B7 /* BuddyPlace.m */,
 				D4A9F26416965348001C54B7 /* BuddyPlaces.m */,
-				D41885FA16F3D53B00385248 /* BuddyReceipt.m */,
 				D4A9F25A169652BD001C54B7 /* BuddyRegisteredDeviceApple.m */,
-				D4DF083516F3959000041D7A /* BuddyStartup.m */,
-				D4DF083716F3959E00041D7A /* BuddyStartups.m */,
-				D41885EE16F3BEBD00385248 /* BuddyStoreItem.m */,
 				D4A9F248169650AB001C54B7 /* BuddyUser.m */,
 				D4A9F288169658C0001C54B7 /* BuddyUserMetadata.m */,
 				D40FDABC1695FCE00028C609 /* BuddyUtility.h */,
@@ -636,61 +587,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D47220C7169615430066A899 /* BuddyMessages.h in Headers */,
-				D47220C9169615AD0066A899 /* BuddyApplicationStatistics.h in Headers */,
-				D47220CB169615DB0066A899 /* BuddyAppMetadata.h in Headers */,
-				D47220CD1696162C0066A899 /* BuddyCheckInLocation.h in Headers */,
-				D47220CF1696164C0066A899 /* BuddyAuthenticatedUser.h in Headers */,
-				D47220D1169616F80066A899 /* BuddyDevice.h in Headers */,
-				D47220D3169617190066A899 /* BuddyFriendRequests.h in Headers */,
-				D47220D5169623AE0066A899 /* BuddyFriends.h in Headers */,
-				D47220D7169623CF0066A899 /* BuddyGameBoards.h in Headers */,
-				D47220D9169624130066A899 /* BuddyGamePlayer.h in Headers */,
-				D47220DB1696243A0066A899 /* BuddyGamePlayers.h in Headers */,
-				D4F419601696251200C38DD3 /* BuddyGameScore.h in Headers */,
-				D4F419621696252300C38DD3 /* BuddyGameScores.h in Headers */,
-				D4F419641696255E00C38DD3 /* BuddyGameState.h in Headers */,
-				D4F419661696258100C38DD3 /* BuddyGameStates.h in Headers */,
-				D4F41968169625BF00C38DD3 /* BuddyGroupMessage.h in Headers */,
-				D4F4196A169625DE00C38DD3 /* BuddyIdentity.h in Headers */,
-				D4F4196C1696261D00C38DD3 /* BuddyIdentityItem.h in Headers */,
-				D4F4196E1696263100C38DD3 /* BuddyIdentityItemSearchResult.h in Headers */,
-				D4F41970169626D400C38DD3 /* BuddyMessage.h in Headers */,
-				D4F41972169626EE00C38DD3 /* BuddyMessageGroup.h in Headers */,
-				D4F419741696270B00C38DD3 /* BuddyMessageGroups.h in Headers */,
-				D4F419761696274F00C38DD3 /* BuddyMetadataItem.h in Headers */,
-				2946DE05174D696A005BE2F4 /* BuddyFile.h in Headers */,
-				1B94D4EB17500FA500B70454 /* BuddyBlob.h in Headers */,
-				1B94D4EC17500FA500B70454 /* BuddyBlobs.h in Headers */,
-				1B94D4ED17500FA500B70454 /* BuddySounds.h in Headers */,
-				1B94D4EE17500FA500B70454 /* BuddyVideo.h in Headers */,
-				1B94D4EF17500FA500B70454 /* BuddyVideos.h in Headers */,
-				D4F419781696276600C38DD3 /* BuddyMetadataSum.h in Headers */,
-				D47220C3169614340066A899 /* BuddyUser.h in Headers */,
-				D4F4197A169627CA00C38DD3 /* BuddyNotificationsApple.h in Headers */,
-				D4F4197C169627E600C38DD3 /* BuddyPhotoAlbum.h in Headers */,
-				D4F4197E1696280100C38DD3 /* BuddyPhotoAlbumPublic.h in Headers */,
-				D4F419801696285400C38DD3 /* BuddyPicture.h in Headers */,
-				D4F419821696286B00C38DD3 /* BuddyPicturePublic.h in Headers */,
-				D4F41984169628AC00C38DD3 /* BuddyPhotoAlbums.h in Headers */,
-				D4F4198616962C6200C38DD3 /* BuddyPlace.h in Headers */,
-				D4F4198816962C7800C38DD3 /* BuddyPlaces.h in Headers */,
-				D4F4198A16962C9000C38DD3 /* BuddyRegisteredDeviceApple.h in Headers */,
-				D4F4198E16962CE000C38DD3 /* BuddyUserMetadata.h in Headers */,
-				D4F4199216962D3E00C38DD3 /* BuddyVirtualAlbums.h in Headers */,
-				D4F4199416963ECE00C38DD3 /* BuddyDataResponses.h in Headers */,
-				D4F4199616963EE500C38DD3 /* BuddyBoolResponse.h in Headers */,
-				D4A9F24516964FD4001C54B7 /* BuddyEnums.h in Headers */,
-				D4A9F2971696EAAE001C54B7 /* BuddyVirtualAlbum.h in Headers */,
-				D4F4199816963F0800C38DD3 /* BuddyCallbackParams.h in Headers */,
-				D4E4E80E169F8B4200C735B3 /* BuddyAll.h in Headers */,
-				D4DF082D16F3952B00041D7A /* BuddyMetroArea.h in Headers */,
-				D4DF083016F3954300041D7A /* BuddyStartup.h in Headers */,
-				D4DF083216F3955200041D7A /* BuddyStartups.h in Headers */,
-				D41885E816F3BE8800385248 /* BuddyCommerce.h in Headers */,
-				D41885EB16F3BE9D00385248 /* BuddyStoreItem.h in Headers */,
-				D41885F816F3D52B00385248 /* BuddyReceipt.h in Headers */,
-				D47220C5169614B30066A899 /* BuddyClient.h in Headers */,
 				D40FDA9F1695F5060028C609 /* AFHTTPClient.h in Headers */,
 				D40FDAA11695F5060028C609 /* AFHTTPRequestOperation.h in Headers */,
 				D40FDAA31695F5060028C609 /* AFImageRequestOperation.h in Headers */,
@@ -834,17 +730,17 @@
 				D4A9F29516965C1B001C54B7 /* BuddyMessage.m in Sources */,
 				D474B3AF169B7AA70020204D /* AFJSONUtilities.m in Sources */,
 				2946DE06174D696A005BE2F4 /* BuddyFile.m in Sources */,
-				1B94D4F517500FC500B70454 /* BuddyBlob.m in Sources */,
-				1B94D4F617500FC500B70454 /* BuddyBlobs.m in Sources */,
-				1B94D4F717500FC500B70454 /* BuddySounds.m in Sources */,
-				1B94D4F817500FC500B70454 /* BuddyVideo.m in Sources */,
-				1B94D4F917500FC500B70454 /* BuddyVideos.m in Sources */,
-				D4DF083416F3958500041D7A /* BuddyMetroArea.m in Sources */,
-				D4DF083616F3959000041D7A /* BuddyStartup.m in Sources */,
-				D4DF083816F3959E00041D7A /* BuddyStartups.m in Sources */,
-				D41885ED16F3BEB200385248 /* BuddyCommerce.m in Sources */,
-				D41885EF16F3BEBD00385248 /* BuddyStoreItem.m in Sources */,
-				D41885FB16F3D53B00385248 /* BuddyReceipt.m in Sources */,
+				2908839D1775005D001C9DEF /* BuddyBlob.m in Sources */,
+				2908839E1775005D001C9DEF /* BuddyBlobs.m in Sources */,
+				2908839F1775005D001C9DEF /* BuddyCommerce.m in Sources */,
+				290883A01775005D001C9DEF /* BuddyMetroArea.m in Sources */,
+				290883A11775005D001C9DEF /* BuddyReceipt.m in Sources */,
+				290883A21775005D001C9DEF /* BuddySounds.m in Sources */,
+				290883A31775005D001C9DEF /* BuddyStartup.m in Sources */,
+				290883A41775005D001C9DEF /* BuddyStartups.m in Sources */,
+				290883A51775005D001C9DEF /* BuddyStoreItem.m in Sources */,
+				290883A61775005D001C9DEF /* BuddyVideo.m in Sources */,
+				290883A71775005D001C9DEF /* BuddyVideos.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -864,7 +760,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 0.1.3;
+				CURRENT_PROJECT_VERSION = 0.1.1;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
@@ -914,7 +810,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 0.1.3;
+				CURRENT_PROJECT_VERSION = 0.1.1;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
@@ -951,7 +847,7 @@
 				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = NO;
 				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = NO;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
-				CURRENT_PROJECT_VERSION = 0.1.3;
+				CURRENT_PROJECT_VERSION = 0.1.1;
 				DSTROOT = /tmp/BuddySDK.dst;
 				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = NO;
@@ -970,10 +866,7 @@
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				"INSTALL_PATH[sdk=*]" = /usr/local/lib;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				LIBRARY_SEARCH_PATHS = (
-					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/lib\"",
-					"\"$(SRCROOT)/../Lib/BuddySDK/Release-Lib\"",
-				);
+				LIBRARY_SEARCH_PATHS = "\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/lib\"";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "";
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
@@ -994,7 +887,7 @@
 				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = NO;
 				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = NO;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
-				CURRENT_PROJECT_VERSION = 0.1.3;
+				CURRENT_PROJECT_VERSION = 0.1.1;
 				DSTROOT = /tmp/BuddySDK.dst;
 				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = NO;
@@ -1011,10 +904,7 @@
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				LIBRARY_SEARCH_PATHS = (
-					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/lib\"",
-					"\"$(SRCROOT)/../Lib/BuddySDK/Release-Lib\"",
-				);
+				LIBRARY_SEARCH_PATHS = "\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/lib\"";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "";
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";

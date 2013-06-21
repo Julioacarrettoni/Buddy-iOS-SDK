@@ -48,7 +48,7 @@
 
 -(void)getSound:(NSString *)soundName
         quality:(Qualities)quality
-       callback:(void(^)(NSData *))callback
+       callback:(void(^)(NSData * data))callback
 {
     NSString* qualStr;
     switch (quality) {
@@ -64,8 +64,8 @@
     }
     
     
-    [[client webService] Sound_Sounds_GetSound:soundName Quality:qualStr callback:[^(BuddyCallbackParams *callbackParams, id jsonArray){
-        //TODO
+    [[client webService] Sound_Sounds_GetSound:soundName Quality:qualStr callback:[^(BuddyCallbackParams *callbackParams, NSData* data){
+        callback(data);
     } copy ]];
 }
 
