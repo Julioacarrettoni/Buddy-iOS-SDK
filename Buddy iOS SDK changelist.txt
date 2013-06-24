@@ -19,3 +19,7 @@
 0.1.3
 
 	Corrected a handful of casing issues.
+
+0.1.4
+
+        Added support for Buddy's Sound, Video, and Blob APIs.  Added support for social login.

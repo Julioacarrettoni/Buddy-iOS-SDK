@@ -127,7 +127,7 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
       {
           if (response.isCompleted) {
               NSLog(@"deleteBlob OK");
-              Boolean success = response.result;
+              // Boolean success = response.result;
           }
       } copy]];
 }
@@ -139,7 +139,7 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
            if(response.isCompleted)
            {
                NSLog(@"editBlob OK");
-               Boolean success = response.result;
+               // Boolean success = response.result;
            }
            else{
                STFail(@"editBlob failed !response.isCompleted");

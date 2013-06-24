@@ -157,7 +157,7 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
             {
                 if(response.isCompleted)
                 {
-                    NSString *url = response.result.videoUrl;
+                    // NSString *url = response.result.videoUrl;
                     NSLog(@"addVideo OK");
                     video = response.result;
                 }
