@@ -359,6 +359,14 @@ typedef void (^BuddyRecordSessionMetricCallback)(BuddyBoolResponse *response);
                   callback:(BuddyClientCheckIfEmailExistsCallback)callback;
 
 /// <summary>
+/// Check if another user with the same username already exists in the system.
+/// </summary>
+/// <param name="username">The username to check for, can't be nil.</param>
+/// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on it the email address exists, FALSE otherwise.</param>
+- (void)checkIfUsernameExists:(NSString *)userName
+                     callback:(BuddyClientCheckIfUsernameExistsCallback)callback;
+
+/// <summary>
 /// Starts an analytics session
 /// </summary>
 /// <param name="user">The user that is starting this session.</param>

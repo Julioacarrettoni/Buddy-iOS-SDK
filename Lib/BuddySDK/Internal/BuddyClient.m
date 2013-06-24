@@ -742,16 +742,24 @@
 														   } copy]];
 }
 
+
 - (void)CheckIfUsernameExists:(NSString *)userName
-						
+
+					 callback:(void (^)(BuddyBoolResponse *response))block
+{
+    [self checkIfUsernameExists:userName callback:block];
+}
+
+- (void)checkIfUsernameExists:(NSString *)userName
+
 					 callback:(void (^)(BuddyBoolResponse *response))block
 {
 	[self checkUserName:userName functionName:@"CheckIfUsernameExists"];
-
-	[[self webService] UserAccount_Profile_CheckUserName:userName RESERVED:@"" 
+    
+	[[self webService] UserAccount_Profile_CheckUserName:userName RESERVED:@""
 												callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
 														  {
-															  if (block)
+                                                            if (block)
 															  {
 																  BOOL userNameExists = FALSE;
 																  NSString *dataResult = callbackParams.stringResult;
@@ -764,7 +772,7 @@
 																  {
 																	  exception = [BuddyUtility buildBuddyUnknownErrorException:dataResult];
 																  }
-
+                                                                  
 																  if (exception)
 																  {
 																	  block([[BuddyBoolResponse alloc] initUnKnownErrorResponse:callbackParams exception:exception]);
