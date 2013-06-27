@@ -533,7 +533,7 @@ static NSArray *validErrors;
 					   @"CouldNotUpdateInformation",
 					   @"HTTP 400 Response",
 					   @"GenericFilterApplicationIssue",
-					   @"CouldNotfindFilteredPhoto",@"iOsReceiptSandboxSettingInvalid", @"FileLargerThanMaxSize"
+					   @"CouldNotfindFilteredPhoto",@"iOsReceiptSandboxSettingInvalid", @"FileLargerThanMaxSize",
 					   nil];
 	}
     
