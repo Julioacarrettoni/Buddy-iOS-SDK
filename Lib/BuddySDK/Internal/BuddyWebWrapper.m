@@ -346,6 +346,26 @@ static NSString *const BuddySDKHeaderValue = @"iOS,v0.1.4";
 	[self makeRequest:@"UserAccount_Location_GetHistory" params:params  callback:callback];
 }
 
+- (void)UserAccount_Profile_RequestPasswordReset:(NSString *)UserName callback:(void (^)(BuddyCallbackParams *, id))callback
+{
+    NSMutableString *params = [BuddyUtility setParams:@"UserAccount_Profile_RequestPasswordReset" appName:client.appName appPassword:client.appPassword];
+    
+    [params appendFormat:@"&UserName=%@", [BuddyUtility encodeValue:UserName]];
+    
+    [self makeRequest:@"UserAccount_Profile_RequestPasswordReset" params:params callback:callback];
+}
+
+- (void)UserAccount_Profile_ResetPassword:(NSString *)UserName ResetCode:(NSString *)ResetCode NewPassword:(NSString *)NewPassword callback:(void (^)(BuddyCallbackParams *, id))callback
+{
+    NSMutableString *params = [BuddyUtility setParams:@"UserAccount_Profile_ResetPassword" appName:client.appName appPassword:client.appPassword];
+    
+    [params appendFormat:@"&UserName=%@", [BuddyUtility encodeValue:UserName]];
+    [params appendFormat:@"&ResetCode=%@", [BuddyUtility encodeValue:ResetCode]];
+    [params appendFormat:@"&NewPassword=%@", [BuddyUtility encodeValue:NewPassword]];
+    
+    [self makeRequest:@"UserAccount_Profile_ResetPassword" params:params callback:callback];
+}
+
 - (void)UserAccount_Profile_CheckUserEmail:(NSString *)UserEmailToVerify RESERVED:(NSString *)RESERVED  callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonString))callback
 {
 	NSMutableString *params = [BuddyUtility setParams:@"UserAccount_Profile_CheckUserEmail" appName:client.appName appPassword:client.appPassword];

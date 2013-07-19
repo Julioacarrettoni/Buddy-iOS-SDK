@@ -15,6 +15,7 @@
 		1B927FF81755704500ADC6C9 /* VideoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B927FF71755704500ADC6C9 /* VideoTests.m */; };
 		1B927FFB17559A4700ADC6C9 /* SoundTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B927FFA17559A4600ADC6C9 /* SoundTest.m */; };
 		1B94D5001750473100B70454 /* Test_GetBlobs.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1B94D4FF1750473100B70454 /* Test_GetBlobs.txt */; };
+		1BDF3FC31799E947009AB5BF /* BuddyClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BDF3FC21799E947009AB5BF /* BuddyClientTests.m */; };
 		A291F26816CEEFBF0094FF57 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A291F26716CEEFBF0094FF57 /* Default-568h@2x.png */; };
 		A2C5EA221702617D0038A0C5 /* iPadIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A2C5EA201702617D0038A0C5 /* iPadIcon.png */; };
 		A2C5EA231702617D0038A0C5 /* iPhoneIPodTouchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A2C5EA211702617D0038A0C5 /* iPhoneIPodTouchIcon.png */; };
@@ -121,6 +122,8 @@
 		1B927FF917559A4600ADC6C9 /* SoundTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoundTest.h; path = ../../Test/BuddySDKTests/SoundTest.h; sourceTree = "<group>"; };
 		1B927FFA17559A4600ADC6C9 /* SoundTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoundTest.m; path = ../../Test/BuddySDKTests/SoundTest.m; sourceTree = "<group>"; };
 		1B94D4FF1750473100B70454 /* Test_GetBlobs.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Test_GetBlobs.txt; path = ../../Test/BuddyUnitTestHarness/Test_GetBlobs.txt; sourceTree = "<group>"; };
+		1BDF3FC11799E947009AB5BF /* BuddyClientTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddyClientTests.h; path = ../../Test/BuddySDKTests/BuddyClientTests.h; sourceTree = "<group>"; };
+		1BDF3FC21799E947009AB5BF /* BuddyClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyClientTests.m; path = ../../Test/BuddySDKTests/BuddyClientTests.m; sourceTree = "<group>"; };
 		A2342FA016EE5E2E00B13A12 /* BuddySDKTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BuddySDKTests-Prefix.pch"; sourceTree = "<group>"; };
 		A291F26716CEEFBF0094FF57 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../../Test/BuddyUnitTestHarness/Default-568h@2x.png"; sourceTree = "<group>"; };
 		A2C502211700FE9900F26028 /* BuddyUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddyUtility.h; path = ../lib/BuddySDK/Internal/BuddyUtility.h; sourceTree = "<group>"; };
@@ -409,6 +412,10 @@
 				1B927FF71755704500ADC6C9 /* VideoTests.m */,
 				A2DCA01017179B2D0094732A /* VirtualAlbumUnitTests.h */,
 				A2DCA01117179B2D0094732A /* VirtualAlbumUnitTests.m */,
+				1B927FF917559A4600ADC6C9 /* SoundTest.h */,
+				1B927FFA17559A4600ADC6C9 /* SoundTest.m */,
+				1BDF3FC11799E947009AB5BF /* BuddyClientTests.h */,
+				1BDF3FC21799E947009AB5BF /* BuddyClientTests.m */,
 			);
 			path = BuddySDKTests;
 			sourceTree = "<group>";
@@ -606,7 +613,11 @@
 				A2DCA02D17179B2D0094732A /* VirtualAlbumUnitTests.m in Sources */,
 				1B927FF81755704500ADC6C9 /* VideoTests.m in Sources */,
 				1B927FFB17559A4700ADC6C9 /* SoundTest.m in Sources */,
+<<<<<<< HEAD
 				16F8A18A178F9D2700608747 /* SocialLoginTest.m in Sources */,
+=======
+				1BDF3FC31799E947009AB5BF /* BuddyClientTests.m in Sources */,
+>>>>>>> Adding user password reset
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

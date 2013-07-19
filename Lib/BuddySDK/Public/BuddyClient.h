@@ -40,6 +40,14 @@
 */
 typedef void (^BuddyClientCheckIfEmailExistsCallback)(BuddyBoolResponse *response);
 
+/** Callback signature for the BuddyClientResetPassword function. BuddyBoolResponse.result field will be TRUE if the password was successfuly reset, FALSE otherwise. If there was an exception or error (e.g. unknown server response or invalid data) the response.exception field will be set to an exception instance and the raw response from the server, if any, will be held in the response.dataResult field.
+ */
+typedef void (^BuddyClientResetPasswordCallback) (BuddyBoolResponse *response);
+
+/** Callback signature for the BuddyClientRequestPasswordReset function. BuddyBoolResponse.result field will be TRUE if the password was successfully reset, FALSE otherwise. If there was an exception or error (e.g. unknown server response or invalid data) the response.exception field will be set to an exception instance and the raw response from the server, if any, will be held in the response.dataResult field.
+ */
+typedef void (^BuddyClientRequestPasswordResetCallback) (BuddyBoolResponse *response);
+
 /** Callback signature for the BuddyClientCheckIfUsernameExists function. BuddyBoolResponse.result field will be TRUE if the user name exists, FALSE otherwise. If there was an exception or error (e.g. unknown server response or invalid data) the response.exception field will be set to an exception instance and the raw response from the server, if any, will be held in the response.dataResult field.
 */
 typedef void (^BuddyClientCheckIfUsernameExistsCallback)(BuddyBoolResponse *response);
@@ -350,6 +358,26 @@ typedef void (^BuddyRecordSessionMetricCallback)(BuddyBoolResponse *response);
           callback:(BuddyClientCreateUserCallback)callback;
 
 /// <summary>
+/// Reset the users password using the provided reset code and password.
+/// </summary>
+/// <param name="userName">The username of the user who's password to reset.</param>
+/// <param name="resetCode">The resetCode that the user retrieved from their email.</param>
+/// <param name="newPassword">The new password to set for the user.</param>
+/// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE if the password was changed, FALSE otherwise.</param>
+- (void)resetPassword:(NSString *)userName
+            resetCode:(NSString *)resetCode
+          newPassword:(NSString *)newPassword
+             callback:(BuddyClientResetPasswordCallback)callback;
+
+/// <summary>
+/// Request that a reset code be emailed to the user at their set email address.
+/// </summary>
+/// <param name="userName">The username of the user to request a code for</param>
+/// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE if the password was changed, FALSE otherwise.
+- (void)requestPasswordReset:(NSString *)userName
+                    callback:(BuddyClientRequestPasswordResetCallback)callback;
+
+/// <summary>
 /// Check if another user with the same email already exists in the system.
 /// </summary>
 /// <param name="email">The email to check for, can't be nil.</param>
@@ -454,6 +482,8 @@ typedef void (^BuddyRecordSessionMetricCallback)(BuddyBoolResponse *response);
 
 - (BuddyWebWrapper *)webService;
 
+
+- (NSNumber *) isSuccess:(NSString *)result;
 
 - (void)CheckIfUsernameExists:(NSString *)userName
                      callback:(BuddyClientCheckIfUsernameExistsCallback)callback DEPRECATED_ATTRIBUTE;
