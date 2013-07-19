@@ -7,7 +7,11 @@
 //
 
 #import "BuddyFile.h"
+#if __IPHONE_OS_VERSION_MIN_REQUIRED
 #import <UIKit/UIImage.h>
+#else
+#import <AppKit/NSImage.h>
+#endif
 
 @implementation BuddyFile
 @synthesize contentType;
@@ -18,6 +22,7 @@
     return self;
 }
 
+#if __IPHONE_OS_VERSION_MIN_REQUIRED
 -(id) initWithImage:(UIImage *)image {
     
     self.fileName = @"image";
@@ -26,6 +31,17 @@
     
     return self;
 }
+#else
+-(id) initWithImage:(NSImage *)image {
+    
+    self.fileName = @"image";
+    NSArray *representations = [image representations];
+    self.data = [NSBitmapImageRep representationOfImageRepsInArray:representations usingType:NSJPEGFileType properties:nil];
+    self.contentType = @"image/jpeg";
+    
+    return self;
+}
+#endif
 
 -(id)initWithData:(NSData *)d contentType:(NSString *)ct fileName:(NSString*)fn {
     

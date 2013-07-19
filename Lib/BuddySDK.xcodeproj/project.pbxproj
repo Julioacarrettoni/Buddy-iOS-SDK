@@ -276,7 +276,7 @@
 		D47220C8169615AD0066A899 /* BuddyApplicationStatistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuddyApplicationStatistics.h; sourceTree = "<group>"; };
 		D47220CA169615DB0066A899 /* BuddyAppMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = BuddyAppMetadata.h; sourceTree = "<group>"; };
 		D47220CC1696162C0066A899 /* BuddyCheckInLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = BuddyCheckInLocation.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		D47220CE1696164C0066A899 /* BuddyAuthenticatedUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = BuddyAuthenticatedUser.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		D47220CE1696164C0066A899 /* BuddyAuthenticatedUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = BuddyAuthenticatedUser.h; sourceTree = "<group>"; };
 		D47220D0169616F80066A899 /* BuddyDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = BuddyDevice.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		D47220D2169617190066A899 /* BuddyFriendRequests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuddyFriendRequests.h; sourceTree = "<group>"; };
 		D47220D4169623AD0066A899 /* BuddyFriends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuddyFriends.h; sourceTree = "<group>"; };
@@ -285,10 +285,10 @@
 		D47220DA1696243A0066A899 /* BuddyGamePlayers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuddyGamePlayers.h; sourceTree = "<group>"; };
 		D474B3AC169B7AA40020204D /* AFJSONUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFJSONUtilities.h; sourceTree = "<group>"; };
 		D474B3AD169B7AA50020204D /* AFJSONUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFJSONUtilities.m; sourceTree = "<group>"; };
-		D4A9F23C16964C8B001C54B7 /* BuddyDataResponses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = BuddyDataResponses.m; path = Internal/BuddyDataResponses.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		D4A9F23E16964CA2001C54B7 /* BuddyBoolResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = BuddyBoolResponse.m; path = Internal/BuddyBoolResponse.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		D4A9F23C16964C8B001C54B7 /* BuddyDataResponses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = BuddyDataResponses.m; path = Internal/BuddyDataResponses.m; sourceTree = "<group>"; };
+		D4A9F23E16964CA2001C54B7 /* BuddyBoolResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = BuddyBoolResponse.m; path = Internal/BuddyBoolResponse.m; sourceTree = "<group>"; };
 		D4A9F24016964CBF001C54B7 /* BuddyCallbackParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyCallbackParams.m; path = Internal/BuddyCallbackParams.m; sourceTree = "<group>"; };
-		D4A9F24216964F78001C54B7 /* BuddyClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = BuddyClient.m; path = Internal/BuddyClient.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		D4A9F24216964F78001C54B7 /* BuddyClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = BuddyClient.m; path = Internal/BuddyClient.m; sourceTree = "<group>"; };
 		D4A9F24416964FD4001C54B7 /* BuddyEnums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuddyEnums.h; sourceTree = "<group>"; };
 		D4A9F24616965066001C54B7 /* BuddyCheckInLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyCheckInLocation.m; path = Internal/BuddyCheckInLocation.m; sourceTree = "<group>"; };
 		D4A9F248169650AB001C54B7 /* BuddyUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyUser.m; path = Internal/BuddyUser.m; sourceTree = "<group>"; };
@@ -301,7 +301,7 @@
 		D4A9F25616965261001C54B7 /* BuddyPhotoAlbumPublic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyPhotoAlbumPublic.m; path = Internal/BuddyPhotoAlbumPublic.m; sourceTree = "<group>"; };
 		D4A9F25816965276001C54B7 /* BuddyPhotoAlbums.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyPhotoAlbums.m; path = Internal/BuddyPhotoAlbums.m; sourceTree = "<group>"; };
 		D4A9F25A169652BD001C54B7 /* BuddyRegisteredDeviceApple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyRegisteredDeviceApple.m; path = Internal/BuddyRegisteredDeviceApple.m; sourceTree = "<group>"; };
-		D4A9F25C169652D2001C54B7 /* BuddyAuthenticatedUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = BuddyAuthenticatedUser.m; path = Internal/BuddyAuthenticatedUser.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		D4A9F25C169652D2001C54B7 /* BuddyAuthenticatedUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = BuddyAuthenticatedUser.m; path = Internal/BuddyAuthenticatedUser.m; sourceTree = "<group>"; };
 		D4A9F25E16965312001C54B7 /* BuddyPicturePublic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyPicturePublic.m; path = Internal/BuddyPicturePublic.m; sourceTree = "<group>"; };
 		D4A9F26016965322001C54B7 /* BuddyPicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyPicture.m; path = Internal/BuddyPicture.m; sourceTree = "<group>"; };
 		D4A9F26216965338001C54B7 /* BuddyPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuddyPlace.m; path = Internal/BuddyPlace.m; sourceTree = "<group>"; };
@@ -376,8 +376,6 @@
 		A6291F71165C01800051F83C = {
 			isa = PBXGroup;
 			children = (
-				29345ABD1773DB3B00EEB8F5 /* UIKit.framework */,
-				29345A5A1773D2A400EEB8F5 /* AdSupport.framework */,
 				A6291F81165C01800051F83C /* BuddySDK */,
 				A6291F7E165C01800051F83C /* Frameworks */,
 				A6291F7D165C01800051F83C /* Products */,
@@ -395,7 +393,9 @@
 		A6291F7E165C01800051F83C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				29345A5A1773D2A400EEB8F5 /* AdSupport.framework */,
 				A6291F7F165C01800051F83C /* Foundation.framework */,
+				29345ABD1773DB3B00EEB8F5 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

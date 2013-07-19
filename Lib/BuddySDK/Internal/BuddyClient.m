@@ -468,24 +468,34 @@
     
     [[self webService] UserAccount_Profile_SocialLogin:providerName ProviderUserID:providerUserId AccessToken:accessToken callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
             {
-                if(callback)
+                if (callback)
                 {
-                    if(callbackParams.isCompleted && jsonArray != nil && [jsonArray count] > 0)
+                    if (callbackParams.isCompleted && jsonArray != nil)
                     {
-                        NSDictionary *dict = (NSDictionary *)[jsonArray objectAtIndex:0];
-                        if(dict && [dict count] > 0)
+                        if (![BuddyUtility isAStandardError:callbackParams.stringResult] && [jsonArray count] > 0)
                         {
-                            NSString* token = [dict objectForKey:@"userToken"];
-                            [_self login:token callback:^(BuddyAuthenticatedUserResponse *result) {
-                                callback(result);
-                            }];
-                        } else
+                            NSDictionary *dict = (NSDictionary *)[jsonArray objectAtIndex:0];
+                            if(dict && [dict count] > 0)
+                            {
+                                NSString* token = [dict objectForKey:@"userToken"];
+                                [_self login:token callback:^(BuddyAuthenticatedUserResponse *result) {
+                                    callback(result);
+                                }];
+                            }
+                            else
+                            {
+                                callback([[BuddyAuthenticatedUserResponse alloc] initWithError:callbackParams reason:callbackParams.stringResult]);
+                            }
+                        }
+                        else
                         {
                             callback([[BuddyAuthenticatedUserResponse alloc] initWithError:callbackParams reason:callbackParams.stringResult]);
                         }
-                    } else
+                    }
+                    else
                     {
-                        callback([[BuddyAuthenticatedUserResponse alloc] initWithError:callbackParams reason:(NSString *)callbackParams.exception.reason]);
+                        callback([[BuddyAuthenticatedUserResponse alloc] initWithError:callbackParams.exception
+                                                                               apiCall:callbackParams.apiCall]);
                     }
                 }
                 _self = nil;

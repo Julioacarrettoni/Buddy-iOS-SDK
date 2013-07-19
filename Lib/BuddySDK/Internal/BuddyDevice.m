@@ -19,8 +19,12 @@
 #import "BuddyUtility.h"
 #import "BuddyWebWrapper.h"
 
+#if __IPHONE_OS_VERSION_MIN_REQUIRED
 #import <UIKit/UIKit.h>
-
+#else
+#include <CoreFoundation/CoreFoundation.h>
+#include <IOKit/IOKitLib.h>
+#endif
 
 /// <summary>
 /// Represents an object that can be used to record device analytics, like device types and app crashes.
@@ -51,8 +55,33 @@
 }
 
 -(NSString*)id {
-    
+ 
+#if __IPHONE_OS_VERSION_MIN_REQUIRED
     return[[UIDevice currentDevice] uniqueIdentifier];
+#else
+    CFStringRef *serialNumber = NULL;
+    
+    io_service_t    platformExpert = IOServiceGetMatchingService(kIOMasterPortDefault,
+                                                                 IOServiceMatching("IOPlatformExpertDevice"));
+    
+    if (platformExpert) {
+        CFTypeRef serialNumberAsCFString =
+        IORegistryEntryCreateCFProperty(platformExpert,
+                                        CFSTR(kIOPlatformSerialNumberKey),
+                                        kCFAllocatorDefault, 0);
+        if (serialNumberAsCFString) {
+            *serialNumber = serialNumberAsCFString;
+        }
+        
+        IOObjectRelease(platformExpert);
+        
+        return (__bridge NSString *)*serialNumber;
+    }
+    else
+    {
+        return @"";
+    }
+#endif
 }
 
 - (void)recordInformation:(NSString *)osVersion

@@ -94,33 +94,32 @@ callback:(void(^)(NSData *))callback
     
     [[client webService] Blobs_Blob_GetBlobInfo:authUser.token BlobID:blobID callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
         {
-            BuddyBlob *blob;
-            NSException *exception;
-            @try
+            if (callbackParams.isCompleted && jsonArray != nil)
             {
-                if (callbackParams.isCompleted && jsonArray != nil && [jsonArray count] > 0)
+                if (![BuddyUtility isAStandardError:callbackParams.stringResult] && [jsonArray count] > 0)
                 {
                     NSDictionary *dict = (NSDictionary *)[jsonArray objectAtIndex:0];
                     if (dict && [dict count] > 0)
                     {
-                        blob = [[BuddyBlob alloc] initBlob:client authUser:authUser blobList:dict];
+                        BuddyBlob *blob = [[BuddyBlob alloc] initBlob:client authUser:authUser blobList:dict];
+                        
+                        callback([[BuddyBlobResponse alloc] initWithResponse:callbackParams
+                                                                      result:blob]);
+                    }
+                    else
+                    {
+                        callback([[BuddyBlobResponse alloc] initWithError:callbackParams reason:callbackParams.stringResult]);
                     }
                 }
-            }
-            @catch (NSException *ex)
-            {
-                exception = ex;
-            }
-            
-            if (exception)
-            {
-                callback([[BuddyBlobResponse alloc] initWithError:exception
-                                                          apiCall:callbackParams.apiCall]);
+                else
+                {
+                    callback([[BuddyBlobResponse alloc] initWithError:callbackParams reason:callbackParams.stringResult]);
+                }
             }
             else
             {
-                callback([[BuddyBlobResponse alloc] initWithResponse:callbackParams
-                                                              result:blob]);
+                callback([[BuddyBlobResponse alloc] initWithError:callbackParams.exception
+                                                                       apiCall:callbackParams.apiCall]);
             }
         } copy]];
 }

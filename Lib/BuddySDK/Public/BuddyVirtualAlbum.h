@@ -15,7 +15,8 @@
  */
 
 #import <Foundation/Foundation.h>
-
+#import "BuddyDataResponses.h"
+#import "BuddyPicturePublic.h"
 
 @class BuddyBoolResponse;
 
@@ -108,7 +109,6 @@ typedef void (^BuddyVirtualAlbumUpdatePictureCallback)(BuddyBoolResponse *respon
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)addPicture:(BuddyPicturePublic *)picture
-             
           callback:(BuddyVirtualAlbumAddPictureCallback)callback;
 
 /// <summary>
@@ -118,7 +118,6 @@ typedef void (^BuddyVirtualAlbumUpdatePictureCallback)(BuddyBoolResponse *respon
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)addPictureBatch:(NSArray *)pictureBatch
-                  
                callback:(BuddyVirtualAlbumAddPictureBatchCallback)callback;
 
 /// <summary>
@@ -128,7 +127,6 @@ typedef void (^BuddyVirtualAlbumUpdatePictureCallback)(BuddyBoolResponse *respon
 /// <param name="callback">The callback to call when this method completes. BuddyBoolResponse.result field will be TRUE on success, FALSE otherwise.</param>
 
 - (void)removePicture:(BuddyPicturePublic *)picture
-                
              callback:(BuddyVirtualAlbumRemovePictureCallback)callback;
 
 /// <summary>
@@ -163,7 +161,6 @@ typedef void (^BuddyVirtualAlbumUpdatePictureCallback)(BuddyBoolResponse *respon
 - (void)updatePicture:(BuddyPicturePublic *)picture
            newComment:(NSString *)newComment
             newAppTag:(NSString *)newAppTag
-                
              callback:(BuddyVirtualAlbumUpdatePictureCallback)callback;
 
 /// <summary>

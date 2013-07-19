@@ -17,9 +17,16 @@
 #import "BuddyCallbackParams.h"
 #import "BuddyDataResponses_Exn.h"
 #import "BuddyWebWrapper.h"
+
+#if __IPHONE_OS_VERSION_MIN_REQUIRED
+#import <UIKit/UIImage.h>
 #import "ClientServicePlainText.h"
 #import "AFHTTPRequestOperation.h"
-#import <UIKit/UIImage.h>
+#else
+#import <AppKit/NSImage.h>
+#import <AFHTTPClient/ClientServicePlainText.h>
+#import <AFHTTPClient/AFHTTPRequestOperation.h>
+#endif
 
 #import "BuddyUtility.h"
 #import "BuddyFile.h"
@@ -414,7 +421,7 @@ static NSString *const BuddySDKHeaderValue = @"iOS,v0.1.4";
 	[self makeRequest:@"UserAccount_Profile_GetUserIDFromUserToken" params:params  callback:callback];
 }
 
-- (void)UserAccount_Profile_SocialLogin:(NSString *)ProviderName ProviderUserID:(NSString *)ProviderUserId AccessToken:(NSString *)AccessToken callback:(void (^)(BuddyCallbackParams *, id))callback
+- (void)UserAccount_Profile_SocialLogin:(NSString *)ProviderName ProviderUserID:(NSString *)ProviderUserId AccessToken:(NSString *)AccessToken callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonString))callback
 {
     NSMutableString *params = [BuddyUtility setParams:@"UserAccount_Profile_SocialLogin" appName:client.appName appPassword:client.appPassword];
     [params appendFormat:@"&ProviderName=%@", [BuddyUtility encodeValue:ProviderName]];
@@ -424,11 +431,11 @@ static NSString *const BuddySDKHeaderValue = @"iOS,v0.1.4";
     [self makeRequest:@"UserAccount_Profile_SocialLogin" params:params callback:callback];
 }
 
-- (void)UserAccount_Profile_Recover:(NSString *)userName UserSuppliedPassword:(NSString *)UserSuppliedPassword  callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonString))callback
+- (void)UserAccount_Profile_Recover:(NSString *)UserName UserSuppliedPassword:(NSString *)UserSuppliedPassword  callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonString))callback
 {
 	NSMutableString *params = [BuddyUtility setParams:@"UserAccount_Profile_Recover" appName:client.appName appPassword:client.appPassword];
 
-	[params appendFormat:@"&username=%@", [BuddyUtility encodeValue:userName]];
+	[params appendFormat:@"&username=%@", [BuddyUtility encodeValue:UserName]];
 	[params appendFormat:@"&usersuppliedpassword=%@", [BuddyUtility encodeValue:UserSuppliedPassword]];
 	[self makeRequest:@"UserAccount_Profile_Recover" params:params  callback:callback];
 }

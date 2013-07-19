@@ -48,7 +48,7 @@
 
 -(void)getSound:(NSString *)soundName
         quality:(Qualities)quality
-       callback:(void(^)(NSData * data))callback
+       callback:(BuddySoundGetSoundCallback)callback
 {
     NSString* qualStr;
     switch (quality) {

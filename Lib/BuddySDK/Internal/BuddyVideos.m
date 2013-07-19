@@ -128,33 +128,32 @@
     
     [[client webService] Videos_Video_GetVideoInfo:authUser.token VideoID:videoID callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
            {
-               BuddyVideo *video;
-               NSException *exception;
-               @try
+               if (callbackParams.isCompleted && jsonArray != nil)
                {
-                   if (callbackParams.isCompleted && jsonArray != nil && [jsonArray count] > 0)
+                   if (![BuddyUtility isAStandardError:callbackParams.stringResult] && [jsonArray count] > 0)
                    {
                        NSDictionary *dict = (NSDictionary *)[jsonArray objectAtIndex:0];
                        if (dict && [dict count] > 0)
                        {
-                           video = [[BuddyVideo alloc] initVideo:client authUser:authUser videoList:dict];
+                           BuddyVideo *video = [[BuddyVideo alloc] initVideo:client authUser:authUser videoList:dict];
+                           
+                           callback([[BuddyVideoResponse alloc] initWithResponse:callbackParams
+                                                                         result:video]);
+                       }
+                       else
+                       {
+                           callback([[BuddyVideoResponse alloc] initWithError:callbackParams reason:callbackParams.stringResult]);
                        }
                    }
-               }
-               @catch (NSException *ex)
-               {
-                   exception = ex;
-               }
-               
-               if (exception)
-               {
-                   callback([[BuddyVideoResponse alloc] initWithError:exception
-                                                             apiCall:callbackParams.apiCall]);
+                   else
+                   {
+                       callback([[BuddyVideoResponse alloc] initWithError:callbackParams reason:callbackParams.stringResult]);
+                   }
                }
                else
                {
-                   callback([[BuddyVideoResponse alloc] initWithResponse:callbackParams
-                                                                 result:video]);
+                   callback([[BuddyVideoResponse alloc] initWithError:callbackParams.exception
+                                                             apiCall:callbackParams.apiCall]);
                }
            } copy]];
 }

@@ -16,7 +16,9 @@
 
 #import "BuddyUtility.h"
 #import "BuddyDataResponses_Exn.h"
+#if __IPHONE_OS_VERSION_MIN_REQUIRED
 #import <UIKit/UIKit.h>
+#endif
 #include <sys/sysctl.h>
 
 
@@ -533,7 +535,8 @@ static NSArray *validErrors;
 					   @"CouldNotUpdateInformation",
 					   @"HTTP 400 Response",
 					   @"GenericFilterApplicationIssue",
-					   @"CouldNotfindFilteredPhoto",@"iOsReceiptSandboxSettingInvalid", @"FileLargerThanMaxSize",
+					   @"CouldNotfindFilteredPhoto",@"iOsReceiptSandboxSettingInvalid",@"FileLargerThanMaxSize",@"AccessTokenInvalid",
+                       @"BlobDoesNotExist",@"VideoDoesNotExist",@"Object reference not set to an instance of an object.", // TODO: remove when VideoDoesNotExist is implemented
 					   nil];
 	}
     
@@ -881,7 +884,14 @@ static NSDateFormatter *buddyDateFormatter;
 
 + (NSString *)osVersion
 {
+#if __IPHONE_OS_VERSION_MIN_REQUIRED
 	return [[UIDevice currentDevice] systemVersion];
+#else
+    NSString *versionString;
+    NSDictionary *sv = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
+    versionString = [sv objectForKey:@"ProductVersion"];
+    return versionString;
+#endif
 }
 
 + (NSString *)appVersion

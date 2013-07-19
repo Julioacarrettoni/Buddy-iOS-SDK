@@ -69,7 +69,7 @@
         return self;
 }
 
--(void)getBlob:(void(^)(NSData *))callback
+-(void)getBlob:(BuddyBlobGetBlobCallback)callback
 {
     [self.authUser.blobs getBlob:self.blobId callback:callback];
 }

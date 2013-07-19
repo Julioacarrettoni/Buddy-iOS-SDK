@@ -119,9 +119,9 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
     
     resArray = [TestBuddySDK GetTextFileData:@"Test_VirtualAlbumGetMyJsonDataBad"];
     dict = [self.buddyUser.virtualAlbums performSelector:@selector(makeVirtualAlbumIdList:) withObject:resArray];
-    if ([dict count] != 0)
+    if ([dict count] != 1)
     {
-        STFail(@"testVirtualAlbumGetMyParsing failed dict should have 0 items");
+        STFail(@"testVirtualAlbumGetMyParsing failed dict should have 1 item");
     }
 }
 

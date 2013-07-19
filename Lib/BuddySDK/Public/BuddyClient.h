@@ -58,11 +58,11 @@ typedef void (^BuddyClientGetServiceTimeCallback)(BuddyDateResponse *response);
 
 /** Callback signature for the BuddyClientGetUserEmails function. The .result field of the BuddyArrayResponses will contain an NSArray of email addresses (NSStrings) if the request was successful (BuddyArrayResponses.isCompleted == TRUE and data was found on the server) or nil otherwise. If there was an exception or error (e.g. unknown server response or invalid data) the response.exception field will be set to an exception instance and the raw response from the server, if any, will be held in the response.dataResult field.
  */
-typedef void (^BuddyClientGetUserEmailsCallback)(BuddyArrayResponse *);
+typedef void (^BuddyClientGetUserEmailsCallback)(BuddyArrayResponse *response);
 
 /** Callback signature for the BuddyClientGetUserProfiles function. The .result field of the BuddyArrayResponses will contain an NSArray of BuddyUsers if the request was successful (BuddyArrayResponses.isCompleted == TRUE and data was found on the server)  or nil otherwise. If there was an exception or error (e.g. unknown server response or invalid data) the response.exception field will be set to an exception instance and the raw response from the server, if any, will be held in the response.dataResult field.
  */
-typedef void (^BuddyClientGetUserProfilesCallback)(BuddyArrayResponse *);
+typedef void (^BuddyClientGetUserProfilesCallback)(BuddyArrayResponse *response);
 
 /** Callback signature for the BuddyClientGetApplicationStatistics function. The .result field of the BuddyArrayResponse will contain an NSArray of BuddyApplicationStatistics items if the request was successful (BuddyArrayResponse.isCompleted == TRUE and data was found on the server) or nil otherwise. If there was an exception or error (e.g. unknown server response or invalid data) the response.exception field will be set to an exception instance and the raw response from the server, if any, will be held in the response.dataResult field.
  */
@@ -148,18 +148,18 @@ typedef void (^BuddyRecordSessionMetricCallback)(BuddyBoolResponse *response);
 /// <summary>
 /// Gets the application name for this client.
 /// </summary>
-@property (readonly, nonatomic, assign) NSString *appName;
+@property (readonly, nonatomic, strong) NSString *appName;
 
 /// <summary>
 /// Gets the application password for this client.
 /// </summary>
-@property (readonly, nonatomic, assign) NSString *appPassword;
+@property (readonly, nonatomic, strong) NSString *appPassword;
 
 /// <summary>
 /// Gets the optional string that describes the version of the app you are building. This string is used when uploading
 /// device information to Buddy or submitting crash reports. It will default to 1.0.
 /// </summary>
-@property (readonly, nonatomic, assign) NSString *appVersion;
+@property (readonly, nonatomic, strong) NSString *appVersion;
 
 /// <summary>
 /// Gets an object that can be used to record device information about this client or upload crashes.

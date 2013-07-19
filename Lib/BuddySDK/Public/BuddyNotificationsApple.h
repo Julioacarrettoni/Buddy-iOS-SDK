@@ -16,7 +16,7 @@
 
 #import <Foundation/Foundation.h>
 #import "BuddyEnums.h"
-
+#import "BuddyDataResponses.h"
 
 @class BuddyAuthenticatedUser;
 @class BuddyBoolResponse;

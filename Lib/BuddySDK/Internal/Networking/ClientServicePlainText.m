@@ -51,8 +51,8 @@
 	[self setDefaultHeader:@"Cache-Control" value:@"no-cache"];
 	[self setDefaultHeader:@"Pragma" value:@"no-cache"];
 
-	[[AFNetworkActivityIndicatorManager sharedManager] setEnabled:true];
-
+    [self enableNetworkActivityDisplay];
+    
 	return self;
 }
 
@@ -70,12 +70,16 @@
 
 - (void)enableNetworkActivityDisplay
 {
+#if __IPHONE_OS_VERSION_MIN_REQUIRED
 	[[AFNetworkActivityIndicatorManager sharedManager] setEnabled:true];
+#endif
 }
 
 - (void)disableNetworkActivityDisplay
 {
+#if __IPHONE_OS_VERSION_MIN_REQUIRED
 	[[AFNetworkActivityIndicatorManager sharedManager] setEnabled:false];
+#endif
 }
 
 @end

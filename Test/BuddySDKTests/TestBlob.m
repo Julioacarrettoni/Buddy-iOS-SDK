@@ -174,17 +174,35 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 -(void)getBlobInfo:(BuddyBlob *)blob
 {
     __block TestBlob *_self = self;
-    [_self.user.blobs getBlobInfo:blob.blobId callback:[^(BuddyBlobResponse *response)
-        {
-            if(response.isCompleted && response.result)
-            {
-                NSLog(@"getBlobInfo OK");
-            }
-            else
-            {
-                STFail(@"getBlobInfo failed !response.isCompleted");
-            }
-        } copy]];
+    [_self.user.blobs getBlobInfo:blob.blobId
+                         callback:[^(BuddyBlobResponse *response)
+                            {
+                                if (response.isCompleted && response.result)
+                                {
+                                    NSLog(@"getBlobInfo OK");
+                                }
+                                else
+                                {
+                                    STFail(@"getBlobInfo failed !response.isCompleted");
+                                }
+                            } copy]];
+}
+
+-(void)getBlobInfoFail:(BuddyBlob *)blob
+{
+    __block TestBlob *_self = self;
+    [_self.user.blobs getBlobInfo:[NSNumber numberWithLongLong:-23]
+                         callback:[^(BuddyBlobResponse *response)
+                            {
+                                if (response.isCompleted && response.result)
+                                {
+                                    STFail(@"getBlobInfoFail failed response.isCompleted && response.result");
+                                }
+                                else
+                                {
+                                    NSLog(@"getBlobInfoFail OK");
+                                }
+                            } copy]];
 }
 
 -(void)getBlob:(BuddyBlob *)blob

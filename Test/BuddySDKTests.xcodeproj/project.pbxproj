@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16DD39181799DC6600B3AFA2 /* Test_PicturesPhotoAlbumGetAllPicturesBad.txt in Resources */ = {isa = PBXBuildFile; fileRef = 16DD39171799DC6600B3AFA2 /* Test_PicturesPhotoAlbumGetAllPicturesBad.txt */; };
+		16DD391A1799DC7000B3AFA2 /* Test_VirtualAlbumGetMyJsonDataBad.txt in Resources */ = {isa = PBXBuildFile; fileRef = 16DD39191799DC7000B3AFA2 /* Test_VirtualAlbumGetMyJsonDataBad.txt */; };
+		16F8A18A178F9D2700608747 /* SocialLoginTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F8A189178F9D2700608747 /* SocialLoginTest.m */; };
 		1B4FA4E0174E87080066F951 /* TestBlob.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4FA4DF174E87080066F951 /* TestBlob.m */; };
 		1B927FF51752F5C600ADC6C9 /* TestAppMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B927FF41752F5C600ADC6C9 /* TestAppMetaData.m */; };
 		1B927FF81755704500ADC6C9 /* VideoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B927FF71755704500ADC6C9 /* VideoTests.m */; };
@@ -105,6 +108,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		16DD39171799DC6600B3AFA2 /* Test_PicturesPhotoAlbumGetAllPicturesBad.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Test_PicturesPhotoAlbumGetAllPicturesBad.txt; path = ../../Test/BuddyUnitTestHarness/Test_PicturesPhotoAlbumGetAllPicturesBad.txt; sourceTree = "<group>"; };
+		16DD39191799DC7000B3AFA2 /* Test_VirtualAlbumGetMyJsonDataBad.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Test_VirtualAlbumGetMyJsonDataBad.txt; path = ../../Test/BuddyUnitTestHarness/Test_VirtualAlbumGetMyJsonDataBad.txt; sourceTree = "<group>"; };
+		16F8A188178F9D2700608747 /* SocialLoginTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocialLoginTest.h; path = ../../Test/BuddySDKTests/SocialLoginTest.h; sourceTree = "<group>"; };
+		16F8A189178F9D2700608747 /* SocialLoginTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SocialLoginTest.m; path = ../../Test/BuddySDKTests/SocialLoginTest.m; sourceTree = "<group>"; };
 		1B4FA4DE174E87080066F951 /* TestBlob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestBlob.h; path = ../../Test/BuddySDKTests/TestBlob.h; sourceTree = "<group>"; };
 		1B4FA4DF174E87080066F951 /* TestBlob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestBlob.m; path = ../../Test/BuddySDKTests/TestBlob.m; sourceTree = "<group>"; };
 		1B927FF31752F5C600ADC6C9 /* TestAppMetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestAppMetaData.h; path = ../../Test/BuddySDKTests/TestAppMetaData.h; sourceTree = "<group>"; };
@@ -350,6 +357,7 @@
 				D49CC0D316C920A900935A75 /* Test_NoData.txt */,
 				D49CC0C616C920A900935A75 /* Test_PicturesPhotoAlbumGet.txt */,
 				D49CC0B416C920A900935A75 /* Test_PicturesPhotoAlbumGetAllPictures.txt */,
+				16DD39171799DC6600B3AFA2 /* Test_PicturesPhotoAlbumGetAllPicturesBad.txt */,
 				D49CC0D216C920A900935A75 /* Test_PicturesSearchPhotosNearby.txt */,
 				D49CC0D616C920A900935A75 /* Test_PlayerDataBad.txt */,
 				D49CC0B316C920A900935A75 /* Test_PlayerDataGood.txt */,
@@ -358,6 +366,7 @@
 				D418862716FBCCA800385248 /* Test_StartupBad.txt */,
 				D49CC0C916C920A900935A75 /* Test_VirtualAlbumGetMy.txt */,
 				D49CC0CA16C920A900935A75 /* Test_VirtualAlbumGetMyBad.txt */,
+				16DD39191799DC7000B3AFA2 /* Test_VirtualAlbumGetMyJsonDataBad.txt */,
 				D49CC0C216C920A900935A75 /* Test_MessageListGetBad.txt */,
 			);
 			name = "Supporting Files";
@@ -383,21 +392,23 @@
 				A2DC9FEA17179B2D0094732A /* MessageAndMessageGroupsUnitTests.m */,
 				A2DC9FED17179B2D0094732A /* PicturesAndAlbumsUnitTests.h */,
 				A2DC9FEE17179B2D0094732A /* PicturesAndAlbumsUnitTests.m */,
-				A2DCA00C17179B2D0094732A /* StartupsUnitTests.h */,
-				A2DCA00D17179B2D0094732A /* StartupsUnitTests.m */,
-				A2DCA00E17179B2D0094732A /* TestBuddySDK.h */,
-				A2DCA00F17179B2D0094732A /* TestBuddySDK.m */,
-				A2DCA01017179B2D0094732A /* VirtualAlbumUnitTests.h */,
-				A2DCA01117179B2D0094732A /* VirtualAlbumUnitTests.m */,
-				A6291F61165C01640051F83C /* Supporting Files */,
-				1B4FA4DE174E87080066F951 /* TestBlob.h */,
-				1B4FA4DF174E87080066F951 /* TestBlob.m */,
-				1B927FF31752F5C600ADC6C9 /* TestAppMetaData.h */,
-				1B927FF41752F5C600ADC6C9 /* TestAppMetaData.m */,
-				1B927FF61755704500ADC6C9 /* VideoTests.h */,
-				1B927FF71755704500ADC6C9 /* VideoTests.m */,
+				16F8A188178F9D2700608747 /* SocialLoginTest.h */,
+				16F8A189178F9D2700608747 /* SocialLoginTest.m */,
 				1B927FF917559A4600ADC6C9 /* SoundTest.h */,
 				1B927FFA17559A4600ADC6C9 /* SoundTest.m */,
+				A2DCA00C17179B2D0094732A /* StartupsUnitTests.h */,
+				A2DCA00D17179B2D0094732A /* StartupsUnitTests.m */,
+				A6291F61165C01640051F83C /* Supporting Files */,
+				1B927FF31752F5C600ADC6C9 /* TestAppMetaData.h */,
+				1B927FF41752F5C600ADC6C9 /* TestAppMetaData.m */,
+				1B4FA4DE174E87080066F951 /* TestBlob.h */,
+				1B4FA4DF174E87080066F951 /* TestBlob.m */,
+				A2DCA00E17179B2D0094732A /* TestBuddySDK.h */,
+				A2DCA00F17179B2D0094732A /* TestBuddySDK.m */,
+				1B927FF61755704500ADC6C9 /* VideoTests.h */,
+				1B927FF71755704500ADC6C9 /* VideoTests.m */,
+				A2DCA01017179B2D0094732A /* VirtualAlbumUnitTests.h */,
+				A2DCA01117179B2D0094732A /* VirtualAlbumUnitTests.m */,
 			);
 			path = BuddySDKTests;
 			sourceTree = "<group>";
@@ -532,6 +543,8 @@
 				D418862E16FBCCC200385248 /* Test_CommerceStore.txt in Resources */,
 				A2C5EA221702617D0038A0C5 /* iPadIcon.png in Resources */,
 				A2C5EA231702617D0038A0C5 /* iPhoneIPodTouchIcon.png in Resources */,
+				16DD39181799DC6600B3AFA2 /* Test_PicturesPhotoAlbumGetAllPicturesBad.txt in Resources */,
+				16DD391A1799DC7000B3AFA2 /* Test_VirtualAlbumGetMyJsonDataBad.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -593,6 +606,7 @@
 				A2DCA02D17179B2D0094732A /* VirtualAlbumUnitTests.m in Sources */,
 				1B927FF81755704500ADC6C9 /* VideoTests.m in Sources */,
 				1B927FFB17559A4700ADC6C9 /* SoundTest.m in Sources */,
+				16F8A18A178F9D2700608747 /* SocialLoginTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,4 +24,6 @@
 
 + (NSData *)GetPicFileData:(NSString *)filename;
 
++ (NSString *)GetSourcePath:(NSString *)filename extension:(NSString *)extension;
+
 @end
