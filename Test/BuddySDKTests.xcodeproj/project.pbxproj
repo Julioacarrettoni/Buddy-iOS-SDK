@@ -613,11 +613,8 @@
 				A2DCA02D17179B2D0094732A /* VirtualAlbumUnitTests.m in Sources */,
 				1B927FF81755704500ADC6C9 /* VideoTests.m in Sources */,
 				1B927FFB17559A4700ADC6C9 /* SoundTest.m in Sources */,
-<<<<<<< HEAD
 				16F8A18A178F9D2700608747 /* SocialLoginTest.m in Sources */,
-=======
 				1BDF3FC31799E947009AB5BF /* BuddyClientTests.m in Sources */,
->>>>>>> Adding user password reset
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
