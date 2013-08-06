@@ -535,7 +535,7 @@ static NSArray *validErrors;
 					   @"CouldNotUpdateInformation",
 					   @"HTTP 400 Response",
 					   @"GenericFilterApplicationIssue",
-					   @"CouldNotfindFilteredPhoto",@"iOsReceiptSandboxSettingInvalid",@"FileLargerThanMaxSize",@"AccessTokenInvalid", @"PasswordResetCodeInvalid", @"NoEmailSetForUser", @"PasswordResetEmailNotConfigured",
+					   @"CouldNotfindFilteredPhoto",@"iOsReceiptSandboxSettingInvalid",@"FileLargerThanMaxSize",@"AccessTokenInvalid", @"PasswordResetInvalidResetCode", @"NoEmailSetForUser", @"PasswordResetNotConfigured", @"PasswordResetTooManyRequests",
                        @"BlobDoesNotExist",@"VideoDoesNotExist",@"Object reference not set to an instance of an object.", // TODO: remove when VideoDoesNotExist is implemented
 					   nil];
 	}
