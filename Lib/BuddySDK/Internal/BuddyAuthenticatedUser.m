@@ -474,8 +474,7 @@
 																  BOOL resultSucceeded = FALSE;
 																  if (callbackParams.isCompleted)
 																  {
-																	  NSString *dataResultString = (NSString *)callbackParams.dataResult;
-																	  if ([dataResultString isEqualToString:@"1"])
+																	  if ([callbackParams.stringResult isEqualToString:@"1"])
 																	  {
 																		  resultSucceeded = TRUE;
 																		  if (name != nil && [name length] > 0)
