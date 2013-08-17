@@ -22,6 +22,17 @@ For developers the Buddy Platform offers turnkey support for features like the f
 * *Commerce* - Offer items for in-app purchase via Facebook Commerce.
 * *And more* - Checkout the rest of the offering at [buddy.com/developers](http://buddy.com/developers/).
 
+## Getting Started
+
+Building the Buddy SDK will result in a file called libBuddySdk.a, which can be found in the "Products" folder of your Xcode project. 
+There are actually several flavors of this file, which you can find by ctrl-clicking on libBuddySdk.a and choosing "Show In Finder".
+
+Once you've got the libBuddySDK.a file, perform the following steps to use it with your new iOS project.
+
+1. Drag the libBuddySDK.a file onto the project in the Xcode Project Navigator.  A dialog will pop up when you add the file, choose the default actions (copy files to destination group, create groups...)
+2. Drag the "include" folder onto the project source node of the Project Navigator.  Choose the default options, as in #1.  If you'd like, you can rename this folder to "BuddySDK", this is optional.
+3. Try the code sample below!
+
 
 ## How It works
 
