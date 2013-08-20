@@ -18,6 +18,7 @@
 #import "BuddyDataResponses_Exn.h"
 #import "BuddyUtility.h"
 #import "BuddyWebWrapper.h"
+#import "OpenUDID.h"
 
 #import <UIKit/UIKit.h>
 
@@ -51,8 +52,17 @@
 }
 
 -(NSString*)id {
+ 
+    NSArray *versionCompatibility = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
     
-    return[[UIDevice currentDevice] uniqueIdentifier];
+    if ([[versionCompatibility objectAtIndex:0] intValue] >= 6)
+    {
+        return [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    }
+    else
+    {
+        return [BuddyOpenUDID value];
+    }
 }
 
 - (void)recordInformation:(NSString *)osVersion
