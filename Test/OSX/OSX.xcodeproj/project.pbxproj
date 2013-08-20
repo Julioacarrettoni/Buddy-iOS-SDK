@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		160F7DBD178F70D900584A71 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DE5AD317834067002931E5 /* SenTestingKit.framework */; };
+		16409F8D17C4151100A440C3 /* OpenUDID.h in Headers */ = {isa = PBXBuildFile; fileRef = 16409F8B17C4151100A440C3 /* OpenUDID.h */; };
+		16409F8E17C4151100A440C3 /* OpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 16409F8C17C4151100A440C3 /* OpenUDID.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		16DE5ABE17834067002931E5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DE5ABD17834067002931E5 /* Cocoa.framework */; };
 		16DE5AC817834067002931E5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16DE5AC617834067002931E5 /* InfoPlist.strings */; };
 		16DE5AD517834067002931E5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DE5ABD17834067002931E5 /* Cocoa.framework */; };
@@ -215,6 +217,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		16409F8B17C4151100A440C3 /* OpenUDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenUDID.h; sourceTree = "<group>"; };
+		16409F8C17C4151100A440C3 /* OpenUDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenUDID.m; sourceTree = "<group>"; };
 		16DE5ABA17834067002931E5 /* OSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		16DE5ABD17834067002931E5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		16DE5AC017834067002931E5 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -445,6 +449,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16409F8A17C4151100A440C3 /* OpenUUID */ = {
+			isa = PBXGroup;
+			children = (
+				16409F8B17C4151100A440C3 /* OpenUDID.h */,
+				16409F8C17C4151100A440C3 /* OpenUDID.m */,
+			);
+			path = OpenUUID;
+			sourceTree = "<group>";
+		};
 		16DE5AB017834067002931E5 = {
 			isa = PBXGroup;
 			children = (
@@ -563,6 +576,7 @@
 		16E6D9BF17905D6800E9717E /* Internal */ = {
 			isa = PBXGroup;
 			children = (
+				16409F8A17C4151100A440C3 /* OpenUUID */,
 				16E6DADC17905DD800E9717E /* BuddyClient_Exn.h */,
 				16E6DADD17905DD800E9717E /* BuddyDataResponses_Exn.h */,
 				16E6DADE17905DD800E9717E /* BuddyUtility.h */,
@@ -795,6 +809,7 @@
 				16E6DAE117905DD800E9717E /* BuddyDataResponses_Exn.h in Headers */,
 				16E6DAE217905DD800E9717E /* BuddyUtility.h in Headers */,
 				16E6DAE317905DD800E9717E /* BuddyWebWrapper.h in Headers */,
+				16409F8D17C4151100A440C3 /* OpenUDID.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1021,6 +1036,7 @@
 				16E6DA8717905D6900E9717E /* BuddyVirtualAlbum.m in Sources */,
 				16E6DA8817905D6900E9717E /* BuddyVirtualAlbums.m in Sources */,
 				16E6DA8A17905D6900E9717E /* BuddyWebWrapper.m in Sources */,
+				16409F8E17C4151100A440C3 /* OpenUDID.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
