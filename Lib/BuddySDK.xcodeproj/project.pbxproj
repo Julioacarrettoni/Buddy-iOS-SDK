@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16409F2217C3DAC000A440C3 /* OpenUDID.h in Headers */ = {isa = PBXBuildFile; fileRef = 16409F2017C3DAC000A440C3 /* OpenUDID.h */; };
+		16409F2317C3DAC000A440C3 /* OpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 16409F2117C3DAC000A440C3 /* OpenUDID.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2908839D1775005D001C9DEF /* BuddyBlob.m in Sources */ = {isa = PBXBuildFile; fileRef = 290883921775005D001C9DEF /* BuddyBlob.m */; };
 		2908839E1775005D001C9DEF /* BuddyBlobs.m in Sources */ = {isa = PBXBuildFile; fileRef = 290883931775005D001C9DEF /* BuddyBlobs.m */; };
 		2908839F1775005D001C9DEF /* BuddyCommerce.m in Sources */ = {isa = PBXBuildFile; fileRef = 290883941775005D001C9DEF /* BuddyCommerce.m */; };
@@ -214,6 +216,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		16409F2017C3DAC000A440C3 /* OpenUDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenUDID.h; sourceTree = "<group>"; };
+		16409F2117C3DAC000A440C3 /* OpenUDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenUDID.m; sourceTree = "<group>"; };
 		2908837C17750018001C9DEF /* BuddyMetroArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddyMetroArea.h; path = ../../../Lib/BuddySDK/Public/BuddyMetroArea.h; sourceTree = "<group>"; };
 		2908837E1775002E001C9DEF /* BuddyBlob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddyBlob.h; path = ../../../Lib/BuddySDK/Public/BuddyBlob.h; sourceTree = "<group>"; };
 		2908837F1775002E001C9DEF /* BuddyBlobs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuddyBlobs.h; path = ../../../Lib/BuddySDK/Public/BuddyBlobs.h; sourceTree = "<group>"; };
@@ -373,6 +377,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16409F1F17C3DAC000A440C3 /* OpenUUID */ = {
+			isa = PBXGroup;
+			children = (
+				16409F2017C3DAC000A440C3 /* OpenUDID.h */,
+				16409F2117C3DAC000A440C3 /* OpenUDID.m */,
+			);
+			name = OpenUUID;
+			path = ../../Lib/BuddySDK/Internal/OpenUUID;
+			sourceTree = "<group>";
+		};
 		A6291F71165C01800051F83C = {
 			isa = PBXGroup;
 			children = (
@@ -573,9 +587,10 @@
 				D4A9F27416965748001C54B7 /* BuddyVirtualAlbums.m */,
 				D40FDAB81695FC7F0028C609 /* BuddyWebWrapper.h */,
 				D40FDAB91695FC7F0028C609 /* BuddyWebWrapper.m */,
-				D40FDA851695E3830028C609 /* Networking */,
 				2946DE03174D696A005BE2F4 /* BuddyFile.h */,
 				2946DE04174D696A005BE2F4 /* BuddyFile.m */,
+				D40FDA851695E3830028C609 /* Networking */,
+				16409F1F17C3DAC000A440C3 /* OpenUUID */,
 			);
 			name = Internal;
 			sourceTree = "<group>";
@@ -602,6 +617,7 @@
 				D40FDABA1695FC7F0028C609 /* BuddyWebWrapper.h in Headers */,
 				D40FDABE1695FCE00028C609 /* BuddyUtility.h in Headers */,
 				D474B3AE169B7AA70020204D /* AFJSONUtilities.h in Headers */,
+				16409F2217C3DAC000A440C3 /* OpenUDID.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -741,6 +757,7 @@
 				290883A51775005D001C9DEF /* BuddyStoreItem.m in Sources */,
 				290883A61775005D001C9DEF /* BuddyVideo.m in Sources */,
 				290883A71775005D001C9DEF /* BuddyVideos.m in Sources */,
+				16409F2317C3DAC000A440C3 /* OpenUDID.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -78,5 +78,29 @@ static bool bwaiting = false;
     }
 }
 
+
+- (void)testDeviceId
+{
+    NSString *deviceId = [self.buddyClient.device id];
+    
+    if (deviceId == nil || [deviceId length] == 0)
+    {
+        STFail(@"testDeviceId failed");
+    }
+
+    NSArray *versionCompatibility = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
+    
+    if ([[versionCompatibility objectAtIndex:0] intValue] >= 6)
+    {
+        NSUUID* uuid = [[NSUUID alloc] initWithUUIDString:deviceId];
+
+        if (uuid == nil)
+        {
+            STFail(@"testDeviceId failed, device id is invalid: %@", deviceId);
+        }
+    }
+    
+    NSLog(@"Device Id: %@", deviceId);
+}
 @end
 

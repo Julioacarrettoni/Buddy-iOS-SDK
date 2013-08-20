@@ -18,6 +18,7 @@
 #import "BuddyDataResponses_Exn.h"
 #import "BuddyUtility.h"
 #import "BuddyWebWrapper.h"
+#import "OpenUDID.h"
 
 #if __IPHONE_OS_VERSION_MIN_REQUIRED
 #import <UIKit/UIKit.h>
@@ -57,19 +58,33 @@
 -(NSString*)id {
  
 #if __IPHONE_OS_VERSION_MIN_REQUIRED
-    return[[UIDevice currentDevice] uniqueIdentifier];
+    
+    NSArray *versionCompatibility = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
+    
+    if ([[versionCompatibility objectAtIndex:0] intValue] >= 6)
+    {
+        return [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    }
+    else
+    {
+        return [BuddyOpenUDID value];
+    }
+
 #else
+    
     CFStringRef *serialNumber = NULL;
     
-    io_service_t    platformExpert = IOServiceGetMatchingService(kIOMasterPortDefault,
+    io_service_t platformExpert = IOServiceGetMatchingService(kIOMasterPortDefault,
                                                                  IOServiceMatching("IOPlatformExpertDevice"));
     
-    if (platformExpert) {
+    if (platformExpert)
+    {
         CFTypeRef serialNumberAsCFString =
         IORegistryEntryCreateCFProperty(platformExpert,
                                         CFSTR(kIOPlatformSerialNumberKey),
                                         kCFAllocatorDefault, 0);
-        if (serialNumberAsCFString) {
+        if (serialNumberAsCFString)
+        {
             *serialNumber = serialNumberAsCFString;
         }
         
@@ -81,6 +96,7 @@
     {
         return @"";
     }
+    
 #endif
 }
 
