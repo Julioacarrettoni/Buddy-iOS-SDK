@@ -495,24 +495,6 @@ static NSString *const BuddySDKHeaderValue = @"iOS,v0.1.4";
 	[self makeRequest:@"UserAccount_Profile_Update" params:params  callback:callback];
 }
 
-- (void)Pictures_Filters_ApplyFilter:(NSString *)UserToken ExistingPhotoID:(NSNumber *)ExistingPhotoID FilterName:(NSString *)FilterName FilterParameters:(NSString *)FilterParameters ReplacePhoto:(NSNumber *)ReplacePhoto  callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonString))callback
-{
-	NSMutableString *params = [BuddyUtility setParams:@"Pictures_Filters_ApplyFilter" appName:client.appName appPassword:client.appPassword userToken:(NSString *)UserToken];
-
-	[params appendFormat:@"&ExistingPhotoID=%@", [BuddyUtility encodeValue:[ExistingPhotoID stringValue]]];
-	[params appendFormat:@"&FilterName=%@", [BuddyUtility encodeValue:FilterName]];
-	[params appendFormat:@"&FilterParameters=%@", [BuddyUtility encodeValue:FilterParameters]];
-	[params appendFormat:@"&ReplacePhoto=%@", [BuddyUtility encodeValue:[ReplacePhoto stringValue]]];
-	[self makeRequest:@"Pictures_Filters_ApplyFilter" params:params  callback:callback];
-}
-
-- (void)Pictures_Filters_GetList:(void (^)(BuddyCallbackParams *callbackParams, id jsonString))callback
-{
-	NSMutableString *params = [BuddyUtility setParams:@"Pictures_Filters_GetList" appName:client.appName appPassword:client.appPassword];
-
-	[self makeRequest:@"Pictures_Filters_GetList" params:params  callback:callback];
-}
-
 - (void)Pictures_Photo_Delete:(NSString *)UserToken PhotoAlbumPhotoID:(NSNumber *)PhotoAlbumPhotoID  callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonString))callback
 {
 	NSMutableString *params = [BuddyUtility setParams:@"Pictures_Photo_Delete" appName:client.appName appPassword:client.appPassword userToken:(NSString *)UserToken];
