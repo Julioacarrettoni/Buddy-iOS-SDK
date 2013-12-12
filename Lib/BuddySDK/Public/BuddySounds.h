@@ -10,7 +10,7 @@
 
 @class BuddyArrayResponse;
 
-typedef void (^BuddySoundGetSoundCallback) (BuddyArrayResponse * response);
+typedef void (^BuddySoundGetSoundCallback) (NSData *data);
 
 typedef enum {Low=0, Medium=1, High=2} Qualities;
 
@@ -18,6 +18,6 @@ typedef enum {Low=0, Medium=1, High=2} Qualities;
 
 -(void)getSound:(NSString *)soundName
         quality:(Qualities)quality
-       callback:(void(^)(NSData * data))callback;
+       callback:(BuddySoundGetSoundCallback)callback;
 
 @end

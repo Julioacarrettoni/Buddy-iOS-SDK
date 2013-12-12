@@ -17,9 +17,16 @@
 #import "BuddyCallbackParams.h"
 #import "BuddyDataResponses_Exn.h"
 #import "BuddyWebWrapper.h"
+
+#if __IPHONE_OS_VERSION_MIN_REQUIRED
+#import <UIKit/UIImage.h>
 #import "ClientServicePlainText.h"
 #import "AFHTTPRequestOperation.h"
-#import <UIKit/UIImage.h>
+#else
+#import <AppKit/NSImage.h>
+#import <AFHTTPClient/ClientServicePlainText.h>
+#import <AFHTTPClient/AFHTTPRequestOperation.h>
+#endif
 
 #import "BuddyUtility.h"
 #import "BuddyFile.h"
@@ -339,6 +346,26 @@ static NSString *const BuddySDKHeaderValue = @"iOS,v0.1.4";
 	[self makeRequest:@"UserAccount_Location_GetHistory" params:params  callback:callback];
 }
 
+- (void)UserAccount_Profile_RequestPasswordReset:(NSString *)UserName callback:(void (^)(BuddyCallbackParams *, id))callback
+{
+    NSMutableString *params = [BuddyUtility setParams:@"UserAccount_Profile_RequestPasswordReset" appName:client.appName appPassword:client.appPassword];
+    
+    [params appendFormat:@"&UserName=%@", [BuddyUtility encodeValue:UserName]];
+    
+    [self makeRequest:@"UserAccount_Profile_RequestPasswordReset" params:params callback:callback];
+}
+
+- (void)UserAccount_Profile_ResetPassword:(NSString *)UserName ResetCode:(NSString *)ResetCode NewPassword:(NSString *)NewPassword callback:(void (^)(BuddyCallbackParams *, id))callback
+{
+    NSMutableString *params = [BuddyUtility setParams:@"UserAccount_Profile_ResetPassword" appName:client.appName appPassword:client.appPassword];
+    
+    [params appendFormat:@"&UserName=%@", [BuddyUtility encodeValue:UserName]];
+    [params appendFormat:@"&ResetCode=%@", [BuddyUtility encodeValue:ResetCode]];
+    [params appendFormat:@"&NewPassword=%@", [BuddyUtility encodeValue:NewPassword]];
+    
+    [self makeRequest:@"UserAccount_Profile_ResetPassword" params:params callback:callback];
+}
+
 - (void)UserAccount_Profile_CheckUserEmail:(NSString *)UserEmailToVerify RESERVED:(NSString *)RESERVED  callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonString))callback
 {
 	NSMutableString *params = [BuddyUtility setParams:@"UserAccount_Profile_CheckUserEmail" appName:client.appName appPassword:client.appPassword];
@@ -414,7 +441,7 @@ static NSString *const BuddySDKHeaderValue = @"iOS,v0.1.4";
 	[self makeRequest:@"UserAccount_Profile_GetUserIDFromUserToken" params:params  callback:callback];
 }
 
-- (void)UserAccount_Profile_SocialLogin:(NSString *)ProviderName ProviderUserID:(NSString *)ProviderUserId AccessToken:(NSString *)AccessToken callback:(void (^)(BuddyCallbackParams *, id))callback
+- (void)UserAccount_Profile_SocialLogin:(NSString *)ProviderName ProviderUserID:(NSString *)ProviderUserId AccessToken:(NSString *)AccessToken callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonString))callback
 {
     NSMutableString *params = [BuddyUtility setParams:@"UserAccount_Profile_SocialLogin" appName:client.appName appPassword:client.appPassword];
     [params appendFormat:@"&ProviderName=%@", [BuddyUtility encodeValue:ProviderName]];
@@ -424,11 +451,11 @@ static NSString *const BuddySDKHeaderValue = @"iOS,v0.1.4";
     [self makeRequest:@"UserAccount_Profile_SocialLogin" params:params callback:callback];
 }
 
-- (void)UserAccount_Profile_Recover:(NSString *)userName UserSuppliedPassword:(NSString *)UserSuppliedPassword  callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonString))callback
+- (void)UserAccount_Profile_Recover:(NSString *)UserName UserSuppliedPassword:(NSString *)UserSuppliedPassword  callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonString))callback
 {
 	NSMutableString *params = [BuddyUtility setParams:@"UserAccount_Profile_Recover" appName:client.appName appPassword:client.appPassword];
 
-	[params appendFormat:@"&username=%@", [BuddyUtility encodeValue:userName]];
+	[params appendFormat:@"&username=%@", [BuddyUtility encodeValue:UserName]];
 	[params appendFormat:@"&usersuppliedpassword=%@", [BuddyUtility encodeValue:UserSuppliedPassword]];
 	[self makeRequest:@"UserAccount_Profile_Recover" params:params  callback:callback];
 }
@@ -466,24 +493,6 @@ static NSString *const BuddySDKHeaderValue = @"iOS,v0.1.4";
 	[params appendFormat:@"&ApplicationTag=%@", [BuddyUtility encodeValue:ApplicationTag]];
 	[params appendString:@"&RESERVED="];
 	[self makeRequest:@"UserAccount_Profile_Update" params:params  callback:callback];
-}
-
-- (void)Pictures_Filters_ApplyFilter:(NSString *)UserToken ExistingPhotoID:(NSNumber *)ExistingPhotoID FilterName:(NSString *)FilterName FilterParameters:(NSString *)FilterParameters ReplacePhoto:(NSNumber *)ReplacePhoto  callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonString))callback
-{
-	NSMutableString *params = [BuddyUtility setParams:@"Pictures_Filters_ApplyFilter" appName:client.appName appPassword:client.appPassword userToken:(NSString *)UserToken];
-
-	[params appendFormat:@"&ExistingPhotoID=%@", [BuddyUtility encodeValue:[ExistingPhotoID stringValue]]];
-	[params appendFormat:@"&FilterName=%@", [BuddyUtility encodeValue:FilterName]];
-	[params appendFormat:@"&FilterParameters=%@", [BuddyUtility encodeValue:FilterParameters]];
-	[params appendFormat:@"&ReplacePhoto=%@", [BuddyUtility encodeValue:[ReplacePhoto stringValue]]];
-	[self makeRequest:@"Pictures_Filters_ApplyFilter" params:params  callback:callback];
-}
-
-- (void)Pictures_Filters_GetList:(void (^)(BuddyCallbackParams *callbackParams, id jsonString))callback
-{
-	NSMutableString *params = [BuddyUtility setParams:@"Pictures_Filters_GetList" appName:client.appName appPassword:client.appPassword];
-
-	[self makeRequest:@"Pictures_Filters_GetList" params:params  callback:callback];
 }
 
 - (void)Pictures_Photo_Delete:(NSString *)UserToken PhotoAlbumPhotoID:(NSNumber *)PhotoAlbumPhotoID  callback:(void (^)(BuddyCallbackParams *callbackParams, id jsonString))callback

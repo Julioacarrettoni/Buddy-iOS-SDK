@@ -226,14 +226,6 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
     {
         STFail(@"BuddyPhotoAlbumCreationAndFilterListParsing failed picture = nil");
     }
-    
-    NSArray *resArray2 = [TestBuddySDK GetTextFileData:@"Test_FilterList"];
-    
-    NSDictionary *filterList = [picture performSelector:@selector(makeFilterDictionary:) withObject:resArray2];
-    if (filterList == nil || [filterList count] < 1)
-    {
-        STFail(@"BuddyPhotoAlbumCreationAndFilterListParsing failed FilterListJson");
-    }
 }
 
 - (void)testBuddyPhotoAlbumCreationAndPictureFilterListRequestAndParsing

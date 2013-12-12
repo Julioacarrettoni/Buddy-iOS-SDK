@@ -15,7 +15,7 @@
  */
 
 #import <Foundation/Foundation.h>
-
+#import "BuddyDataResponses.h"
 
 @class BuddyArrayResponse;
 

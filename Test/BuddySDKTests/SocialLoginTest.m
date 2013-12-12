@@ -56,7 +56,7 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 
 - (void)alogin
 {
-    [self.buddyClient login:Token  callback:[^(BuddyAuthenticatedUserResponse *response)
+    [self.buddyClient login:Token callback:[^(BuddyAuthenticatedUserResponse *response)
                                              {
                                                  if (response.isCompleted && response.result)
                                                  {
@@ -90,18 +90,21 @@ static NSString *Token = @"UT-76444f9f-4a4b-4d3d-ba5c-7a82b5dbb5a5";
 
 -(void)getSocial
 {
-    __block SocialLoginTest *_self = self;
-    [self.buddyClient socialLogin:@"Facebook" providerUserId:@"1345387375" accessToken:@"CAACEdEose0cBABxnBUxWl89GBkg5C8tFj7Cmnwh6UeRDb6OjZCZBjDcKZAX5dZA7d0gm9639kKdZAbOo8Y4GOZBFJCRjRiiQddMo6WXiU8Y42RkzeP6jEdZACVThgb5gZBM4eSpx0aloBZAXumwc5dTyBs0lWVi2ccA4ZD" callback:^(BuddyAuthenticatedUserResponse *response){
-            if(response.isCompleted && response.result)
-            {
-                NSLog(@"Login OK");
-            }
-            else
+    [self.buddyClient socialLogin:@"Facebook" providerUserId:@"1345387375" accessToken:@"CAACEdEose0cBABxnBUxWl89GBkg5C8tFj7Cmnwh6UeRDb6OjZCZBjDcKZAX5dZA7d0gm9639kKdZAbOo8Y4GOZBFJCRjRiiQddMo6WXiU8Y42RkzeP6jEdZACVThgb5gZBM4eSpx0aloBZAXumwc5dTyBs0lWVi2ccA4ZD" callback:[^(BuddyAuthenticatedUserResponse *response)
+    {
+        if (response.isCompleted && response.result)
+        {
+            NSLog(@"Login OK");
+        }
+        else
+        {
+            if (![response.exception.reason isEqualToString:@"UserAccount_Profile_SocialLogin: AccessTokenInvalid"])
             {
                 STFail(@"SocialLoginFailed");
             }
+        }
         bwaiting = false;
-    }];
+    } copy]];
 }
 
 @end

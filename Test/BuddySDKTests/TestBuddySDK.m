@@ -22,7 +22,7 @@
 + (NSArray *)GetTextFileData:(NSString *)filename
 {
     NSError *error;
-    NSString *sourcePath = [[NSBundle mainBundle] pathForResource:filename ofType:@"txt"];
+    NSString *sourcePath = [self GetSourcePath:filename extension:@"txt"];
     NSData *data = [NSData dataWithContentsOfFile:sourcePath];
 
     if (data == nil)
@@ -38,10 +38,19 @@
 
 + (NSData *)GetPicFileData:(NSString *)filename
 {
-    NSString *sourcePath = [[NSBundle mainBundle] pathForResource:filename ofType:@"png"];
+    NSString *sourcePath = [self GetSourcePath:filename extension:@"png"];
     NSData *data = [NSData dataWithContentsOfFile:sourcePath];
 
     return data;
 }
 
++ (NSString *)GetSourcePath:(NSString *)filename extension:(NSString *)extension
+{
+#if __IPHONE_OS_VERSION_MIN_REQUIRED
+    NSBundle *bundle = [NSBundle mainBundle];
+#else
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+#endif
+    return [bundle pathForResource:filename ofType:extension];
+}
 @end

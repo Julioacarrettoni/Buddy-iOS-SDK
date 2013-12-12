@@ -714,8 +714,6 @@
          authUser:(BuddyAuthenticatedUser *)authUser
         photoList:(NSDictionary*)photoList;
 
-- (NSDictionary *)makeFilterDictionary:(NSArray *)data;
-
 @end
 
 

@@ -468,24 +468,34 @@
     
     [[self webService] UserAccount_Profile_SocialLogin:providerName ProviderUserID:providerUserId AccessToken:accessToken callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
             {
-                if(callback)
+                if (callback)
                 {
-                    if(callbackParams.isCompleted && jsonArray != nil && [jsonArray count] > 0)
+                    if (callbackParams.isCompleted && jsonArray != nil)
                     {
-                        NSDictionary *dict = (NSDictionary *)[jsonArray objectAtIndex:0];
-                        if(dict && [dict count] > 0)
+                        if (![BuddyUtility isAStandardError:callbackParams.stringResult] && [jsonArray count] > 0)
                         {
-                            NSString* token = [dict objectForKey:@"userToken"];
-                            [_self login:token callback:^(BuddyAuthenticatedUserResponse *result) {
-                                callback(result);
-                            }];
-                        } else
+                            NSDictionary *dict = (NSDictionary *)[jsonArray objectAtIndex:0];
+                            if(dict && [dict count] > 0)
+                            {
+                                NSString* token = [dict objectForKey:@"userToken"];
+                                [_self login:token callback:^(BuddyAuthenticatedUserResponse *result) {
+                                    callback(result);
+                                }];
+                            }
+                            else
+                            {
+                                callback([[BuddyAuthenticatedUserResponse alloc] initWithError:callbackParams reason:callbackParams.stringResult]);
+                            }
+                        }
+                        else
                         {
                             callback([[BuddyAuthenticatedUserResponse alloc] initWithError:callbackParams reason:callbackParams.stringResult]);
                         }
-                    } else
+                    }
+                    else
                     {
-                        callback([[BuddyAuthenticatedUserResponse alloc] initWithError:callbackParams reason:(NSString *)callbackParams.exception.reason]);
+                        callback([[BuddyAuthenticatedUserResponse alloc] initWithError:callbackParams.exception
+                                                                               apiCall:callbackParams.apiCall]);
                     }
                 }
                 _self = nil;
@@ -742,6 +752,94 @@
 														   } copy]];
 }
 
+- (void)requestPasswordReset:(NSString *)userName
+                    callback:(void (^)(BuddyBoolResponse *response))callback
+{
+    NSString *funcName = @"resetPassword";
+    
+    [self checkUserName:userName functionName:funcName];
+    
+    [[self webService] UserAccount_Profile_RequestPasswordReset:userName
+                                                callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+              {
+                  if(callback)
+                  {
+                      BOOL resetSuccess = FALSE;
+                      NSString *dataResult = callbackParams.stringResult;
+                      NSException *exception;
+                      if([dataResult isEqualToString:@"1"])
+                      {
+                          resetSuccess = TRUE;
+                      }
+                      else{
+                          exception = [BuddyUtility buildBuddyUnknownErrorException:dataResult];
+                      }
+                      
+                      if(exception)
+                      {
+                          callback([[BuddyBoolResponse alloc] initUnKnownErrorResponse:callbackParams exception:exception]);
+                      }
+                      else
+                      {
+                          callback([[BuddyBoolResponse alloc] initWithResponse:callbackParams localResult:resetSuccess]);
+                      }
+                  }
+              } copy]];
+}
+
+
+- (void)resetPassword:(NSString *)userName
+            resetCode:(NSString *)resetCode
+          newPassword:(NSString *)newPassword
+             callback:(void (^)(BuddyBoolResponse *response))callback
+{
+    NSString *funcName = @"resetPassword";
+    
+    [self checkUserName:userName functionName:funcName];
+    
+    if([BuddyUtility isNilOrEmpty:resetCode])
+    {
+        [BuddyUtility throwInvalidArgException:funcName reason:@"resetCode can't be nil or empty"];
+    }
+    if([BuddyUtility isNilOrEmpty:newPassword])
+    {
+        [BuddyUtility throwInvalidArgException:funcName reason:@"newPassword can't be nil or empty"];
+    }
+    
+    [[self webService] UserAccount_Profile_ResetPassword:userName
+                                               ResetCode:resetCode
+                                             NewPassword:newPassword
+                                                callback:[^(BuddyCallbackParams *callbackParams, id jsonArray)
+              {
+                  if(callback)
+                  {
+                      BOOL resetSuccess = FALSE;
+                      NSString *dataResult = callbackParams.stringResult;
+                      NSException *exception;
+                      resetSuccess = [[self isSuccess: dataResult] boolValue];
+                      if(resetSuccess)
+                      {
+                      }
+                      else{
+                          exception = [BuddyUtility buildBuddyUnknownErrorException:dataResult];
+                      }
+                      
+                      if(exception)
+                      {
+                          callback([[BuddyBoolResponse alloc] initUnKnownErrorResponse:callbackParams exception:exception]);
+                      }
+                      else
+                      {
+                          callback([[BuddyBoolResponse alloc] initWithResponse:callbackParams localResult:resetSuccess]);
+                      }
+                  }
+              } copy]];
+}
+
+- (NSNumber *)isSuccess:(NSString *)result
+{
+    return [NSNumber numberWithBool:[result isEqual: @"1"]];
+}
 
 - (void)CheckIfUsernameExists:(NSString *)userName
 
